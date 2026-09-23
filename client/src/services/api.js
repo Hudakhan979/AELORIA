@@ -1,4 +1,5 @@
-const API_BASE_URL = "http://localhost:5000/api";
+const API_BASE_URL =
+  import.meta.env.VITE_API_URL || "http://localhost:5000/api";
 
 
 const apiRequest = async (endpoint, options = {}) => {
@@ -257,7 +258,7 @@ export const getAdminPracticeProblems = (token) =>
   });
 
 export const createPracticeProblem = (problemData, token) =>
- apiRequest("/practice/admin", {
+  apiRequest("/practice/admin", {
     method: "POST",
     headers: {
       Authorization: `Bearer ${token}`,
@@ -426,7 +427,7 @@ export const toggleAdminUserStatus = (id, token) =>
     },
   });
 
-  export const getAdminDashboardData = async (token) => {
+export const getAdminDashboardData = async (token) => {
   const [
     courses,
     tutorials,
@@ -439,12 +440,12 @@ export const toggleAdminUserStatus = (id, token) =>
     getAdminCourses(token),
     getAdminTutorials(token),
     getAdminNotes(token),
-   getAdminPracticeProblems(token),
+    getAdminPracticeProblems(token),
     getAdminCategories(token),
     getAdminLanguages(token),
     getAdminUsers(token),
   ]);
-  
+
   return {
     courses,
     tutorials,
