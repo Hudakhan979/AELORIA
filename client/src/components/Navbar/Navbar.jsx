@@ -5,7 +5,7 @@ import "./Navbar.css";
 
 function Navbar() {
   const [openMenu, setOpenMenu] = useState(null);
-  const { user, token, isLoggedIn, logout, adminToken } = useAuth();
+  const { user, token, isLoggedIn, logout } = useAuth();
   const navigate = useNavigate();
   const navRef = useRef(null);
 
@@ -253,15 +253,6 @@ function Navbar() {
                   >
                     ⚡ Practice Challenges
                   </Link>
-                  {adminToken && (
-                    <Link
-                      to="/admin/dashboard"
-                      onClick={() => setOpenMenu(null)}
-                      className="user-menu-link admin-link"
-                    >
-                      🛡️ Admin Portal
-                    </Link>
-                  )}
                   <hr className="user-menu-divider" />
                   <button
                     type="button"
@@ -339,11 +330,6 @@ function Navbar() {
               <Link to="/profile" onClick={() => setOpenMenu(null)}>
                 👤 Profile Settings
               </Link>
-              {adminToken && (
-                <Link to="/admin/dashboard" onClick={() => setOpenMenu(null)}>
-                  🛡️ Admin Portal
-                </Link>
-              )}
               <button
                 type="button"
                 onClick={handleLogout}

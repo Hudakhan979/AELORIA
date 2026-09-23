@@ -10,7 +10,8 @@ import {
 import "./Languages.css";
 
 const AdminLanguages = () => {
-  const { admin, token, loading: authLoading, logout } = useAuth();
+  const { admin, adminToken, token, loading: authLoading, adminLogout } = useAuth();
+  const effectiveToken = adminToken || token;
   const navigate = useNavigate();
 
   const [languages, setLanguages] = useState([]);
@@ -39,13 +40,13 @@ const AdminLanguages = () => {
   useEffect(() => {
     if (authLoading) return;
 
-    if (!admin || !token) {
+    if (!admin || !effectiveToken || admin.role !== "admin") {
       navigate("/admin/login");
       return;
     }
 
     fetchLanguages();
-  }, [admin, token, authLoading, navigate]);
+  }, [admin, effectiveToken, authLoading, navigate]);
 
   const fetchLanguages = async () => {
     try {
@@ -152,7 +153,7 @@ const AdminLanguages = () => {
   };
 
   const handleLogout = () => {
-    logout();
+    adminLogout();
     navigate("/admin/login");
   };
 

@@ -205,14 +205,6 @@ function Login() {
               </p>
             </div>
 
-            <div className="aeloria-login-admin">
-              <span>Are you an administrator?</span>
-
-              <Link to="/admin/login">
-                Admin Login →
-              </Link>
-            </div>
-
           </div>
         </section>
 

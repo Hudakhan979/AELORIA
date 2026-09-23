@@ -116,7 +116,7 @@ const loginUser = async (req, res) => {
     if (user.role !== "student") {
       return res.status(403).json({
         success: false,
-        message: "Please use the admin login",
+        message: "Access denied. Valid student account required.",
       });
     }
 

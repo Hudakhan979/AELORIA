@@ -10,33 +10,30 @@ const AuthContext = createContext();
 export const AuthProvider = ({ children }) => {
   const [user, setUser] = useState(null);
   const [admin, setAdmin] = useState(null);
-  const [studentToken, setStudentToken] = useState(null);
+  const [userToken, setUserToken] = useState(null);
   const [adminToken, setAdminToken] = useState(null);
   const [loading, setLoading] = useState(true);
 
-  // Restore login after refresh
+  // Restore isolated sessions upon app load / refresh
   useEffect(() => {
     try {
+      // 1. Student Session
       const savedUser = localStorage.getItem("aeloriaUser");
+      const savedUserToken =
+        localStorage.getItem("aeloriaUserToken") ||
+        localStorage.getItem("aeloriaStudentToken");
+
+      if (savedUser && savedUserToken) {
+        setUser(JSON.parse(savedUser));
+        setUserToken(savedUserToken);
+      }
+
+      // 2. Admin Session (Completely Isolated)
       const savedAdmin = localStorage.getItem("aeloriaAdmin");
-      const savedStudentToken =
-        localStorage.getItem("aeloriaStudentToken") ||
-        localStorage.getItem("aeloriaToken");
       const savedAdminToken = localStorage.getItem("aeloriaAdminToken");
 
-      if (savedUser) {
-        setUser(JSON.parse(savedUser));
-      }
-
-      if (savedAdmin) {
+      if (savedAdmin && savedAdminToken) {
         setAdmin(JSON.parse(savedAdmin));
-      }
-
-      if (savedStudentToken) {
-        setStudentToken(savedStudentToken);
-      }
-
-      if (savedAdminToken) {
         setAdminToken(savedAdminToken);
       }
     } catch (err) {
@@ -46,54 +43,49 @@ export const AuthProvider = ({ children }) => {
     }
   }, []);
 
-  // Student Register
+  // ----------------------------------------
+  // STUDENT AUTHENTICATION
+  // ----------------------------------------
   const register = async (userData) => {
     const data = await registerUser(userData);
 
-    if (data.success) {
+    if (data.success && data.token) {
       localStorage.setItem("aeloriaUser", JSON.stringify(data.user));
-      localStorage.setItem("aeloriaStudentToken", data.token);
-      localStorage.setItem("aeloriaToken", data.token);
+      localStorage.setItem("aeloriaUserToken", data.token);
 
       setUser(data.user);
-      setStudentToken(data.token);
+      setUserToken(data.token);
     }
 
     return data;
   };
 
-  // Student Login
   const login = async (loginData) => {
     const data = await loginUser(loginData);
 
-    if (data.success) {
+    if (data.success && data.token) {
       localStorage.setItem("aeloriaUser", JSON.stringify(data.user));
-      localStorage.setItem("aeloriaStudentToken", data.token);
-      localStorage.setItem("aeloriaToken", data.token);
+      localStorage.setItem("aeloriaUserToken", data.token);
 
       setUser(data.user);
-      setStudentToken(data.token);
+      setUserToken(data.token);
     }
 
     return data;
   };
 
-  // Admin Login
-  const adminLogin = async (loginData) => {
-    const data = await loginAdmin(loginData);
+  // Student Logout (Clears ONLY student credentials)
+  const logout = () => {
+    localStorage.removeItem("aeloriaUser");
+    localStorage.removeItem("aeloriaUserToken");
+    localStorage.removeItem("aeloriaStudentToken");
+    localStorage.removeItem("aeloriaToken");
 
-    if (data.success) {
-      localStorage.setItem("aeloriaAdmin", JSON.stringify(data.admin));
-      localStorage.setItem("aeloriaAdminToken", data.token);
-
-      setAdmin(data.admin);
-      setAdminToken(data.token);
-    }
-
-    return data;
+    setUser(null);
+    setUserToken(null);
   };
 
-  // Update in-memory and local user state (e.g. after profile edit)
+  // Update in-memory and local student user state (e.g. after profile edit)
   const updateUser = (updatedUserData) => {
     setUser((prev) => {
       const merged = { ...prev, ...updatedUserData };
@@ -102,17 +94,25 @@ export const AuthProvider = ({ children }) => {
     });
   };
 
-  // Student Logout
-  const logout = () => {
-    localStorage.removeItem("aeloriaUser");
-    localStorage.removeItem("aeloriaStudentToken");
-    localStorage.removeItem("aeloriaToken");
+  // ----------------------------------------
+  // ADMIN AUTHENTICATION (ISOLATED)
+  // ----------------------------------------
+  const adminLogin = async (loginData) => {
+    const data = await loginAdmin(loginData);
 
-    setUser(null);
-    setStudentToken(null);
+    if (data.success && data.token) {
+      const adminData = data.admin || data.user;
+      localStorage.setItem("aeloriaAdmin", JSON.stringify(adminData));
+      localStorage.setItem("aeloriaAdminToken", data.token);
+
+      setAdmin(adminData);
+      setAdminToken(data.token);
+    }
+
+    return data;
   };
 
-  // Admin Logout
+  // Admin Logout (Clears ONLY admin credentials)
   const adminLogout = () => {
     localStorage.removeItem("aeloriaAdmin");
     localStorage.removeItem("aeloriaAdminToken");
@@ -121,24 +121,36 @@ export const AuthProvider = ({ children }) => {
     setAdminToken(null);
   };
 
-  // Token is context-aware: adminToken if admin is active and no student token, or studentToken
-  const activeToken = adminToken || studentToken;
-
   const value = {
+    // Student State
     user,
-    admin,
-    token: activeToken,
-    studentToken,
-    adminToken,
-    loading,
+    userToken,
+    studentToken: userToken, // alias for backwards compatibility
     isLoggedIn: !!user,
-    isAdmin: !!admin,
     register,
     login,
-    adminLogin,
-    updateUser,
     logout,
+    updateUser,
+
+    // Admin State (Explicitly Isolated)
+    admin,
+    adminToken,
+    isAdmin: !!admin,
+    adminLogin,
     adminLogout,
+
+    // Smart role-aware token:
+    // If called on an admin path, delivers adminToken.
+    // Otherwise delivers userToken (falling back to adminToken if only admin is logged in).
+    get token() {
+      if (typeof window !== "undefined" && window.location.pathname.startsWith("/admin")) {
+        return adminToken || userToken;
+      }
+      return userToken || adminToken;
+    },
+
+    // Lifecycle
+    loading,
   };
 
   return (

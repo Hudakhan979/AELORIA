@@ -6,7 +6,8 @@ import "./Dashboard.css";
 
 function Dashboard() {
   const navigate = useNavigate();
-  const { admin, token, loading: authLoading, logout } = useAuth();
+  const { admin, adminToken, token, loading: authLoading, adminLogout } = useAuth();
+  const effectiveToken = adminToken || token;
 
   const [dashboardData, setDashboardData] = useState(null);
   const [loading, setLoading] = useState(true);
@@ -15,7 +16,7 @@ function Dashboard() {
   useEffect(() => {
     if (authLoading) return;
 
-    if (!admin || !token) {
+    if (!admin || !effectiveToken || admin.role !== "admin") {
       navigate("/admin/login");
       return;
     }
@@ -25,7 +26,7 @@ function Dashboard() {
         setLoading(true);
         setError("");
 
-        const data = await getAdminDashboardData(token);
+        const data = await getAdminDashboardData(effectiveToken);
 
         setDashboardData(data);
       } catch (error) {
@@ -37,10 +38,10 @@ function Dashboard() {
     };
 
     loadDashboard();
-  }, [admin, token, authLoading, navigate]);
+  }, [admin, effectiveToken, authLoading, navigate]);
 
   const handleLogout = () => {
-    logout();
+    adminLogout();
     navigate("/admin/login");
   };
 

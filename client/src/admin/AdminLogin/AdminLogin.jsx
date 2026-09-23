@@ -1,6 +1,5 @@
 import { useState } from "react";
-import { Link, useNavigate } from "react-router-dom";
-
+import { useNavigate } from "react-router-dom";
 import { useAuth } from "../../context/AuthContext";
 import "./AdminLogin.css";
 
@@ -9,10 +8,8 @@ function AdminLogin() {
   const { adminLogin } = useAuth();
 
   const [showPassword, setShowPassword] = useState(false);
-
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
-
   const [loading, setLoading] = useState(false);
   const [error, setError] = useState("");
 
@@ -31,10 +28,8 @@ function AdminLogin() {
       if (data.success) {
         navigate("/admin/dashboard");
       }
-    } catch (error) {
-      setError(
-        error.message || "Admin login failed. Please try again."
-      );
+    } catch (err) {
+      setError(err.message || "Invalid administrator credentials or access denied.");
     } finally {
       setLoading(false);
     }
@@ -43,188 +38,150 @@ function AdminLogin() {
   return (
     <main className="aeloria-admin-login">
       <div className="aeloria-admin-login-container">
-
-        {/* LEFT SIDE */}
+        {/* LEFT SIDE: ADMIN BRANDING */}
         <section className="aeloria-admin-login-info">
-
           <div className="aeloria-admin-login-brand">
             <div className="aeloria-admin-login-brand-icon">
-              A
+              🛡️
             </div>
 
             <div>
               <h2>AELORIA</h2>
-              <span>Admin Panel</span>
+              <span className="aeloria-admin-portal-tag">ADMIN PORTAL</span>
             </div>
           </div>
 
           <div className="aeloria-admin-login-info-content">
-
             <span className="aeloria-admin-login-label">
-              ADMINISTRATOR ACCESS
+              RESTRICTED CONSOLE
             </span>
 
             <h1>
-              Manage
-              <span> AELORIA.</span>
+              Management &amp; <span>Control.</span>
             </h1>
 
             <p>
-              Manage courses, tutorials, notes, practice problems,
-              categories, users, and learning resources from one place.
+              Administrative access to author curriculum, publish coding challenges,
+              manage revision notes, configure languages, and monitor platform metrics.
             </p>
 
             <div className="aeloria-admin-login-features">
-
               <div>
-                <span>✓</span>
-                <p>Manage learning content</p>
+                <span>🛡️</span>
+                <p>Role-governed administrative controls</p>
               </div>
 
               <div>
-                <span>✓</span>
-                <p>Manage users and mentors</p>
+                <span>📚</span>
+                <p>Course, tutorial &amp; practice problem CMS</p>
               </div>
 
               <div>
-                <span>✓</span>
-                <p>Publish or save content as draft</p>
+                <span>👥</span>
+                <p>User account management &amp; role assignments</p>
               </div>
 
+              <div>
+                <span>⚡</span>
+                <p>Real-time content publishing &amp; draft states</p>
+              </div>
             </div>
+          </div>
+
+          <div className="aeloria-admin-security-badge">
+            <span className="security-dot"></span>
+            <span>256-Bit Encrypted Admin Session</span>
           </div>
         </section>
 
-        {/* LOGIN FORM */}
+        {/* RIGHT SIDE: ADMIN AUTH FORM */}
         <section className="aeloria-admin-login-form-section">
-
           <div className="aeloria-admin-login-card">
-
-            <div className="aeloria-admin-login-card-icon">
-              ✦
+            <div className="aeloria-admin-card-badge">
+              <span className="admin-lock-icon">🔒</span>
+              SECURE ACCESS
             </div>
 
             <div className="aeloria-admin-login-header">
-              <span>SECURE ACCESS</span>
-              <h2>Admin Login</h2>
+              <h2>Administrator Sign In</h2>
               <p>
-                Sign in to access the Aeloria Admin Panel
+                Secure access to the AELORIA management portal.
               </p>
             </div>
 
             <form onSubmit={handleSubmit}>
-
-              {/* ERROR */}
+              {/* ERROR ALERT */}
               {error && (
                 <div className="aeloria-admin-login-error">
-                  {error}
+                  <span className="err-icon">⚠️</span>
+                  <span>{error}</span>
                 </div>
               )}
 
               {/* EMAIL */}
               <div className="aeloria-admin-login-field">
-
                 <label htmlFor="adminEmail">
-                  Admin Email
+                  Administrator Email
                 </label>
 
                 <input
                   id="adminEmail"
                   type="email"
-                  placeholder="Enter admin email"
+                  placeholder="admin@aeloria.com"
                   value={email}
-                  onChange={(event) =>
-                    setEmail(event.target.value)
-                  }
+                  onChange={(e) => setEmail(e.target.value)}
                   required
+                  autoComplete="email"
                 />
-
               </div>
 
               {/* PASSWORD */}
               <div className="aeloria-admin-login-field">
-
                 <label htmlFor="adminPassword">
-                  Password
+                  Master Password
                 </label>
 
                 <div className="aeloria-admin-login-password">
-
                   <input
                     id="adminPassword"
-                    type={
-                      showPassword
-                        ? "text"
-                        : "password"
-                    }
-                    placeholder="Enter admin password"
+                    type={showPassword ? "text" : "password"}
+                    placeholder="••••••••••••"
                     value={password}
-                    onChange={(event) =>
-                      setPassword(event.target.value)
-                    }
+                    onChange={(e) => setPassword(e.target.value)}
                     required
+                    autoComplete="current-password"
                   />
 
                   <button
                     type="button"
-                    onClick={() =>
-                      setShowPassword(!showPassword)
-                    }
+                    onClick={() => setShowPassword(!showPassword)}
                     aria-label="Toggle password visibility"
+                    className="admin-pw-toggle"
                   >
-                    {showPassword ? "◉" : "○"}
+                    {showPassword ? "Hide" : "Show"}
                   </button>
-
                 </div>
               </div>
 
-              {/* OPTIONS */}
-              <div className="aeloria-admin-login-options">
-
-                <label>
-                  <input type="checkbox" />
-                  <span>Remember me</span>
-                </label>
-
-                <Link to="/admin/forgot-password">
-                  Forgot Password?
-                </Link>
-
-              </div>
-
-              {/* SUBMIT */}
+              {/* SUBMIT BUTTON */}
               <button
                 type="submit"
                 className="aeloria-admin-login-submit"
                 disabled={loading}
               >
-                {loading
-                  ? "Authenticating..."
-                  : "Access Admin Panel"}
-
-                <span>
-                  {loading ? "..." : "→"}
-                </span>
+                {loading ? "Authenticating Admin..." : "Sign In to Portal →"}
               </button>
-
             </form>
 
             <div className="aeloria-admin-login-security">
-              <span>🔒</span>
+              <span className="shield-icon">🛡️</span>
               <p>
-                Authorized administrators only
+                Authorized personnel only. All access attempts are authenticated
+                and monitored.
               </p>
             </div>
-
-            <div className="aeloria-admin-login-back">
-              <Link to="/login">
-                ← Back to Student Login
-              </Link>
-            </div>
-
           </div>
         </section>
-
       </div>
     </main>
   );

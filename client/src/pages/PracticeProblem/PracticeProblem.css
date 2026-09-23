@@ -106,18 +106,21 @@
 }
 
 .aeloria-practice-problem-difficulty.easy {
-  background: #ecfdf5;
-  color: #047857;
+  background: #f5f3ff;
+  color: #6d28d9;
+  border: 1px solid #ede9fe;
 }
 
 .aeloria-practice-problem-difficulty.medium {
-  background: #fff7ed;
-  color: #c2410c;
+  background: #fff1f2;
+  color: #e11d48;
+  border: 1px solid #fecdd3;
 }
 
 .aeloria-practice-problem-difficulty.hard {
-  background: #fef2f2;
-  color: #dc2626;
+  background: #ffe4e6;
+  color: #be123c;
+  border: 1px solid #fda4af;
 }
 
 .aeloria-practice-problem-header-icon {

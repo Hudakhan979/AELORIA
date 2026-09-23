@@ -39,6 +39,7 @@ import EditLanguage from "./admin/Languages/EditLanguage/EditLanguage";
 import AdminUsers from "./admin/Users/Users";
 import EditUser from "./admin/Users/EditUser/EditUser";
 import AIAssistant from "./pages/AIAssistant/AIAssistant";
+import AdminProtectedRoute from "./components/AdminProtectedRoute/AdminProtectedRoute";
 
 
 
@@ -228,63 +229,26 @@ function App() {
 
         <Route path="/admin/login" element={<AdminLogin />} />
 
-        <Route
-          path="/admin/dashboard"
-          element={<Dashboard />}
-        />
-
-        <Route
-          path="/admin/courses"
-          element={<AdminCourses />}
-        />
-        <Route
-          path="/admin/courses/edit/:courseId"
-          element={<EditCourse />}
-        />
-        <Route
-          path="/admin/courses/:courseId/lessons"
-          element={<ManageLessons />}
-        />
-        <Route path="/admin/tutorials" element={<AdminTutorials />} />
-        <Route
-          path="/admin/tutorials/edit/:tutorialId"
-          element={<EditTutorial />}
-        />
-        <Route
-          path="/admin/tutorials/:tutorialId/topics"
-          element={<ManageTopics />}
-        />
-        <Route path="/admin/notes" element={<AdminNotes />} />
-        <Route
-          path="/admin/notes/edit/:noteId"
-          element={<EditNote />}
-        />
-        <Route
-          path="/admin/practice"
-          element={<AdminPractice />}
-        />
-        <Route
-          path="/admin/practice/edit/:problemId"
-          element={<EditPractice />}
-        />
-        <Route
-          path="/admin/categories"
-          element={<AdminCategories />}
-        />
-        <Route
-          path="/admin/categories/edit/:categoryId"
-          element={<EditCategory />}
-        />
-        <Route path="/admin/languages" element={<AdminLanguages />} />
-        <Route
-          path="/admin/languages/edit/:languageId"
-          element={<EditLanguage />}
-        />
-        <Route path="/admin/users" element={<AdminUsers />} />
-        <Route
-          path="/admin/users/edit/:userId"
-          element={<EditUser />}
-        />
+        {/* PROTECTED ADMIN ROUTES */}
+        <Route element={<AdminProtectedRoute />}>
+          <Route path="/admin/dashboard" element={<Dashboard />} />
+          <Route path="/admin/courses" element={<AdminCourses />} />
+          <Route path="/admin/courses/edit/:courseId" element={<EditCourse />} />
+          <Route path="/admin/courses/:courseId/lessons" element={<ManageLessons />} />
+          <Route path="/admin/tutorials" element={<AdminTutorials />} />
+          <Route path="/admin/tutorials/edit/:tutorialId" element={<EditTutorial />} />
+          <Route path="/admin/tutorials/:tutorialId/topics" element={<ManageTopics />} />
+          <Route path="/admin/notes" element={<AdminNotes />} />
+          <Route path="/admin/notes/edit/:noteId" element={<EditNote />} />
+          <Route path="/admin/practice" element={<AdminPractice />} />
+          <Route path="/admin/practice/edit/:problemId" element={<EditPractice />} />
+          <Route path="/admin/categories" element={<AdminCategories />} />
+          <Route path="/admin/categories/edit/:categoryId" element={<EditCategory />} />
+          <Route path="/admin/languages" element={<AdminLanguages />} />
+          <Route path="/admin/languages/edit/:languageId" element={<EditLanguage />} />
+          <Route path="/admin/users" element={<AdminUsers />} />
+          <Route path="/admin/users/edit/:userId" element={<EditUser />} />
+        </Route>
 
         {/* 404 */}
 

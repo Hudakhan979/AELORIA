@@ -1,146 +1,157 @@
+import { Link } from "react-router-dom";
 import "./ResourcesSection.css";
 
 function ResourcesSection() {
   const resources = [
     {
-      type: "NOTES",
-      title: "C Programming Notes",
+      type: "STUDY NOTES",
+      category: "C Programming",
+      title: "Pointers & Memory Architecture",
       description:
-        "Quick revision notes covering important C programming concepts.",
-      meta: "12 Topics",
+        "Comprehensive breakdown of stack vs heap, pointer arithmetic, memory leaks, and dynamic arrays in C.",
+      tag: "12 Topics",
+      slug: "c-pointers-and-memory",
     },
     {
-      type: "NOTES",
-      title: "Data Structures Notes",
+      type: "ALGORITHM NOTES",
+      category: "DSA",
+      title: "Big-O & Asymptotic Cheat Sheet",
       description:
-        "Understand arrays, linked lists, stacks, queues, trees, and graphs.",
-      meta: "18 Topics",
+        "Quick revision notes covering time and space complexities for trees, heaps, graphs, sorting, and binary search.",
+      tag: "Cheat Sheet",
+      slug: "big-o-complexity-guide",
     },
     {
-      type: "NOTES",
-      title: "JavaScript Notes",
+      type: "REVISION NOTES",
+      category: "JavaScript",
+      title: "V8 Event Loop & Async Architecture",
       description:
-        "Important JavaScript concepts with simple explanations and examples.",
-      meta: "15 Topics",
-    },
-    {
-      type: "CHEATSHEET",
-      title: "SQL Quick Reference",
-      description:
-        "Useful SQL commands, queries, joins, and database concepts.",
-      meta: "40+ Commands",
-    },
-    {
-      type: "NOTES",
-      title: "Operating Systems",
-      description:
-        "Revision material for processes, memory, scheduling, and file systems.",
-      meta: "14 Topics",
+        "Deep dive into microtask queues, macrotask scheduling, promises, and async/await event loops.",
+      tag: "Core Guide",
+      slug: "javascript-event-loop",
     },
     {
       type: "CHEATSHEET",
-      title: "Git & GitHub Guide",
+      category: "SQL & Databases",
+      title: "SQL Indexing & Query Optimization",
       description:
-        "Essential Git commands and workflows for everyday development.",
-      meta: "25+ Commands",
+        "Essential SQL queries, B-tree indexes, execution plans, join algorithms, and schema normalization.",
+      tag: "Reference",
+      slug: "sql-optimization",
+    },
+    {
+      type: "SYSTEM NOTES",
+      category: "OS & Systems",
+      title: "Process Scheduling & Concurrency",
+      description:
+        "Thread synchronization, semaphores, mutex locks, deadlocks, and virtual memory paging concepts.",
+      tag: "Revision",
+      slug: "os-concurrency",
+    },
+    {
+      type: "DEVELOPER GUIDE",
+      category: "DevOps & Tooling",
+      title: "Production Git Workflows",
+      description:
+        "Interactive rebase, merge strategies, submodules, bisect debugging, and clean commit hygiene.",
+      tag: "25+ Commands",
+      slug: "git-workflows",
     },
   ];
 
   return (
     <section className="aeloria-free-resources">
       <div className="aeloria-free-resources-container">
-
-        {/* Header */}
+        {/* Section Header */}
         <div className="aeloria-free-resources-header">
           <div>
-            <span className="aeloria-free-resources-label">
-              FREE LEARNING MATERIAL
-            </span>
+            <div className="aeloria-resources-header-badge">
+              <span className="aeloria-free-coral-dot"></span>
+              FREE RESOURCES
+            </div>
 
             <h2 className="aeloria-free-resources-title">
-              Notes & Resources
+              Revision Notes & <span>Cheatsheets</span>
             </h2>
 
             <p className="aeloria-free-resources-description">
-              Get concise study material, revision notes, and
-              developer resources to learn faster.
+              High-yield technical summaries, interview revision sheets, and reference
+              guides crafted for rapid mastery.
             </p>
           </div>
 
-          <a
-            href="/notes"
-            className="aeloria-free-resources-view-all"
-          >
-            View All Resources →
-          </a>
+          <Link to="/notes" className="aeloria-free-resources-view-all">
+            View All Notes (Free) →
+          </Link>
         </div>
 
-        {/* Resource Grid */}
+        {/* Resources Cards Grid */}
         <div className="aeloria-free-resources-grid">
           {resources.map((resource) => (
             <article
               className="aeloria-free-resource-card"
               key={resource.title}
             >
-              <div className="aeloria-free-resource-top">
-                <div className="aeloria-free-resource-icon">
-                  {resource.type === "NOTES" ? "▤" : "⌘"}
-                </div>
-
-                <span className="aeloria-free-resource-type">
+              {/* Card Sub-section Header */}
+              <div className="aeloria-resource-card-top">
+                <span className="aeloria-resource-type-badge">
                   {resource.type}
+                </span>
+                <span className="aeloria-resource-category">
+                  {resource.category}
                 </span>
               </div>
 
-              <h3 className="aeloria-free-resource-title">
-                {resource.title}
-              </h3>
+              {/* Card Body */}
+              <div className="aeloria-resource-card-body">
+                <h3 className="aeloria-free-resource-title">
+                  {resource.title}
+                </h3>
 
-              <p className="aeloria-free-resource-description">
-                {resource.description}
-              </p>
+                <p className="aeloria-free-resource-description">
+                  {resource.description}
+                </p>
 
-              <div className="aeloria-free-resource-footer">
-                <span className="aeloria-free-resource-meta">
-                  {resource.meta}
-                </span>
+                {/* Card Footer */}
+                <div className="aeloria-free-resource-footer">
+                  <span className="aeloria-resource-tag">
+                    🏷️ {resource.tag}
+                  </span>
 
-                <a
-                  href="/notes"
-                  className="aeloria-free-resource-link"
-                >
-                  Read →
-                </a>
+                  <Link
+                    to={`/notes/${resource.slug}`}
+                    className="aeloria-free-resource-link"
+                  >
+                    Read Note →
+                  </Link>
+                </div>
               </div>
             </article>
           ))}
         </div>
 
-        {/* Bottom CTA */}
+        {/* Bottom AI Teaser Banner */}
         <div className="aeloria-free-resources-cta">
-          <div>
+          <div className="aeloria-resources-cta-left">
             <span className="aeloria-free-resources-cta-label">
-              NEED HELP WITH A TOPIC?
+              ✦ STUCK ON A TOPIC?
             </span>
-
             <h3 className="aeloria-free-resources-cta-title">
-              Ask Aeloria AI
+              Ask Aeloria AI in Real-Time
             </h3>
-
             <p className="aeloria-free-resources-cta-description">
-              Get simple explanations, examples, code, and
-              practice questions for your doubts.
+              Get step-by-step analogies, code samples, and practice questions for any
+              concept in your curriculum.
             </p>
           </div>
 
-          <a
-            href="/ai-assistant"
+          <Link
+            to="/ai-assistant"
             className="aeloria-free-resources-cta-button"
           >
-            ✦ Ask Aeloria AI
-          </a>
+            ✦ Launch AI Assistant →
+          </Link>
         </div>
-
       </div>
     </section>
   );

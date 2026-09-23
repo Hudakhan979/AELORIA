@@ -1,113 +1,120 @@
+import { Link } from "react-router-dom";
 import "./ProgrammingLanguages.css";
 
 function ProgrammingLanguages() {
   const languages = [
     {
       name: "C",
-      description: "Learn programming fundamentals and problem solving.",
-      topics: "Basics • Functions • Pointers",
+      symbol: "C",
+      description: "Foundational systems programming, memory control, and pointer mastery.",
+      topics: "Memory • Pointers • DSA",
     },
     {
       name: "C++",
-      description: "Master C++ and object-oriented programming concepts.",
-      topics: "OOP • STL • Algorithms",
+      symbol: "C++",
+      description: "High-performance object-oriented programming and modern STL algorithms.",
+      topics: "OOP • STL • Concurrency",
     },
     {
       name: "Java",
-      description: "Build a strong foundation in Java programming.",
-      topics: "OOP • Collections • Exception Handling",
+      symbol: "☕",
+      description: "Robust enterprise architecture, JVM optimization, and scalable backend logic.",
+      topics: "Collections • Threads • Spring",
     },
     {
       name: "Python",
-      description: "Learn Python from basics to practical programming.",
-      topics: "Syntax • OOP • Libraries",
+      symbol: "Py",
+      description: "Clean syntax for software engineering, automation, data science, and AI pipelines.",
+      topics: "OOP • Scripts • PyData",
     },
     {
       name: "JavaScript",
-      description: "Master the language behind modern web applications.",
-      topics: "ES6+ • DOM • Async JS",
+      symbol: "JS",
+      description: "The core language of modern interactive web systems and asynchronous events.",
+      topics: "ES6+ • DOM • Promises",
     },
     {
       name: "MERN",
-      description: "Build complete full-stack applications with MERN.",
-      topics: "MongoDB • Express • React • Node",
+      symbol: "M",
+      description: "Full-stack web apps using MongoDB, Express, React, and Node.js ecosystems.",
+      topics: "Full-Stack • REST • NoSQL",
     },
     {
       name: "Angular",
-      description: "Create scalable web applications with Angular.",
-      topics: "Components • Services • Routing",
+      symbol: "NG",
+      description: "Enterprise single-page web applications with TypeScript, RxJS, and modules.",
+      topics: "Components • RxJS • Forms",
     },
     {
-      name: "SQL",
-      description: "Learn databases and powerful SQL queries.",
-      topics: "Queries • Joins • Database Design",
+      name: "DSA",
+      symbol: "⚡",
+      description: "Essential data structures, asymptotic analysis, and algorithmic problem-solving.",
+      topics: "Trees • Graphs • Dynamic Prog",
     },
   ];
 
   return (
     <section className="aeloria-programming-languages">
       <div className="aeloria-programming-languages-container">
-
+        {/* Header */}
         <div className="aeloria-programming-languages-header">
           <div>
             <span className="aeloria-programming-languages-label">
-              EXPLORE TECHNOLOGIES
+              TECHNOLOGY TRACKS
             </span>
 
             <h2 className="aeloria-programming-languages-title">
-              Learn Programming Languages
+              Learn by <span>Technology</span>
             </h2>
 
             <p className="aeloria-programming-languages-description">
-              Choose a technology and explore structured tutorials,
-              concepts, examples, and practice resources.
+              Select a language or stack to access comprehensive roadmaps, syntax guides,
+              and interactive coding exercises.
             </p>
           </div>
 
-          <a
-            href="/programming"
+          <Link
+            to="/courses"
             className="aeloria-programming-languages-view-all"
           >
-            Explore All →
-          </a>
+            All Tracks →
+          </Link>
         </div>
 
+        {/* Language Grid */}
         <div className="aeloria-programming-languages-grid">
           {languages.map((language) => (
-            <a
-              href={`/search?language=${encodeURIComponent(language.name)}`}
+            <Link
+              to={`/search?category=${encodeURIComponent(language.name)}`}
               className="aeloria-programming-language-card"
               key={language.name}
             >
-              <div className="aeloria-programming-language-icon">
-                {language.name === "MERN"
-                  ? "M"
-                  : language.name === "SQL"
-                    ? "DB"
-                    : language.name.charAt(0)}
+              {/* Gradient Icon Container */}
+              <div className="aeloria-programming-language-icon-wrap">
+                <span className="aeloria-programming-language-symbol">
+                  {language.symbol}
+                </span>
               </div>
 
               <div className="aeloria-programming-language-content">
-                <h3 className="aeloria-programming-language-name">
-                  {language.name}
-                </h3>
+                <div className="aeloria-programming-language-top">
+                  <h3 className="aeloria-programming-language-name">
+                    {language.name}
+                  </h3>
+                  <span className="aeloria-lang-arrow">→</span>
+                </div>
 
                 <p className="aeloria-programming-language-description">
                   {language.description}
                 </p>
 
-                <span className="aeloria-programming-language-topics">
+                <div className="aeloria-programming-language-topics">
                   {language.topics}
-                </span>
+                </div>
               </div>
-
-              <span className="aeloria-programming-language-arrow">
-                →
-              </span>
-            </a>
+            </Link>
           ))}
         </div>
-
       </div>
     </section>
   );

@@ -1,81 +1,103 @@
+import { Link } from "react-router-dom";
 import "./PopularCourses.css";
 
 function PopularCourses() {
   const courses = [
     {
+      id: "c-programming",
       title: "Complete C Programming",
+      category: "C",
       description:
-        "Learn C programming from fundamentals to problem solving.",
+        "Master memory management, pointers, data structures, and foundational algorithms from scratch.",
       level: "Beginner",
+      duration: "8h 30m",
       lessons: "45 Lessons",
+      badge: "Popular",
     },
     {
+      id: "cpp-programming",
       title: "C++ Programming Mastery",
+      category: "C++",
       description:
-        "Build strong C++ fundamentals and object-oriented programming skills.",
-      level: "Beginner",
+        "Modern OOP, STL containers, template metaprogramming, and competitive programming patterns.",
+      level: "Intermediate",
+      duration: "10h 15m",
       lessons: "52 Lessons",
+      badge: "Hot",
     },
     {
-      title: "Java Programming",
+      id: "java-programming",
+      title: "Java Enterprise Architecture",
+      category: "Java",
       description:
-        "Master Java programming, OOP concepts, collections, and more.",
+        "Comprehensive core Java, multi-threading, concurrency, JVM internals, and Spring frameworks.",
       level: "Intermediate",
+      duration: "12h 00m",
       lessons: "60 Lessons",
+      badge: "In-Demand",
     },
     {
-      title: "MERN Stack Development",
+      id: "mern-stack",
+      title: "Full-Stack MERN Development",
+      category: "MERN",
       description:
-        "Learn MongoDB, Express, React, and Node.js by building projects.",
-      level: "Intermediate",
+        "Build and deploy scalable full-stack web applications with MongoDB, Express, React, and Node.js.",
+      level: "Advanced",
+      duration: "18h 45m",
       lessons: "72 Lessons",
+      badge: "Featured",
     },
   ];
 
   return (
     <section className="aeloria-popular-courses">
       <div className="aeloria-popular-courses-container">
-
         {/* Section Header */}
         <div className="aeloria-popular-courses-header">
           <div>
             <span className="aeloria-popular-courses-label">
-              LEARN & BUILD
+              CURATED CURRICULUM
             </span>
-
             <h2 className="aeloria-popular-courses-title">
-              Popular Courses
+              Popular <span>Courses</span>
             </h2>
-
             <p className="aeloria-popular-courses-description">
-              Start learning in-demand technologies with structured
-              courses designed for your journey.
+              Industry-aligned programming tracks designed to take you from foundational
+              syntax to production systems.
             </p>
           </div>
 
-          <a
-            href="/courses"
-            className="aeloria-popular-courses-view-all"
-          >
+          <Link to="/courses" className="aeloria-popular-courses-view-all">
             View All Courses →
-          </a>
+          </Link>
         </div>
 
-        {/* Course Cards */}
+        {/* Course Cards Grid */}
         <div className="aeloria-popular-courses-grid">
           {courses.map((course) => (
-            <article
-              className="aeloria-popular-course-card"
-              key={course.title}
-            >
-              <div className="aeloria-popular-course-icon">
-                &lt;/&gt;
+            <article className="aeloria-popular-course-card" key={course.title}>
+              {/* Card Visual Header */}
+              <div className="aeloria-course-card-visual">
+                <div className="aeloria-course-category-tag">
+                  {course.category}
+                </div>
+                {course.badge && (
+                  <span className={`aeloria-card-badge badge-${course.badge.toLowerCase()}`}>
+                    {course.badge}
+                  </span>
+                )}
               </div>
 
+              {/* Card Body */}
               <div className="aeloria-popular-course-content">
-                <span className="aeloria-popular-course-level">
-                  {course.level}
-                </span>
+                <div className="aeloria-course-meta-top">
+                  <span className="aeloria-course-level-pill">
+                    {course.level}
+                  </span>
+                  <span className="aeloria-course-duration">
+                    ⏱ {course.duration}
+                  </span>
+                </div>
 
                 <h3 className="aeloria-popular-course-title">
                   {course.title}
@@ -85,21 +107,23 @@ function PopularCourses() {
                   {course.description}
                 </p>
 
+                {/* Card Footer */}
                 <div className="aeloria-popular-course-footer">
-                  <span>{course.lessons}</span>
+                  <span className="aeloria-course-lessons-count">
+                    📚 {course.lessons}
+                  </span>
 
-                  <a
-                    href="/courses"
+                  <Link
+                    to={`/courses/${course.id}`}
                     className="aeloria-popular-course-link"
                   >
-                    Explore →
-                  </a>
+                    Start Course →
+                  </Link>
                 </div>
               </div>
             </article>
           ))}
         </div>
-
       </div>
     </section>
   );

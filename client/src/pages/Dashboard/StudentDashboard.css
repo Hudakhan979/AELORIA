@@ -1,8 +1,12 @@
+/* ========================================
+   STUDENT DASHBOARD — PREMIUM LIGHT SAAS
+======================================== */
+
 .aeloria-dashboard-page {
   min-height: 85vh;
-  background-color: #faf5ff;
-  color: #1f2937;
-  padding-bottom: 60px;
+  background-color: #ffffff;
+  color: #171124;
+  padding-bottom: 75px;
 }
 
 .aeloria-dashboard-loading {
@@ -12,22 +16,31 @@
   align-items: center;
   justify-content: center;
   gap: 16px;
-  color: #6b7280;
+  color: #6b6478;
 }
 
 .aeloria-dash-spinner {
   width: 44px;
   height: 44px;
-  border: 4px solid #e9d5ff;
+  border: 4px solid #ede9fe;
   border-top-color: #6d28d9;
   border-radius: 50%;
   animation: aeloria-spin 0.8s linear infinite;
 }
 
+@keyframes aeloria-spin {
+  to { transform: rotate(360deg); }
+}
+
+/* ========================================
+   LIGHT HERO
+======================================== */
+
 .aeloria-dashboard-hero {
-  background: linear-gradient(135deg, #6d28d9 0%, #4c1d95 100%);
-  color: #ffffff;
-  padding: 48px 24px;
+  background: linear-gradient(135deg, #f5f3ff 0%, #ffffff 55%, #fff5f5 100%);
+  color: #171124;
+  border-bottom: 1px solid #e9e3f5;
+  padding: 50px 24px;
 }
 
 .aeloria-dashboard-hero-container {
@@ -41,31 +54,33 @@
 
 .aeloria-dash-badge {
   display: inline-block;
-  background: rgba(255, 255, 255, 0.15);
-  color: #f5f3ff;
+  background: #ede9fe;
+  color: #6d28d9;
   font-size: 0.8rem;
-  font-weight: 700;
+  font-weight: 800;
   padding: 4px 12px;
   border-radius: 999px;
   margin-bottom: 12px;
   letter-spacing: 0.5px;
+  text-transform: uppercase;
 }
 
 .aeloria-dashboard-welcome h1 {
-  font-size: 2.2rem;
+  font-size: clamp(1.8rem, 3.2vw, 2.4rem);
   font-weight: 800;
+  color: #171124;
   margin-bottom: 8px;
 }
 
 .aeloria-dashboard-welcome h1 span {
-  color: #fbcfe8;
+  color: #6d28d9;
 }
 
 .aeloria-dashboard-welcome p {
-  color: #e9d5ff;
+  color: #6b6478;
   max-width: 600px;
   font-size: 1.05rem;
-  line-height: 1.5;
+  line-height: 1.6;
 }
 
 .aeloria-dashboard-hero-cta {
@@ -76,37 +91,45 @@
 }
 
 .aeloria-dash-ai-btn {
-  background: #ff6b6b;
+  background: linear-gradient(135deg, #6d28d9 0%, #ff6b6b 100%);
   color: #ffffff;
   padding: 12px 22px;
-  border-radius: 10px;
+  border-radius: 11px;
   font-weight: 700;
   text-align: center;
   text-decoration: none;
   transition: all 0.2s;
-  box-shadow: 0 4px 14px rgba(255, 107, 107, 0.4);
+  box-shadow: 0 6px 18px rgba(109, 40, 217, 0.25);
 }
 
 .aeloria-dash-ai-btn:hover {
-  background: #fa5252;
   transform: translateY(-2px);
+  box-shadow: 0 10px 24px rgba(109, 40, 217, 0.35);
 }
 
 .aeloria-dash-profile-btn {
-  background: rgba(255, 255, 255, 0.12);
-  color: #ffffff;
-  border: 1px solid rgba(255, 255, 255, 0.25);
+  background: #ffffff;
+  color: #6d28d9;
+  border: 1.5px solid #e9e3f5;
   padding: 10px 22px;
-  border-radius: 10px;
-  font-weight: 600;
+  border-radius: 11px;
+  font-weight: 700;
   text-align: center;
   text-decoration: none;
-  transition: background 0.2s;
+  box-shadow: 0 2px 8px rgba(109, 40, 217, 0.05);
+  transition: all 0.2s;
 }
 
 .aeloria-dash-profile-btn:hover {
-  background: rgba(255, 255, 255, 0.22);
+  background: #f5f3ff;
+  border-color: #c4b5fd;
+  color: #5b21b6;
+  transform: translateY(-1px);
 }
+
+/* ========================================
+   MAIN CONTENT GRID
+======================================== */
 
 .aeloria-dashboard-container {
   max-width: 1240px;
@@ -117,6 +140,7 @@
   gap: 32px;
 }
 
+/* Stat Cards */
 .aeloria-dash-stats-grid {
   display: grid;
   grid-template-columns: repeat(3, 1fr);
@@ -126,44 +150,54 @@
 
 .aeloria-dash-stat-card {
   background: #ffffff;
-  border-radius: 14px;
+  border-radius: 16px;
   padding: 22px;
-  border: 1px solid #f3e8ff;
-  box-shadow: 0 4px 16px rgba(109, 40, 217, 0.05);
+  border: 1px solid #e9e3f5;
+  box-shadow: 0 8px 25px rgba(109, 40, 217, 0.05);
   display: flex;
   align-items: center;
   gap: 16px;
+  transition: transform 0.2s ease, box-shadow 0.2s ease;
+}
+
+.aeloria-dash-stat-card:hover {
+  transform: translateY(-3px);
+  border-color: #c4b5fd;
+  box-shadow: 0 12px 30px rgba(109, 40, 217, 0.09);
 }
 
 .dash-stat-icon {
-  font-size: 2rem;
+  font-size: 1.8rem;
   background: #f5f3ff;
   width: 52px;
   height: 52px;
   display: flex;
   align-items: center;
   justify-content: center;
-  border-radius: 12px;
+  border-radius: 14px;
+  border: 1px solid #ede9fe;
 }
 
 .aeloria-dash-stat-card strong {
   display: block;
-  font-size: 1.6rem;
+  font-size: 1.65rem;
   font-weight: 800;
-  color: #1f2937;
+  color: #171124;
 }
 
 .aeloria-dash-stat-card span {
   font-size: 0.85rem;
-  color: #6b7280;
+  font-weight: 600;
+  color: #6b6478;
 }
 
+/* Dashboard Sections */
 .aeloria-dash-section {
   background: #ffffff;
-  border-radius: 16px;
+  border-radius: 18px;
   padding: 30px;
-  border: 1px solid #f3e8ff;
-  box-shadow: 0 4px 16px rgba(109, 40, 217, 0.05);
+  border: 1px solid #e9e3f5;
+  box-shadow: 0 8px 25px rgba(109, 40, 217, 0.05);
   margin-bottom: 32px;
 }
 
@@ -176,17 +210,23 @@
 
 .aeloria-dash-section-header h2 {
   font-size: 1.35rem;
-  font-weight: 700;
-  color: #1f2937;
+  font-weight: 800;
+  color: #171124;
 }
 
 .aeloria-dash-section-header a {
   color: #6d28d9;
-  font-weight: 600;
+  font-weight: 700;
   font-size: 0.92rem;
   text-decoration: none;
+  transition: color 0.15s;
 }
 
+.aeloria-dash-section-header a:hover {
+  color: #ff6b6b;
+}
+
+/* Courses Grid */
 .aeloria-dash-courses-grid {
   display: grid;
   grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
@@ -194,29 +234,37 @@
 }
 
 .aeloria-dash-course-item {
-  border: 1px solid #f3e8ff;
-  border-radius: 12px;
+  border: 1px solid #e9e3f5;
+  border-radius: 14px;
   padding: 20px;
-  background: #faf5ff;
+  background: #faf9ff;
+  transition: transform 0.2s ease, border-color 0.2s ease;
+}
+
+.aeloria-dash-course-item:hover {
+  transform: translateY(-2px);
+  border-color: #c4b5fd;
 }
 
 .dash-course-cat {
   font-size: 0.75rem;
-  font-weight: 700;
+  font-weight: 800;
   color: #6d28d9;
   text-transform: uppercase;
 }
 
 .aeloria-dash-course-item h3 {
   font-size: 1.1rem;
-  font-weight: 700;
+  font-weight: 800;
+  color: #171124;
   margin: 6px 0 8px;
 }
 
 .aeloria-dash-course-item p {
   font-size: 0.85rem;
-  color: #6b7280;
+  color: #6b6478;
   margin-bottom: 16px;
+  line-height: 1.5;
 }
 
 .dash-continue-btn {
@@ -224,195 +272,199 @@
   background: #6d28d9;
   color: #ffffff;
   font-size: 0.85rem;
-  font-weight: 600;
-  padding: 8px 14px;
-  border-radius: 6px;
+  font-weight: 700;
+  padding: 8px 16px;
+  border-radius: 8px;
   text-decoration: none;
+  transition: background 0.15s;
 }
 
+.dash-continue-btn:hover {
+  background: #5b21b6;
+}
+
+/* Empty Card */
 .aeloria-dash-empty-card {
   text-align: center;
-  padding: 36px 20px;
+  padding: 40px 20px;
 }
 
 .empty-icon {
   font-size: 3rem;
-  margin-bottom: 12px;
+  margin-bottom: 14px;
   display: block;
 }
 
 .aeloria-dash-empty-card h3 {
-  font-size: 1.2rem;
-  font-weight: 700;
+  font-size: 1.25rem;
+  font-weight: 800;
+  color: #171124;
   margin-bottom: 8px;
 }
 
 .aeloria-dash-empty-card p {
-  color: #6b7280;
-  max-width: 480px;
-  margin: 0 auto 20px;
+  color: #6b6478;
   font-size: 0.95rem;
+  margin-bottom: 22px;
 }
 
-.dash-browse-btn {
-  display: inline-block;
+.dash-explore-btn {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
   background: #6d28d9;
   color: #ffffff;
-  padding: 10px 24px;
-  border-radius: 8px;
-  font-weight: 600;
-  text-decoration: none;
-}
-
-.aeloria-dash-pathways-grid {
-  display: grid;
-  grid-template-columns: repeat(auto-fill, minmax(240px, 1fr));
-  gap: 18px;
-}
-
-.aeloria-dash-pathway-card {
-  border: 1px solid #f3e8ff;
-  border-radius: 12px;
-  padding: 20px;
-  display: flex;
-  gap: 16px;
-}
-
-.pathway-icon {
-  font-size: 1.8rem;
-}
-
-.pathway-info h4 {
-  font-size: 1.02rem;
+  font-size: 0.95rem;
   font-weight: 700;
-  margin-bottom: 4px;
-}
-
-.pathway-info p {
-  font-size: 0.85rem;
-  color: #6b7280;
-  line-height: 1.4;
-  margin-bottom: 12px;
-}
-
-.pathway-info a {
-  color: #6d28d9;
-  font-weight: 600;
-  font-size: 0.88rem;
+  padding: 12px 24px;
+  border-radius: 10px;
   text-decoration: none;
+  transition: all 0.2s;
+  box-shadow: 0 4px 14px rgba(109, 40, 217, 0.25);
 }
 
-/* Sidebar */
-.aeloria-dash-sidebar-card {
-  background: #ffffff;
-  border-radius: 16px;
-  padding: 24px;
-  border: 1px solid #f3e8ff;
-  box-shadow: 0 4px 16px rgba(109, 40, 217, 0.05);
-  margin-bottom: 24px;
-  text-align: center;
+.dash-explore-btn:hover {
+  background: #5b21b6;
+  transform: translateY(-1px);
 }
 
-.dash-profile-avatar {
-  width: 72px;
-  height: 72px;
-  background: linear-gradient(135deg, #6d28d9, #ff6b6b);
-  color: #ffffff;
-  font-size: 2rem;
-  font-weight: 800;
+/* Recent Activity List */
+.aeloria-activity-list {
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+}
+
+.aeloria-activity-item {
+  display: flex;
+  align-items: center;
+  gap: 14px;
+  padding: 14px;
+  border-radius: 10px;
+  background: #faf9ff;
+  border: 1px solid #ede9fe;
+}
+
+.activity-icon {
+  width: 36px;
+  height: 36px;
+  border-radius: 10px;
+  background: #ede9fe;
+  color: #6d28d9;
   display: flex;
   align-items: center;
   justify-content: center;
-  border-radius: 50%;
-  margin: 0 auto 12px;
-}
-
-.dash-user-email {
-  font-size: 0.88rem;
-  color: #6b7280;
-  margin: 4px 0 10px;
-}
-
-.dash-user-role-badge {
-  display: inline-block;
-  background: #f5f3ff;
-  color: #6d28d9;
-  font-size: 0.75rem;
-  font-weight: 700;
-  padding: 4px 12px;
-  border-radius: 999px;
-  margin-bottom: 16px;
-}
-
-.dash-profile-actions a {
-  color: #6d28d9;
-  font-weight: 600;
-  font-size: 0.9rem;
-  text-decoration: none;
-}
-
-.ai-card {
-  background: linear-gradient(135deg, #f5f3ff 0%, #ede9fe 100%);
-  border: 1px solid #ddd6fe;
-  text-align: left;
-}
-
-.ai-icon-large {
-  font-size: 1.8rem;
-  color: #6d28d9;
-  margin-bottom: 8px;
-}
-
-.ai-card h3 {
   font-size: 1.1rem;
-  font-weight: 700;
-  margin-bottom: 6px;
+  font-weight: 800;
 }
 
-.ai-card p {
-  font-size: 0.88rem;
-  color: #4b5563;
+.activity-info strong {
+  display: block;
+  font-size: 0.95rem;
+  color: #171124;
+}
+
+.activity-info span {
+  font-size: 0.8rem;
+  color: #6b6478;
+}
+
+/* ========================================
+   SIDEBAR
+======================================== */
+
+.aeloria-dash-sidebar {
+  display: flex;
+  flex-direction: column;
+  gap: 24px;
+}
+
+.aeloria-dash-sidebar-card {
+  background: #ffffff;
+  border-radius: 18px;
+  padding: 24px;
+  border: 1px solid #e9e3f5;
+  box-shadow: 0 8px 25px rgba(109, 40, 217, 0.05);
+}
+
+.aeloria-dash-sidebar-card h3 {
+  font-size: 1.15rem;
+  font-weight: 800;
+  color: #171124;
   margin-bottom: 16px;
-  line-height: 1.4;
 }
 
-.dash-sidebar-ai-btn {
-  display: inline-block;
-  background: #6d28d9;
-  color: #ffffff;
-  padding: 8px 16px;
-  border-radius: 8px;
-  font-weight: 600;
+.dash-ai-tip {
+  background: #fff8f8;
+  border: 1px solid #fee2e2;
+  border-radius: 12px;
+  padding: 16px;
+  margin-bottom: 16px;
+}
+
+.dash-ai-tip strong {
+  display: block;
+  color: #b91c1c;
+  font-size: 0.85rem;
+  margin-bottom: 6px;
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
+}
+
+.dash-ai-tip p {
   font-size: 0.88rem;
+  color: #7f1d1d;
+  line-height: 1.5;
+  margin: 0;
+}
+
+.dash-sidebar-ai-link {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  color: #6d28d9;
+  font-size: 0.9rem;
+  font-weight: 700;
   text-decoration: none;
+}
+
+.dash-sidebar-ai-link:hover {
+  color: #ff6b6b;
 }
 
 .dash-quick-links {
-  text-align: left;
-  margin-top: 12px;
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
 }
 
-.dash-quick-links li {
-  padding: 8px 0;
-  border-bottom: 1px solid #f3e8ff;
-}
-
-.dash-quick-links li:last-child {
-  border-bottom: none;
-}
-
-.dash-quick-links a {
-  color: #4b5563;
-  font-size: 0.92rem;
+.dash-quick-link {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  padding: 10px 14px;
+  border-radius: 10px;
+  background: #faf9ff;
+  border: 1px solid #ede9fe;
+  color: #374151;
+  font-size: 0.9rem;
+  font-weight: 600;
   text-decoration: none;
-  font-weight: 500;
+  transition: all 0.15s ease;
 }
 
-.dash-quick-links a:hover {
+.dash-quick-link:hover {
+  background: #f5f3ff;
+  border-color: #c4b5fd;
   color: #6d28d9;
+  transform: translateX(3px);
 }
 
-@media (max-width: 900px) {
+/* ========================================
+   RESPONSIVENESS
+======================================== */
+
+@media (max-width: 1024px) {
   .aeloria-dashboard-container {
     grid-template-columns: 1fr;
   }
@@ -422,7 +474,23 @@
     align-items: flex-start;
   }
 
+  .aeloria-dashboard-hero-cta {
+    flex-direction: row;
+    width: 100%;
+  }
+
+  .aeloria-dash-ai-btn,
+  .aeloria-dash-profile-btn {
+    flex: 1;
+  }
+}
+
+@media (max-width: 650px) {
   .aeloria-dash-stats-grid {
     grid-template-columns: 1fr;
+  }
+
+  .aeloria-dashboard-hero-cta {
+    flex-direction: column;
   }
 }
