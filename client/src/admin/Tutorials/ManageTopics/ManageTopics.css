@@ -1,0 +1,668 @@
+/* =========================================
+   AELORIA - MANAGE TUTORIAL TOPICS
+========================================= */
+
+.aeloria-manage-topics-page {
+  min-height: 100vh;
+  background: #f8f7fc;
+  color: #1f2937;
+}
+
+/* =========================================
+   HEADER
+========================================= */
+
+.aeloria-manage-topics-header {
+  background: #ffffff;
+  border-bottom: 1px solid #e5e7eb;
+  padding: 28px 40px;
+  display: flex;
+  align-items: flex-end;
+  justify-content: space-between;
+  gap: 24px;
+}
+
+.aeloria-manage-topics-back {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  color: #6d28d9;
+  text-decoration: none;
+  font-size: 14px;
+  font-weight: 600;
+  margin-bottom: 12px;
+  transition: 0.2s ease;
+}
+
+.aeloria-manage-topics-back:hover {
+  color: #5b21b6;
+  transform: translateX(-2px);
+}
+
+.aeloria-manage-topics-header h1 {
+  margin: 0;
+  font-size: 30px;
+  font-weight: 800;
+  color: #1f2937;
+}
+
+.aeloria-manage-topics-header p {
+  margin: 7px 0 0;
+  color: #6b7280;
+  font-size: 15px;
+}
+
+.aeloria-manage-topics-header p strong {
+  color: #6d28d9;
+}
+
+.aeloria-manage-topics-header-actions {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+}
+
+.aeloria-manage-topics-view-btn {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  padding: 11px 18px;
+  background: #ffffff;
+  color: #6d28d9;
+  border: 1px solid #8b5cf6;
+  border-radius: 9px;
+  text-decoration: none;
+  font-size: 14px;
+  font-weight: 700;
+  transition: 0.2s ease;
+}
+
+.aeloria-manage-topics-view-btn:hover {
+  background: #f5f3ff;
+  transform: translateY(-1px);
+}
+
+/* =========================================
+   MAIN CONTAINER
+========================================= */
+
+.aeloria-manage-topics-container {
+  max-width: 1450px;
+  margin: 0 auto;
+  padding: 32px 40px 50px;
+}
+
+/* =========================================
+   ERROR
+========================================= */
+
+.aeloria-manage-topics-error {
+  background: #fff1f2;
+  color: #be123c;
+  border: 1px solid #fecdd3;
+  border-radius: 10px;
+  padding: 13px 16px;
+  margin-bottom: 24px;
+  font-size: 14px;
+  font-weight: 600;
+}
+
+/* =========================================
+   TUTORIAL INFO CARD
+========================================= */
+
+.aeloria-manage-topics-info-card {
+  background: linear-gradient(
+    135deg,
+    #6d28d9 0%,
+    #8b5cf6 65%,
+    #ff6b6b 100%
+  );
+  color: #ffffff;
+  border-radius: 16px;
+  padding: 24px;
+  display: flex;
+  align-items: center;
+  gap: 18px;
+  margin-bottom: 30px;
+  box-shadow: 0 10px 30px rgba(109, 40, 217, 0.14);
+}
+
+.aeloria-manage-topics-info-icon {
+  width: 58px;
+  height: 58px;
+  flex-shrink: 0;
+  background: rgba(255, 255, 255, 0.18);
+  border: 1px solid rgba(255, 255, 255, 0.25);
+  border-radius: 14px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 27px;
+}
+
+.aeloria-manage-topics-info-card h2 {
+  margin: 0;
+  font-size: 21px;
+  font-weight: 800;
+}
+
+.aeloria-manage-topics-info-meta {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 9px;
+  margin-top: 10px;
+}
+
+.aeloria-manage-topics-info-meta span {
+  padding: 5px 10px;
+  background: rgba(255, 255, 255, 0.16);
+  border: 1px solid rgba(255, 255, 255, 0.2);
+  border-radius: 20px;
+  font-size: 12px;
+  font-weight: 600;
+}
+
+/* =========================================
+   MAIN LAYOUT
+========================================= */
+
+.aeloria-manage-topics-layout {
+  display: grid;
+  grid-template-columns: minmax(0, 0.95fr) minmax(0, 1.25fr);
+  gap: 26px;
+  align-items: start;
+}
+
+/* =========================================
+   CARDS
+========================================= */
+
+.aeloria-manage-topics-form-card,
+.aeloria-manage-topics-list-card {
+  background: #ffffff;
+  border: 1px solid #e5e7eb;
+  border-radius: 14px;
+  box-shadow: 0 4px 16px rgba(31, 41, 55, 0.04);
+  overflow: hidden;
+}
+
+.aeloria-manage-topics-card-header {
+  padding: 21px 23px;
+  border-bottom: 1px solid #e5e7eb;
+  background: #ffffff;
+}
+
+.aeloria-manage-topics-card-header h2 {
+  margin: 0;
+  font-size: 19px;
+  font-weight: 800;
+  color: #1f2937;
+}
+
+.aeloria-manage-topics-card-header p {
+  margin: 5px 0 0;
+  color: #6b7280;
+  font-size: 13px;
+}
+
+/* =========================================
+   FORM
+========================================= */
+
+.aeloria-manage-topics-form-card form {
+  padding: 23px;
+}
+
+.aeloria-manage-topics-field {
+  margin-bottom: 20px;
+}
+
+.aeloria-manage-topics-field label {
+  display: block;
+  margin-bottom: 8px;
+  color: #374151;
+  font-size: 13px;
+  font-weight: 700;
+}
+
+.aeloria-manage-topics-field input,
+.aeloria-manage-topics-field textarea {
+  width: 100%;
+  border: 1px solid #d1d5db;
+  border-radius: 9px;
+  padding: 11px 13px;
+  background: #ffffff;
+  color: #1f2937;
+  font-size: 14px;
+  outline: none;
+  transition: 0.2s ease;
+}
+
+.aeloria-manage-topics-field input {
+  height: 44px;
+}
+
+.aeloria-manage-topics-field textarea {
+  resize: vertical;
+  min-height: 110px;
+  line-height: 1.6;
+}
+
+.aeloria-manage-topics-field input::placeholder,
+.aeloria-manage-topics-field textarea::placeholder {
+  color: #9ca3af;
+}
+
+.aeloria-manage-topics-field input:focus,
+.aeloria-manage-topics-field textarea:focus {
+  border-color: #8b5cf6;
+  box-shadow: 0 0 0 3px rgba(139, 92, 246, 0.1);
+}
+
+.aeloria-manage-topics-code-input {
+  font-family: "Fira Code", "Courier New", monospace;
+  background: #18121f !important;
+  color: #f5f3ff !important;
+  border-color: #30233c !important;
+}
+
+.aeloria-manage-topics-code-input::placeholder {
+  color: #9ca3af !important;
+}
+
+/* =========================================
+   FORM BUTTONS
+========================================= */
+
+.aeloria-manage-topics-form-actions {
+  display: flex;
+  justify-content: flex-end;
+  gap: 10px;
+  padding-top: 4px;
+}
+
+.aeloria-manage-topics-cancel-btn,
+.aeloria-manage-topics-save-btn {
+  min-height: 43px;
+  padding: 0 18px;
+  border-radius: 9px;
+  font-size: 14px;
+  font-weight: 700;
+  border: none;
+  transition: 0.2s ease;
+}
+
+.aeloria-manage-topics-cancel-btn {
+  background: #f3f4f6;
+  color: #374151;
+}
+
+.aeloria-manage-topics-cancel-btn:hover {
+  background: #e5e7eb;
+}
+
+.aeloria-manage-topics-save-btn {
+  background: #6d28d9;
+  color: #ffffff;
+}
+
+.aeloria-manage-topics-save-btn:hover {
+  background: #5b21b6;
+  transform: translateY(-1px);
+  box-shadow: 0 6px 16px rgba(109, 40, 217, 0.2);
+}
+
+.aeloria-manage-topics-save-btn:disabled {
+  opacity: 0.65;
+  cursor: not-allowed;
+  transform: none;
+  box-shadow: none;
+}
+
+/* =========================================
+   TOPICS LIST
+========================================= */
+
+.aeloria-manage-topics-list {
+  padding: 18px;
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+}
+
+.aeloria-manage-topic-item {
+  display: flex;
+  align-items: flex-start;
+  gap: 14px;
+  padding: 16px;
+  border: 1px solid #e5e7eb;
+  border-radius: 11px;
+  background: #ffffff;
+  transition: 0.2s ease;
+}
+
+.aeloria-manage-topic-item:hover {
+  border-color: #c4b5fd;
+  box-shadow: 0 5px 16px rgba(109, 40, 217, 0.07);
+  transform: translateY(-1px);
+}
+
+.aeloria-manage-topic-number {
+  width: 38px;
+  height: 38px;
+  flex-shrink: 0;
+  border-radius: 10px;
+  background: #f5f3ff;
+  color: #6d28d9;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 14px;
+  font-weight: 800;
+}
+
+.aeloria-manage-topic-content {
+  flex: 1;
+  min-width: 0;
+}
+
+.aeloria-manage-topic-content h3 {
+  margin: 0 0 5px;
+  color: #1f2937;
+  font-size: 15px;
+  font-weight: 800;
+}
+
+.aeloria-manage-topic-content p {
+  margin: 0;
+  color: #6b7280;
+  font-size: 13px;
+  line-height: 1.55;
+}
+
+.aeloria-manage-topic-code-badge {
+  display: inline-flex;
+  align-items: center;
+  margin-top: 9px;
+  padding: 5px 9px;
+  background: #fff1f2;
+  color: #e11d48;
+  border-radius: 6px;
+  font-size: 11px;
+  font-weight: 700;
+}
+
+.aeloria-manage-topic-actions {
+  display: flex;
+  align-items: center;
+  gap: 7px;
+  flex-shrink: 0;
+}
+
+.aeloria-manage-topic-edit,
+.aeloria-manage-topic-delete {
+  width: 36px;
+  height: 36px;
+  border-radius: 8px;
+  border: 1px solid #e5e7eb;
+  background: #ffffff;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 14px;
+  transition: 0.2s ease;
+}
+
+.aeloria-manage-topic-edit:hover {
+  background: #f5f3ff;
+  border-color: #c4b5fd;
+}
+
+.aeloria-manage-topic-delete:hover {
+  background: #fff1f2;
+  border-color: #fecdd3;
+}
+
+/* =========================================
+   EMPTY STATE
+========================================= */
+
+.aeloria-manage-topics-empty {
+  padding: 60px 25px;
+  text-align: center;
+}
+
+.aeloria-manage-topics-empty > div {
+  width: 60px;
+  height: 60px;
+  margin: 0 auto 15px;
+  border-radius: 14px;
+  background: #f5f3ff;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 27px;
+}
+
+.aeloria-manage-topics-empty h3 {
+  margin: 0;
+  color: #1f2937;
+  font-size: 17px;
+  font-weight: 800;
+}
+
+.aeloria-manage-topics-empty p {
+  margin: 6px 0 0;
+  color: #6b7280;
+  font-size: 13px;
+}
+
+/* =========================================
+   LOADING
+========================================= */
+
+.aeloria-manage-topics-loading {
+  min-height: 100vh;
+  background: #f8f7fc;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: 14px;
+  color: #6b7280;
+}
+
+.aeloria-manage-topics-spinner {
+  width: 40px;
+  height: 40px;
+  border: 4px solid #e9d5ff;
+  border-top-color: #6d28d9;
+  border-radius: 50%;
+  animation: aeloriaManageTopicsSpin 0.8s linear infinite;
+}
+
+@keyframes aeloriaManageTopicsSpin {
+  to {
+    transform: rotate(360deg);
+  }
+}
+
+/* =========================================
+   NOT FOUND
+========================================= */
+
+.aeloria-manage-topics-error-page {
+  min-height: 100vh;
+  background: #f8f7fc;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  padding: 30px;
+  text-align: center;
+}
+
+.aeloria-manage-topics-error-page h2 {
+  margin: 0 0 8px;
+  color: #1f2937;
+  font-size: 25px;
+}
+
+.aeloria-manage-topics-error-page p {
+  margin: 0 0 18px;
+  color: #6b7280;
+}
+
+.aeloria-manage-topics-error-page a {
+  color: #6d28d9;
+  font-weight: 700;
+  text-decoration: none;
+}
+
+.aeloria-manage-topics-error-page a:hover {
+  text-decoration: underline;
+}
+
+/* =========================================
+   TABLET
+========================================= */
+
+@media (max-width: 1100px) {
+  .aeloria-manage-topics-layout {
+    grid-template-columns: 1fr;
+  }
+
+  .aeloria-manage-topics-header {
+    align-items: flex-start;
+  }
+}
+
+/* =========================================
+   TABLET / MOBILE
+========================================= */
+
+@media (max-width: 768px) {
+  .aeloria-manage-topics-header {
+    padding: 23px 20px;
+    flex-direction: column;
+    align-items: flex-start;
+  }
+
+  .aeloria-manage-topics-header h1 {
+    font-size: 25px;
+  }
+
+  .aeloria-manage-topics-container {
+    padding: 24px 20px 40px;
+  }
+
+  .aeloria-manage-topics-info-card {
+    padding: 20px;
+  }
+
+  .aeloria-manage-topics-info-card h2 {
+    font-size: 18px;
+  }
+}
+
+/* =========================================
+   SMALL MOBILE
+========================================= */
+
+@media (max-width: 480px) {
+  .aeloria-manage-topics-header {
+    padding: 20px 15px;
+  }
+
+  .aeloria-manage-topics-container {
+    padding: 20px 15px 35px;
+  }
+
+  .aeloria-manage-topics-header h1 {
+    font-size: 22px;
+  }
+
+  .aeloria-manage-topics-header p {
+    font-size: 13px;
+  }
+
+  .aeloria-manage-topics-view-btn {
+    width: 100%;
+  }
+
+  .aeloria-manage-topics-header-actions {
+    width: 100%;
+  }
+
+  .aeloria-manage-topics-info-card {
+    padding: 17px;
+    gap: 12px;
+  }
+
+  .aeloria-manage-topics-info-icon {
+    width: 48px;
+    height: 48px;
+    font-size: 22px;
+  }
+
+  .aeloria-manage-topics-info-card h2 {
+    font-size: 16px;
+  }
+
+  .aeloria-manage-topics-info-meta {
+    gap: 6px;
+  }
+
+  .aeloria-manage-topics-info-meta span {
+    font-size: 10px;
+    padding: 4px 8px;
+  }
+
+  .aeloria-manage-topics-form-card form {
+    padding: 18px;
+  }
+
+  .aeloria-manage-topics-card-header {
+    padding: 18px;
+  }
+
+  .aeloria-manage-topic-item {
+    padding: 13px;
+    gap: 10px;
+  }
+
+  .aeloria-manage-topic-number {
+    width: 32px;
+    height: 32px;
+    font-size: 12px;
+  }
+
+  .aeloria-manage-topic-content h3 {
+    font-size: 14px;
+  }
+
+  .aeloria-manage-topic-content p {
+    font-size: 12px;
+  }
+
+  .aeloria-manage-topic-actions {
+    gap: 4px;
+  }
+
+  .aeloria-manage-topic-edit,
+  .aeloria-manage-topic-delete {
+    width: 31px;
+    height: 31px;
+    font-size: 12px;
+  }
+
+  .aeloria-manage-topics-form-actions {
+    flex-direction: column-reverse;
+  }
+
+  .aeloria-manage-topics-cancel-btn,
+  .aeloria-manage-topics-save-btn {
+    width: 100%;
+  }
+}

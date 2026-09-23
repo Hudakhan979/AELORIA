@@ -1,0 +1,406 @@
+/* =================================
+   AELORIA AI SECTION
+================================= */
+
+.aeloria-ai-section {
+  width: 100%;
+  padding: 100px 25px;
+
+  background:
+    radial-gradient(
+      circle at 80% 50%,
+      rgba(109, 40, 217, 0.09),
+      transparent 35%
+    ),
+    #ffffff;
+}
+
+.aeloria-ai-section-container {
+  width: 100%;
+  max-width: 1400px;
+  margin: 0 auto;
+
+  display: grid;
+  grid-template-columns: 0.9fr 1.1fr;
+  align-items: center;
+  gap: 70px;
+}
+
+/* Content */
+
+.aeloria-ai-section-label {
+  display: inline-block;
+  margin-bottom: 15px;
+
+  color: #6d28d9;
+  font-size: 13px;
+  font-weight: 800;
+  letter-spacing: 1.5px;
+}
+
+.aeloria-ai-section-title {
+  max-width: 600px;
+  margin: 0 0 18px;
+
+  color: #1f2937;
+  font-size: 46px;
+  font-weight: 800;
+  line-height: 1.15;
+}
+
+.aeloria-ai-section-title span {
+  display: block;
+  color: #6d28d9;
+}
+
+.aeloria-ai-section-description {
+  max-width: 570px;
+  margin: 0 0 28px;
+
+  color: #6b7280;
+  font-size: 16px;
+  line-height: 1.8;
+}
+
+/* Features */
+
+.aeloria-ai-section-features {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 13px;
+  margin-bottom: 30px;
+}
+
+.aeloria-ai-section-feature {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+
+  color: #374151;
+  font-size: 13px;
+  font-weight: 600;
+}
+
+.aeloria-ai-section-feature-icon {
+  width: 30px;
+  height: 30px;
+
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  flex-shrink: 0;
+
+  background: #f3e8ff;
+  color: #6d28d9;
+
+  border-radius: 8px;
+
+  font-size: 12px;
+  font-weight: 800;
+}
+
+.aeloria-ai-section-button {
+  display: inline-flex;
+  align-items: center;
+
+  padding: 13px 21px;
+
+  background: #6d28d9;
+  color: #ffffff;
+
+  border-radius: 10px;
+
+  font-size: 14px;
+  font-weight: 700;
+  text-decoration: none;
+
+  box-shadow: 0 10px 25px rgba(109, 40, 217, 0.2);
+
+  transition:
+    transform 0.3s ease,
+    background 0.3s ease;
+}
+
+.aeloria-ai-section-button:hover {
+  background: #ff6b6b;
+  transform: translateY(-2px);
+}
+
+/* =================================
+   AI PREVIEW
+================================= */
+
+.aeloria-ai-section-preview {
+  width: 100%;
+}
+
+.aeloria-ai-preview-window {
+  width: 100%;
+
+  background: #ffffff;
+  border: 1px solid #e4dcff;
+  border-radius: 22px;
+
+  overflow: hidden;
+
+  box-shadow:
+    0 25px 60px rgba(109, 40, 217, 0.12),
+    0 5px 20px rgba(0, 0, 0, 0.04);
+
+  transform: rotate(1deg);
+
+  transition: transform 0.4s ease;
+}
+
+.aeloria-ai-preview-window:hover {
+  transform: rotate(0deg) translateY(-4px);
+}
+
+/* Header */
+
+.aeloria-ai-preview-header {
+  min-height: 70px;
+  padding: 14px 20px;
+
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+
+  background: #faf9ff;
+  border-bottom: 1px solid #eeeaff;
+}
+
+.aeloria-ai-preview-brand {
+  display: flex;
+  align-items: center;
+  gap: 11px;
+}
+
+.aeloria-ai-preview-icon {
+  width: 39px;
+  height: 39px;
+
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  background: #6d28d9;
+  color: #ffffff;
+
+  border-radius: 11px;
+
+  font-size: 17px;
+}
+
+.aeloria-ai-preview-brand strong {
+  display: block;
+
+  color: #1f2937;
+  font-size: 14px;
+}
+
+.aeloria-ai-preview-brand span {
+  display: block;
+  margin-top: 2px;
+
+  color: #9ca3af;
+  font-size: 11px;
+}
+
+.aeloria-ai-preview-status {
+  color: #16a34a;
+  font-size: 11px;
+  font-weight: 700;
+}
+
+/* Chat Body */
+
+.aeloria-ai-preview-body {
+  min-height: 390px;
+  padding: 25px;
+
+  display: flex;
+  flex-direction: column;
+  gap: 18px;
+
+  background: #ffffff;
+}
+
+.aeloria-ai-preview-message {
+  max-width: 82%;
+  padding: 13px 16px;
+
+  border-radius: 14px;
+
+  font-size: 13px;
+  line-height: 1.6;
+}
+
+.aeloria-ai-preview-message.user {
+  align-self: flex-end;
+
+  background: #6d28d9;
+  color: #ffffff;
+
+  border-bottom-right-radius: 4px;
+}
+
+.aeloria-ai-preview-message.assistant {
+  align-self: flex-start;
+
+  background: #f7f5ff;
+  color: #374151;
+
+  border-bottom-left-radius: 4px;
+}
+
+.aeloria-ai-preview-message.assistant strong {
+  color: #6d28d9;
+}
+
+.aeloria-ai-preview-message.assistant p {
+  margin: 7px 0 12px;
+}
+
+/* Code */
+
+.aeloria-ai-preview-code {
+  margin: 10px 0;
+  padding: 12px;
+
+  background: #1f2937;
+  color: #f9fafb;
+
+  border-radius: 8px;
+
+  font-family: "Courier New", monospace;
+  font-size: 11px;
+  line-height: 1.7;
+}
+
+.aeloria-ai-preview-hint {
+  color: #8b5cf6;
+  font-size: 11px;
+  font-weight: 600;
+}
+
+/* Input */
+
+.aeloria-ai-preview-input {
+  margin: 0 20px 20px;
+  padding: 10px 10px 10px 15px;
+
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+
+  background: #f8f7ff;
+  border: 1px solid #e7e1ff;
+  border-radius: 11px;
+
+  color: #9ca3af;
+  font-size: 12px;
+}
+
+.aeloria-ai-preview-input button {
+  width: 32px;
+  height: 32px;
+
+  border: none;
+  border-radius: 8px;
+
+  background: #6d28d9;
+  color: #ffffff;
+
+  font-size: 17px;
+}
+
+/* =================================
+   TABLET
+================================= */
+
+@media (max-width: 1000px) {
+  .aeloria-ai-section-container {
+    grid-template-columns: 1fr;
+    gap: 50px;
+  }
+
+  .aeloria-ai-section-title {
+    font-size: 40px;
+  }
+
+  .aeloria-ai-section-description {
+    max-width: 700px;
+  }
+
+  .aeloria-ai-preview-window {
+    max-width: 750px;
+    margin: 0 auto;
+  }
+}
+
+/* =================================
+   MOBILE
+================================= */
+
+@media (max-width: 700px) {
+  .aeloria-ai-section {
+    padding: 70px 20px;
+  }
+
+  .aeloria-ai-section-title {
+    font-size: 33px;
+  }
+
+  .aeloria-ai-section-description {
+    font-size: 15px;
+  }
+
+  .aeloria-ai-section-features {
+    grid-template-columns: 1fr;
+  }
+
+  .aeloria-ai-preview-body {
+    min-height: 340px;
+    padding: 18px;
+  }
+
+  .aeloria-ai-preview-message {
+    max-width: 90%;
+  }
+}
+
+/* =================================
+   SMALL MOBILE
+================================= */
+
+@media (max-width: 480px) {
+  .aeloria-ai-section {
+    padding: 60px 16px;
+  }
+
+  .aeloria-ai-section-title {
+    font-size: 29px;
+  }
+
+  .aeloria-ai-preview-header {
+    padding: 12px 15px;
+  }
+
+  .aeloria-ai-preview-status {
+    display: none;
+  }
+
+  .aeloria-ai-preview-body {
+    min-height: 330px;
+  }
+
+  .aeloria-ai-preview-message {
+    font-size: 12px;
+  }
+
+  .aeloria-ai-preview-code {
+    font-size: 10px;
+  }
+}

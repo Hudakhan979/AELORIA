@@ -1,0 +1,663 @@
+/* ================================
+   AELORIA ADMIN LANGUAGES
+================================ */
+
+.aeloria-admin-languages-page {
+  min-height: 100vh;
+  background: #f8f7fc;
+  padding: 30px;
+  color: #1f2937;
+}
+
+/* ================================
+   HEADER
+================================ */
+
+.aeloria-admin-languages-header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 20px;
+  margin-bottom: 28px;
+}
+
+.aeloria-admin-languages-header-left h1 {
+  margin: 0 0 6px;
+  font-size: 30px;
+  font-weight: 800;
+  color: #1f2937;
+}
+
+.aeloria-admin-languages-header-left p {
+  margin: 0;
+  color: #6b7280;
+  font-size: 14px;
+}
+
+.aeloria-admin-languages-add-btn {
+  border: none;
+  background: #6d28d9;
+  color: #ffffff;
+  padding: 12px 20px;
+  border-radius: 10px;
+  font-size: 14px;
+  font-weight: 700;
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  transition: 0.25s ease;
+}
+
+.aeloria-admin-languages-add-btn:hover {
+  background: #5b21b6;
+  transform: translateY(-1px);
+}
+
+/* ================================
+   STATS
+================================ */
+
+.aeloria-admin-languages-stats {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 18px;
+  margin-bottom: 24px;
+}
+
+.aeloria-admin-language-stat-card {
+  background: #ffffff;
+  border: 1px solid #eeeaf8;
+  border-radius: 14px;
+  padding: 20px;
+  display: flex;
+  align-items: center;
+  gap: 14px;
+  box-shadow: 0 4px 16px rgba(31, 41, 55, 0.04);
+}
+
+.aeloria-admin-language-stat-icon {
+  width: 46px;
+  height: 46px;
+  border-radius: 12px;
+  background: #f0eaff;
+  color: #6d28d9;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 21px;
+  flex-shrink: 0;
+}
+
+.aeloria-admin-language-stat-info span {
+  display: block;
+  color: #6b7280;
+  font-size: 13px;
+  margin-bottom: 3px;
+}
+
+.aeloria-admin-language-stat-info strong {
+  display: block;
+  color: #1f2937;
+  font-size: 23px;
+  font-weight: 800;
+}
+
+/* ================================
+   TOOLBAR
+================================ */
+
+.aeloria-admin-languages-toolbar {
+  background: #ffffff;
+  border: 1px solid #eeeaf8;
+  border-radius: 14px;
+  padding: 18px;
+  margin-bottom: 20px;
+  display: flex;
+  align-items: center;
+  gap: 14px;
+  flex-wrap: wrap;
+}
+
+.aeloria-admin-languages-search {
+  flex: 1;
+  min-width: 240px;
+  position: relative;
+}
+
+.aeloria-admin-languages-search input {
+  width: 100%;
+  height: 44px;
+  border: 1px solid #ddd8eb;
+  border-radius: 9px;
+  padding: 0 14px;
+  outline: none;
+  background: #ffffff;
+  color: #1f2937;
+  transition: 0.2s ease;
+}
+
+.aeloria-admin-languages-search input:focus {
+  border-color: #8b5cf6;
+  box-shadow: 0 0 0 3px rgba(139, 92, 246, 0.1);
+}
+
+.aeloria-admin-languages-filter {
+  min-width: 150px;
+}
+
+.aeloria-admin-languages-filter select {
+  width: 100%;
+  height: 44px;
+  border: 1px solid #ddd8eb;
+  border-radius: 9px;
+  padding: 0 12px;
+  outline: none;
+  background: #ffffff;
+  color: #374151;
+}
+
+.aeloria-admin-languages-filter select:focus {
+  border-color: #8b5cf6;
+}
+
+/* ================================
+   TABLE CONTAINER
+================================ */
+
+.aeloria-admin-languages-table-wrapper {
+  width: 100%;
+  background: #ffffff;
+  border: 1px solid #eeeaf8;
+  border-radius: 14px;
+  overflow-x: auto;
+  box-shadow: 0 4px 16px rgba(31, 41, 55, 0.04);
+}
+
+.aeloria-admin-languages-table {
+  width: 100%;
+  min-width: 900px;
+  border-collapse: collapse;
+}
+
+.aeloria-admin-languages-table thead {
+  background: #faf9fd;
+}
+
+.aeloria-admin-languages-table th {
+  padding: 15px 18px;
+  text-align: left;
+  font-size: 12px;
+  font-weight: 800;
+  color: #6b7280;
+  text-transform: uppercase;
+  letter-spacing: 0.4px;
+  border-bottom: 1px solid #eeeaf8;
+  white-space: nowrap;
+}
+
+.aeloria-admin-languages-table td {
+  padding: 16px 18px;
+  border-bottom: 1px solid #f0edf5;
+  font-size: 14px;
+  color: #374151;
+  vertical-align: middle;
+}
+
+.aeloria-admin-languages-table tbody tr {
+  transition: 0.2s ease;
+}
+
+.aeloria-admin-languages-table tbody tr:hover {
+  background: #fcfbff;
+}
+
+.aeloria-admin-languages-table tbody tr:last-child td {
+  border-bottom: none;
+}
+
+/* ================================
+   LANGUAGE INFO
+================================ */
+
+.aeloria-admin-language-info {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+}
+
+.aeloria-admin-language-icon {
+  width: 42px;
+  height: 42px;
+  border-radius: 10px;
+  background: #f0eaff;
+  color: #6d28d9;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-weight: 800;
+  font-size: 16px;
+  flex-shrink: 0;
+}
+
+.aeloria-admin-language-name {
+  font-weight: 700;
+  color: #1f2937;
+}
+
+.aeloria-admin-language-slug {
+  font-size: 12px;
+  color: #9ca3af;
+  margin-top: 2px;
+}
+
+/* ================================
+   CATEGORY
+================================ */
+
+.aeloria-admin-language-category {
+  display: inline-flex;
+  padding: 5px 10px;
+  border-radius: 20px;
+  background: #f5f3ff;
+  color: #6d28d9;
+  font-size: 12px;
+  font-weight: 700;
+}
+
+/* ================================
+   STATUS BADGES
+================================ */
+
+.aeloria-admin-language-status {
+  display: inline-flex;
+  align-items: center;
+  padding: 5px 10px;
+  border-radius: 20px;
+  font-size: 12px;
+  font-weight: 700;
+}
+
+.aeloria-admin-language-status.published {
+  background: #ecfdf5;
+  color: #047857;
+}
+
+.aeloria-admin-language-status.draft {
+  background: #fff7ed;
+  color: #c2410c;
+}
+
+.aeloria-admin-language-featured {
+  display: inline-flex;
+  align-items: center;
+  padding: 5px 9px;
+  border-radius: 20px;
+  background: #fff7ed;
+  color: #ea580c;
+  font-size: 12px;
+  font-weight: 700;
+}
+
+/* ================================
+   ACTIONS
+================================ */
+
+.aeloria-admin-language-actions {
+  display: flex;
+  align-items: center;
+  gap: 7px;
+}
+
+.aeloria-admin-language-action-btn {
+  border: none;
+  width: 34px;
+  height: 34px;
+  border-radius: 8px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: #f5f3ff;
+  color: #6d28d9;
+  transition: 0.2s ease;
+}
+
+.aeloria-admin-language-action-btn:hover {
+  background: #ede9fe;
+  transform: translateY(-1px);
+}
+
+.aeloria-admin-language-action-btn.publish {
+  color: #047857;
+  background: #ecfdf5;
+}
+
+.aeloria-admin-language-action-btn.publish:hover {
+  background: #d1fae5;
+}
+
+.aeloria-admin-language-action-btn.delete {
+  color: #dc2626;
+  background: #fef2f2;
+}
+
+.aeloria-admin-language-action-btn.delete:hover {
+  background: #fee2e2;
+}
+
+/* ================================
+   EMPTY / LOADING / ERROR
+================================ */
+
+.aeloria-admin-languages-loading,
+.aeloria-admin-languages-empty {
+  padding: 60px 20px;
+  text-align: center;
+  color: #6b7280;
+}
+
+.aeloria-admin-languages-empty h3 {
+  margin: 0 0 7px;
+  color: #374151;
+  font-size: 18px;
+}
+
+.aeloria-admin-languages-empty p {
+  margin: 0;
+  font-size: 14px;
+}
+
+.aeloria-admin-languages-error {
+  background: #fef2f2;
+  color: #b91c1c;
+  border: 1px solid #fecaca;
+  border-radius: 10px;
+  padding: 12px 15px;
+  margin-bottom: 18px;
+  font-size: 14px;
+}
+
+/* ================================
+   MODAL OVERLAY
+================================ */
+
+.aeloria-admin-language-modal-overlay {
+  position: fixed;
+  inset: 0;
+  background: rgba(17, 24, 39, 0.55);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 20px;
+  z-index: 9999;
+}
+
+.aeloria-admin-language-modal {
+  width: 100%;
+  max-width: 680px;
+  max-height: 90vh;
+  overflow-y: auto;
+  background: #ffffff;
+  border-radius: 16px;
+  box-shadow: 0 20px 60px rgba(0, 0, 0, 0.18);
+}
+
+.aeloria-admin-language-modal-header {
+  padding: 20px 22px;
+  border-bottom: 1px solid #eeeaf8;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 15px;
+}
+
+.aeloria-admin-language-modal-header h2 {
+  margin: 0;
+  font-size: 21px;
+  color: #1f2937;
+}
+
+.aeloria-admin-language-modal-close {
+  width: 34px;
+  height: 34px;
+  border: none;
+  border-radius: 8px;
+  background: #f3f4f6;
+  color: #6b7280;
+  font-size: 20px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.aeloria-admin-language-modal-close:hover {
+  background: #e5e7eb;
+  color: #1f2937;
+}
+
+/* ================================
+   FORM
+================================ */
+
+.aeloria-admin-language-form {
+  padding: 22px;
+}
+
+.aeloria-admin-language-form-grid {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 17px;
+}
+
+.aeloria-admin-language-form-group {
+  display: flex;
+  flex-direction: column;
+  gap: 7px;
+}
+
+.aeloria-admin-language-form-group.full {
+  grid-column: 1 / -1;
+}
+
+.aeloria-admin-language-form-group label {
+  font-size: 13px;
+  font-weight: 700;
+  color: #374151;
+}
+
+.aeloria-admin-language-form-group input,
+.aeloria-admin-language-form-group select,
+.aeloria-admin-language-form-group textarea {
+  width: 100%;
+  border: 1px solid #ddd8eb;
+  border-radius: 9px;
+  padding: 11px 12px;
+  outline: none;
+  background: #ffffff;
+  color: #1f2937;
+  transition: 0.2s ease;
+}
+
+.aeloria-admin-language-form-group input,
+.aeloria-admin-language-form-group select {
+  height: 44px;
+}
+
+.aeloria-admin-language-form-group textarea {
+  min-height: 100px;
+  resize: vertical;
+}
+
+.aeloria-admin-language-form-group input:focus,
+.aeloria-admin-language-form-group select:focus,
+.aeloria-admin-language-form-group textarea:focus {
+  border-color: #8b5cf6;
+  box-shadow: 0 0 0 3px rgba(139, 92, 246, 0.1);
+}
+
+.aeloria-admin-language-checkbox {
+  display: flex;
+  align-items: center;
+  gap: 9px;
+  margin-top: 4px;
+}
+
+.aeloria-admin-language-checkbox input {
+  width: 17px;
+  height: 17px;
+  accent-color: #6d28d9;
+}
+
+.aeloria-admin-language-checkbox label {
+  font-size: 13px;
+  font-weight: 600;
+  color: #374151;
+}
+
+/* ================================
+   MODAL FOOTER
+================================ */
+
+.aeloria-admin-language-modal-footer {
+  padding: 18px 22px;
+  border-top: 1px solid #eeeaf8;
+  display: flex;
+  justify-content: flex-end;
+  gap: 10px;
+}
+
+.aeloria-admin-language-cancel-btn {
+  border: 1px solid #ddd8eb;
+  background: #ffffff;
+  color: #4b5563;
+  padding: 10px 17px;
+  border-radius: 9px;
+  font-weight: 700;
+}
+
+.aeloria-admin-language-cancel-btn:hover {
+  background: #f9fafb;
+}
+
+.aeloria-admin-language-save-btn {
+  border: none;
+  background: #6d28d9;
+  color: #ffffff;
+  padding: 10px 19px;
+  border-radius: 9px;
+  font-weight: 700;
+}
+
+.aeloria-admin-language-save-btn:hover {
+  background: #5b21b6;
+}
+
+.aeloria-admin-language-save-btn:disabled,
+.aeloria-admin-language-cancel-btn:disabled {
+  opacity: 0.6;
+  cursor: not-allowed;
+}
+
+/* ================================
+   RESPONSIVE
+================================ */
+
+@media (max-width: 1100px) {
+  .aeloria-admin-languages-stats {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
+
+@media (max-width: 768px) {
+  .aeloria-admin-languages-page {
+    padding: 20px 16px;
+  }
+
+  .aeloria-admin-languages-header {
+    align-items: flex-start;
+    flex-direction: column;
+  }
+
+  .aeloria-admin-languages-header-left h1 {
+    font-size: 26px;
+  }
+
+  .aeloria-admin-languages-add-btn {
+    width: 100%;
+    justify-content: center;
+  }
+
+  .aeloria-admin-languages-toolbar {
+    padding: 14px;
+  }
+
+  .aeloria-admin-languages-search {
+    min-width: 100%;
+  }
+
+  .aeloria-admin-languages-filter {
+    flex: 1;
+    min-width: 140px;
+  }
+
+  .aeloria-admin-language-form-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .aeloria-admin-language-form-group.full {
+    grid-column: auto;
+  }
+
+  .aeloria-admin-language-modal {
+    max-height: 94vh;
+  }
+}
+
+@media (max-width: 520px) {
+  .aeloria-admin-languages-page {
+    padding: 16px 12px;
+  }
+
+  .aeloria-admin-languages-stats {
+    grid-template-columns: 1fr;
+    gap: 12px;
+  }
+
+  .aeloria-admin-language-stat-card {
+    padding: 16px;
+  }
+
+  .aeloria-admin-languages-header-left h1 {
+    font-size: 23px;
+  }
+
+  .aeloria-admin-languages-toolbar {
+    flex-direction: column;
+    align-items: stretch;
+  }
+
+  .aeloria-admin-languages-filter {
+    width: 100%;
+  }
+
+  .aeloria-admin-language-modal-overlay {
+    padding: 10px;
+  }
+
+  .aeloria-admin-language-modal-header {
+    padding: 17px;
+  }
+
+  .aeloria-admin-language-form {
+    padding: 17px;
+  }
+
+  .aeloria-admin-language-modal-footer {
+    padding: 15px 17px;
+    flex-direction: column-reverse;
+  }
+
+  .aeloria-admin-language-save-btn,
+  .aeloria-admin-language-cancel-btn {
+    width: 100%;
+  }
+}

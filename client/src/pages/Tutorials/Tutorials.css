@@ -1,0 +1,295 @@
+.aeloria-tutorials {
+  width: 100%;
+  background: #ffffff;
+}
+
+/* Hero */
+
+.aeloria-tutorials-hero {
+  width: 100%;
+  padding: 75px 20px 85px;
+  background: linear-gradient(
+    135deg,
+    #f5f3ff 0%,
+    #ffffff 55%,
+    #fff5f5 100%
+  );
+  border-bottom: 1px solid #eee8ff;
+}
+
+.aeloria-tutorials-hero-content {
+  max-width: 900px;
+  margin: 0 auto;
+  text-align: center;
+}
+
+.aeloria-tutorials-label {
+  display: inline-block;
+  margin-bottom: 15px;
+  color: #6d28d9;
+  font-size: 13px;
+  font-weight: 800;
+  letter-spacing: 2px;
+}
+
+.aeloria-tutorials-title {
+  margin: 0;
+  color: #1f2937;
+  font-size: 48px;
+  line-height: 1.15;
+  font-weight: 800;
+}
+
+.aeloria-tutorials-title span {
+  display: block;
+  color: #6d28d9;
+}
+
+.aeloria-tutorials-description {
+  max-width: 680px;
+  margin: 20px auto 30px;
+  color: #6b7280;
+  font-size: 16px;
+  line-height: 1.7;
+}
+
+/* Search */
+
+.aeloria-tutorials-search {
+  width: 100%;
+  max-width: 600px;
+  height: 58px;
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  margin: 0 auto;
+  padding: 0 20px;
+  background: #ffffff;
+  border: 1px solid #ddd6fe;
+  border-radius: 14px;
+  box-shadow: 0 10px 30px rgba(109, 40, 217, 0.08);
+}
+
+.aeloria-tutorials-search span {
+  font-size: 18px;
+}
+
+.aeloria-tutorials-search input {
+  width: 100%;
+  height: 100%;
+  border: none;
+  outline: none;
+  background: transparent;
+  color: #1f2937;
+  font-size: 15px;
+}
+
+.aeloria-tutorials-search input::placeholder {
+  color: #9ca3af;
+}
+
+/* Content */
+
+.aeloria-tutorials-content {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 75px 20px 90px;
+}
+
+.aeloria-tutorials-heading {
+  display: flex;
+  align-items: flex-end;
+  justify-content: space-between;
+  gap: 25px;
+  margin-bottom: 35px;
+}
+
+.aeloria-tutorials-small-label {
+  color: #ff6b6b;
+  font-size: 12px;
+  font-weight: 800;
+  letter-spacing: 1.5px;
+}
+
+.aeloria-tutorials-heading h2 {
+  margin: 7px 0 0;
+  color: #1f2937;
+  font-size: 32px;
+  font-weight: 800;
+}
+
+/* Filter */
+
+.aeloria-tutorials-filter {
+  min-width: 190px;
+  height: 46px;
+  padding: 0 14px;
+  color: #374151;
+  background: #ffffff;
+  border: 1px solid #ddd6fe;
+  border-radius: 10px;
+  outline: none;
+  cursor: pointer;
+}
+
+.aeloria-tutorials-filter:focus {
+  border-color: #6d28d9;
+}
+
+/* Grid */
+
+.aeloria-tutorials-grid {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 22px;
+}
+
+.aeloria-tutorial-card {
+  display: flex;
+  flex-direction: column;
+  min-height: 340px;
+  padding: 24px;
+  background: #ffffff;
+  border: 1px solid #e9e3ff;
+  border-radius: 18px;
+  box-shadow: 0 8px 25px rgba(109, 40, 217, 0.05);
+  transition:
+    transform 0.3s ease,
+    box-shadow 0.3s ease,
+    border-color 0.3s ease;
+}
+
+.aeloria-tutorial-card:hover {
+  transform: translateY(-7px);
+  border-color: #c4b5fd;
+  box-shadow: 0 18px 40px rgba(109, 40, 217, 0.12);
+}
+
+/* Card Top */
+
+.aeloria-tutorial-card-top {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 10px;
+  margin-bottom: 22px;
+}
+
+.aeloria-tutorial-category {
+  padding: 6px 11px;
+  color: #6d28d9;
+  background: #f5f3ff;
+  border-radius: 7px;
+  font-size: 12px;
+  font-weight: 800;
+}
+
+.aeloria-tutorial-topics {
+  color: #6b7280;
+  font-size: 12px;
+  font-weight: 600;
+}
+
+/* Card Content */
+
+.aeloria-tutorial-title {
+  margin: 0 0 12px;
+  color: #1f2937;
+  font-size: 19px;
+  line-height: 1.35;
+  font-weight: 750;
+}
+
+.aeloria-tutorial-description {
+  margin: 0 0 24px;
+  color: #6b7280;
+  font-size: 14px;
+  line-height: 1.7;
+}
+
+/* Button */
+
+.aeloria-tutorial-button {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 100%;
+  min-height: 44px;
+  margin-top: auto;
+  color: #ffffff;
+  background: #6d28d9;
+  border-radius: 10px;
+  font-size: 14px;
+  font-weight: 700;
+  text-decoration: none;
+  transition:
+    background 0.2s ease,
+    transform 0.2s ease;
+}
+
+.aeloria-tutorial-button:hover {
+  background: #5b21b6;
+  transform: translateY(-1px);
+}
+
+/* Tablet */
+
+@media (max-width: 1050px) {
+  .aeloria-tutorials-grid {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
+
+/* Mobile */
+
+@media (max-width: 700px) {
+  .aeloria-tutorials-hero {
+    padding: 60px 16px 65px;
+  }
+
+  .aeloria-tutorials-title {
+    font-size: 38px;
+  }
+
+  .aeloria-tutorials-description {
+    font-size: 14px;
+  }
+
+  .aeloria-tutorials-content {
+    padding: 55px 16px 70px;
+  }
+
+  .aeloria-tutorials-heading {
+    align-items: stretch;
+    flex-direction: column;
+  }
+
+  .aeloria-tutorials-heading h2 {
+    font-size: 28px;
+  }
+
+  .aeloria-tutorials-filter {
+    width: 100%;
+  }
+
+  .aeloria-tutorials-grid {
+    grid-template-columns: 1fr;
+  }
+}
+
+/* Small Mobile */
+
+@media (max-width: 420px) {
+  .aeloria-tutorials-title {
+    font-size: 31px;
+  }
+
+  .aeloria-tutorials-search {
+    height: 52px;
+    padding: 0 15px;
+  }
+
+  .aeloria-tutorial-card {
+    padding: 21px;
+  }
+}

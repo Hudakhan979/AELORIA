@@ -1,0 +1,647 @@
+.aeloria-edit-user-page {
+  min-height: 100vh;
+  display: flex;
+  background: #f8f7fc;
+  color: #1f2937;
+}
+
+/* =========================
+   SIDEBAR
+========================= */
+
+.aeloria-edit-user-sidebar {
+  width: 250px;
+  min-height: 100vh;
+  position: fixed;
+  left: 0;
+  top: 0;
+  bottom: 0;
+  z-index: 20;
+  display: flex;
+  flex-direction: column;
+  background: #ffffff;
+  border-right: 1px solid #e5e7eb;
+}
+
+.aeloria-edit-user-sidebar-logo {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  padding: 24px 20px;
+  border-bottom: 1px solid #f0eef7;
+}
+
+.aeloria-edit-user-logo-icon {
+  width: 42px;
+  height: 42px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border-radius: 12px;
+  background: linear-gradient(135deg, #6d28d9, #8b5cf6);
+  color: #ffffff;
+  font-size: 21px;
+  font-weight: 800;
+}
+
+.aeloria-edit-user-sidebar-logo h2 {
+  margin: 0;
+  color: #6d28d9;
+  font-size: 18px;
+  font-weight: 800;
+  letter-spacing: 0.5px;
+}
+
+.aeloria-edit-user-sidebar-logo span {
+  display: block;
+  margin-top: 2px;
+  color: #9ca3af;
+  font-size: 11px;
+}
+
+.aeloria-edit-user-sidebar-nav {
+  display: flex;
+  flex-direction: column;
+  gap: 5px;
+  padding: 20px 12px;
+  overflow-y: auto;
+}
+
+.aeloria-edit-user-nav-item {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  padding: 12px 14px;
+  border-radius: 10px;
+  color: #6b7280;
+  text-decoration: none;
+  font-size: 14px;
+  font-weight: 600;
+  transition: 0.2s ease;
+}
+
+.aeloria-edit-user-nav-item span {
+  width: 22px;
+  text-align: center;
+  font-size: 17px;
+}
+
+.aeloria-edit-user-nav-item:hover {
+  background: #f5f3ff;
+  color: #6d28d9;
+}
+
+.aeloria-edit-user-nav-item.active {
+  background: #ede9fe;
+  color: #6d28d9;
+}
+
+.aeloria-edit-user-back-link {
+  margin: auto 12px 20px;
+  padding: 12px 14px;
+  border-radius: 10px;
+  background: #f9fafb;
+  color: #6b7280;
+  text-decoration: none;
+  text-align: center;
+  font-size: 13px;
+  font-weight: 600;
+  transition: 0.2s ease;
+}
+
+.aeloria-edit-user-back-link:hover {
+  background: #f5f3ff;
+  color: #6d28d9;
+}
+
+/* =========================
+   MAIN
+========================= */
+
+.aeloria-edit-user-main {
+  width: calc(100% - 250px);
+  min-height: 100vh;
+  margin-left: 250px;
+  padding: 30px;
+}
+
+/* =========================
+   HEADER
+========================= */
+
+.aeloria-edit-user-header {
+  display: flex;
+  align-items: flex-start;
+  justify-content: space-between;
+  gap: 20px;
+  margin-bottom: 26px;
+}
+
+.aeloria-edit-user-breadcrumb {
+  margin: 0 0 6px;
+  color: #8b5cf6;
+  font-size: 13px;
+  font-weight: 600;
+}
+
+.aeloria-edit-user-header h1 {
+  margin: 0;
+  color: #111827;
+  font-size: 30px;
+  line-height: 1.2;
+  font-weight: 800;
+}
+
+.aeloria-edit-user-header > div:first-child > p:last-child {
+  margin: 7px 0 0;
+  color: #6b7280;
+  font-size: 14px;
+}
+
+.aeloria-edit-user-cancel-top {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  padding: 10px 15px;
+  border: 1px solid #e5e7eb;
+  border-radius: 9px;
+  background: #ffffff;
+  color: #6b7280;
+  text-decoration: none;
+  font-size: 13px;
+  font-weight: 600;
+  transition: 0.2s ease;
+}
+
+.aeloria-edit-user-cancel-top:hover {
+  border-color: #c4b5fd;
+  background: #f5f3ff;
+  color: #6d28d9;
+}
+
+/* =========================
+   CARD
+========================= */
+
+.aeloria-edit-user-card {
+  max-width: 1000px;
+  margin: 0 auto;
+  overflow: hidden;
+  background: #ffffff;
+  border: 1px solid #e5e7eb;
+  border-radius: 16px;
+  box-shadow: 0 4px 20px rgba(31, 41, 55, 0.05);
+}
+
+.aeloria-edit-user-card-header {
+  padding: 22px 26px;
+  background: linear-gradient(135deg, #faf8ff, #ffffff);
+  border-bottom: 1px solid #f0f0f2;
+}
+
+.aeloria-edit-user-profile-preview {
+  display: flex;
+  align-items: center;
+  gap: 14px;
+}
+
+.aeloria-edit-user-avatar {
+  width: 58px;
+  height: 58px;
+  flex-shrink: 0;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border-radius: 50%;
+  background: linear-gradient(135deg, #6d28d9, #8b5cf6);
+  color: #ffffff;
+  font-size: 17px;
+  font-weight: 800;
+}
+
+.aeloria-edit-user-profile-preview h2 {
+  margin: 0;
+  color: #111827;
+  font-size: 18px;
+  font-weight: 800;
+}
+
+.aeloria-edit-user-profile-preview p {
+  margin: 3px 0 0;
+  color: #9ca3af;
+  font-size: 12px;
+}
+
+/* =========================
+   MESSAGES
+========================= */
+
+.aeloria-edit-user-message {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  margin: 20px 26px 0;
+  padding: 12px 14px;
+  border-radius: 9px;
+}
+
+.aeloria-edit-user-message p {
+  margin: 0;
+  font-size: 13px;
+}
+
+.aeloria-edit-user-message.error {
+  background: #fef2f2;
+  border: 1px solid #fecaca;
+  color: #b91c1c;
+}
+
+.aeloria-edit-user-message.success {
+  background: #f0fdf4;
+  border: 1px solid #bbf7d0;
+  color: #15803d;
+}
+
+/* =========================
+   FORM
+========================= */
+
+.aeloria-edit-user-form {
+  padding: 26px;
+}
+
+.aeloria-edit-user-section {
+  padding-bottom: 28px;
+  margin-bottom: 28px;
+  border-bottom: 1px solid #f0f0f2;
+}
+
+.aeloria-edit-user-section:last-of-type {
+  margin-bottom: 20px;
+}
+
+.aeloria-edit-user-section-title {
+  margin-bottom: 20px;
+}
+
+.aeloria-edit-user-section-title h3 {
+  margin: 0;
+  color: #1f2937;
+  font-size: 16px;
+  font-weight: 800;
+}
+
+.aeloria-edit-user-section-title p {
+  margin: 4px 0 0;
+  color: #9ca3af;
+  font-size: 12px;
+}
+
+.aeloria-edit-user-grid {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 18px;
+}
+
+.aeloria-edit-user-field {
+  display: flex;
+  flex-direction: column;
+  gap: 7px;
+}
+
+.aeloria-edit-user-field.full {
+  grid-column: 1 / -1;
+}
+
+.aeloria-edit-user-field label {
+  color: #374151;
+  font-size: 12px;
+  font-weight: 700;
+}
+
+.aeloria-edit-user-field input,
+.aeloria-edit-user-field select {
+  width: 100%;
+  height: 44px;
+  padding: 0 13px;
+  border: 1px solid #e5e7eb;
+  border-radius: 9px;
+  outline: none;
+  background: #ffffff;
+  color: #1f2937;
+  font-size: 13px;
+  transition: 0.2s ease;
+}
+
+.aeloria-edit-user-field input::placeholder {
+  color: #b0b5bd;
+}
+
+.aeloria-edit-user-field input:focus,
+.aeloria-edit-user-field select:focus {
+  border-color: #8b5cf6;
+  box-shadow: 0 0 0 3px rgba(139, 92, 246, 0.1);
+}
+
+/* =========================
+   STATUS TOGGLE
+========================= */
+
+.aeloria-edit-user-status-toggle {
+  min-height: 44px;
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  padding: 0 12px;
+  border: 1px solid #e5e7eb;
+  border-radius: 9px;
+  cursor: pointer;
+}
+
+.aeloria-edit-user-status-toggle input {
+  position: absolute;
+  opacity: 0;
+  width: 0 !important;
+  height: 0 !important;
+}
+
+.aeloria-edit-user-toggle-slider {
+  width: 40px;
+  height: 22px;
+  position: relative;
+  flex-shrink: 0;
+  border-radius: 20px;
+  background: #d1d5db;
+  transition: 0.2s ease;
+}
+
+.aeloria-edit-user-toggle-slider::after {
+  content: "";
+  width: 16px;
+  height: 16px;
+  position: absolute;
+  top: 3px;
+  left: 3px;
+  border-radius: 50%;
+  background: #ffffff;
+  box-shadow: 0 1px 3px rgba(0, 0, 0, 0.2);
+  transition: 0.2s ease;
+}
+
+.aeloria-edit-user-status-toggle input:checked
+  + .aeloria-edit-user-toggle-slider {
+  background: #6d28d9;
+}
+
+.aeloria-edit-user-status-toggle input:checked
+  + .aeloria-edit-user-toggle-slider::after {
+  transform: translateX(18px);
+}
+
+.aeloria-edit-user-toggle-text {
+  color: #4b5563;
+  font-size: 12px;
+  font-weight: 600;
+}
+
+/* =========================
+   WARNING
+========================= */
+
+.aeloria-edit-user-warning {
+  display: flex;
+  align-items: flex-start;
+  gap: 10px;
+  padding: 14px;
+  margin-bottom: 24px;
+  border: 1px solid #ddd6fe;
+  border-radius: 10px;
+  background: #faf8ff;
+  color: #6d28d9;
+}
+
+.aeloria-edit-user-warning > span {
+  font-size: 16px;
+}
+
+.aeloria-edit-user-warning strong {
+  display: block;
+  margin-bottom: 3px;
+  font-size: 12px;
+}
+
+.aeloria-edit-user-warning p {
+  margin: 0;
+  color: #6b7280;
+  font-size: 11px;
+  line-height: 1.6;
+}
+
+/* =========================
+   ACTIONS
+========================= */
+
+.aeloria-edit-user-actions {
+  display: flex;
+  justify-content: flex-end;
+  gap: 10px;
+}
+
+.aeloria-edit-user-cancel,
+.aeloria-edit-user-save {
+  min-width: 125px;
+  height: 42px;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  padding: 0 18px;
+  border-radius: 9px;
+  font-size: 13px;
+  font-weight: 700;
+  text-decoration: none;
+  transition: 0.2s ease;
+}
+
+.aeloria-edit-user-cancel {
+  border: 1px solid #e5e7eb;
+  background: #ffffff;
+  color: #6b7280;
+}
+
+.aeloria-edit-user-cancel:hover {
+  border-color: #c4b5fd;
+  background: #f5f3ff;
+  color: #6d28d9;
+}
+
+.aeloria-edit-user-save {
+  border: 0;
+  background: linear-gradient(135deg, #6d28d9, #8b5cf6);
+  color: #ffffff;
+  cursor: pointer;
+  box-shadow: 0 4px 12px rgba(109, 40, 217, 0.2);
+}
+
+.aeloria-edit-user-save:hover {
+  transform: translateY(-1px);
+  box-shadow: 0 6px 16px rgba(109, 40, 217, 0.25);
+}
+
+.aeloria-edit-user-save:disabled {
+  opacity: 0.65;
+  cursor: not-allowed;
+  transform: none;
+}
+
+/* =========================
+   LOADING
+========================= */
+
+.aeloria-edit-user-loading {
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  background: #f8f7fc;
+  color: #6b7280;
+}
+
+.aeloria-edit-user-loading p {
+  margin-top: 12px;
+  font-size: 14px;
+}
+
+.aeloria-edit-user-spinner {
+  width: 38px;
+  height: 38px;
+  border: 3px solid #ddd6fe;
+  border-top-color: #6d28d9;
+  border-radius: 50%;
+  animation: aeloriaEditUserSpin 0.8s linear infinite;
+}
+
+@keyframes aeloriaEditUserSpin {
+  to {
+    transform: rotate(360deg);
+  }
+}
+
+/* =========================
+   RESPONSIVE
+========================= */
+
+@media (max-width: 900px) {
+  .aeloria-edit-user-sidebar {
+    width: 215px;
+  }
+
+  .aeloria-edit-user-main {
+    width: calc(100% - 215px);
+    margin-left: 215px;
+    padding: 24px;
+  }
+
+  .aeloria-edit-user-header {
+    flex-direction: column;
+  }
+}
+
+@media (max-width: 700px) {
+  .aeloria-edit-user-page {
+    display: block;
+  }
+
+  .aeloria-edit-user-sidebar {
+    width: 100%;
+    min-height: auto;
+    position: relative;
+    border-right: 0;
+    border-bottom: 1px solid #e5e7eb;
+  }
+
+  .aeloria-edit-user-sidebar-logo {
+    padding: 16px 20px;
+  }
+
+  .aeloria-edit-user-sidebar-nav {
+    flex-direction: row;
+    padding: 10px 12px;
+    overflow-x: auto;
+  }
+
+  .aeloria-edit-user-nav-item {
+    flex-shrink: 0;
+    padding: 9px 12px;
+    font-size: 12px;
+  }
+
+  .aeloria-edit-user-nav-item span {
+    display: none;
+  }
+
+  .aeloria-edit-user-back-link {
+    display: none;
+  }
+
+  .aeloria-edit-user-main {
+    width: 100%;
+    margin-left: 0;
+    padding: 20px 14px;
+  }
+
+  .aeloria-edit-user-card {
+    border-radius: 13px;
+  }
+
+  .aeloria-edit-user-card-header,
+  .aeloria-edit-user-form {
+    padding: 20px;
+  }
+
+  .aeloria-edit-user-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .aeloria-edit-user-field.full {
+    grid-column: auto;
+  }
+}
+
+@media (max-width: 480px) {
+  .aeloria-edit-user-header h1 {
+    font-size: 24px;
+  }
+
+  .aeloria-edit-user-cancel-top {
+    width: 100%;
+  }
+
+  .aeloria-edit-user-profile-preview {
+    align-items: flex-start;
+  }
+
+  .aeloria-edit-user-avatar {
+    width: 50px;
+    height: 50px;
+    font-size: 15px;
+  }
+
+  .aeloria-edit-user-profile-preview h2 {
+    font-size: 16px;
+  }
+
+  .aeloria-edit-user-message {
+    margin-left: 20px;
+    margin-right: 20px;
+  }
+
+  .aeloria-edit-user-actions {
+    flex-direction: column-reverse;
+  }
+
+  .aeloria-edit-user-cancel,
+  .aeloria-edit-user-save {
+    width: 100%;
+  }
+}

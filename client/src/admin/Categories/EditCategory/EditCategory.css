@@ -1,0 +1,495 @@
+.aeloria-edit-category-page {
+  min-height: 100vh;
+  display: flex;
+  background: #f8f7fc;
+  color: #1f2937;
+}
+
+/* =========================
+   SIDEBAR
+========================= */
+
+.aeloria-edit-category-sidebar {
+  width: 250px;
+  min-height: 100vh;
+  background: #ffffff;
+  border-right: 1px solid #e9e5f5;
+  padding: 24px 16px;
+  position: fixed;
+  top: 0;
+  left: 0;
+  z-index: 20;
+}
+
+.aeloria-edit-category-logo {
+  display: flex;
+  align-items: center;
+  gap: 11px;
+  text-decoration: none;
+  margin-bottom: 35px;
+  padding: 8px;
+}
+
+.aeloria-edit-category-logo-icon {
+  width: 42px;
+  height: 42px;
+  border-radius: 12px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: linear-gradient(135deg, #6d28d9, #8b5cf6);
+  color: #ffffff;
+  font-size: 20px;
+  font-weight: 800;
+  box-shadow: 0 8px 20px rgba(109, 40, 217, 0.2);
+}
+
+.aeloria-edit-category-logo strong {
+  display: block;
+  color: #6d28d9;
+  font-size: 18px;
+  letter-spacing: 0.5px;
+}
+
+.aeloria-edit-category-logo small {
+  display: block;
+  color: #9ca3af;
+  font-size: 11px;
+  margin-top: 2px;
+}
+
+.aeloria-edit-category-nav {
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+}
+
+.aeloria-edit-category-nav a {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  padding: 12px 13px;
+  border-radius: 10px;
+  color: #6b7280;
+  text-decoration: none;
+  font-size: 14px;
+  font-weight: 600;
+  transition: 0.2s ease;
+}
+
+.aeloria-edit-category-nav a:hover {
+  background: #f5f3ff;
+  color: #6d28d9;
+}
+
+.aeloria-edit-category-nav-active {
+  background: #f0eaff !important;
+  color: #6d28d9 !important;
+}
+
+/* =========================
+   MAIN
+========================= */
+
+.aeloria-edit-category-main {
+  flex: 1;
+  margin-left: 250px;
+  padding: 35px;
+  min-width: 0;
+}
+
+.aeloria-edit-category-topbar {
+  margin-bottom: 25px;
+}
+
+.aeloria-edit-category-back {
+  display: inline-flex;
+  align-items: center;
+  color: #6d28d9;
+  text-decoration: none;
+  font-size: 13px;
+  font-weight: 700;
+  margin-bottom: 22px;
+}
+
+.aeloria-edit-category-back:hover {
+  color: #5b21b6;
+}
+
+.aeloria-edit-category-eyebrow {
+  color: #8b5cf6;
+  font-size: 11px;
+  font-weight: 800;
+  letter-spacing: 1.5px;
+  margin-bottom: 5px;
+}
+
+.aeloria-edit-category-topbar h1 {
+  color: #111827;
+  font-size: 32px;
+  line-height: 1.2;
+  margin-bottom: 8px;
+}
+
+.aeloria-edit-category-topbar p:last-child {
+  color: #6b7280;
+  font-size: 14px;
+}
+
+/* =========================
+   ERROR
+========================= */
+
+.aeloria-edit-category-error {
+  background: #fff1f2;
+  border: 1px solid #fecdd3;
+  color: #be123c;
+  border-radius: 10px;
+  padding: 12px 15px;
+  margin-bottom: 20px;
+  font-size: 14px;
+}
+
+/* =========================
+   FORM CARD
+========================= */
+
+.aeloria-edit-category-form {
+  max-width: 950px;
+}
+
+.aeloria-edit-category-card {
+  background: #ffffff;
+  border: 1px solid #ebe7f4;
+  border-radius: 16px;
+  overflow: hidden;
+  box-shadow: 0 4px 15px rgba(31, 41, 55, 0.03);
+}
+
+.aeloria-edit-category-card-header {
+  padding: 22px 25px;
+  border-bottom: 1px solid #eeeaf5;
+}
+
+.aeloria-edit-category-card-header h2 {
+  color: #111827;
+  font-size: 19px;
+  margin-bottom: 5px;
+}
+
+.aeloria-edit-category-card-header p {
+  color: #9ca3af;
+  font-size: 13px;
+}
+
+/* =========================
+   FORM GRID
+========================= */
+
+.aeloria-edit-category-grid {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 20px;
+  padding: 25px;
+}
+
+.aeloria-edit-category-field {
+  display: flex;
+  flex-direction: column;
+  gap: 7px;
+}
+
+.aeloria-edit-category-field label {
+  color: #374151;
+  font-size: 12px;
+  font-weight: 700;
+}
+
+.aeloria-edit-category-field input,
+.aeloria-edit-category-field select,
+.aeloria-edit-category-field textarea {
+  width: 100%;
+  border: 1px solid #e5e7eb;
+  border-radius: 9px;
+  padding: 11px 12px;
+  background: #ffffff;
+  color: #374151;
+  font-size: 13px;
+  outline: none;
+  transition: 0.2s ease;
+}
+
+.aeloria-edit-category-field input::placeholder,
+.aeloria-edit-category-field textarea::placeholder {
+  color: #9ca3af;
+}
+
+.aeloria-edit-category-field input:focus,
+.aeloria-edit-category-field select:focus,
+.aeloria-edit-category-field textarea:focus {
+  border-color: #8b5cf6;
+  box-shadow: 0 0 0 3px rgba(139, 92, 246, 0.08);
+}
+
+.aeloria-edit-category-field textarea {
+  resize: vertical;
+  min-height: 130px;
+  line-height: 1.6;
+}
+
+/* =========================
+   SLUG
+========================= */
+
+.aeloria-edit-category-slug-row {
+  display: flex;
+  gap: 8px;
+}
+
+.aeloria-edit-category-slug-row input {
+  flex: 1;
+}
+
+.aeloria-edit-category-generate {
+  border: none;
+  border-radius: 8px;
+  padding: 0 13px;
+  background: #f1ebff;
+  color: #6d28d9;
+  font-size: 11px;
+  font-weight: 700;
+  white-space: nowrap;
+  cursor: pointer;
+  transition: 0.2s ease;
+}
+
+.aeloria-edit-category-generate:hover {
+  background: #e8ddff;
+}
+
+/* =========================
+   CHECKBOX
+========================= */
+
+.aeloria-edit-category-checkbox {
+  display: flex;
+  align-items: flex-end;
+}
+
+.aeloria-edit-category-checkbox label {
+  min-height: 42px;
+  display: flex;
+  align-items: center;
+  gap: 9px;
+  color: #374151;
+  font-size: 13px;
+  font-weight: 700;
+  cursor: pointer;
+}
+
+.aeloria-edit-category-checkbox input {
+  width: 17px;
+  height: 17px;
+  accent-color: #6d28d9;
+  cursor: pointer;
+}
+
+.aeloria-edit-category-full {
+  grid-column: 1 / -1;
+}
+
+/* =========================
+   ACTIONS
+========================= */
+
+.aeloria-edit-category-actions {
+  display: flex;
+  justify-content: flex-end;
+  align-items: center;
+  gap: 10px;
+  margin-top: 20px;
+  padding-bottom: 30px;
+}
+
+.aeloria-edit-category-cancel,
+.aeloria-edit-category-save {
+  min-width: 125px;
+  padding: 11px 18px;
+  border-radius: 9px;
+  font-size: 13px;
+  font-weight: 700;
+  text-align: center;
+  text-decoration: none;
+  transition: 0.2s ease;
+}
+
+.aeloria-edit-category-cancel {
+  background: #f3f4f6;
+  color: #4b5563;
+  border: none;
+}
+
+.aeloria-edit-category-cancel:hover {
+  background: #e5e7eb;
+}
+
+.aeloria-edit-category-save {
+  border: none;
+  background: #6d28d9;
+  color: #ffffff;
+  cursor: pointer;
+}
+
+.aeloria-edit-category-save:hover {
+  background: #5b21b6;
+  transform: translateY(-1px);
+}
+
+.aeloria-edit-category-save:disabled {
+  opacity: 0.6;
+  cursor: not-allowed;
+  transform: none;
+}
+
+/* =========================
+   LOADING
+========================= */
+
+.aeloria-edit-category-loading {
+  min-height: 100vh;
+  background: #f8f7fc;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-direction: column;
+  gap: 12px;
+  color: #6b7280;
+}
+
+.aeloria-edit-category-loading p {
+  font-size: 14px;
+}
+
+.aeloria-edit-category-spinner {
+  width: 35px;
+  height: 35px;
+  border: 3px solid #e9ddff;
+  border-top-color: #6d28d9;
+  border-radius: 50%;
+  animation: aeloriaEditCategorySpin 0.8s linear infinite;
+}
+
+@keyframes aeloriaEditCategorySpin {
+  to {
+    transform: rotate(360deg);
+  }
+}
+
+/* =========================
+   TABLET
+========================= */
+
+@media (max-width: 1100px) {
+  .aeloria-edit-category-sidebar {
+    width: 220px;
+  }
+
+  .aeloria-edit-category-main {
+    margin-left: 220px;
+    padding: 28px;
+  }
+}
+
+/* =========================
+   MOBILE
+========================= */
+
+@media (max-width: 768px) {
+  .aeloria-edit-category-page {
+    display: block;
+  }
+
+  .aeloria-edit-category-sidebar {
+    position: static;
+    width: 100%;
+    min-height: auto;
+    border-right: none;
+    border-bottom: 1px solid #e9e5f5;
+    padding: 14px;
+  }
+
+  .aeloria-edit-category-logo {
+    margin-bottom: 12px;
+  }
+
+  .aeloria-edit-category-nav {
+    flex-direction: row;
+    overflow-x: auto;
+    padding-bottom: 4px;
+  }
+
+  .aeloria-edit-category-nav a {
+    flex-shrink: 0;
+    white-space: nowrap;
+    padding: 9px 11px;
+    font-size: 12px;
+  }
+
+  .aeloria-edit-category-main {
+    margin-left: 0;
+    padding: 22px 16px;
+  }
+
+  .aeloria-edit-category-topbar h1 {
+    font-size: 27px;
+  }
+
+  .aeloria-edit-category-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .aeloria-edit-category-full {
+    grid-column: auto;
+  }
+
+  .aeloria-edit-category-actions {
+    padding-bottom: 20px;
+  }
+}
+
+/* =========================
+   SMALL MOBILE
+========================= */
+
+@media (max-width: 480px) {
+  .aeloria-edit-category-main {
+    padding: 18px 12px;
+  }
+
+  .aeloria-edit-category-card-header {
+    padding: 18px;
+  }
+
+  .aeloria-edit-category-grid {
+    padding: 18px;
+    gap: 17px;
+  }
+
+  .aeloria-edit-category-slug-row {
+    flex-direction: column;
+  }
+
+  .aeloria-edit-category-generate {
+    min-height: 38px;
+  }
+
+  .aeloria-edit-category-actions {
+    flex-direction: column-reverse;
+    align-items: stretch;
+  }
+
+  .aeloria-edit-category-cancel,
+  .aeloria-edit-category-save {
+    width: 100%;
+  }
+}

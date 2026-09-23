@@ -1,0 +1,357 @@
+.aeloria-practice {
+  width: 100%;
+  background: #ffffff;
+}
+
+/* Hero */
+
+.aeloria-practice-hero {
+  width: 100%;
+  padding: 80px 20px 85px;
+  background: linear-gradient(
+    135deg,
+    #f5f3ff 0%,
+    #ffffff 55%,
+    #fff5f5 100%
+  );
+  border-bottom: 1px solid #eee8ff;
+}
+
+.aeloria-practice-hero-content {
+  max-width: 850px;
+  margin: 0 auto;
+  text-align: center;
+}
+
+.aeloria-practice-label {
+  display: inline-block;
+  margin-bottom: 15px;
+  color: #6d28d9;
+  font-size: 13px;
+  font-weight: 800;
+  letter-spacing: 2px;
+}
+
+.aeloria-practice-title {
+  margin: 0;
+  color: #1f2937;
+  font-size: 48px;
+  line-height: 1.15;
+  font-weight: 800;
+}
+
+.aeloria-practice-title span {
+  display: block;
+  color: #6d28d9;
+}
+
+.aeloria-practice-description {
+  max-width: 680px;
+  margin: 20px auto 30px;
+  color: #6b7280;
+  font-size: 16px;
+  line-height: 1.7;
+}
+
+/* Hero Buttons */
+
+.aeloria-practice-actions {
+  display: flex;
+  justify-content: center;
+  gap: 14px;
+}
+
+.aeloria-practice-primary-button,
+.aeloria-practice-secondary-button {
+  min-width: 150px;
+  padding: 13px 22px;
+  border-radius: 10px;
+  font-size: 14px;
+  font-weight: 700;
+  text-align: center;
+  text-decoration: none;
+  transition: 0.25s ease;
+}
+
+.aeloria-practice-primary-button {
+  color: #ffffff;
+  background: #6d28d9;
+}
+
+.aeloria-practice-primary-button:hover {
+  background: #5b21b6;
+  transform: translateY(-2px);
+}
+
+.aeloria-practice-secondary-button {
+  color: #6d28d9;
+  background: #ffffff;
+  border: 1px solid #c4b5fd;
+}
+
+.aeloria-practice-secondary-button:hover {
+  color: #ffffff;
+  background: #6d28d9;
+  transform: translateY(-2px);
+}
+
+/* Main Content */
+
+.aeloria-practice-content {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 80px 20px;
+}
+
+.aeloria-practice-heading {
+  max-width: 700px;
+  margin: 0 auto 45px;
+  text-align: center;
+}
+
+.aeloria-practice-small-label {
+  color: #ff6b6b;
+  font-size: 12px;
+  font-weight: 800;
+  letter-spacing: 1.5px;
+}
+
+.aeloria-practice-heading h2 {
+  margin: 8px 0 12px;
+  color: #1f2937;
+  font-size: 34px;
+  font-weight: 800;
+}
+
+.aeloria-practice-heading p {
+  margin: 0;
+  color: #6b7280;
+  font-size: 15px;
+  line-height: 1.7;
+}
+
+/* Topic Grid */
+
+.aeloria-practice-topic-grid {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 20px;
+}
+
+.aeloria-practice-topic-card {
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  min-height: 235px;
+  padding: 25px;
+  background: #ffffff;
+  border: 1px solid #e9e3ff;
+  border-radius: 17px;
+  text-decoration: none;
+  box-shadow: 0 8px 25px rgba(109, 40, 217, 0.05);
+  transition:
+    transform 0.3s ease,
+    box-shadow 0.3s ease,
+    border-color 0.3s ease;
+}
+
+.aeloria-practice-topic-card:hover {
+  transform: translateY(-6px);
+  border-color: #c4b5fd;
+  box-shadow: 0 18px 38px rgba(109, 40, 217, 0.12);
+}
+
+.aeloria-practice-topic-icon {
+  width: 52px;
+  height: 52px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin-bottom: 18px;
+  color: #6d28d9;
+  background: #f5f3ff;
+  border-radius: 13px;
+  font-size: 20px;
+  font-weight: 800;
+}
+
+.aeloria-practice-topic-info h3 {
+  margin: 0 0 5px;
+  color: #1f2937;
+  font-size: 18px;
+  font-weight: 750;
+}
+
+.aeloria-practice-topic-info span {
+  display: block;
+  margin-bottom: 10px;
+  color: #6d28d9;
+  font-size: 12px;
+  font-weight: 700;
+}
+
+.aeloria-practice-topic-info p {
+  margin: 0;
+  color: #6b7280;
+  font-size: 13px;
+  line-height: 1.6;
+}
+
+.aeloria-practice-topic-arrow {
+  position: absolute;
+  right: 22px;
+  bottom: 20px;
+  color: #6d28d9;
+  font-size: 18px;
+  font-weight: 700;
+  transition: transform 0.2s ease;
+}
+
+.aeloria-practice-topic-card:hover
+  .aeloria-practice-topic-arrow {
+  transform: translateX(5px);
+}
+
+/* Challenges */
+
+.aeloria-practice-challenges {
+  width: 100%;
+  padding: 80px 20px;
+  background: #f5f3ff;
+}
+
+.aeloria-practice-challenges-container {
+  max-width: 1200px;
+  margin: 0 auto;
+}
+
+.aeloria-practice-challenge-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 22px;
+}
+
+.aeloria-practice-challenge-card {
+  padding: 30px;
+  background: #ffffff;
+  border: 1px solid #e9e3ff;
+  border-radius: 18px;
+  box-shadow: 0 8px 25px rgba(109, 40, 217, 0.05);
+  transition:
+    transform 0.3s ease,
+    box-shadow 0.3s ease;
+}
+
+.aeloria-practice-challenge-card:hover {
+  transform: translateY(-6px);
+  box-shadow: 0 18px 38px rgba(109, 40, 217, 0.12);
+}
+
+.aeloria-practice-challenge-icon {
+  width: 55px;
+  height: 55px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin-bottom: 20px;
+  background: #fff5f5;
+  border-radius: 14px;
+  font-size: 25px;
+}
+
+.aeloria-practice-challenge-card h3 {
+  margin: 0 0 10px;
+  color: #1f2937;
+  font-size: 19px;
+  font-weight: 750;
+}
+
+.aeloria-practice-challenge-card p {
+  margin: 0 0 20px;
+  color: #6b7280;
+  font-size: 14px;
+  line-height: 1.7;
+}
+
+.aeloria-practice-challenge-card a {
+  color: #6d28d9;
+  font-size: 14px;
+  font-weight: 700;
+  text-decoration: none;
+}
+
+.aeloria-practice-challenge-card a:hover {
+  color: #ff6b6b;
+}
+
+/* Tablet */
+
+@media (max-width: 1050px) {
+  .aeloria-practice-topic-grid {
+    grid-template-columns: repeat(2, 1fr);
+  }
+
+  .aeloria-practice-challenge-grid {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
+
+/* Mobile */
+
+@media (max-width: 700px) {
+  .aeloria-practice-hero {
+    padding: 60px 16px 65px;
+  }
+
+  .aeloria-practice-title {
+    font-size: 38px;
+  }
+
+  .aeloria-practice-description {
+    font-size: 14px;
+  }
+
+  .aeloria-practice-actions {
+    flex-direction: column;
+    align-items: stretch;
+    max-width: 300px;
+    margin: 0 auto;
+  }
+
+  .aeloria-practice-content {
+    padding: 60px 16px;
+  }
+
+  .aeloria-practice-heading h2 {
+    font-size: 28px;
+  }
+
+  .aeloria-practice-topic-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .aeloria-practice-challenges {
+    padding: 60px 16px;
+  }
+
+  .aeloria-practice-challenge-grid {
+    grid-template-columns: 1fr;
+  }
+}
+
+/* Small Mobile */
+
+@media (max-width: 420px) {
+  .aeloria-practice-title {
+    font-size: 31px;
+  }
+
+  .aeloria-practice-topic-card {
+    min-height: 215px;
+    padding: 22px;
+  }
+
+  .aeloria-practice-challenge-card {
+    padding: 24px;
+  }
+}

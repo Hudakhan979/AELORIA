@@ -1,0 +1,303 @@
+/* ========================================
+   AELORIA FOOTER
+======================================== */
+
+.aeloria-footer {
+  width: 100%;
+  background: #1f2937;
+  color: #ffffff;
+  margin-top: 60px;
+}
+
+/* ========================================
+   MAIN FOOTER
+======================================== */
+
+.aeloria-footer-container {
+  max-width: 1400px;
+  margin: 0 auto;
+  padding: 65px 28px 55px;
+
+  display: grid;
+  grid-template-columns: 1.3fr 2fr;
+  gap: 80px;
+}
+
+/* ========================================
+   BRAND
+======================================== */
+
+.aeloria-footer-brand {
+  max-width: 380px;
+}
+
+.aeloria-footer-logo {
+  width: 48px;
+  height: 48px;
+
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  border-radius: 13px;
+
+  background: linear-gradient(
+    135deg,
+    #6d28d9,
+    #8b5cf6
+  );
+
+  color: #ffffff;
+  font-size: 23px;
+  font-weight: 800;
+
+  box-shadow: 0 8px 22px rgba(109, 40, 217, 0.3);
+
+  margin-bottom: 18px;
+}
+
+.aeloria-footer-brand-name {
+  margin: 0;
+
+  font-size: 23px;
+  font-weight: 800;
+  letter-spacing: 1.5px;
+}
+
+.aeloria-footer-tagline {
+  margin: 7px 0 16px;
+
+  color: #a78bfa;
+
+  font-size: 12px;
+  font-weight: 600;
+  letter-spacing: 0.5px;
+}
+
+.aeloria-footer-description {
+  max-width: 350px;
+
+  margin: 0 0 24px;
+
+  color: #cbd5e1;
+
+  font-size: 14px;
+  line-height: 1.7;
+}
+
+/* ========================================
+   AI LINK
+======================================== */
+
+.aeloria-footer-ai-link {
+  display: inline-flex;
+  align-items: center;
+  gap: 7px;
+
+  padding: 10px 15px;
+
+  border: 1px solid rgba(167, 139, 250, 0.4);
+  border-radius: 8px;
+
+  color: #ddd6fe;
+  text-decoration: none;
+
+  font-size: 13px;
+  font-weight: 600;
+
+  transition:
+    background 0.25s ease,
+    border-color 0.25s ease,
+    transform 0.25s ease;
+}
+
+.aeloria-footer-ai-link:hover {
+  background: rgba(109, 40, 217, 0.2);
+  border-color: #8b5cf6;
+  transform: translateY(-2px);
+}
+
+/* ========================================
+   FOOTER LINKS
+======================================== */
+
+.aeloria-footer-links-wrapper {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 35px;
+}
+
+.aeloria-footer-link-section {
+  min-width: 0;
+}
+
+.aeloria-footer-section-title {
+  margin: 4px 0 20px;
+
+  color: #ffffff;
+
+  font-size: 14px;
+  font-weight: 700;
+}
+
+.aeloria-footer-link-list {
+  display: flex;
+  flex-direction: column;
+  gap: 11px;
+}
+
+.aeloria-footer-link {
+  width: fit-content;
+
+  color: #cbd5e1;
+  text-decoration: none;
+
+  font-size: 13px;
+  line-height: 1.5;
+
+  transition:
+    color 0.2s ease,
+    transform 0.2s ease;
+}
+
+.aeloria-footer-link:hover {
+  color: #ff6b6b;
+  transform: translateX(3px);
+}
+
+/* ========================================
+   BOTTOM FOOTER
+======================================== */
+
+.aeloria-footer-bottom {
+  border-top: 1px solid rgba(255, 255, 255, 0.08);
+}
+
+.aeloria-footer-bottom-container {
+  max-width: 1400px;
+  min-height: 65px;
+
+  margin: 0 auto;
+  padding: 15px 28px;
+
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 20px;
+}
+
+.aeloria-footer-copyright {
+  margin: 0;
+
+  color: #94a3b8;
+
+  font-size: 12px;
+}
+
+.aeloria-footer-legal-links {
+  display: flex;
+  align-items: center;
+  gap: 22px;
+}
+
+.aeloria-footer-legal-link {
+  color: #94a3b8;
+  text-decoration: none;
+
+  font-size: 12px;
+
+  transition: color 0.2s ease;
+}
+
+.aeloria-footer-legal-link:hover {
+  color: #ffffff;
+}
+
+/* ========================================
+   TABLET
+======================================== */
+
+@media (max-width: 1024px) {
+  .aeloria-footer-container {
+    grid-template-columns: 1fr;
+    gap: 45px;
+    padding: 55px 25px 45px;
+  }
+
+  .aeloria-footer-brand {
+    max-width: 500px;
+  }
+
+  .aeloria-footer-links-wrapper {
+    gap: 25px;
+  }
+}
+
+/* ========================================
+   MOBILE
+======================================== */
+
+@media (max-width: 768px) {
+  .aeloria-footer-container {
+    padding: 45px 20px 40px;
+    gap: 40px;
+  }
+
+  .aeloria-footer-links-wrapper {
+    grid-template-columns: repeat(2, 1fr);
+    gap: 35px 25px;
+  }
+
+  .aeloria-footer-bottom-container {
+    padding: 20px;
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 15px;
+  }
+
+  .aeloria-footer-legal-links {
+    flex-wrap: wrap;
+    gap: 12px 20px;
+  }
+}
+
+/* ========================================
+   SMALL MOBILE
+======================================== */
+
+@media (max-width: 480px) {
+  .aeloria-footer-container {
+    padding: 40px 16px 35px;
+  }
+
+  .aeloria-footer-logo {
+    width: 44px;
+    height: 44px;
+    font-size: 21px;
+  }
+
+  .aeloria-footer-brand-name {
+    font-size: 20px;
+  }
+
+  .aeloria-footer-description {
+    font-size: 13px;
+  }
+
+  .aeloria-footer-links-wrapper {
+    grid-template-columns: 1fr;
+    gap: 30px;
+  }
+
+  .aeloria-footer-section-title {
+    margin-bottom: 14px;
+  }
+
+  .aeloria-footer-bottom-container {
+    padding: 18px 16px;
+  }
+
+  .aeloria-footer-copyright {
+    line-height: 1.5;
+  }
+}

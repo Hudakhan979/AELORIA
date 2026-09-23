@@ -1,0 +1,740 @@
+/* =========================================================
+   AELORIA ADMIN - TUTORIAL MANAGEMENT
+   ========================================================= */
+
+.aeloria-admin-tutorials-page {
+  min-height: 100vh;
+  padding: 32px;
+  background: #f8f7fc;
+  color: #1f2937;
+}
+
+/* ================= HEADER ================= */
+
+.aeloria-admin-tutorials-header {
+  display: flex;
+  align-items: flex-start;
+  justify-content: space-between;
+  gap: 24px;
+  margin-bottom: 28px;
+}
+
+.aeloria-admin-tutorials-header h1 {
+  margin: 8px 0 6px;
+  font-size: 30px;
+  font-weight: 800;
+  color: #1f2937;
+}
+
+.aeloria-admin-tutorials-header p {
+  margin: 0;
+  color: #6b7280;
+  font-size: 14px;
+}
+
+.aeloria-admin-tutorials-back {
+  display: inline-flex;
+  align-items: center;
+  color: #6d28d9;
+  text-decoration: none;
+  font-size: 14px;
+  font-weight: 700;
+}
+
+.aeloria-admin-tutorials-back:hover {
+  color: #5b21b6;
+}
+
+.aeloria-admin-tutorials-add-btn {
+  border: none;
+  border-radius: 10px;
+  padding: 13px 20px;
+  background: #6d28d9;
+  color: #ffffff;
+  font-size: 14px;
+  font-weight: 700;
+  transition: 0.2s ease;
+  white-space: nowrap;
+}
+
+.aeloria-admin-tutorials-add-btn:hover {
+  background: #5b21b6;
+  transform: translateY(-1px);
+}
+
+/* ================= ERROR ================= */
+
+.aeloria-admin-tutorials-error {
+  margin-bottom: 22px;
+  padding: 13px 16px;
+  border: 1px solid #fecaca;
+  border-radius: 10px;
+  background: #fef2f2;
+  color: #b91c1c;
+  font-size: 14px;
+  font-weight: 600;
+}
+
+/* ================= STATS ================= */
+
+.aeloria-admin-tutorials-stats {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 18px;
+  margin-bottom: 24px;
+}
+
+.aeloria-admin-tutorial-stat-card {
+  display: flex;
+  align-items: center;
+  gap: 15px;
+  padding: 20px;
+  border: 1px solid #e9e5f5;
+  border-radius: 14px;
+  background: #ffffff;
+  box-shadow: 0 4px 18px rgba(31, 41, 55, 0.04);
+}
+
+.aeloria-admin-tutorial-stat-icon {
+  width: 48px;
+  height: 48px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border-radius: 12px;
+  background: #f5f3ff;
+  font-size: 23px;
+}
+
+.aeloria-admin-tutorial-stat-card h3 {
+  margin: 0 0 2px;
+  font-size: 25px;
+  font-weight: 800;
+  color: #1f2937;
+}
+
+.aeloria-admin-tutorial-stat-card p {
+  margin: 0;
+  color: #6b7280;
+  font-size: 13px;
+}
+
+/* ================= TOOLBAR ================= */
+
+.aeloria-admin-tutorials-toolbar {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  margin-bottom: 22px;
+  padding: 16px;
+  border: 1px solid #e9e5f5;
+  border-radius: 14px;
+  background: #ffffff;
+}
+
+.aeloria-admin-tutorial-search {
+  flex: 1;
+  min-width: 220px;
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  padding: 0 13px;
+  height: 44px;
+  border: 1px solid #ddd8eb;
+  border-radius: 9px;
+  background: #ffffff;
+}
+
+.aeloria-admin-tutorial-search span {
+  font-size: 16px;
+}
+
+.aeloria-admin-tutorial-search input {
+  width: 100%;
+  border: none;
+  outline: none;
+  color: #1f2937;
+  background: transparent;
+  font-size: 14px;
+}
+
+.aeloria-admin-tutorial-search input::placeholder {
+  color: #9ca3af;
+}
+
+.aeloria-admin-tutorials-toolbar select {
+  height: 44px;
+  min-width: 155px;
+  padding: 0 12px;
+  border: 1px solid #ddd8eb;
+  border-radius: 9px;
+  outline: none;
+  background: #ffffff;
+  color: #374151;
+  font-size: 14px;
+  cursor: pointer;
+}
+
+.aeloria-admin-tutorials-toolbar select:focus,
+.aeloria-admin-tutorial-search:focus-within {
+  border-color: #8b5cf6;
+}
+
+/* ================= LIST ================= */
+
+.aeloria-admin-tutorials-list {
+  display: flex;
+  flex-direction: column;
+  gap: 14px;
+}
+
+.aeloria-admin-tutorial-card {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 24px;
+  padding: 20px;
+  border: 1px solid #e9e5f5;
+  border-radius: 14px;
+  background: #ffffff;
+  box-shadow: 0 4px 18px rgba(31, 41, 55, 0.04);
+  transition: 0.2s ease;
+}
+
+.aeloria-admin-tutorial-card:hover {
+  border-color: #d8c9f7;
+  box-shadow: 0 8px 25px rgba(109, 40, 217, 0.08);
+}
+
+.aeloria-admin-tutorial-card-main {
+  min-width: 0;
+  display: flex;
+  align-items: flex-start;
+  gap: 16px;
+  flex: 1;
+}
+
+.aeloria-admin-tutorial-card-icon {
+  width: 52px;
+  height: 52px;
+  flex-shrink: 0;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border-radius: 13px;
+  background: #f5f3ff;
+  font-size: 24px;
+}
+
+.aeloria-admin-tutorial-card-info {
+  min-width: 0;
+  flex: 1;
+}
+
+.aeloria-admin-tutorial-card-top {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  margin-bottom: 6px;
+}
+
+.aeloria-admin-tutorial-card-top h2 {
+  margin: 0;
+  color: #1f2937;
+  font-size: 18px;
+  font-weight: 750;
+}
+
+.aeloria-admin-tutorial-status {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  padding: 4px 9px;
+  border-radius: 999px;
+  font-size: 11px;
+  font-weight: 800;
+  text-transform: capitalize;
+}
+
+.aeloria-admin-tutorial-status.published {
+  background: #ecfdf5;
+  color: #047857;
+}
+
+.aeloria-admin-tutorial-status.draft {
+  background: #fff7ed;
+  color: #c2410c;
+}
+
+.aeloria-admin-tutorial-description {
+  max-width: 850px;
+  margin: 0 0 10px;
+  color: #6b7280;
+  font-size: 13px;
+  line-height: 1.6;
+}
+
+.aeloria-admin-tutorial-meta {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 14px;
+  color: #6b7280;
+  font-size: 12px;
+}
+
+.aeloria-admin-tutorial-actions {
+  display: flex;
+  align-items: center;
+  justify-content: flex-end;
+  flex-wrap: wrap;
+  gap: 8px;
+  flex-shrink: 0;
+}
+
+.aeloria-admin-tutorial-actions a,
+.aeloria-admin-tutorial-actions button {
+  min-height: 36px;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  border-radius: 8px;
+  padding: 0 11px;
+  font-size: 12px;
+  font-weight: 700;
+  text-decoration: none;
+  cursor: pointer;
+  transition: 0.2s ease;
+}
+
+.aeloria-admin-tutorial-edit {
+  border: 1px solid #ddd6fe;
+  background: #f5f3ff;
+  color: #6d28d9;
+}
+
+.aeloria-admin-tutorial-edit:hover {
+  background: #ede9fe;
+}
+
+.aeloria-admin-tutorial-topics {
+  border: 1px solid #fed7aa;
+  background: #fff7ed;
+  color: #c2410c;
+}
+
+.aeloria-admin-tutorial-topics:hover {
+  background: #ffedd5;
+}
+
+.aeloria-admin-tutorial-view {
+  border: 1px solid #dbeafe;
+  background: #eff6ff;
+  color: #2563eb;
+}
+
+.aeloria-admin-tutorial-view:hover {
+  background: #dbeafe;
+}
+
+.aeloria-admin-tutorial-status-btn {
+  border: 1px solid #d1d5db;
+  background: #ffffff;
+  color: #374151;
+}
+
+.aeloria-admin-tutorial-status-btn:hover {
+  border-color: #8b5cf6;
+  color: #6d28d9;
+}
+
+.aeloria-admin-tutorial-delete {
+  width: 36px;
+  padding: 0 !important;
+  border: 1px solid #fecaca;
+  background: #fef2f2;
+  color: #dc2626;
+}
+
+.aeloria-admin-tutorial-delete:hover {
+  background: #fee2e2;
+}
+
+/* ================= EMPTY ================= */
+
+.aeloria-admin-tutorials-empty {
+  padding: 60px 20px;
+  border: 1px dashed #d8d0e8;
+  border-radius: 15px;
+  background: #ffffff;
+  text-align: center;
+}
+
+.aeloria-admin-tutorials-empty-icon {
+  margin-bottom: 12px;
+  font-size: 42px;
+}
+
+.aeloria-admin-tutorials-empty h2 {
+  margin: 0 0 7px;
+  color: #1f2937;
+  font-size: 20px;
+}
+
+.aeloria-admin-tutorials-empty p {
+  margin: 0 auto 20px;
+  max-width: 450px;
+  color: #6b7280;
+  font-size: 14px;
+}
+
+.aeloria-admin-tutorials-empty-btn {
+  border: none;
+  border-radius: 9px;
+  padding: 11px 17px;
+  background: #6d28d9;
+  color: #ffffff;
+  font-size: 13px;
+  font-weight: 700;
+}
+
+.aeloria-admin-tutorials-empty-btn:hover {
+  background: #5b21b6;
+}
+
+/* ================= LOADING ================= */
+
+.aeloria-admin-tutorials-loading {
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: 12px;
+  background: #f8f7fc;
+  color: #6b7280;
+}
+
+.aeloria-admin-tutorials-spinner {
+  width: 38px;
+  height: 38px;
+  border: 4px solid #e9d5ff;
+  border-top-color: #6d28d9;
+  border-radius: 50%;
+  animation: aeloriaTutorialSpin 0.8s linear infinite;
+}
+
+@keyframes aeloriaTutorialSpin {
+  to {
+    transform: rotate(360deg);
+  }
+}
+
+/* ================= MODAL ================= */
+
+.aeloria-admin-tutorial-modal-overlay {
+  position: fixed;
+  inset: 0;
+  z-index: 1000;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 20px;
+  background: rgba(17, 24, 39, 0.55);
+}
+
+.aeloria-admin-tutorial-modal {
+  width: 100%;
+  max-width: 620px;
+  max-height: 90vh;
+  overflow-y: auto;
+  border-radius: 16px;
+  background: #ffffff;
+  box-shadow: 0 20px 60px rgba(0, 0, 0, 0.18);
+}
+
+.aeloria-admin-tutorial-modal-header {
+  display: flex;
+  align-items: flex-start;
+  justify-content: space-between;
+  gap: 20px;
+  padding: 22px 24px;
+  border-bottom: 1px solid #eeeaf5;
+}
+
+.aeloria-admin-tutorial-modal-header h2 {
+  margin: 0 0 4px;
+  color: #1f2937;
+  font-size: 21px;
+}
+
+.aeloria-admin-tutorial-modal-header p {
+  margin: 0;
+  color: #6b7280;
+  font-size: 13px;
+}
+
+.aeloria-admin-tutorial-modal-close {
+  width: 34px;
+  height: 34px;
+  border: none;
+  border-radius: 8px;
+  background: #f3f4f6;
+  color: #4b5563;
+  font-size: 24px;
+  line-height: 1;
+}
+
+.aeloria-admin-tutorial-modal-close:hover {
+  background: #e5e7eb;
+}
+
+.aeloria-admin-tutorial-modal form {
+  padding: 24px;
+}
+
+.aeloria-admin-tutorial-form-row {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 15px;
+}
+
+.aeloria-admin-tutorial-form-group {
+  margin-bottom: 17px;
+}
+
+.aeloria-admin-tutorial-form-group label {
+  display: block;
+  margin-bottom: 7px;
+  color: #374151;
+  font-size: 13px;
+  font-weight: 700;
+}
+
+.aeloria-admin-tutorial-form-group input,
+.aeloria-admin-tutorial-form-group select,
+.aeloria-admin-tutorial-form-group textarea {
+  width: 100%;
+  border: 1px solid #ddd8eb;
+  border-radius: 9px;
+  outline: none;
+  padding: 11px 12px;
+  background: #ffffff;
+  color: #1f2937;
+  font-size: 14px;
+  transition: 0.2s ease;
+}
+
+.aeloria-admin-tutorial-form-group input,
+.aeloria-admin-tutorial-form-group select {
+  height: 44px;
+}
+
+.aeloria-admin-tutorial-form-group textarea {
+  min-height: 120px;
+  resize: vertical;
+  line-height: 1.5;
+}
+
+.aeloria-admin-tutorial-form-group input:focus,
+.aeloria-admin-tutorial-form-group select:focus,
+.aeloria-admin-tutorial-form-group textarea:focus {
+  border-color: #8b5cf6;
+  box-shadow: 0 0 0 3px rgba(139, 92, 246, 0.1);
+}
+
+.aeloria-admin-tutorial-form-group input:disabled,
+.aeloria-admin-tutorial-form-group select:disabled,
+.aeloria-admin-tutorial-form-group textarea:disabled {
+  background: #f9fafb;
+  cursor: not-allowed;
+}
+
+.aeloria-admin-tutorial-modal-actions {
+  display: flex;
+  justify-content: flex-end;
+  gap: 10px;
+  padding-top: 5px;
+}
+
+.aeloria-admin-tutorial-cancel-btn,
+.aeloria-admin-tutorial-save-btn {
+  min-height: 42px;
+  border-radius: 9px;
+  padding: 0 18px;
+  font-size: 13px;
+  font-weight: 700;
+  cursor: pointer;
+}
+
+.aeloria-admin-tutorial-cancel-btn {
+  border: 1px solid #d1d5db;
+  background: #ffffff;
+  color: #374151;
+}
+
+.aeloria-admin-tutorial-cancel-btn:hover {
+  background: #f9fafb;
+}
+
+.aeloria-admin-tutorial-save-btn {
+  border: none;
+  background: #6d28d9;
+  color: #ffffff;
+}
+
+.aeloria-admin-tutorial-save-btn:hover {
+  background: #5b21b6;
+}
+
+.aeloria-admin-tutorial-cancel-btn:disabled,
+.aeloria-admin-tutorial-save-btn:disabled,
+.aeloria-admin-tutorial-modal-close:disabled {
+  opacity: 0.6;
+  cursor: not-allowed;
+}
+
+/* ================= TABLET ================= */
+
+@media (max-width: 1000px) {
+  .aeloria-admin-tutorial-card {
+    align-items: flex-start;
+    flex-direction: column;
+  }
+
+  .aeloria-admin-tutorial-actions {
+    width: 100%;
+    justify-content: flex-start;
+  }
+}
+
+/* ================= MOBILE ================= */
+
+@media (max-width: 768px) {
+  .aeloria-admin-tutorials-page {
+    padding: 22px 16px;
+  }
+
+  .aeloria-admin-tutorials-header {
+    flex-direction: column;
+    gap: 18px;
+  }
+
+  .aeloria-admin-tutorials-header h1 {
+    font-size: 25px;
+  }
+
+  .aeloria-admin-tutorials-add-btn {
+    width: 100%;
+  }
+
+  .aeloria-admin-tutorials-stats {
+    grid-template-columns: 1fr;
+  }
+
+  .aeloria-admin-tutorials-toolbar {
+    flex-direction: column;
+    align-items: stretch;
+  }
+
+  .aeloria-admin-tutorial-search {
+    min-width: 0;
+  }
+
+  .aeloria-admin-tutorials-toolbar select {
+    width: 100%;
+  }
+
+  .aeloria-admin-tutorial-card {
+    padding: 16px;
+  }
+
+  .aeloria-admin-tutorial-card-main {
+    gap: 12px;
+  }
+
+  .aeloria-admin-tutorial-card-icon {
+    width: 44px;
+    height: 44px;
+    font-size: 20px;
+  }
+
+  .aeloria-admin-tutorial-card-top {
+    align-items: flex-start;
+    flex-direction: column;
+    gap: 7px;
+  }
+
+  .aeloria-admin-tutorial-card-top h2 {
+    font-size: 16px;
+  }
+
+  .aeloria-admin-tutorial-actions {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+  }
+
+  .aeloria-admin-tutorial-actions a,
+  .aeloria-admin-tutorial-actions button {
+    width: 100%;
+  }
+
+  .aeloria-admin-tutorial-delete {
+    width: 100%;
+  }
+
+  .aeloria-admin-tutorial-form-row {
+    grid-template-columns: 1fr;
+    gap: 0;
+  }
+
+  .aeloria-admin-tutorial-modal {
+    max-height: 94vh;
+  }
+}
+
+/* ================= SMALL MOBILE ================= */
+
+@media (max-width: 480px) {
+  .aeloria-admin-tutorials-page {
+    padding: 18px 12px;
+  }
+
+  .aeloria-admin-tutorials-header h1 {
+    font-size: 22px;
+  }
+
+  .aeloria-admin-tutorials-header p {
+    font-size: 13px;
+  }
+
+  .aeloria-admin-tutorial-stat-card {
+    padding: 16px;
+  }
+
+  .aeloria-admin-tutorial-card-main {
+    align-items: flex-start;
+  }
+
+  .aeloria-admin-tutorial-meta {
+    flex-direction: column;
+    gap: 5px;
+  }
+
+  .aeloria-admin-tutorial-modal-overlay {
+    padding: 10px;
+  }
+
+  .aeloria-admin-tutorial-modal-header,
+  .aeloria-admin-tutorial-modal form {
+    padding: 18px;
+  }
+
+  .aeloria-admin-tutorial-modal-actions {
+    flex-direction: column-reverse;
+  }
+
+  .aeloria-admin-tutorial-cancel-btn,
+  .aeloria-admin-tutorial-save-btn {
+    width: 100%;
+  }
+}

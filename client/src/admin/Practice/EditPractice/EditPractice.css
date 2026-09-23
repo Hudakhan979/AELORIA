@@ -1,0 +1,696 @@
+/* =========================================
+   AELORIA - EDIT PRACTICE
+   ========================================= */
+
+.aeloria-edit-practice-page {
+  min-height: 100vh;
+  background: #f8f7fc;
+  padding: 40px 24px 60px;
+}
+
+.aeloria-edit-practice-container {
+  width: 100%;
+  max-width: 1150px;
+  margin: 0 auto;
+}
+
+/* =========================================
+   HEADER
+   ========================================= */
+
+.aeloria-edit-practice-header {
+  display: flex;
+  align-items: flex-end;
+  justify-content: space-between;
+  gap: 24px;
+  margin-bottom: 28px;
+}
+
+.aeloria-edit-practice-header h1 {
+  margin: 10px 0 6px;
+  color: #1f2937;
+  font-size: 32px;
+  font-weight: 800;
+  line-height: 1.2;
+}
+
+.aeloria-edit-practice-header p {
+  margin: 0;
+  color: #6b7280;
+  font-size: 15px;
+}
+
+.aeloria-edit-practice-back {
+  display: inline-flex;
+  align-items: center;
+  color: #6d28d9;
+  font-size: 14px;
+  font-weight: 700;
+  text-decoration: none;
+  transition: 0.2s ease;
+}
+
+.aeloria-edit-practice-back:hover {
+  color: #5b21b6;
+}
+
+.aeloria-edit-practice-view {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  min-height: 44px;
+  padding: 0 18px;
+  border: 1px solid #ddd6fe;
+  border-radius: 10px;
+  background: #ffffff;
+  color: #6d28d9;
+  font-size: 14px;
+  font-weight: 700;
+  text-decoration: none;
+  transition: 0.2s ease;
+}
+
+.aeloria-edit-practice-view:hover {
+  background: #f5f3ff;
+  border-color: #8b5cf6;
+}
+
+/* =========================================
+   ERROR
+   ========================================= */
+
+.aeloria-edit-practice-error {
+  margin-bottom: 20px;
+  padding: 13px 16px;
+  border: 1px solid #fecaca;
+  border-radius: 10px;
+  background: #fef2f2;
+  color: #b91c1c;
+  font-size: 14px;
+  font-weight: 600;
+}
+
+.aeloria-edit-practice-error-page {
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: 20px;
+  padding: 30px;
+  background: #f8f7fc;
+  text-align: center;
+}
+
+.aeloria-edit-practice-error-page h2 {
+  margin: 0;
+  color: #1f2937;
+  font-size: 24px;
+}
+
+.aeloria-edit-practice-back-button {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  min-height: 44px;
+  padding: 0 18px;
+  border-radius: 10px;
+  background: #6d28d9;
+  color: #ffffff;
+  font-size: 14px;
+  font-weight: 700;
+  text-decoration: none;
+}
+
+/* =========================================
+   CARD
+   ========================================= */
+
+.aeloria-edit-practice-card {
+  margin-bottom: 22px;
+  padding: 26px;
+  border: 1px solid #e5e7eb;
+  border-radius: 16px;
+  background: #ffffff;
+  box-shadow: 0 4px 18px rgba(31, 41, 55, 0.04);
+}
+
+.aeloria-edit-practice-card-header {
+  margin-bottom: 22px;
+  padding-bottom: 16px;
+  border-bottom: 1px solid #f0eef5;
+}
+
+.aeloria-edit-practice-card-header h2 {
+  margin: 0 0 5px;
+  color: #1f2937;
+  font-size: 20px;
+  font-weight: 800;
+}
+
+.aeloria-edit-practice-card-header p {
+  margin: 0;
+  color: #6b7280;
+  font-size: 14px;
+}
+
+/* =========================================
+   FORM GRID
+   ========================================= */
+
+.aeloria-edit-practice-grid {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 20px;
+}
+
+.aeloria-edit-practice-field {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+}
+
+.aeloria-edit-practice-field.full {
+  grid-column: 1 / -1;
+}
+
+.aeloria-edit-practice-field label {
+  color: #374151;
+  font-size: 14px;
+  font-weight: 700;
+}
+
+.aeloria-edit-practice-field input,
+.aeloria-edit-practice-field textarea,
+.aeloria-edit-practice-field select {
+  width: 100%;
+  border: 1px solid #d1d5db;
+  border-radius: 10px;
+  outline: none;
+  background: #ffffff;
+  color: #1f2937;
+  font-size: 14px;
+  transition: all 0.2s ease;
+}
+
+.aeloria-edit-practice-field input,
+.aeloria-edit-practice-field select {
+  height: 46px;
+  padding: 0 14px;
+}
+
+.aeloria-edit-practice-field textarea {
+  min-height: 120px;
+  padding: 12px 14px;
+  resize: vertical;
+  line-height: 1.6;
+}
+
+.aeloria-edit-practice-field input::placeholder,
+.aeloria-edit-practice-field textarea::placeholder {
+  color: #9ca3af;
+}
+
+.aeloria-edit-practice-field input:focus,
+.aeloria-edit-practice-field textarea:focus,
+.aeloria-edit-practice-field select:focus {
+  border-color: #8b5cf6;
+  box-shadow: 0 0 0 3px rgba(139, 92, 246, 0.12);
+}
+
+.aeloria-edit-practice-field small {
+  color: #9ca3af;
+  font-size: 12px;
+}
+
+/* =========================================
+   CODE EDITORS
+   ========================================= */
+
+.aeloria-edit-practice-field textarea[name="starterCode"],
+.aeloria-edit-practice-field textarea[name="solution"] {
+  min-height: 300px;
+  padding: 15px;
+  background: #111827;
+  border-color: #374151;
+  color: #f9fafb;
+  font-family: "Courier New", Courier, monospace;
+  font-size: 13px;
+  line-height: 1.7;
+  tab-size: 2;
+}
+
+.aeloria-edit-practice-field textarea[name="starterCode"]::placeholder,
+.aeloria-edit-practice-field textarea[name="solution"]::placeholder {
+  color: #9ca3af;
+}
+
+.aeloria-edit-practice-field textarea[name="starterCode"]:focus,
+.aeloria-edit-practice-field textarea[name="solution"]:focus {
+  border-color: #8b5cf6;
+  box-shadow: 0 0 0 3px rgba(139, 92, 246, 0.15);
+}
+
+/* =========================================
+   TEST CASE FORM
+   ========================================= */
+
+.aeloria-edit-practice-test-form {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 18px;
+  padding: 20px;
+  border: 1px solid #ede9fe;
+  border-radius: 12px;
+  background: #faf9ff;
+}
+
+.aeloria-edit-practice-hidden {
+  display: flex;
+  align-items: center;
+  gap: 9px;
+  width: fit-content;
+  color: #4b5563;
+  font-size: 13px;
+  font-weight: 600;
+  cursor: pointer;
+}
+
+.aeloria-edit-practice-hidden input {
+  width: 17px;
+  height: 17px;
+  accent-color: #6d28d9;
+  cursor: pointer;
+}
+
+.aeloria-edit-practice-test-buttons {
+  display: flex;
+  align-items: center;
+  justify-content: flex-end;
+  gap: 9px;
+}
+
+.aeloria-edit-practice-test-add,
+.aeloria-edit-practice-test-cancel {
+  min-height: 42px;
+  padding: 0 15px;
+  border-radius: 9px;
+  font-size: 13px;
+  font-weight: 700;
+  cursor: pointer;
+}
+
+.aeloria-edit-practice-test-add {
+  border: none;
+  background: #6d28d9;
+  color: #ffffff;
+}
+
+.aeloria-edit-practice-test-add:hover {
+  background: #5b21b6;
+}
+
+.aeloria-edit-practice-test-cancel {
+  border: 1px solid #d1d5db;
+  background: #ffffff;
+  color: #4b5563;
+}
+
+/* =========================================
+   TEST CASE LIST
+   ========================================= */
+
+.aeloria-edit-practice-test-list {
+  display: flex;
+  flex-direction: column;
+  gap: 14px;
+  margin-top: 20px;
+}
+
+.aeloria-edit-practice-test-card {
+  overflow: hidden;
+  border: 1px solid #e5e7eb;
+  border-radius: 12px;
+  background: #ffffff;
+}
+
+.aeloria-edit-practice-test-number {
+  padding: 11px 15px;
+  border-bottom: 1px solid #e5e7eb;
+  background: #f9fafb;
+  color: #374151;
+  font-size: 13px;
+  font-weight: 800;
+}
+
+.aeloria-edit-practice-test-content {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 18px;
+  padding: 18px;
+}
+
+.aeloria-edit-practice-test-content > div {
+  min-width: 0;
+}
+
+.aeloria-edit-practice-test-content span {
+  display: block;
+  margin-bottom: 7px;
+  color: #6b7280;
+  font-size: 12px;
+  font-weight: 700;
+}
+
+.aeloria-edit-practice-test-content pre {
+  min-height: 80px;
+  margin: 0;
+  overflow-x: auto;
+  padding: 12px;
+  border-radius: 8px;
+  background: #111827;
+  color: #f9fafb;
+  font-family: "Courier New", Courier, monospace;
+  font-size: 12px;
+  line-height: 1.6;
+  white-space: pre-wrap;
+  word-break: break-word;
+}
+
+.aeloria-edit-practice-test-footer {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 15px;
+  padding: 12px 15px;
+  border-top: 1px solid #f0eef5;
+}
+
+.aeloria-edit-practice-test-footer > span {
+  font-size: 12px;
+  font-weight: 700;
+}
+
+.aeloria-edit-practice-test-footer > span.visible {
+  color: #059669;
+}
+
+.aeloria-edit-practice-test-footer > span.hidden {
+  color: #d97706;
+}
+
+.aeloria-edit-practice-test-footer > div {
+  display: flex;
+  gap: 7px;
+}
+
+.aeloria-edit-practice-test-footer button {
+  min-height: 34px;
+  padding: 0 11px;
+  border: 1px solid #e5e7eb;
+  border-radius: 7px;
+  background: #ffffff;
+  color: #4b5563;
+  font-size: 12px;
+  font-weight: 700;
+  cursor: pointer;
+  transition: 0.2s ease;
+}
+
+.aeloria-edit-practice-test-footer button:first-child:hover {
+  border-color: #c4b5fd;
+  background: #f5f3ff;
+}
+
+.aeloria-edit-practice-test-footer button:last-child:hover {
+  border-color: #fecaca;
+  background: #fef2f2;
+  color: #b91c1c;
+}
+
+/* =========================================
+   PUBLISHING
+   ========================================= */
+
+.aeloria-edit-practice-publishing {
+  display: grid;
+  grid-template-columns: 260px 1fr;
+  align-items: center;
+  gap: 28px;
+}
+
+.aeloria-edit-practice-featured {
+  display: flex;
+  align-items: flex-start;
+  gap: 12px;
+  padding: 15px;
+  border: 1px solid #e5e7eb;
+  border-radius: 12px;
+  background: #fafafa;
+  cursor: pointer;
+}
+
+.aeloria-edit-practice-featured input {
+  width: 18px;
+  height: 18px;
+  margin-top: 2px;
+  accent-color: #6d28d9;
+  cursor: pointer;
+}
+
+.aeloria-edit-practice-featured span {
+  display: flex;
+  flex-direction: column;
+  gap: 3px;
+}
+
+.aeloria-edit-practice-featured strong {
+  color: #374151;
+  font-size: 14px;
+}
+
+.aeloria-edit-practice-featured small {
+  color: #6b7280;
+  font-size: 12px;
+}
+
+/* =========================================
+   ACTIONS
+   ========================================= */
+
+.aeloria-edit-practice-actions {
+  display: flex;
+  align-items: center;
+  justify-content: flex-end;
+  gap: 12px;
+  margin-top: 26px;
+}
+
+.aeloria-edit-practice-cancel,
+.aeloria-edit-practice-save {
+  min-height: 46px;
+  padding: 0 22px;
+  border-radius: 10px;
+  font-size: 14px;
+  font-weight: 700;
+  text-decoration: none;
+  transition: all 0.2s ease;
+}
+
+.aeloria-edit-practice-cancel {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  border: 1px solid #d1d5db;
+  background: #ffffff;
+  color: #4b5563;
+}
+
+.aeloria-edit-practice-cancel:hover {
+  background: #f9fafb;
+}
+
+.aeloria-edit-practice-save {
+  border: none;
+  background: #6d28d9;
+  color: #ffffff;
+  cursor: pointer;
+  box-shadow: 0 5px 14px rgba(109, 40, 217, 0.2);
+}
+
+.aeloria-edit-practice-save:hover {
+  background: #5b21b6;
+  transform: translateY(-1px);
+}
+
+.aeloria-edit-practice-save:disabled {
+  opacity: 0.65;
+  cursor: not-allowed;
+  transform: none;
+}
+
+/* =========================================
+   LOADING
+   ========================================= */
+
+.aeloria-edit-practice-loading {
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: 14px;
+  background: #f8f7fc;
+  color: #6b7280;
+  font-size: 15px;
+}
+
+.aeloria-edit-practice-spinner {
+  width: 38px;
+  height: 38px;
+  border: 4px solid #ede9fe;
+  border-top-color: #6d28d9;
+  border-radius: 50%;
+  animation: aeloria-edit-practice-spin 0.8s linear infinite;
+}
+
+@keyframes aeloria-edit-practice-spin {
+  to {
+    transform: rotate(360deg);
+  }
+}
+
+/* =========================================
+   TABLET
+   ========================================= */
+
+@media (max-width: 900px) {
+  .aeloria-edit-practice-page {
+    padding: 30px 18px 50px;
+  }
+
+  .aeloria-edit-practice-publishing {
+    grid-template-columns: 1fr;
+    gap: 20px;
+  }
+}
+
+/* =========================================
+   MOBILE
+   ========================================= */
+
+@media (max-width: 700px) {
+  .aeloria-edit-practice-page {
+    padding: 26px 15px 45px;
+  }
+
+  .aeloria-edit-practice-header {
+    flex-direction: column;
+    align-items: stretch;
+    gap: 18px;
+  }
+
+  .aeloria-edit-practice-header h1 {
+    font-size: 27px;
+  }
+
+  .aeloria-edit-practice-view {
+    width: 100%;
+  }
+
+  .aeloria-edit-practice-grid {
+    grid-template-columns: 1fr;
+    gap: 16px;
+  }
+
+  .aeloria-edit-practice-field.full {
+    grid-column: auto;
+  }
+
+  .aeloria-edit-practice-card {
+    padding: 20px 16px;
+    border-radius: 13px;
+  }
+
+  .aeloria-edit-practice-card-header {
+    margin-bottom: 18px;
+  }
+
+  .aeloria-edit-practice-test-form {
+    grid-template-columns: 1fr;
+    padding: 15px;
+  }
+
+  .aeloria-edit-practice-test-buttons {
+    justify-content: stretch;
+    flex-direction: column;
+  }
+
+  .aeloria-edit-practice-test-add,
+  .aeloria-edit-practice-test-cancel {
+    width: 100%;
+  }
+
+  .aeloria-edit-practice-test-content {
+    grid-template-columns: 1fr;
+  }
+
+  .aeloria-edit-practice-test-footer {
+    flex-direction: column;
+    align-items: stretch;
+  }
+
+  .aeloria-edit-practice-test-footer > div {
+    width: 100%;
+  }
+
+  .aeloria-edit-practice-test-footer button {
+    flex: 1;
+  }
+
+  .aeloria-edit-practice-actions {
+    flex-direction: column-reverse;
+    align-items: stretch;
+  }
+
+  .aeloria-edit-practice-cancel,
+  .aeloria-edit-practice-save {
+    width: 100%;
+  }
+}
+
+/* =========================================
+   SMALL MOBILE
+   ========================================= */
+
+@media (max-width: 420px) {
+  .aeloria-edit-practice-page {
+    padding: 22px 12px 40px;
+  }
+
+  .aeloria-edit-practice-header h1 {
+    font-size: 24px;
+  }
+
+  .aeloria-edit-practice-header p {
+    font-size: 13px;
+  }
+
+  .aeloria-edit-practice-card {
+    padding: 17px 13px;
+  }
+
+  .aeloria-edit-practice-card-header h2 {
+    font-size: 18px;
+  }
+
+  .aeloria-edit-practice-field textarea[name="starterCode"],
+  .aeloria-edit-practice-field textarea[name="solution"] {
+    min-height: 240px;
+    font-size: 12px;
+  }
+
+  .aeloria-edit-practice-test-content {
+    padding: 13px;
+  }
+}

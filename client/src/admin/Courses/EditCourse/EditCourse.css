@@ -1,0 +1,474 @@
+/* =========================================================
+   AELORIA - EDIT COURSE
+   ========================================================= */
+
+.aeloria-edit-course {
+  min-height: 100vh;
+  background: #f8f7fc;
+  color: #1f2937;
+  padding: 42px 50px 70px;
+}
+
+/* =========================================================
+   HEADER
+   ========================================================= */
+
+.aeloria-edit-course-header {
+  max-width: 1180px;
+  margin: 0 auto 30px;
+}
+
+.aeloria-edit-course-back {
+  border: none;
+  background: transparent;
+  color: #6d28d9;
+  font-size: 14px;
+  font-weight: 700;
+  padding: 0;
+  margin-bottom: 22px;
+  transition: 0.2s ease;
+}
+
+.aeloria-edit-course-back:hover {
+  color: #4c1d95;
+  transform: translateX(-3px);
+}
+
+.aeloria-edit-course-label {
+  display: block;
+  color: #6d28d9;
+  font-size: 12px;
+  font-weight: 800;
+  letter-spacing: 1.5px;
+  margin-bottom: 8px;
+}
+
+.aeloria-edit-course-header h1 {
+  margin: 0;
+  font-size: 38px;
+  line-height: 1.15;
+  font-weight: 800;
+  color: #111827;
+}
+
+.aeloria-edit-course-header p {
+  margin: 10px 0 0;
+  color: #6b7280;
+  font-size: 15px;
+}
+
+/* =========================================================
+   ERROR
+   ========================================================= */
+
+.aeloria-edit-course-error {
+  max-width: 1180px;
+  margin: 0 auto 24px;
+  padding: 14px 18px;
+  border: 1px solid #fecaca;
+  border-radius: 10px;
+  background: #fef2f2;
+  color: #b91c1c;
+  font-size: 14px;
+  font-weight: 600;
+}
+
+/* =========================================================
+   FORM
+   ========================================================= */
+
+.aeloria-edit-course-form {
+  max-width: 1180px;
+  margin: 0 auto;
+}
+
+/* =========================================================
+   SECTION
+   ========================================================= */
+
+.aeloria-edit-course-section {
+  background: #ffffff;
+  border: 1px solid #e9e5f5;
+  border-radius: 16px;
+  padding: 30px;
+  margin-bottom: 22px;
+  box-shadow: 0 5px 20px rgba(31, 41, 55, 0.04);
+}
+
+.aeloria-edit-course-section-heading {
+  display: flex;
+  align-items: center;
+  gap: 15px;
+  padding-bottom: 22px;
+  margin-bottom: 25px;
+  border-bottom: 1px solid #eeeaf7;
+}
+
+.aeloria-edit-course-section-icon {
+  width: 48px;
+  height: 48px;
+  border-radius: 12px;
+  background: #f5f3ff;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 22px;
+  flex-shrink: 0;
+}
+
+.aeloria-edit-course-section-heading h2 {
+  margin: 0 0 4px;
+  color: #111827;
+  font-size: 20px;
+  font-weight: 750;
+}
+
+.aeloria-edit-course-section-heading p {
+  margin: 0;
+  color: #6b7280;
+  font-size: 13px;
+}
+
+/* =========================================================
+   FIELDS
+   ========================================================= */
+
+.aeloria-edit-course-fields {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 22px;
+}
+
+.aeloria-edit-course-field {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+}
+
+.aeloria-edit-course-field.full {
+  grid-column: 1 / -1;
+}
+
+.aeloria-edit-course-field label {
+  color: #374151;
+  font-size: 13px;
+  font-weight: 700;
+}
+
+.aeloria-edit-course-field input,
+.aeloria-edit-course-field select,
+.aeloria-edit-course-field textarea {
+  width: 100%;
+  border: 1px solid #ddd8ed;
+  border-radius: 10px;
+  background: #ffffff;
+  color: #1f2937;
+  font-size: 14px;
+  outline: none;
+  transition:
+    border-color 0.2s ease,
+    box-shadow 0.2s ease;
+}
+
+.aeloria-edit-course-field input,
+.aeloria-edit-course-field select {
+  height: 48px;
+  padding: 0 14px;
+}
+
+.aeloria-edit-course-field textarea {
+  padding: 13px 14px;
+  min-height: 150px;
+  resize: vertical;
+  line-height: 1.6;
+}
+
+.aeloria-edit-course-field input::placeholder,
+.aeloria-edit-course-field textarea::placeholder {
+  color: #9ca3af;
+}
+
+.aeloria-edit-course-field input:focus,
+.aeloria-edit-course-field select:focus,
+.aeloria-edit-course-field textarea:focus {
+  border-color: #8b5cf6;
+  box-shadow: 0 0 0 3px rgba(139, 92, 246, 0.12);
+}
+
+/* =========================================================
+   STATUS OPTIONS
+   ========================================================= */
+
+.aeloria-edit-course-status-options {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 18px;
+}
+
+.aeloria-edit-course-status-option {
+  display: flex;
+  align-items: flex-start;
+  gap: 13px;
+  padding: 18px;
+  border: 1px solid #e4dfef;
+  border-radius: 12px;
+  background: #ffffff;
+  cursor: pointer;
+  transition:
+    border-color 0.2s ease,
+    background 0.2s ease,
+    transform 0.2s ease;
+}
+
+.aeloria-edit-course-status-option:hover {
+  border-color: #c4b5fd;
+  transform: translateY(-2px);
+}
+
+.aeloria-edit-course-status-option.active {
+  border-color: #8b5cf6;
+  background: #f8f5ff;
+}
+
+.aeloria-edit-course-status-option input {
+  width: 17px;
+  height: 17px;
+  margin-top: 2px;
+  accent-color: #6d28d9;
+  flex-shrink: 0;
+}
+
+.aeloria-edit-course-status-option div {
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+}
+
+.aeloria-edit-course-status-option strong {
+  color: #1f2937;
+  font-size: 15px;
+}
+
+.aeloria-edit-course-status-option span {
+  color: #6b7280;
+  font-size: 13px;
+  line-height: 1.5;
+}
+
+/* =========================================================
+   ACTIONS
+   ========================================================= */
+
+.aeloria-edit-course-actions {
+  display: flex;
+  justify-content: flex-end;
+  align-items: center;
+  gap: 12px;
+  margin-top: 28px;
+}
+
+.aeloria-edit-course-cancel,
+.aeloria-edit-course-save {
+  min-width: 150px;
+  height: 48px;
+  padding: 0 22px;
+  border-radius: 10px;
+  font-size: 14px;
+  font-weight: 750;
+  transition:
+    transform 0.2s ease,
+    box-shadow 0.2s ease,
+    background 0.2s ease;
+}
+
+.aeloria-edit-course-cancel {
+  border: 1px solid #ddd8ed;
+  background: #ffffff;
+  color: #4b5563;
+}
+
+.aeloria-edit-course-cancel:hover:not(:disabled) {
+  background: #f5f3ff;
+  color: #6d28d9;
+}
+
+.aeloria-edit-course-save {
+  border: none;
+  background: #6d28d9;
+  color: #ffffff;
+  box-shadow: 0 7px 18px rgba(109, 40, 217, 0.22);
+}
+
+.aeloria-edit-course-save:hover:not(:disabled) {
+  background: #5b21b6;
+  transform: translateY(-2px);
+  box-shadow: 0 10px 22px rgba(109, 40, 217, 0.28);
+}
+
+.aeloria-edit-course-cancel:disabled,
+.aeloria-edit-course-save:disabled {
+  opacity: 0.6;
+  cursor: not-allowed;
+}
+
+/* =========================================================
+   LOADING
+   ========================================================= */
+
+.aeloria-edit-course-loading {
+  min-height: 70vh;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+}
+
+.aeloria-edit-course-loading > div {
+  width: 70px;
+  height: 70px;
+  border-radius: 18px;
+  background: #f5f3ff;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 32px;
+  margin-bottom: 18px;
+}
+
+.aeloria-edit-course-loading h2 {
+  margin: 0 0 6px;
+  color: #111827;
+  font-size: 22px;
+}
+
+.aeloria-edit-course-loading p {
+  margin: 0;
+  color: #6b7280;
+  font-size: 14px;
+}
+
+/* =========================================================
+   TABLET
+   ========================================================= */
+
+@media (max-width: 900px) {
+  .aeloria-edit-course {
+    padding: 35px 28px 60px;
+  }
+
+  .aeloria-edit-course-header h1 {
+    font-size: 34px;
+  }
+
+  .aeloria-edit-course-section {
+    padding: 25px;
+  }
+
+  .aeloria-edit-course-fields {
+    gap: 18px;
+  }
+}
+
+/* =========================================================
+   MOBILE
+   ========================================================= */
+
+@media (max-width: 700px) {
+  .aeloria-edit-course {
+    padding: 25px 18px 50px;
+  }
+
+  .aeloria-edit-course-header {
+    margin-bottom: 22px;
+  }
+
+  .aeloria-edit-course-header h1 {
+    font-size: 29px;
+  }
+
+  .aeloria-edit-course-header p {
+    font-size: 14px;
+  }
+
+  .aeloria-edit-course-section {
+    padding: 20px;
+    border-radius: 13px;
+  }
+
+  .aeloria-edit-course-section-heading {
+    gap: 12px;
+    padding-bottom: 18px;
+    margin-bottom: 20px;
+  }
+
+  .aeloria-edit-course-section-icon {
+    width: 42px;
+    height: 42px;
+    border-radius: 10px;
+    font-size: 19px;
+  }
+
+  .aeloria-edit-course-section-heading h2 {
+    font-size: 18px;
+  }
+
+  .aeloria-edit-course-section-heading p {
+    font-size: 12px;
+  }
+
+  .aeloria-edit-course-fields {
+    grid-template-columns: 1fr;
+    gap: 17px;
+  }
+
+  .aeloria-edit-course-field.full {
+    grid-column: auto;
+  }
+
+  .aeloria-edit-course-status-options {
+    grid-template-columns: 1fr;
+  }
+
+  .aeloria-edit-course-actions {
+    flex-direction: column-reverse;
+    align-items: stretch;
+  }
+
+  .aeloria-edit-course-cancel,
+  .aeloria-edit-course-save {
+    width: 100%;
+  }
+}
+
+/* =========================================================
+   SMALL MOBILE
+   ========================================================= */
+
+@media (max-width: 420px) {
+  .aeloria-edit-course {
+    padding: 20px 14px 40px;
+  }
+
+  .aeloria-edit-course-header h1 {
+    font-size: 26px;
+  }
+
+  .aeloria-edit-course-section {
+    padding: 17px;
+  }
+
+  .aeloria-edit-course-back {
+    font-size: 13px;
+  }
+
+  .aeloria-edit-course-field input,
+  .aeloria-edit-course-field select {
+    height: 46px;
+    font-size: 13px;
+  }
+
+  .aeloria-edit-course-field textarea {
+    font-size: 13px;
+  }
+}

@@ -1,0 +1,478 @@
+.aeloria-admin-login {
+  min-height: calc(100vh - 130px);
+  padding: 60px 20px;
+  background:
+    radial-gradient(circle at 10% 20%, #f5f3ff 0, transparent 30%),
+    radial-gradient(circle at 90% 80%, #fff1f1 0, transparent 30%),
+    #ffffff;
+}
+
+.aeloria-admin-login-container {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  max-width: 1050px;
+  min-height: 620px;
+  margin: 0 auto;
+  overflow: hidden;
+  border: 1px solid #ebe7f5;
+  border-radius: 24px;
+  background: #ffffff;
+  box-shadow: 0 20px 60px rgba(31, 41, 55, 0.08);
+}
+
+/* LEFT */
+
+.aeloria-admin-login-info {
+  position: relative;
+  padding: 55px;
+  overflow: hidden;
+  background: linear-gradient(
+    145deg,
+    #f5f3ff 0%,
+    #ede9fe 60%,
+    #fff5f5 100%
+  );
+}
+
+.aeloria-admin-login-info::before {
+  content: "";
+  position: absolute;
+  width: 300px;
+  height: 300px;
+  top: -120px;
+  right: -110px;
+  border-radius: 50%;
+  background: rgba(109, 40, 217, 0.1);
+}
+
+.aeloria-admin-login-info::after {
+  content: "";
+  position: absolute;
+  width: 200px;
+  height: 200px;
+  bottom: -80px;
+  left: -80px;
+  border-radius: 50%;
+  background: rgba(255, 107, 107, 0.1);
+}
+
+.aeloria-admin-login-brand {
+  position: relative;
+  z-index: 1;
+  display: flex;
+  align-items: center;
+  gap: 12px;
+}
+
+.aeloria-admin-login-brand-icon {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 45px;
+  height: 45px;
+  border-radius: 12px;
+  background: #6d28d9;
+  color: #ffffff;
+  font-size: 22px;
+  font-weight: 800;
+  box-shadow: 0 8px 20px rgba(109, 40, 217, 0.25);
+}
+
+.aeloria-admin-login-brand h2 {
+  margin: 0;
+  color: #1f2937;
+  font-size: 18px;
+  font-weight: 800;
+  letter-spacing: 1px;
+}
+
+.aeloria-admin-login-brand span {
+  display: block;
+  margin-top: 2px;
+  color: #6b7280;
+  font-size: 11px;
+}
+
+.aeloria-admin-login-info-content {
+  position: relative;
+  z-index: 1;
+  margin-top: 115px;
+}
+
+.aeloria-admin-login-label {
+  display: inline-block;
+  margin-bottom: 15px;
+  color: #6d28d9;
+  font-size: 12px;
+  font-weight: 800;
+  letter-spacing: 1.5px;
+}
+
+.aeloria-admin-login-info-content h1 {
+  margin: 0;
+  color: #1f2937;
+  font-size: 46px;
+  line-height: 1.15;
+  font-weight: 800;
+}
+
+.aeloria-admin-login-info-content h1 span {
+  color: #6d28d9;
+}
+
+.aeloria-admin-login-info-content > p {
+  max-width: 450px;
+  margin: 20px 0 32px;
+  color: #6b7280;
+  font-size: 15px;
+  line-height: 1.7;
+}
+
+.aeloria-admin-login-features {
+  display: flex;
+  flex-direction: column;
+  gap: 15px;
+}
+
+.aeloria-admin-login-features div {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+}
+
+.aeloria-admin-login-features div > span {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 26px;
+  height: 26px;
+  border-radius: 50%;
+  background: #ffffff;
+  color: #6d28d9;
+  font-size: 13px;
+  font-weight: 800;
+}
+
+.aeloria-admin-login-features p {
+  margin: 0;
+  color: #4b5563;
+  font-size: 14px;
+}
+
+/* FORM */
+
+.aeloria-admin-login-form-section {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 50px;
+}
+
+.aeloria-admin-login-card {
+  width: 100%;
+  max-width: 410px;
+}
+
+.aeloria-admin-login-card-icon {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 55px;
+  height: 55px;
+  margin: 0 auto 18px;
+  border-radius: 15px;
+  background: #f5f3ff;
+  color: #6d28d9;
+  font-size: 25px;
+}
+
+.aeloria-admin-login-header {
+  margin-bottom: 30px;
+  text-align: center;
+}
+
+.aeloria-admin-login-header > span {
+  color: #ff6b6b;
+  font-size: 11px;
+  font-weight: 800;
+  letter-spacing: 1.4px;
+}
+
+.aeloria-admin-login-header h2 {
+  margin: 8px 0;
+  color: #1f2937;
+  font-size: 29px;
+  font-weight: 800;
+}
+
+.aeloria-admin-login-header p {
+  margin: 0;
+  color: #6b7280;
+  font-size: 13px;
+}
+
+/* FIELDS */
+
+.aeloria-admin-login-field {
+  margin-bottom: 20px;
+}
+
+.aeloria-admin-login-field label {
+  display: block;
+  margin-bottom: 8px;
+  color: #374151;
+  font-size: 13px;
+  font-weight: 700;
+}
+
+.aeloria-admin-login-field input {
+  width: 100%;
+  padding: 13px 14px;
+  border: 1px solid #ddd6fe;
+  border-radius: 10px;
+  outline: none;
+  background: #ffffff;
+  color: #1f2937;
+  font-size: 14px;
+  transition: 0.25s ease;
+}
+
+.aeloria-admin-login-field input:focus {
+  border-color: #8b5cf6;
+  box-shadow: 0 0 0 3px rgba(139, 92, 246, 0.1);
+}
+
+.aeloria-admin-login-field input::placeholder {
+  color: #9ca3af;
+}
+
+/* PASSWORD */
+
+.aeloria-admin-login-password {
+  position: relative;
+}
+
+.aeloria-admin-login-password input {
+  padding-right: 50px;
+}
+
+.aeloria-admin-login-password button {
+  position: absolute;
+  top: 50%;
+  right: 10px;
+  width: 30px;
+  height: 30px;
+  padding: 0;
+  transform: translateY(-50%);
+  border: none;
+  background: transparent;
+  color: #6d28d9;
+  font-size: 17px;
+}
+
+/* OPTIONS */
+
+.aeloria-admin-login-options {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 15px;
+  margin: 3px 0 23px;
+}
+
+.aeloria-admin-login-options label {
+  display: flex;
+  align-items: center;
+  gap: 7px;
+  color: #6b7280;
+  font-size: 12px;
+  cursor: pointer;
+}
+
+.aeloria-admin-login-options input {
+  width: 15px;
+  height: 15px;
+  accent-color: #6d28d9;
+}
+
+.aeloria-admin-login-options a {
+  color: #6d28d9;
+  font-size: 12px;
+  font-weight: 600;
+  text-decoration: none;
+}
+
+.aeloria-admin-login-options a:hover {
+  color: #ff6b6b;
+}
+
+/* BUTTON */
+
+.aeloria-admin-login-submit {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 10px;
+  width: 100%;
+  padding: 14px 20px;
+  border: none;
+  border-radius: 10px;
+  background: #6d28d9;
+  color: #ffffff;
+  font-size: 14px;
+  font-weight: 700;
+  transition: 0.25s ease;
+}
+
+.aeloria-admin-login-submit:hover {
+  background: #5b21b6;
+  transform: translateY(-2px);
+  box-shadow: 0 8px 20px rgba(109, 40, 217, 0.2);
+}
+
+.aeloria-admin-login-submit span {
+  font-size: 18px;
+}
+
+/* SECURITY */
+
+.aeloria-admin-login-security {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 8px;
+  margin-top: 24px;
+  padding: 12px;
+  border: 1px solid #eee7f5;
+  border-radius: 9px;
+  background: #faf9ff;
+}
+
+.aeloria-admin-login-security span {
+  font-size: 13px;
+}
+
+.aeloria-admin-login-security p {
+  margin: 0;
+  color: #6b7280;
+  font-size: 11px;
+}
+
+/* BACK */
+
+.aeloria-admin-login-back {
+  margin-top: 22px;
+  text-align: center;
+}
+
+.aeloria-admin-login-back a {
+  color: #6d28d9;
+  font-size: 12px;
+  font-weight: 700;
+  text-decoration: none;
+}
+
+.aeloria-admin-login-back a:hover {
+  color: #ff6b6b;
+}
+
+/* TABLET */
+
+@media (max-width: 900px) {
+  .aeloria-admin-login-container {
+    grid-template-columns: 1fr;
+    max-width: 600px;
+  }
+
+  .aeloria-admin-login-info {
+    min-height: 430px;
+    padding: 40px;
+  }
+
+  .aeloria-admin-login-info-content {
+    margin-top: 60px;
+  }
+
+  .aeloria-admin-login-info-content h1 {
+    font-size: 38px;
+  }
+
+  .aeloria-admin-login-form-section {
+    padding: 45px 35px;
+  }
+}
+
+/* MOBILE */
+
+@media (max-width: 600px) {
+  .aeloria-admin-login {
+    padding: 25px 14px;
+  }
+
+  .aeloria-admin-login-container {
+    border-radius: 18px;
+  }
+
+  .aeloria-admin-login-info {
+    min-height: auto;
+    padding: 30px 25px;
+  }
+
+  .aeloria-admin-login-info-content {
+    margin-top: 50px;
+  }
+
+  .aeloria-admin-login-info-content h1 {
+    font-size: 32px;
+  }
+
+  .aeloria-admin-login-info-content > p {
+    font-size: 14px;
+  }
+
+  .aeloria-admin-login-form-section {
+    padding: 35px 22px;
+  }
+
+  .aeloria-admin-login-header h2 {
+    font-size: 25px;
+  }
+}
+
+/* SMALL MOBILE */
+
+@media (max-width: 400px) {
+  .aeloria-admin-login-info {
+    padding: 25px 20px;
+  }
+
+  .aeloria-admin-login-info-content h1 {
+    font-size: 29px;
+  }
+
+  .aeloria-admin-login-form-section {
+    padding: 30px 18px;
+  }
+
+  .aeloria-admin-login-options {
+    align-items: flex-start;
+    flex-direction: column;
+  }
+}
+
+.aeloria-admin-login-error {
+  width: 100%;
+  margin-bottom: 18px;
+  padding: 12px 14px;
+  border-radius: 10px;
+  background: #fff1f2;
+  border: 1px solid #fecdd3;
+  color: #be123c;
+  font-size: 14px;
+  font-weight: 600;
+}
+
+.aeloria-admin-login-submit:disabled {
+  opacity: 0.7;
+  cursor: not-allowed;
+}

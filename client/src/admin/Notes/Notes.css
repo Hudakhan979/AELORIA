@@ -1,0 +1,755 @@
+/* =========================================
+   AELORIA ADMIN - NOTES MANAGEMENT
+========================================= */
+
+.aeloria-admin-notes-page {
+  min-height: 100vh;
+  background: #f8f7fc;
+  color: #1f2937;
+}
+
+/* =========================================
+   HEADER
+========================================= */
+
+.aeloria-admin-notes-header {
+  background: #ffffff;
+  border-bottom: 1px solid #e5e7eb;
+  padding: 28px 40px;
+  display: flex;
+  align-items: flex-end;
+  justify-content: space-between;
+  gap: 24px;
+}
+
+.aeloria-admin-notes-back {
+  display: inline-flex;
+  align-items: center;
+  margin-bottom: 10px;
+  color: #6d28d9;
+  text-decoration: none;
+  font-size: 14px;
+  font-weight: 700;
+  transition: 0.2s ease;
+}
+
+.aeloria-admin-notes-back:hover {
+  color: #5b21b6;
+  transform: translateX(-2px);
+}
+
+.aeloria-admin-notes-header h1 {
+  margin: 0;
+  color: #1f2937;
+  font-size: 30px;
+  font-weight: 800;
+}
+
+.aeloria-admin-notes-header p {
+  margin: 7px 0 0;
+  color: #6b7280;
+  font-size: 15px;
+}
+
+.aeloria-admin-notes-add-btn {
+  border: none;
+  border-radius: 9px;
+  background: #6d28d9;
+  color: #ffffff;
+  padding: 12px 20px;
+  font-size: 14px;
+  font-weight: 700;
+  transition: 0.2s ease;
+}
+
+.aeloria-admin-notes-add-btn:hover {
+  background: #5b21b6;
+  transform: translateY(-1px);
+  box-shadow: 0 7px 18px rgba(109, 40, 217, 0.2);
+}
+
+/* =========================================
+   MAIN
+========================================= */
+
+.aeloria-admin-notes-container {
+  max-width: 1450px;
+  margin: 0 auto;
+  padding: 32px 40px 50px;
+}
+
+/* =========================================
+   ERROR
+========================================= */
+
+.aeloria-admin-notes-error {
+  margin-bottom: 22px;
+  padding: 13px 16px;
+  border: 1px solid #fecdd3;
+  border-radius: 9px;
+  background: #fff1f2;
+  color: #be123c;
+  font-size: 14px;
+  font-weight: 600;
+}
+
+/* =========================================
+   STATS
+========================================= */
+
+.aeloria-admin-notes-stats {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 18px;
+  margin-bottom: 25px;
+}
+
+.aeloria-admin-notes-stat-card {
+  background: #ffffff;
+  border: 1px solid #e5e7eb;
+  border-radius: 13px;
+  padding: 20px;
+  display: flex;
+  align-items: center;
+  gap: 15px;
+  box-shadow: 0 4px 15px rgba(31, 41, 55, 0.035);
+}
+
+.aeloria-admin-notes-stat-icon {
+  width: 48px;
+  height: 48px;
+  flex-shrink: 0;
+  border-radius: 11px;
+  background: #f5f3ff;
+  color: #6d28d9;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 21px;
+}
+
+.aeloria-admin-notes-stat-icon.published {
+  background: #ecfdf5;
+  color: #059669;
+}
+
+.aeloria-admin-notes-stat-icon.draft {
+  background: #fff7ed;
+  color: #ea580c;
+}
+
+.aeloria-admin-notes-stat-card span {
+  display: block;
+  margin-bottom: 3px;
+  color: #6b7280;
+  font-size: 12px;
+  font-weight: 600;
+}
+
+.aeloria-admin-notes-stat-card strong {
+  color: #1f2937;
+  font-size: 23px;
+  font-weight: 800;
+}
+
+/* =========================================
+   TOOLBAR
+========================================= */
+
+.aeloria-admin-notes-toolbar {
+  background: #ffffff;
+  border: 1px solid #e5e7eb;
+  border-radius: 13px;
+  padding: 15px;
+  margin-bottom: 24px;
+  display: flex;
+  align-items: center;
+  gap: 12px;
+}
+
+.aeloria-admin-notes-search {
+  flex: 1;
+  min-width: 220px;
+  height: 42px;
+  border: 1px solid #d1d5db;
+  border-radius: 8px;
+  display: flex;
+  align-items: center;
+  gap: 9px;
+  padding: 0 12px;
+}
+
+.aeloria-admin-notes-search span {
+  font-size: 14px;
+}
+
+.aeloria-admin-notes-search input {
+  width: 100%;
+  height: 100%;
+  border: none;
+  outline: none;
+  color: #1f2937;
+  background: transparent;
+  font-size: 14px;
+}
+
+.aeloria-admin-notes-search input::placeholder {
+  color: #9ca3af;
+}
+
+.aeloria-admin-notes-toolbar select {
+  height: 42px;
+  min-width: 150px;
+  border: 1px solid #d1d5db;
+  border-radius: 8px;
+  padding: 0 12px;
+  outline: none;
+  background: #ffffff;
+  color: #374151;
+  font-size: 13px;
+  cursor: pointer;
+}
+
+.aeloria-admin-notes-toolbar select:focus,
+.aeloria-admin-notes-search:focus-within {
+  border-color: #8b5cf6;
+  box-shadow: 0 0 0 3px rgba(139, 92, 246, 0.08);
+}
+
+/* =========================================
+   LIST
+========================================= */
+
+.aeloria-admin-notes-list {
+  background: #ffffff;
+  border: 1px solid #e5e7eb;
+  border-radius: 13px;
+  overflow: hidden;
+}
+
+.aeloria-admin-notes-list-header {
+  padding: 21px 23px;
+  border-bottom: 1px solid #e5e7eb;
+}
+
+.aeloria-admin-notes-list-header h2 {
+  margin: 0;
+  color: #1f2937;
+  font-size: 19px;
+  font-weight: 800;
+}
+
+.aeloria-admin-notes-list-header p {
+  margin: 4px 0 0;
+  color: #6b7280;
+  font-size: 13px;
+}
+
+/* =========================================
+   NOTES GRID
+========================================= */
+
+.aeloria-admin-notes-grid {
+  padding: 20px;
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  gap: 17px;
+}
+
+.aeloria-admin-note-card {
+  border: 1px solid #e5e7eb;
+  border-radius: 12px;
+  background: #ffffff;
+  overflow: hidden;
+  transition: 0.2s ease;
+}
+
+.aeloria-admin-note-card:hover {
+  border-color: #c4b5fd;
+  box-shadow: 0 7px 20px rgba(109, 40, 217, 0.08);
+  transform: translateY(-2px);
+}
+
+.aeloria-admin-note-card-top {
+  padding: 16px 16px 0;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 10px;
+}
+
+.aeloria-admin-note-icon {
+  width: 43px;
+  height: 43px;
+  border-radius: 10px;
+  background: #f5f3ff;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 20px;
+}
+
+.aeloria-admin-note-status {
+  padding: 5px 9px;
+  border-radius: 20px;
+  font-size: 10px;
+  font-weight: 800;
+}
+
+.aeloria-admin-note-status.published {
+  background: #ecfdf5;
+  color: #047857;
+}
+
+.aeloria-admin-note-status.draft {
+  background: #fff7ed;
+  color: #c2410c;
+}
+
+.aeloria-admin-note-card-content {
+  padding: 16px;
+}
+
+.aeloria-admin-note-card-content h3 {
+  margin: 0 0 7px;
+  color: #1f2937;
+  font-size: 16px;
+  font-weight: 800;
+  line-height: 1.4;
+}
+
+.aeloria-admin-note-description {
+  margin: 0;
+  min-height: 40px;
+  color: #6b7280;
+  font-size: 13px;
+  line-height: 1.55;
+}
+
+.aeloria-admin-note-meta {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 6px;
+  margin-top: 14px;
+}
+
+.aeloria-admin-note-meta span {
+  padding: 5px 8px;
+  background: #f9fafb;
+  border: 1px solid #e5e7eb;
+  border-radius: 6px;
+  color: #6b7280;
+  font-size: 10px;
+  font-weight: 600;
+}
+
+.aeloria-admin-note-actions {
+  border-top: 1px solid #f3f4f6;
+  padding: 11px 13px;
+  display: flex;
+  align-items: center;
+  justify-content: flex-end;
+  gap: 7px;
+}
+
+.aeloria-admin-note-edit,
+.aeloria-admin-note-view,
+.aeloria-admin-note-toggle,
+.aeloria-admin-note-delete {
+  width: 34px;
+  height: 34px;
+  border: 1px solid #e5e7eb;
+  border-radius: 7px;
+  background: #ffffff;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  text-decoration: none;
+  font-size: 13px;
+  cursor: pointer;
+  transition: 0.2s ease;
+}
+
+.aeloria-admin-note-edit:hover {
+  background: #f5f3ff;
+  border-color: #c4b5fd;
+}
+
+.aeloria-admin-note-view:hover {
+  background: #eff6ff;
+  border-color: #bfdbfe;
+}
+
+.aeloria-admin-note-toggle:hover {
+  background: #fff7ed;
+  border-color: #fed7aa;
+}
+
+.aeloria-admin-note-delete:hover {
+  background: #fff1f2;
+  border-color: #fecdd3;
+}
+
+/* =========================================
+   EMPTY STATE
+========================================= */
+
+.aeloria-admin-notes-empty {
+  padding: 70px 25px;
+  text-align: center;
+}
+
+.aeloria-admin-notes-empty > div {
+  width: 65px;
+  height: 65px;
+  margin: 0 auto 15px;
+  border-radius: 15px;
+  background: #f5f3ff;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 28px;
+}
+
+.aeloria-admin-notes-empty h3 {
+  margin: 0;
+  color: #1f2937;
+  font-size: 18px;
+  font-weight: 800;
+}
+
+.aeloria-admin-notes-empty p {
+  margin: 7px 0 0;
+  color: #6b7280;
+  font-size: 13px;
+}
+
+/* =========================================
+   MODAL
+========================================= */
+
+.aeloria-admin-notes-modal-overlay {
+  position: fixed;
+  inset: 0;
+  z-index: 1000;
+  padding: 25px;
+  background: rgba(17, 24, 39, 0.55);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  overflow-y: auto;
+}
+
+.aeloria-admin-notes-modal {
+  width: 100%;
+  max-width: 600px;
+  max-height: calc(100vh - 50px);
+  overflow-y: auto;
+  background: #ffffff;
+  border-radius: 15px;
+  box-shadow: 0 25px 60px rgba(0, 0, 0, 0.18);
+}
+
+.aeloria-admin-notes-modal-header {
+  padding: 21px 23px;
+  border-bottom: 1px solid #e5e7eb;
+  display: flex;
+  align-items: flex-start;
+  justify-content: space-between;
+  gap: 15px;
+}
+
+.aeloria-admin-notes-modal-header h2 {
+  margin: 0;
+  color: #1f2937;
+  font-size: 20px;
+  font-weight: 800;
+}
+
+.aeloria-admin-notes-modal-header p {
+  margin: 5px 0 0;
+  color: #6b7280;
+  font-size: 13px;
+}
+
+.aeloria-admin-notes-modal-header > button {
+  width: 32px;
+  height: 32px;
+  border: none;
+  border-radius: 7px;
+  background: #f3f4f6;
+  color: #4b5563;
+  font-size: 22px;
+  line-height: 1;
+  cursor: pointer;
+}
+
+.aeloria-admin-notes-modal-header > button:hover {
+  background: #e5e7eb;
+}
+
+.aeloria-admin-notes-modal form {
+  padding: 23px;
+}
+
+.aeloria-admin-notes-form-row {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 15px;
+}
+
+.aeloria-admin-notes-form-field {
+  margin-bottom: 18px;
+}
+
+.aeloria-admin-notes-form-field label {
+  display: block;
+  margin-bottom: 7px;
+  color: #374151;
+  font-size: 13px;
+  font-weight: 700;
+}
+
+.aeloria-admin-notes-form-field input,
+.aeloria-admin-notes-form-field textarea {
+  width: 100%;
+  border: 1px solid #d1d5db;
+  border-radius: 8px;
+  padding: 11px 12px;
+  outline: none;
+  background: #ffffff;
+  color: #1f2937;
+  font-size: 14px;
+  transition: 0.2s ease;
+}
+
+.aeloria-admin-notes-form-field input {
+  height: 43px;
+}
+
+.aeloria-admin-notes-form-field textarea {
+  resize: vertical;
+  min-height: 100px;
+  line-height: 1.55;
+}
+
+.aeloria-admin-notes-form-field input::placeholder,
+.aeloria-admin-notes-form-field textarea::placeholder {
+  color: #9ca3af;
+}
+
+.aeloria-admin-notes-form-field input:focus,
+.aeloria-admin-notes-form-field textarea:focus {
+  border-color: #8b5cf6;
+  box-shadow: 0 0 0 3px rgba(139, 92, 246, 0.09);
+}
+
+.aeloria-admin-notes-modal-actions {
+  display: flex;
+  justify-content: flex-end;
+  gap: 10px;
+  padding-top: 5px;
+}
+
+.aeloria-admin-notes-cancel-btn,
+.aeloria-admin-notes-save-btn {
+  min-height: 42px;
+  padding: 0 18px;
+  border-radius: 8px;
+  border: none;
+  font-size: 14px;
+  font-weight: 700;
+  cursor: pointer;
+  transition: 0.2s ease;
+}
+
+.aeloria-admin-notes-cancel-btn {
+  background: #f3f4f6;
+  color: #374151;
+}
+
+.aeloria-admin-notes-cancel-btn:hover {
+  background: #e5e7eb;
+}
+
+.aeloria-admin-notes-save-btn {
+  background: #6d28d9;
+  color: #ffffff;
+}
+
+.aeloria-admin-notes-save-btn:hover {
+  background: #5b21b6;
+}
+
+.aeloria-admin-notes-save-btn:disabled {
+  opacity: 0.65;
+  cursor: not-allowed;
+}
+
+/* =========================================
+   LOADING
+========================================= */
+
+.aeloria-admin-notes-loading {
+  min-height: 100vh;
+  background: #f8f7fc;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: 13px;
+  color: #6b7280;
+}
+
+.aeloria-admin-notes-spinner {
+  width: 40px;
+  height: 40px;
+  border: 4px solid #e9d5ff;
+  border-top-color: #6d28d9;
+  border-radius: 50%;
+  animation: aeloriaAdminNotesSpin 0.8s linear infinite;
+}
+
+@keyframes aeloriaAdminNotesSpin {
+  to {
+    transform: rotate(360deg);
+  }
+}
+
+/* =========================================
+   TABLET
+========================================= */
+
+@media (max-width: 1100px) {
+  .aeloria-admin-notes-grid {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+
+  .aeloria-admin-notes-toolbar {
+    flex-wrap: wrap;
+  }
+
+  .aeloria-admin-notes-search {
+    flex-basis: 100%;
+  }
+}
+
+/* =========================================
+   MOBILE
+========================================= */
+
+@media (max-width: 768px) {
+  .aeloria-admin-notes-header {
+    padding: 23px 20px;
+    align-items: flex-start;
+    flex-direction: column;
+  }
+
+  .aeloria-admin-notes-header h1 {
+    font-size: 25px;
+  }
+
+  .aeloria-admin-notes-add-btn {
+    width: 100%;
+  }
+
+  .aeloria-admin-notes-container {
+    padding: 24px 20px 40px;
+  }
+
+  .aeloria-admin-notes-stats {
+    grid-template-columns: 1fr;
+  }
+
+  .aeloria-admin-notes-toolbar {
+    flex-direction: column;
+    align-items: stretch;
+  }
+
+  .aeloria-admin-notes-search {
+    min-width: 0;
+    flex-basis: auto;
+  }
+
+  .aeloria-admin-notes-toolbar select {
+    width: 100%;
+  }
+
+  .aeloria-admin-notes-grid {
+    grid-template-columns: 1fr;
+  }
+}
+
+/* =========================================
+   SMALL MOBILE
+========================================= */
+
+@media (max-width: 480px) {
+  .aeloria-admin-notes-header {
+    padding: 20px 15px;
+  }
+
+  .aeloria-admin-notes-container {
+    padding: 20px 15px 35px;
+  }
+
+  .aeloria-admin-notes-header h1 {
+    font-size: 22px;
+  }
+
+  .aeloria-admin-notes-header p {
+    font-size: 13px;
+  }
+
+  .aeloria-admin-notes-stat-card {
+    padding: 16px;
+  }
+
+  .aeloria-admin-notes-stat-icon {
+    width: 43px;
+    height: 43px;
+  }
+
+  .aeloria-admin-notes-list-header {
+    padding: 18px;
+  }
+
+  .aeloria-admin-notes-grid {
+    padding: 14px;
+  }
+
+  .aeloria-admin-note-card-top {
+    padding: 14px 14px 0;
+  }
+
+  .aeloria-admin-note-card-content {
+    padding: 14px;
+  }
+
+  .aeloria-admin-notes-modal-overlay {
+    padding: 12px;
+  }
+
+  .aeloria-admin-notes-modal {
+    max-height: calc(100vh - 24px);
+    border-radius: 12px;
+  }
+
+  .aeloria-admin-notes-modal form {
+    padding: 18px;
+  }
+
+  .aeloria-admin-notes-form-row {
+    grid-template-columns: 1fr;
+    gap: 0;
+  }
+
+  .aeloria-admin-notes-modal-actions {
+    flex-direction: column-reverse;
+  }
+
+  .aeloria-admin-notes-cancel-btn,
+  .aeloria-admin-notes-save-btn {
+    width: 100%;
+  }
+}

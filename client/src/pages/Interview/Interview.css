@@ -1,0 +1,538 @@
+.aeloria-interview {
+  width: 100%;
+  background: #ffffff;
+  color: #1f2937;
+}
+
+/* =========================
+   HERO
+========================= */
+
+.aeloria-interview-hero {
+  padding: 95px 20px 90px;
+  background:
+    radial-gradient(
+      circle at 15% 25%,
+      rgba(139, 92, 246, 0.17),
+      transparent 32%
+    ),
+    radial-gradient(
+      circle at 85% 70%,
+      rgba(255, 107, 107, 0.13),
+      transparent 30%
+    ),
+    #f5f3ff;
+}
+
+.aeloria-interview-hero-content {
+  width: min(1050px, 100%);
+  margin: 0 auto;
+  text-align: center;
+}
+
+.aeloria-interview-hero-label {
+  display: inline-block;
+  margin-bottom: 15px;
+  color: #6d28d9;
+  font-size: 13px;
+  font-weight: 800;
+  letter-spacing: 1.8px;
+}
+
+.aeloria-interview-hero-title {
+  margin: 0;
+  color: #1f2937;
+  font-size: clamp(42px, 6vw, 68px);
+  line-height: 1.08;
+  letter-spacing: -2px;
+  font-weight: 800;
+}
+
+.aeloria-interview-hero-title span {
+  color: #6d28d9;
+}
+
+.aeloria-interview-hero-description {
+  max-width: 680px;
+  margin: 22px auto 35px;
+  color: #6b7280;
+  font-size: 17px;
+  line-height: 1.7;
+}
+
+.aeloria-interview-hero-actions {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 13px;
+  flex-wrap: wrap;
+}
+
+.aeloria-interview-primary-button,
+.aeloria-interview-secondary-button {
+  padding: 13px 22px;
+  border-radius: 10px;
+  text-decoration: none;
+  font-size: 14px;
+  font-weight: 700;
+  transition: 0.25s ease;
+}
+
+.aeloria-interview-primary-button {
+  background: #6d28d9;
+  color: #ffffff;
+  box-shadow: 0 8px 20px rgba(109, 40, 217, 0.2);
+}
+
+.aeloria-interview-primary-button:hover {
+  background: #5b21b6;
+  transform: translateY(-2px);
+}
+
+.aeloria-interview-secondary-button {
+  border: 1px solid #ddd6fe;
+  background: #ffffff;
+  color: #6d28d9;
+}
+
+.aeloria-interview-secondary-button:hover {
+  border-color: #8b5cf6;
+  transform: translateY(-2px);
+}
+
+/* =========================
+   COMMON HEADING
+========================= */
+
+.aeloria-interview-heading {
+  max-width: 700px;
+  margin: 0 auto 45px;
+  text-align: center;
+}
+
+.aeloria-interview-heading > span {
+  display: block;
+  margin-bottom: 9px;
+  color: #6d28d9;
+  font-size: 12px;
+  font-weight: 800;
+  letter-spacing: 1.6px;
+}
+
+.aeloria-interview-heading h2 {
+  margin: 0 0 14px;
+  color: #1f2937;
+  font-size: clamp(28px, 4vw, 38px);
+  line-height: 1.2;
+}
+
+.aeloria-interview-heading strong {
+  color: #6d28d9;
+}
+
+.aeloria-interview-heading p {
+  margin: 0;
+  color: #6b7280;
+  font-size: 15px;
+  line-height: 1.7;
+}
+
+/* =========================
+   ROADMAP
+========================= */
+
+.aeloria-interview-roadmap {
+  padding: 85px 20px;
+}
+
+.aeloria-interview-roadmap-grid {
+  width: min(1200px, 100%);
+  margin: 0 auto;
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  gap: 22px;
+}
+
+.aeloria-interview-roadmap-card {
+  position: relative;
+  padding: 27px;
+  min-height: 255px;
+  border: 1px solid #e5e7eb;
+  border-radius: 16px;
+  background: #ffffff;
+  box-shadow: 0 8px 25px rgba(31, 41, 55, 0.04);
+  transition: 0.25s ease;
+}
+
+.aeloria-interview-roadmap-card:hover {
+  transform: translateY(-5px);
+  border-color: #c4b5fd;
+  box-shadow: 0 16px 32px rgba(109, 40, 217, 0.09);
+}
+
+.aeloria-interview-roadmap-number {
+  width: 48px;
+  height: 48px;
+  margin-bottom: 22px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border-radius: 12px;
+  background: #f5f3ff;
+  color: #6d28d9;
+  font-size: 14px;
+  font-weight: 800;
+}
+
+.aeloria-interview-roadmap-card h3 {
+  margin: 0 0 11px;
+  color: #1f2937;
+  font-size: 19px;
+}
+
+.aeloria-interview-roadmap-card p {
+  margin: 0;
+  color: #6b7280;
+  font-size: 14px;
+  line-height: 1.65;
+}
+
+.aeloria-interview-roadmap-card a {
+  display: inline-block;
+  margin-top: 20px;
+  color: #6d28d9;
+  font-size: 14px;
+  font-weight: 700;
+  text-decoration: none;
+}
+
+.aeloria-interview-roadmap-card a:hover {
+  color: #ff6b6b;
+}
+
+/* =========================
+   CATEGORIES
+========================= */
+
+.aeloria-interview-categories {
+  padding: 85px 20px;
+  background: #f9f8ff;
+}
+
+.aeloria-interview-category-grid {
+  width: min(1200px, 100%);
+  margin: 0 auto;
+  display: grid;
+  grid-template-columns: repeat(4, minmax(0, 1fr));
+  gap: 22px;
+}
+
+.aeloria-interview-category-card {
+  padding: 26px;
+  border: 1px solid #e5e7eb;
+  border-radius: 16px;
+  background: #ffffff;
+  transition: 0.25s ease;
+}
+
+.aeloria-interview-category-card:hover {
+  transform: translateY(-5px);
+  border-color: #c4b5fd;
+  box-shadow: 0 15px 30px rgba(109, 40, 217, 0.08);
+}
+
+.aeloria-interview-category-icon {
+  width: 55px;
+  height: 55px;
+  margin-bottom: 20px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border-radius: 13px;
+  background: #f5f3ff;
+  color: #6d28d9;
+  font-size: 14px;
+  font-weight: 800;
+}
+
+.aeloria-interview-category-card h3 {
+  margin: 0 0 10px;
+  color: #1f2937;
+  font-size: 19px;
+}
+
+.aeloria-interview-category-card p {
+  min-height: 70px;
+  margin: 0;
+  color: #6b7280;
+  font-size: 14px;
+  line-height: 1.65;
+}
+
+.aeloria-interview-category-bottom {
+  margin-top: 22px;
+  padding-top: 16px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 10px;
+  border-top: 1px solid #f0f0f0;
+}
+
+.aeloria-interview-category-bottom span {
+  color: #9ca3af;
+  font-size: 12px;
+  font-weight: 700;
+}
+
+.aeloria-interview-category-bottom a {
+  color: #6d28d9;
+  font-size: 13px;
+  font-weight: 700;
+  text-decoration: none;
+}
+
+/* =========================
+   QUICK TOPICS
+========================= */
+
+.aeloria-interview-topics {
+  padding: 85px 20px;
+}
+
+.aeloria-interview-topics-content {
+  width: min(1200px, 100%);
+  margin: 0 auto;
+  display: grid;
+  grid-template-columns: 0.8fr 1.2fr;
+  align-items: center;
+  gap: 70px;
+}
+
+.aeloria-interview-topics-heading > span {
+  display: block;
+  margin-bottom: 9px;
+  color: #6d28d9;
+  font-size: 12px;
+  font-weight: 800;
+  letter-spacing: 1.5px;
+}
+
+.aeloria-interview-topics-heading h2 {
+  margin: 0 0 15px;
+  color: #1f2937;
+  font-size: clamp(28px, 4vw, 38px);
+  line-height: 1.2;
+}
+
+.aeloria-interview-topics-heading strong {
+  color: #6d28d9;
+}
+
+.aeloria-interview-topics-heading p {
+  max-width: 430px;
+  margin: 0;
+  color: #6b7280;
+  font-size: 15px;
+  line-height: 1.7;
+}
+
+.aeloria-interview-topic-list {
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  gap: 12px;
+}
+
+.aeloria-interview-topic {
+  padding: 15px 16px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 10px;
+  border: 1px solid #e5e7eb;
+  border-radius: 10px;
+  background: #ffffff;
+  color: #374151;
+  font-size: 13px;
+  font-weight: 700;
+  text-decoration: none;
+  transition: 0.2s ease;
+}
+
+.aeloria-interview-topic span:last-child {
+  color: #6d28d9;
+}
+
+.aeloria-interview-topic:hover {
+  border-color: #c4b5fd;
+  color: #6d28d9;
+  transform: translateY(-2px);
+}
+
+/* =========================
+   CTA
+========================= */
+
+.aeloria-interview-cta {
+  padding: 85px 20px;
+  background:
+    radial-gradient(
+      circle at 15% 50%,
+      rgba(139, 92, 246, 0.16),
+      transparent 30%
+    ),
+    radial-gradient(
+      circle at 85% 50%,
+      rgba(255, 107, 107, 0.13),
+      transparent 30%
+    ),
+    #f5f3ff;
+}
+
+.aeloria-interview-cta-content {
+  width: min(850px, 100%);
+  margin: 0 auto;
+  text-align: center;
+}
+
+.aeloria-interview-cta-content > span {
+  color: #6d28d9;
+  font-size: 12px;
+  font-weight: 800;
+  letter-spacing: 1.6px;
+}
+
+.aeloria-interview-cta-content h2 {
+  margin: 12px 0 15px;
+  color: #1f2937;
+  font-size: clamp(30px, 5vw, 44px);
+  line-height: 1.2;
+}
+
+.aeloria-interview-cta-content h2 strong {
+  color: #6d28d9;
+}
+
+.aeloria-interview-cta-content p {
+  max-width: 620px;
+  margin: 0 auto 28px;
+  color: #6b7280;
+  font-size: 15px;
+  line-height: 1.7;
+}
+
+.aeloria-interview-cta-actions {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 22px;
+  flex-wrap: wrap;
+}
+
+.aeloria-interview-cta-button {
+  padding: 13px 22px;
+  border-radius: 10px;
+  background: #6d28d9;
+  color: #ffffff;
+  font-size: 14px;
+  font-weight: 700;
+  text-decoration: none;
+  transition: 0.25s ease;
+}
+
+.aeloria-interview-cta-button:hover {
+  background: #5b21b6;
+  transform: translateY(-2px);
+}
+
+.aeloria-interview-cta-link {
+  color: #6d28d9;
+  font-size: 14px;
+  font-weight: 700;
+  text-decoration: none;
+}
+
+.aeloria-interview-cta-link:hover {
+  color: #ff6b6b;
+}
+
+/* =========================
+   TABLET
+========================= */
+
+@media (max-width: 1000px) {
+  .aeloria-interview-roadmap-grid {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+
+  .aeloria-interview-category-grid {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+
+  .aeloria-interview-topics-content {
+    grid-template-columns: 1fr;
+    gap: 40px;
+  }
+}
+
+/* =========================
+   MOBILE
+========================= */
+
+@media (max-width: 650px) {
+  .aeloria-interview-hero {
+    padding: 65px 16px;
+  }
+
+  .aeloria-interview-hero-title {
+    letter-spacing: -1px;
+  }
+
+  .aeloria-interview-hero-description {
+    font-size: 15px;
+  }
+
+  .aeloria-interview-roadmap,
+  .aeloria-interview-categories,
+  .aeloria-interview-topics {
+    padding: 60px 16px;
+  }
+
+  .aeloria-interview-roadmap-grid,
+  .aeloria-interview-category-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .aeloria-interview-heading {
+    margin-bottom: 32px;
+  }
+
+  .aeloria-interview-topic-list {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+
+  .aeloria-interview-cta {
+    padding: 65px 16px;
+  }
+}
+
+/* =========================
+   SMALL MOBILE
+========================= */
+
+@media (max-width: 400px) {
+  .aeloria-interview-topic-list {
+    grid-template-columns: 1fr;
+  }
+
+  .aeloria-interview-roadmap-card,
+  .aeloria-interview-category-card {
+    padding: 21px;
+  }
+
+  .aeloria-interview-primary-button,
+  .aeloria-interview-secondary-button {
+    width: 100%;
+    text-align: center;
+  }
+}

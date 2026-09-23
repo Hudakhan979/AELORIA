@@ -1,0 +1,391 @@
+/* =================================
+   AELORIA DSA & PRACTICE
+================================= */
+
+.aeloria-dsa-practice {
+  width: 100%;
+  padding: 90px 25px;
+  background: #ffffff;
+}
+
+.aeloria-dsa-practice-container {
+  width: 100%;
+  max-width: 1400px;
+  margin: 0 auto;
+}
+
+/* Header */
+
+.aeloria-dsa-practice-header {
+  display: flex;
+  align-items: flex-end;
+  justify-content: space-between;
+  gap: 30px;
+  margin-bottom: 40px;
+}
+
+.aeloria-dsa-practice-label {
+  display: inline-block;
+  margin-bottom: 10px;
+
+  color: #6d28d9;
+  font-size: 13px;
+  font-weight: 700;
+  letter-spacing: 1.5px;
+}
+
+.aeloria-dsa-practice-title {
+  margin: 0 0 10px;
+
+  color: #1f2937;
+  font-size: 36px;
+  font-weight: 750;
+  line-height: 1.2;
+}
+
+.aeloria-dsa-practice-description {
+  max-width: 680px;
+  margin: 0;
+
+  color: #6b7280;
+  font-size: 16px;
+  line-height: 1.7;
+}
+
+.aeloria-dsa-practice-view-all {
+  flex-shrink: 0;
+
+  color: #6d28d9;
+  font-size: 15px;
+  font-weight: 700;
+  text-decoration: none;
+
+  transition: color 0.3s ease;
+}
+
+.aeloria-dsa-practice-view-all:hover {
+  color: #ff6b6b;
+}
+
+/* Main Layout */
+
+.aeloria-dsa-practice-layout {
+  display: grid;
+  grid-template-columns: 1fr 1.25fr;
+  gap: 24px;
+}
+
+/* DSA Learning Card */
+
+.aeloria-dsa-learning-card {
+  position: relative;
+
+  min-height: 440px;
+  padding: 35px;
+
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+
+  background:
+    linear-gradient(
+      145deg,
+      #6d28d9 0%,
+      #7c3aed 55%,
+      #8b5cf6 100%
+    );
+
+  border-radius: 22px;
+  overflow: hidden;
+
+  box-shadow: 0 18px 45px rgba(109, 40, 217, 0.18);
+}
+
+.aeloria-dsa-learning-card::after {
+  content: "";
+
+  position: absolute;
+  width: 220px;
+  height: 220px;
+
+  right: -80px;
+  top: -70px;
+
+  border: 45px solid rgba(255, 255, 255, 0.08);
+  border-radius: 50%;
+}
+
+.aeloria-dsa-learning-icon {
+  position: relative;
+  z-index: 1;
+
+  width: 62px;
+  height: 62px;
+
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  background: rgba(255, 255, 255, 0.15);
+  border: 1px solid rgba(255, 255, 255, 0.2);
+  border-radius: 16px;
+
+  color: #ffffff;
+  font-size: 20px;
+  font-weight: 800;
+}
+
+.aeloria-dsa-learning-content {
+  position: relative;
+  z-index: 1;
+}
+
+.aeloria-dsa-learning-badge {
+  display: inline-block;
+  margin-bottom: 12px;
+
+  color: #ffdede;
+  font-size: 11px;
+  font-weight: 800;
+  letter-spacing: 1.4px;
+}
+
+.aeloria-dsa-learning-title {
+  max-width: 430px;
+  margin: 0 0 14px;
+
+  color: #ffffff;
+  font-size: 31px;
+  line-height: 1.25;
+}
+
+.aeloria-dsa-learning-description {
+  max-width: 470px;
+  margin: 0 0 25px;
+
+  color: rgba(255, 255, 255, 0.85);
+  font-size: 15px;
+  line-height: 1.7;
+}
+
+.aeloria-dsa-learning-button {
+  display: inline-flex;
+  align-items: center;
+
+  padding: 12px 18px;
+
+  background: #ffffff;
+  color: #6d28d9;
+
+  border-radius: 9px;
+
+  font-size: 14px;
+  font-weight: 700;
+  text-decoration: none;
+
+  transition:
+    transform 0.3s ease,
+    box-shadow 0.3s ease;
+}
+
+.aeloria-dsa-learning-button:hover {
+  transform: translateY(-2px);
+
+  box-shadow: 0 8px 20px rgba(0, 0, 0, 0.12);
+}
+
+/* Practice Card */
+
+.aeloria-dsa-practice-card {
+  min-height: 440px;
+  padding: 32px;
+
+  background: #f8f7ff;
+  border: 1px solid #e8e2ff;
+  border-radius: 22px;
+}
+
+.aeloria-dsa-practice-card-top {
+  display: flex;
+  align-items: center;
+  gap: 15px;
+  margin-bottom: 15px;
+}
+
+.aeloria-dsa-practice-card-icon {
+  width: 54px;
+  height: 54px;
+
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  background: #fff0f0;
+  color: #ff6b6b;
+
+  border-radius: 14px;
+
+  font-size: 20px;
+  font-weight: 800;
+}
+
+.aeloria-dsa-practice-card-label {
+  display: block;
+  margin-bottom: 3px;
+
+  color: #8b5cf6;
+  font-size: 10px;
+  font-weight: 800;
+  letter-spacing: 1.2px;
+}
+
+.aeloria-dsa-practice-card-title {
+  margin: 0;
+
+  color: #1f2937;
+  font-size: 24px;
+}
+
+.aeloria-dsa-practice-card-description {
+  margin: 0 0 22px;
+
+  color: #6b7280;
+  font-size: 14px;
+  line-height: 1.6;
+}
+
+/* Topics */
+
+.aeloria-dsa-topic-grid {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 10px;
+}
+
+.aeloria-dsa-topic-item {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+
+  padding: 11px 13px;
+
+  background: #ffffff;
+  border: 1px solid #ebe7ff;
+  border-radius: 9px;
+
+  color: #374151;
+  font-size: 13px;
+  font-weight: 600;
+  text-decoration: none;
+
+  transition:
+    border-color 0.3s ease,
+    color 0.3s ease,
+    transform 0.3s ease;
+}
+
+.aeloria-dsa-topic-item span {
+  color: #8b5cf6;
+}
+
+.aeloria-dsa-topic-item:hover {
+  transform: translateX(3px);
+
+  border-color: #cdbdff;
+  color: #6d28d9;
+}
+
+/* Practice Button */
+
+.aeloria-dsa-practice-button {
+  display: inline-flex;
+  margin-top: 22px;
+
+  color: #6d28d9;
+  font-size: 14px;
+  font-weight: 700;
+  text-decoration: none;
+}
+
+.aeloria-dsa-practice-button:hover {
+  color: #ff6b6b;
+}
+
+/* =================================
+   TABLET
+================================= */
+
+@media (max-width: 1000px) {
+  .aeloria-dsa-practice-layout {
+    grid-template-columns: 1fr;
+  }
+
+  .aeloria-dsa-learning-card,
+  .aeloria-dsa-practice-card {
+    min-height: auto;
+  }
+
+  .aeloria-dsa-learning-card {
+    min-height: 390px;
+  }
+}
+
+/* =================================
+   MOBILE
+================================= */
+
+@media (max-width: 700px) {
+  .aeloria-dsa-practice {
+    padding: 65px 20px;
+  }
+
+  .aeloria-dsa-practice-header {
+    align-items: flex-start;
+    flex-direction: column;
+    margin-bottom: 30px;
+  }
+
+  .aeloria-dsa-practice-title {
+    font-size: 29px;
+  }
+
+  .aeloria-dsa-practice-description {
+    font-size: 15px;
+  }
+
+  .aeloria-dsa-learning-card {
+    min-height: 370px;
+    padding: 28px;
+  }
+
+  .aeloria-dsa-learning-title {
+    font-size: 27px;
+  }
+
+  .aeloria-dsa-practice-card {
+    padding: 26px;
+  }
+}
+
+/* =================================
+   SMALL MOBILE
+================================= */
+
+@media (max-width: 480px) {
+  .aeloria-dsa-practice {
+    padding: 55px 16px;
+  }
+
+  .aeloria-dsa-learning-card {
+    min-height: 390px;
+    padding: 23px;
+  }
+
+  .aeloria-dsa-topic-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .aeloria-dsa-practice-card {
+    padding: 22px;
+  }
+}

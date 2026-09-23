@@ -1,0 +1,236 @@
+/* =================================
+   AELORIA PROGRAMMING LANGUAGES
+================================= */
+
+.aeloria-programming-languages {
+  width: 100%;
+  padding: 90px 25px;
+  background: #f8f7ff;
+}
+
+.aeloria-programming-languages-container {
+  width: 100%;
+  max-width: 1400px;
+  margin: 0 auto;
+}
+
+/* Header */
+
+.aeloria-programming-languages-header {
+  display: flex;
+  align-items: flex-end;
+  justify-content: space-between;
+  gap: 30px;
+  margin-bottom: 40px;
+}
+
+.aeloria-programming-languages-label {
+  display: inline-block;
+  margin-bottom: 10px;
+
+  color: #6d28d9;
+  font-size: 13px;
+  font-weight: 700;
+  letter-spacing: 1.5px;
+}
+
+.aeloria-programming-languages-title {
+  margin: 0 0 10px;
+
+  color: #1f2937;
+  font-size: 36px;
+  font-weight: 750;
+  line-height: 1.2;
+}
+
+.aeloria-programming-languages-description {
+  max-width: 680px;
+  margin: 0;
+
+  color: #6b7280;
+  font-size: 16px;
+  line-height: 1.7;
+}
+
+.aeloria-programming-languages-view-all {
+  flex-shrink: 0;
+
+  color: #6d28d9;
+  font-size: 15px;
+  font-weight: 700;
+  text-decoration: none;
+
+  transition: color 0.3s ease;
+}
+
+.aeloria-programming-languages-view-all:hover {
+  color: #ff6b6b;
+}
+
+/* Grid */
+
+.aeloria-programming-languages-grid {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 18px;
+}
+
+/* Card */
+
+.aeloria-programming-language-card {
+  position: relative;
+
+  min-height: 190px;
+  padding: 22px;
+
+  display: flex;
+  flex-direction: column;
+
+  background: #ffffff;
+  border: 1px solid #ebe7ff;
+  border-radius: 16px;
+
+  text-decoration: none;
+
+  box-shadow: 0 7px 25px rgba(109, 40, 217, 0.05);
+
+  transition:
+    transform 0.3s ease,
+    box-shadow 0.3s ease,
+    border-color 0.3s ease;
+}
+
+.aeloria-programming-language-card:hover {
+  transform: translateY(-6px);
+
+  border-color: #d5c7ff;
+
+  box-shadow: 0 15px 35px rgba(109, 40, 217, 0.11);
+}
+
+/* Icon */
+
+.aeloria-programming-language-icon {
+  width: 48px;
+  height: 48px;
+  margin-bottom: 18px;
+
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  border-radius: 13px;
+
+  background: #f3e8ff;
+  color: #6d28d9;
+
+  font-size: 19px;
+  font-weight: 800;
+}
+
+/* Content */
+
+.aeloria-programming-language-content {
+  padding-right: 20px;
+}
+
+.aeloria-programming-language-name {
+  margin: 0 0 7px;
+
+  color: #1f2937;
+  font-size: 19px;
+  font-weight: 700;
+}
+
+.aeloria-programming-language-description {
+  margin: 0 0 12px;
+
+  color: #6b7280;
+  font-size: 13px;
+  line-height: 1.6;
+}
+
+.aeloria-programming-language-topics {
+  color: #8b5cf6;
+  font-size: 11px;
+  font-weight: 600;
+}
+
+/* Arrow */
+
+.aeloria-programming-language-arrow {
+  position: absolute;
+  right: 20px;
+  bottom: 20px;
+
+  color: #6d28d9;
+  font-size: 18px;
+  font-weight: 700;
+
+  transition:
+    transform 0.3s ease,
+    color 0.3s ease;
+}
+
+.aeloria-programming-language-card:hover
+.aeloria-programming-language-arrow {
+  color: #ff6b6b;
+  transform: translateX(4px);
+}
+
+/* =================================
+   TABLET
+================================= */
+
+@media (max-width: 1100px) {
+  .aeloria-programming-languages-grid {
+    grid-template-columns: repeat(2, 1fr);
+  }
+
+  .aeloria-programming-languages-title {
+    font-size: 32px;
+  }
+}
+
+/* =================================
+   MOBILE
+================================= */
+
+@media (max-width: 700px) {
+  .aeloria-programming-languages {
+    padding: 65px 20px;
+  }
+
+  .aeloria-programming-languages-header {
+    align-items: flex-start;
+    flex-direction: column;
+    margin-bottom: 30px;
+  }
+
+  .aeloria-programming-languages-title {
+    font-size: 29px;
+  }
+
+  .aeloria-programming-languages-description {
+    font-size: 15px;
+  }
+
+  .aeloria-programming-languages-grid {
+    grid-template-columns: 1fr;
+  }
+}
+
+/* =================================
+   SMALL MOBILE
+================================= */
+
+@media (max-width: 480px) {
+  .aeloria-programming-languages {
+    padding: 55px 16px;
+  }
+
+  .aeloria-programming-language-card {
+    min-height: 175px;
+    padding: 20px;
+  }
+}

@@ -1,0 +1,819 @@
+/* =====================================================
+   AELORIA - MANAGE LESSONS
+   ===================================================== */
+
+.aeloria-manage-lessons {
+  min-height: 100vh;
+  padding: 40px;
+  background: #f8f7fc;
+  color: #1f2937;
+}
+
+/* =====================================================
+   HEADER
+   ===================================================== */
+
+.aeloria-manage-lessons-header {
+  display: flex;
+  align-items: flex-end;
+  justify-content: space-between;
+  gap: 30px;
+  max-width: 1400px;
+  margin: 0 auto 28px;
+}
+
+.aeloria-manage-lessons-back {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  margin-bottom: 18px;
+  color: #6d28d9;
+  text-decoration: none;
+  font-size: 14px;
+  font-weight: 700;
+}
+
+.aeloria-manage-lessons-back:hover {
+  color: #5b21b6;
+}
+
+.aeloria-manage-lessons-label {
+  display: block;
+  margin-bottom: 8px;
+  color: #8b5cf6;
+  font-size: 12px;
+  font-weight: 800;
+  letter-spacing: 1.5px;
+}
+
+.aeloria-manage-lessons-header h1 {
+  margin: 0 0 8px;
+  color: #111827;
+  font-size: 34px;
+  line-height: 1.2;
+  font-weight: 800;
+}
+
+.aeloria-manage-lessons-header p {
+  margin: 0;
+  max-width: 720px;
+  color: #6b7280;
+  font-size: 15px;
+}
+
+.aeloria-manage-lessons-add-button {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 8px;
+  min-height: 48px;
+  padding: 0 20px;
+  border: none;
+  border-radius: 12px;
+  background: #6d28d9;
+  color: #ffffff;
+  font-size: 14px;
+  font-weight: 700;
+  box-shadow: 0 8px 20px rgba(109, 40, 217, 0.18);
+  transition: 0.2s ease;
+}
+
+.aeloria-manage-lessons-add-button:hover {
+  background: #5b21b6;
+  transform: translateY(-1px);
+}
+
+.aeloria-manage-lessons-add-button span {
+  font-size: 20px;
+  line-height: 1;
+}
+
+/* =====================================================
+   ERROR
+   ===================================================== */
+
+.aeloria-manage-lessons-error {
+  max-width: 1400px;
+  margin: 0 auto 22px;
+  padding: 14px 16px;
+  border: 1px solid #fecaca;
+  border-radius: 10px;
+  background: #fef2f2;
+  color: #b91c1c;
+  font-size: 14px;
+  font-weight: 600;
+}
+
+/* =====================================================
+   COURSE INFO
+   ===================================================== */
+
+.aeloria-manage-lessons-course-info {
+  display: flex;
+  align-items: center;
+  gap: 18px;
+  max-width: 1400px;
+  margin: 0 auto 28px;
+  padding: 22px;
+  border: 1px solid #e9e5f5;
+  border-radius: 16px;
+  background: #ffffff;
+  box-shadow: 0 6px 20px rgba(31, 41, 55, 0.04);
+}
+
+.aeloria-manage-lessons-course-icon {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-shrink: 0;
+  width: 64px;
+  height: 64px;
+  border-radius: 14px;
+  background: linear-gradient(135deg, #6d28d9, #8b5cf6);
+  color: #ffffff;
+  font-size: 26px;
+  font-weight: 800;
+}
+
+.aeloria-manage-lessons-course-details span {
+  display: block;
+  margin-bottom: 4px;
+  color: #8b5cf6;
+  font-size: 11px;
+  font-weight: 800;
+  letter-spacing: 1px;
+}
+
+.aeloria-manage-lessons-course-details h2 {
+  margin: 0 0 4px;
+  color: #111827;
+  font-size: 21px;
+  font-weight: 800;
+}
+
+.aeloria-manage-lessons-course-details p {
+  margin: 0;
+  color: #6b7280;
+  font-size: 14px;
+}
+
+/* =====================================================
+   LESSON FORM SECTION
+   ===================================================== */
+
+.aeloria-manage-lessons-form-section {
+  max-width: 1400px;
+  margin: 0 auto 30px;
+  overflow: hidden;
+  border: 1px solid #e5ddf7;
+  border-radius: 18px;
+  background: #ffffff;
+  box-shadow: 0 10px 30px rgba(109, 40, 217, 0.06);
+}
+
+.aeloria-manage-lessons-form-header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 22px 24px;
+  border-bottom: 1px solid #eeeaf7;
+  background: #faf8ff;
+}
+
+.aeloria-manage-lessons-form-header span {
+  display: block;
+  margin-bottom: 5px;
+  color: #8b5cf6;
+  font-size: 11px;
+  font-weight: 800;
+  letter-spacing: 1.2px;
+}
+
+.aeloria-manage-lessons-form-header h2 {
+  margin: 0;
+  color: #111827;
+  font-size: 21px;
+  font-weight: 800;
+}
+
+.aeloria-manage-lessons-form-close {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 36px;
+  height: 36px;
+  padding: 0;
+  border: 1px solid #e5e7eb;
+  border-radius: 9px;
+  background: #ffffff;
+  color: #6b7280;
+  font-size: 24px;
+  line-height: 1;
+  transition: 0.2s ease;
+}
+
+.aeloria-manage-lessons-form-close:hover {
+  border-color: #fecaca;
+  background: #fef2f2;
+  color: #dc2626;
+}
+
+.aeloria-manage-lessons-form {
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+  padding: 26px;
+}
+
+.aeloria-manage-lessons-form-row {
+  display: grid;
+  grid-template-columns: 2fr 1fr 0.7fr;
+  gap: 18px;
+}
+
+.aeloria-manage-lessons-field {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+}
+
+.aeloria-manage-lessons-field.full {
+  width: 100%;
+}
+
+.aeloria-manage-lessons-field label {
+  color: #374151;
+  font-size: 13px;
+  font-weight: 700;
+}
+
+.aeloria-manage-lessons-field input,
+.aeloria-manage-lessons-field textarea {
+  width: 100%;
+  padding: 12px 14px;
+  border: 1px solid #ddd8ea;
+  border-radius: 10px;
+  outline: none;
+  background: #ffffff;
+  color: #1f2937;
+  font-size: 14px;
+  resize: vertical;
+  transition: 0.2s ease;
+}
+
+.aeloria-manage-lessons-field input {
+  min-height: 46px;
+}
+
+.aeloria-manage-lessons-field textarea {
+  min-height: 100px;
+  line-height: 1.6;
+}
+
+.aeloria-manage-lessons-field input::placeholder,
+.aeloria-manage-lessons-field textarea::placeholder {
+  color: #9ca3af;
+}
+
+.aeloria-manage-lessons-field input:focus,
+.aeloria-manage-lessons-field textarea:focus {
+  border-color: #8b5cf6;
+  box-shadow: 0 0 0 3px rgba(139, 92, 246, 0.1);
+}
+
+/* Code editor */
+
+.aeloria-manage-lessons-field textarea[name="codeExample"] {
+  min-height: 220px;
+  padding: 16px;
+  background: #18141f;
+  border-color: #30273d;
+  color: #f5f3ff;
+  font-family: "Courier New", monospace;
+  font-size: 13px;
+  line-height: 1.65;
+}
+
+.aeloria-manage-lessons-field textarea[name="codeExample"]::placeholder {
+  color: #9b91a8;
+}
+
+.aeloria-manage-lessons-field textarea[name="codeExample"]:focus {
+  border-color: #8b5cf6;
+  box-shadow: 0 0 0 3px rgba(139, 92, 246, 0.12);
+}
+
+/* =====================================================
+   FORM ACTIONS
+   ===================================================== */
+
+.aeloria-manage-lessons-form-actions {
+  display: flex;
+  justify-content: flex-end;
+  gap: 12px;
+  padding-top: 6px;
+}
+
+.aeloria-manage-lessons-cancel,
+.aeloria-manage-lessons-save {
+  min-height: 44px;
+  padding: 0 18px;
+  border-radius: 10px;
+  font-size: 14px;
+  font-weight: 700;
+  transition: 0.2s ease;
+}
+
+.aeloria-manage-lessons-cancel {
+  border: 1px solid #ddd8ea;
+  background: #ffffff;
+  color: #4b5563;
+}
+
+.aeloria-manage-lessons-cancel:hover {
+  border-color: #c4b5fd;
+  color: #6d28d9;
+}
+
+.aeloria-manage-lessons-save {
+  min-width: 130px;
+  border: none;
+  background: #6d28d9;
+  color: #ffffff;
+  box-shadow: 0 6px 16px rgba(109, 40, 217, 0.16);
+}
+
+.aeloria-manage-lessons-save:hover {
+  background: #5b21b6;
+}
+
+.aeloria-manage-lessons-cancel:disabled,
+.aeloria-manage-lessons-save:disabled,
+.aeloria-manage-lessons-form-close:disabled {
+  cursor: not-allowed;
+  opacity: 0.6;
+}
+
+/* =====================================================
+   LESSON LIST SECTION
+   ===================================================== */
+
+.aeloria-manage-lessons-list-section {
+  max-width: 1400px;
+  margin: 0 auto;
+}
+
+.aeloria-manage-lessons-list-header {
+  display: flex;
+  align-items: flex-end;
+  justify-content: space-between;
+  gap: 20px;
+  margin-bottom: 18px;
+}
+
+.aeloria-manage-lessons-list-header > div span {
+  display: block;
+  margin-bottom: 5px;
+  color: #8b5cf6;
+  font-size: 11px;
+  font-weight: 800;
+  letter-spacing: 1.2px;
+}
+
+.aeloria-manage-lessons-list-header h2 {
+  margin: 0;
+  color: #111827;
+  font-size: 23px;
+  font-weight: 800;
+}
+
+.aeloria-manage-lessons-mobile-add {
+  display: none;
+  border: 1px solid #ddd6fe;
+  border-radius: 9px;
+  background: #faf8ff;
+  color: #6d28d9;
+  padding: 9px 13px;
+  font-size: 13px;
+  font-weight: 700;
+}
+
+/* =====================================================
+   LESSON CARDS
+   ===================================================== */
+
+.aeloria-manage-lessons-list {
+  display: flex;
+  flex-direction: column;
+  gap: 14px;
+}
+
+.aeloria-manage-lesson-card {
+  display: flex;
+  align-items: flex-start;
+  gap: 18px;
+  padding: 20px;
+  border: 1px solid #e9e5f2;
+  border-radius: 15px;
+  background: #ffffff;
+  box-shadow: 0 5px 18px rgba(31, 41, 55, 0.035);
+  transition: 0.2s ease;
+}
+
+.aeloria-manage-lesson-card:hover {
+  border-color: #d8c9f4;
+  box-shadow: 0 8px 24px rgba(109, 40, 217, 0.07);
+  transform: translateY(-1px);
+}
+
+.aeloria-manage-lesson-number {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-shrink: 0;
+  width: 44px;
+  height: 44px;
+  border-radius: 11px;
+  background: #f3efff;
+  color: #6d28d9;
+  font-size: 15px;
+  font-weight: 800;
+}
+
+.aeloria-manage-lesson-content {
+  min-width: 0;
+  flex: 1;
+}
+
+.aeloria-manage-lesson-top {
+  display: flex;
+  align-items: flex-start;
+  justify-content: space-between;
+  gap: 20px;
+}
+
+.aeloria-manage-lesson-order {
+  display: block;
+  margin-bottom: 4px;
+  color: #8b5cf6;
+  font-size: 11px;
+  font-weight: 800;
+  letter-spacing: 0.8px;
+  text-transform: uppercase;
+}
+
+.aeloria-manage-lesson-top h3 {
+  margin: 0;
+  color: #111827;
+  font-size: 17px;
+  font-weight: 800;
+}
+
+.aeloria-manage-lesson-description {
+  margin: 8px 0 12px;
+  color: #6b7280;
+  font-size: 13px;
+  line-height: 1.6;
+}
+
+.aeloria-manage-lesson-actions {
+  display: flex;
+  align-items: center;
+  gap: 7px;
+}
+
+.aeloria-manage-lesson-edit,
+.aeloria-manage-lesson-delete {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 36px;
+  height: 36px;
+  padding: 0;
+  border-radius: 9px;
+  font-size: 15px;
+  transition: 0.2s ease;
+}
+
+.aeloria-manage-lesson-edit {
+  border: 1px solid #ddd6fe;
+  background: #faf8ff;
+  color: #6d28d9;
+}
+
+.aeloria-manage-lesson-edit:hover {
+  background: #f3efff;
+  border-color: #c4b5fd;
+}
+
+.aeloria-manage-lesson-delete {
+  border: 1px solid #fee2e2;
+  background: #fffafa;
+  color: #dc2626;
+}
+
+.aeloria-manage-lesson-delete:hover {
+  background: #fef2f2;
+  border-color: #fecaca;
+}
+
+.aeloria-manage-lesson-edit:disabled,
+.aeloria-manage-lesson-delete:disabled {
+  cursor: not-allowed;
+  opacity: 0.5;
+}
+
+.aeloria-manage-lesson-meta {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px;
+}
+
+.aeloria-manage-lesson-meta span {
+  display: inline-flex;
+  align-items: center;
+  gap: 5px;
+  padding: 5px 9px;
+  border-radius: 7px;
+  background: #f7f5fb;
+  color: #6b7280;
+  font-size: 11px;
+  font-weight: 600;
+}
+
+/* =====================================================
+   EMPTY STATE
+   ===================================================== */
+
+.aeloria-manage-lessons-empty {
+  padding: 60px 20px;
+  border: 1px dashed #d8d0e8;
+  border-radius: 16px;
+  background: #ffffff;
+  text-align: center;
+}
+
+.aeloria-manage-lessons-empty > div {
+  margin-bottom: 12px;
+  font-size: 42px;
+}
+
+.aeloria-manage-lessons-empty h3 {
+  margin: 0 0 7px;
+  color: #111827;
+  font-size: 19px;
+}
+
+.aeloria-manage-lessons-empty p {
+  margin: 0 auto 18px;
+  max-width: 420px;
+  color: #6b7280;
+  font-size: 14px;
+}
+
+.aeloria-manage-lessons-empty button {
+  min-height: 42px;
+  padding: 0 16px;
+  border: none;
+  border-radius: 9px;
+  background: #6d28d9;
+  color: #ffffff;
+  font-size: 13px;
+  font-weight: 700;
+}
+
+/* =====================================================
+   LOADING
+   ===================================================== */
+
+.aeloria-manage-lessons-loading {
+  display: flex;
+  min-height: 70vh;
+  align-items: center;
+  justify-content: center;
+  flex-direction: column;
+  text-align: center;
+}
+
+.aeloria-manage-lessons-loading-icon {
+  margin-bottom: 12px;
+  font-size: 42px;
+}
+
+.aeloria-manage-lessons-loading h2 {
+  margin: 0 0 6px;
+  color: #111827;
+  font-size: 22px;
+}
+
+.aeloria-manage-lessons-loading p {
+  margin: 0;
+  color: #6b7280;
+  font-size: 14px;
+}
+
+/* =====================================================
+   ERROR PAGE
+   ===================================================== */
+
+.aeloria-manage-lessons-error-page {
+  display: flex;
+  min-height: 70vh;
+  align-items: center;
+  justify-content: center;
+  flex-direction: column;
+  padding: 30px;
+  text-align: center;
+}
+
+.aeloria-manage-lessons-error-page > div {
+  margin-bottom: 12px;
+  font-size: 42px;
+}
+
+.aeloria-manage-lessons-error-page h2 {
+  margin: 0 0 8px;
+  color: #111827;
+  font-size: 24px;
+}
+
+.aeloria-manage-lessons-error-page p {
+  margin: 0 0 20px;
+  color: #6b7280;
+  font-size: 14px;
+}
+
+.aeloria-manage-lessons-back-button {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  min-height: 42px;
+  padding: 0 16px;
+  border-radius: 9px;
+  background: #6d28d9;
+  color: #ffffff;
+  text-decoration: none;
+  font-size: 13px;
+  font-weight: 700;
+}
+
+/* =====================================================
+   RESPONSIVE
+   ===================================================== */
+
+@media (max-width: 1000px) {
+  .aeloria-manage-lessons {
+    padding: 30px 24px;
+  }
+
+  .aeloria-manage-lessons-header {
+    align-items: flex-start;
+    flex-direction: column;
+  }
+
+  .aeloria-manage-lessons-add-button {
+    width: 100%;
+  }
+
+  .aeloria-manage-lessons-form-row {
+    grid-template-columns: 1fr 1fr;
+  }
+
+  .aeloria-manage-lessons-form-row
+    .aeloria-manage-lessons-field:first-child {
+    grid-column: 1 / -1;
+  }
+}
+
+@media (max-width: 700px) {
+  .aeloria-manage-lessons {
+    padding: 22px 16px;
+  }
+
+  .aeloria-manage-lessons-header h1 {
+    font-size: 27px;
+  }
+
+  .aeloria-manage-lessons-header p {
+    font-size: 14px;
+  }
+
+  .aeloria-manage-lessons-add-button {
+    display: none;
+  }
+
+  .aeloria-manage-lessons-course-info {
+    padding: 17px;
+  }
+
+  .aeloria-manage-lessons-course-icon {
+    width: 52px;
+    height: 52px;
+    font-size: 22px;
+  }
+
+  .aeloria-manage-lessons-course-details h2 {
+    font-size: 18px;
+  }
+
+  .aeloria-manage-lessons-form-header {
+    padding: 18px;
+  }
+
+  .aeloria-manage-lessons-form {
+    padding: 18px;
+  }
+
+  .aeloria-manage-lessons-form-row {
+    grid-template-columns: 1fr;
+  }
+
+  .aeloria-manage-lessons-form-row
+    .aeloria-manage-lessons-field:first-child {
+    grid-column: auto;
+  }
+
+  .aeloria-manage-lessons-list-header {
+    align-items: center;
+  }
+
+  .aeloria-manage-lessons-mobile-add {
+    display: block;
+  }
+
+  .aeloria-manage-lesson-card {
+    gap: 13px;
+    padding: 16px;
+  }
+
+  .aeloria-manage-lesson-number {
+    width: 38px;
+    height: 38px;
+  }
+
+  .aeloria-manage-lesson-top {
+    flex-direction: column;
+    gap: 12px;
+  }
+
+  .aeloria-manage-lesson-actions {
+    width: 100%;
+  }
+
+  .aeloria-manage-lesson-edit,
+  .aeloria-manage-lesson-delete {
+    width: 40px;
+    height: 38px;
+  }
+
+  .aeloria-manage-lessons-form-actions {
+    flex-direction: column-reverse;
+  }
+
+  .aeloria-manage-lessons-cancel,
+  .aeloria-manage-lessons-save {
+    width: 100%;
+  }
+}
+
+@media (max-width: 480px) {
+  .aeloria-manage-lessons {
+    padding: 18px 12px;
+  }
+
+  .aeloria-manage-lessons-back {
+    margin-bottom: 13px;
+  }
+
+  .aeloria-manage-lessons-header h1 {
+    font-size: 24px;
+  }
+
+  .aeloria-manage-lessons-course-info {
+    align-items: flex-start;
+  }
+
+  .aeloria-manage-lessons-course-details h2 {
+    font-size: 16px;
+  }
+
+  .aeloria-manage-lessons-course-details p {
+    font-size: 12px;
+  }
+
+  .aeloria-manage-lesson-card {
+    padding: 14px;
+  }
+
+  .aeloria-manage-lesson-top h3 {
+    font-size: 15px;
+  }
+
+  .aeloria-manage-lesson-description {
+    font-size: 12px;
+  }
+
+  .aeloria-manage-lessons-empty {
+    padding: 45px 15px;
+  }
+}

@@ -1,0 +1,554 @@
+.aeloria-admin-courses {
+  min-height: 100vh;
+  padding: 35px;
+  background: #f8f7fc;
+  color: #1f2937;
+}
+
+/* HEADER */
+
+.aeloria-admin-courses-header {
+  display: flex;
+  align-items: flex-end;
+  justify-content: space-between;
+  gap: 25px;
+  margin-bottom: 28px;
+}
+
+.aeloria-admin-courses-label {
+  color: #ff6b6b;
+  font-size: 10px;
+  font-weight: 800;
+  letter-spacing: 1.4px;
+}
+
+.aeloria-admin-courses-header h1 {
+  margin: 5px 0;
+  color: #1f2937;
+  font-size: 30px;
+}
+
+.aeloria-admin-courses-header p {
+  margin: 0;
+  color: #9ca3af;
+  font-size: 13px;
+}
+
+.aeloria-admin-courses-add-button {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  padding: 12px 18px;
+  border: none;
+  border-radius: 9px;
+  background: #6d28d9;
+  color: #ffffff;
+  font-size: 12px;
+  font-weight: 700;
+  box-shadow: 0 7px 18px rgba(109, 40, 217, 0.18);
+  transition: 0.2s ease;
+}
+
+.aeloria-admin-courses-add-button:hover {
+  background: #5b21b6;
+  transform: translateY(-2px);
+}
+
+.aeloria-admin-courses-add-button span {
+  font-size: 17px;
+}
+
+/* STATS */
+
+.aeloria-admin-courses-stats {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 17px;
+  margin-bottom: 25px;
+}
+
+.aeloria-admin-courses-stat {
+  display: flex;
+  align-items: center;
+  gap: 14px;
+  padding: 18px;
+  border: 1px solid #ebe7f5;
+  border-radius: 12px;
+  background: #ffffff;
+}
+
+.aeloria-admin-courses-stat-icon {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 42px;
+  height: 42px;
+  border-radius: 10px;
+  background: #f5f3ff;
+  color: #6d28d9;
+  font-size: 17px;
+}
+
+.aeloria-admin-courses-stat strong,
+.aeloria-admin-courses-stat span {
+  display: block;
+}
+
+.aeloria-admin-courses-stat strong {
+  color: #1f2937;
+  font-size: 22px;
+}
+
+.aeloria-admin-courses-stat span {
+  margin-top: 2px;
+  color: #9ca3af;
+  font-size: 10px;
+}
+
+/* CONTENT */
+
+.aeloria-admin-courses-content {
+  overflow: hidden;
+  border: 1px solid #ebe7f5;
+  border-radius: 14px;
+  background: #ffffff;
+}
+
+.aeloria-admin-courses-toolbar {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 20px;
+  padding: 18px;
+  border-bottom: 1px solid #eeeaf5;
+}
+
+.aeloria-admin-courses-search {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  width: 320px;
+  padding: 9px 12px;
+  border: 1px solid #e7e3ef;
+  border-radius: 8px;
+  background: #ffffff;
+}
+
+.aeloria-admin-courses-search span {
+  color: #9ca3af;
+  font-size: 17px;
+}
+
+.aeloria-admin-courses-search input {
+  width: 100%;
+  border: none;
+  outline: none;
+  color: #374151;
+  font-size: 11px;
+}
+
+.aeloria-admin-courses-search input::placeholder {
+  color: #b0adb8;
+}
+
+.aeloria-admin-courses-filter {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+
+.aeloria-admin-courses-filter label {
+  color: #9ca3af;
+  font-size: 10px;
+  font-weight: 600;
+}
+
+.aeloria-admin-courses-filter select {
+  padding: 9px 12px;
+  border: 1px solid #e7e3ef;
+  border-radius: 8px;
+  outline: none;
+  background: #ffffff;
+  color: #374151;
+  font-size: 11px;
+}
+
+/* LIST HEADER */
+
+.aeloria-admin-courses-list-header {
+  display: grid;
+  grid-template-columns: 2.2fr 1.1fr 0.9fr 0.9fr 1fr 1fr;
+  align-items: center;
+  gap: 15px;
+  padding: 13px 18px;
+  background: #faf9fd;
+  border-bottom: 1px solid #eeeaf5;
+  color: #9ca3af;
+  font-size: 9px;
+  font-weight: 800;
+  letter-spacing: 0.8px;
+}
+
+/* COURSE ROW */
+
+.aeloria-admin-course-row {
+  display: grid;
+  grid-template-columns: 2.2fr 1.1fr 0.9fr 0.9fr 1fr 1fr;
+  align-items: center;
+  gap: 15px;
+  padding: 15px 18px;
+  border-bottom: 1px solid #f1eef7;
+  transition: 0.2s ease;
+}
+
+.aeloria-admin-course-row:hover {
+  background: #fcfbff;
+}
+
+.aeloria-admin-course-info {
+  display: flex;
+  align-items: center;
+  gap: 11px;
+  min-width: 0;
+}
+
+.aeloria-admin-course-icon {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 38px;
+  height: 38px;
+  flex-shrink: 0;
+  border-radius: 9px;
+  background: #ede9fe;
+  color: #6d28d9;
+  font-size: 14px;
+  font-weight: 800;
+}
+
+.aeloria-admin-course-info h3 {
+  margin: 0;
+  overflow: hidden;
+  color: #374151;
+  font-size: 11px;
+  font-weight: 700;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+
+.aeloria-admin-course-info span {
+  display: block;
+  margin-top: 3px;
+  color: #aaa6b2;
+  font-size: 8px;
+}
+
+.aeloria-admin-course-category,
+.aeloria-admin-course-level {
+  display: inline-block;
+  padding: 5px 8px;
+  border-radius: 6px;
+  background: #f5f3ff;
+  color: #6d28d9;
+  font-size: 8px;
+  font-weight: 700;
+}
+
+.aeloria-admin-course-level {
+  background: #fff1f1;
+  color: #e05c5c;
+}
+
+.aeloria-admin-course-lessons {
+  color: #6b7280;
+  font-size: 10px;
+}
+
+/* STATUS */
+
+.aeloria-admin-course-status {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  padding: 5px 8px;
+  border: none;
+  border-radius: 6px;
+  font-size: 8px;
+  font-weight: 700;
+}
+
+.aeloria-admin-course-status span {
+  width: 6px;
+  height: 6px;
+  border-radius: 50%;
+}
+
+.aeloria-admin-course-status.published {
+  background: #f0fdf4;
+  color: #15803d;
+}
+
+.aeloria-admin-course-status.published span {
+  background: #22c55e;
+}
+
+.aeloria-admin-course-status.draft {
+  background: #fff7ed;
+  color: #c2410c;
+}
+
+.aeloria-admin-course-status.draft span {
+  background: #f97316;
+}
+
+/* ACTIONS */
+
+.aeloria-admin-course-actions {
+  display: flex;
+  align-items: center;
+  gap: 5px;
+}
+
+.aeloria-admin-course-actions button {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 28px;
+  height: 28px;
+  border: 1px solid #ebe7f5;
+  border-radius: 6px;
+  background: #ffffff;
+  font-size: 11px;
+  transition: 0.2s ease;
+}
+
+.aeloria-admin-course-edit {
+  color: #6d28d9;
+}
+
+.aeloria-admin-course-view {
+  color: #0891b2;
+}
+
+.aeloria-admin-course-delete {
+  color: #ef4444;
+}
+
+.aeloria-admin-course-actions button:hover {
+  background: #f5f3ff;
+  transform: translateY(-1px);
+}
+
+/* EMPTY */
+
+.aeloria-admin-courses-empty {
+  padding: 60px 20px;
+  text-align: center;
+}
+
+.aeloria-admin-courses-empty div {
+  font-size: 35px;
+}
+
+.aeloria-admin-courses-empty h3 {
+  margin: 12px 0 5px;
+  color: #374151;
+  font-size: 15px;
+}
+
+.aeloria-admin-courses-empty p {
+  margin: 0;
+  color: #9ca3af;
+  font-size: 11px;
+}
+
+/* MODAL */
+
+.aeloria-admin-courses-modal-overlay {
+  position: fixed;
+  inset: 0;
+  z-index: 500;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 20px;
+  background: rgba(31, 41, 55, 0.45);
+}
+
+.aeloria-admin-courses-modal {
+  position: relative;
+  width: 100%;
+  max-width: 570px;
+  max-height: 90vh;
+  overflow-y: auto;
+  padding: 30px;
+  border-radius: 15px;
+  background: #ffffff;
+  box-shadow: 0 20px 60px rgba(31, 41, 55, 0.18);
+}
+
+.aeloria-admin-courses-modal-close {
+  position: absolute;
+  top: 15px;
+  right: 15px;
+  width: 30px;
+  height: 30px;
+  border: none;
+  border-radius: 7px;
+  background: #f5f3ff;
+  color: #6d28d9;
+  font-size: 20px;
+}
+
+.aeloria-admin-courses-modal-label {
+  color: #ff6b6b;
+  font-size: 9px;
+  font-weight: 800;
+  letter-spacing: 1px;
+}
+
+.aeloria-admin-courses-modal h2 {
+  margin: 5px 0;
+  color: #1f2937;
+  font-size: 22px;
+}
+
+.aeloria-admin-courses-modal > p {
+  margin: 0 0 22px;
+  color: #9ca3af;
+  font-size: 11px;
+}
+
+/* FORM */
+
+.aeloria-admin-courses-form {
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+}
+
+.aeloria-admin-courses-form-field {
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+}
+
+.aeloria-admin-courses-form-field label {
+  color: #374151;
+  font-size: 10px;
+  font-weight: 700;
+}
+
+.aeloria-admin-courses-form-field input,
+.aeloria-admin-courses-form-field select,
+.aeloria-admin-courses-form-field textarea {
+  width: 100%;
+  padding: 10px 11px;
+  border: 1px solid #e7e3ef;
+  border-radius: 7px;
+  outline: none;
+  background: #ffffff;
+  color: #374151;
+  font-size: 11px;
+  resize: vertical;
+}
+
+.aeloria-admin-courses-form-field input:focus,
+.aeloria-admin-courses-form-field select:focus,
+.aeloria-admin-courses-form-field textarea:focus {
+  border-color: #8b5cf6;
+  box-shadow: 0 0 0 3px rgba(139, 92, 246, 0.08);
+}
+
+.aeloria-admin-courses-form-row {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 14px;
+}
+
+.aeloria-admin-courses-form-buttons {
+  display: flex;
+  justify-content: flex-end;
+  gap: 9px;
+  margin-top: 5px;
+}
+
+.aeloria-admin-courses-cancel,
+.aeloria-admin-courses-save {
+  padding: 10px 17px;
+  border-radius: 7px;
+  font-size: 10px;
+  font-weight: 700;
+}
+
+.aeloria-admin-courses-cancel {
+  border: 1px solid #e7e3ef;
+  background: #ffffff;
+  color: #6b7280;
+}
+
+.aeloria-admin-courses-save {
+  border: none;
+  background: #6d28d9;
+  color: #ffffff;
+}
+
+/* TABLET */
+
+@media (max-width: 1050px) {
+  .aeloria-admin-courses-list {
+    overflow-x: auto;
+  }
+
+  .aeloria-admin-courses-list-header,
+  .aeloria-admin-course-row {
+    min-width: 900px;
+  }
+}
+
+/* MOBILE */
+
+@media (max-width: 700px) {
+  .aeloria-admin-courses {
+    padding: 22px 16px 40px;
+  }
+
+  .aeloria-admin-courses-header {
+    align-items: flex-start;
+    flex-direction: column;
+  }
+
+  .aeloria-admin-courses-header h1 {
+    font-size: 25px;
+  }
+
+  .aeloria-admin-courses-add-button {
+    width: 100%;
+    justify-content: center;
+  }
+
+  .aeloria-admin-courses-stats {
+    grid-template-columns: 1fr;
+  }
+
+  .aeloria-admin-courses-toolbar {
+    align-items: stretch;
+    flex-direction: column;
+  }
+
+  .aeloria-admin-courses-search {
+    width: 100%;
+  }
+
+  .aeloria-admin-courses-filter {
+    justify-content: space-between;
+  }
+
+  .aeloria-admin-courses-modal {
+    padding: 24px 18px;
+  }
+
+  .aeloria-admin-courses-form-row {
+    grid-template-columns: 1fr;
+  }
+}

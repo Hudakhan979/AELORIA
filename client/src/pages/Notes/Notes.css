@@ -1,0 +1,375 @@
+.aeloria-notes {
+  background: #ffffff;
+}
+
+/* HERO */
+
+.aeloria-notes-hero {
+  padding: 80px 20px;
+  background: linear-gradient(135deg, #f5f3ff 0%, #ffffff 55%, #fff5f5 100%);
+  border-bottom: 1px solid #eee7ff;
+}
+
+.aeloria-notes-hero-content {
+  max-width: 1100px;
+  margin: 0 auto;
+  text-align: center;
+}
+
+.aeloria-notes-hero-label {
+  display: inline-block;
+  margin-bottom: 16px;
+  color: #6d28d9;
+  font-size: 13px;
+  font-weight: 800;
+  letter-spacing: 1.5px;
+}
+
+.aeloria-notes-hero-title {
+  margin: 0;
+  color: #1f2937;
+  font-size: 52px;
+  line-height: 1.1;
+  font-weight: 800;
+}
+
+.aeloria-notes-hero-title span {
+  color: #6d28d9;
+}
+
+.aeloria-notes-hero-description {
+  max-width: 720px;
+  margin: 20px auto 32px;
+  color: #6b7280;
+  font-size: 17px;
+  line-height: 1.7;
+}
+
+.aeloria-notes-search {
+  display: flex;
+  max-width: 650px;
+  margin: 0 auto;
+  padding: 6px;
+  background: #ffffff;
+  border: 1px solid #e5e7eb;
+  border-radius: 14px;
+  box-shadow: 0 10px 30px rgba(109, 40, 217, 0.08);
+}
+
+.aeloria-notes-search input {
+  flex: 1;
+  min-width: 0;
+  padding: 14px 16px;
+  border: none;
+  outline: none;
+  color: #1f2937;
+  background: transparent;
+}
+
+.aeloria-notes-search input::placeholder {
+  color: #9ca3af;
+}
+
+.aeloria-notes-search button {
+  padding: 13px 25px;
+  border: none;
+  border-radius: 10px;
+  background: #6d28d9;
+  color: #ffffff;
+  font-weight: 700;
+  transition: 0.25s ease;
+}
+
+.aeloria-notes-search button:hover {
+  background: #5b21b6;
+  transform: translateY(-1px);
+}
+
+/* CONTENT */
+
+.aeloria-notes-content {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 75px 20px;
+}
+
+.aeloria-notes-heading {
+  display: flex;
+  align-items: flex-end;
+  justify-content: space-between;
+  gap: 25px;
+  margin-bottom: 35px;
+}
+
+.aeloria-notes-label {
+  display: block;
+  margin-bottom: 8px;
+  color: #ff6b6b;
+  font-size: 12px;
+  font-weight: 800;
+  letter-spacing: 1.4px;
+}
+
+.aeloria-notes-heading h2 {
+  margin: 0;
+  color: #1f2937;
+  font-size: 32px;
+  line-height: 1.2;
+}
+
+.aeloria-notes-filter {
+  min-width: 190px;
+  padding: 12px 15px;
+  border: 1px solid #ddd6fe;
+  border-radius: 10px;
+  outline: none;
+  background: #ffffff;
+  color: #374151;
+  cursor: pointer;
+}
+
+.aeloria-notes-filter:focus {
+  border-color: #8b5cf6;
+}
+
+/* NOTES GRID */
+
+.aeloria-notes-grid {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 22px;
+}
+
+.aeloria-note-card {
+  display: flex;
+  flex-direction: column;
+  min-height: 285px;
+  padding: 23px;
+  background: #ffffff;
+  border: 1px solid #ebe7f5;
+  border-radius: 16px;
+  box-shadow: 0 5px 20px rgba(31, 41, 55, 0.05);
+  transition: transform 0.25s ease, box-shadow 0.25s ease,
+    border-color 0.25s ease;
+}
+
+.aeloria-note-card:hover {
+  transform: translateY(-6px);
+  border-color: #c4b5fd;
+  box-shadow: 0 15px 35px rgba(109, 40, 217, 0.12);
+}
+
+.aeloria-note-card-top {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 10px;
+  margin-bottom: 22px;
+}
+
+.aeloria-note-category {
+  display: inline-flex;
+  align-items: center;
+  min-height: 30px;
+  padding: 5px 10px;
+  border-radius: 8px;
+  background: #f5f3ff;
+  color: #6d28d9;
+  font-size: 12px;
+  font-weight: 800;
+}
+
+.aeloria-note-free {
+  color: #ff6b6b;
+  font-size: 11px;
+  font-weight: 800;
+  letter-spacing: 0.8px;
+}
+
+.aeloria-note-card h3 {
+  margin: 0 0 12px;
+  color: #1f2937;
+  font-size: 19px;
+  line-height: 1.35;
+}
+
+.aeloria-note-card p {
+  margin: 0;
+  color: #6b7280;
+  font-size: 14px;
+  line-height: 1.65;
+}
+
+.aeloria-note-card-bottom {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 12px;
+  margin-top: auto;
+  padding-top: 22px;
+  border-top: 1px solid #f0edf7;
+}
+
+.aeloria-note-card-bottom span {
+  color: #6b7280;
+  font-size: 12px;
+  font-weight: 600;
+}
+
+.aeloria-note-card-bottom a {
+  color: #6d28d9;
+  font-size: 13px;
+  font-weight: 700;
+  text-decoration: none;
+  white-space: nowrap;
+}
+
+.aeloria-note-card-bottom a:hover {
+  color: #ff6b6b;
+}
+
+/* CTA */
+
+.aeloria-notes-cta {
+  padding: 75px 20px;
+  background: #f5f3ff;
+  text-align: center;
+}
+
+.aeloria-notes-cta > div {
+  max-width: 700px;
+  margin: 0 auto;
+}
+
+.aeloria-notes-cta-label {
+  display: inline-block;
+  margin-bottom: 12px;
+  color: #6d28d9;
+  font-size: 12px;
+  font-weight: 800;
+  letter-spacing: 1.5px;
+}
+
+.aeloria-notes-cta h2 {
+  margin: 0;
+  color: #1f2937;
+  font-size: 38px;
+  line-height: 1.2;
+}
+
+.aeloria-notes-cta h2 span {
+  color: #ff6b6b;
+}
+
+.aeloria-notes-cta p {
+  max-width: 580px;
+  margin: 16px auto 26px;
+  color: #6b7280;
+  line-height: 1.7;
+}
+
+.aeloria-notes-cta-button {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  padding: 13px 24px;
+  border-radius: 10px;
+  background: #6d28d9;
+  color: #ffffff;
+  font-size: 14px;
+  font-weight: 700;
+  text-decoration: none;
+  transition: 0.25s ease;
+}
+
+.aeloria-notes-cta-button:hover {
+  background: #5b21b6;
+  transform: translateY(-2px);
+}
+
+/* TABLET */
+
+@media (max-width: 1000px) {
+  .aeloria-notes-grid {
+    grid-template-columns: repeat(2, 1fr);
+  }
+
+  .aeloria-notes-hero-title {
+    font-size: 46px;
+  }
+}
+
+/* MOBILE */
+
+@media (max-width: 700px) {
+  .aeloria-notes-hero {
+    padding: 60px 18px;
+  }
+
+  .aeloria-notes-hero-title {
+    font-size: 38px;
+  }
+
+  .aeloria-notes-hero-description {
+    font-size: 15px;
+  }
+
+  .aeloria-notes-search {
+    flex-direction: column;
+    padding: 7px;
+  }
+
+  .aeloria-notes-search input {
+    padding: 13px;
+  }
+
+  .aeloria-notes-search button {
+    width: 100%;
+  }
+
+  .aeloria-notes-content {
+    padding: 55px 18px;
+  }
+
+  .aeloria-notes-heading {
+    align-items: stretch;
+    flex-direction: column;
+  }
+
+  .aeloria-notes-heading h2 {
+    font-size: 27px;
+  }
+
+  .aeloria-notes-filter {
+    width: 100%;
+  }
+
+  .aeloria-notes-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .aeloria-notes-cta {
+    padding: 60px 18px;
+  }
+
+  .aeloria-notes-cta h2 {
+    font-size: 31px;
+  }
+}
+
+/* SMALL MOBILE */
+
+@media (max-width: 400px) {
+  .aeloria-notes-hero-title {
+    font-size: 32px;
+  }
+
+  .aeloria-note-card {
+    padding: 19px;
+  }
+
+  .aeloria-note-card-bottom {
+    align-items: flex-start;
+    flex-direction: column;
+  }
+}

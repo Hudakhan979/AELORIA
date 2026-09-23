@@ -1,0 +1,848 @@
+.aeloria-admin-categories-page {
+  min-height: 100vh;
+  display: flex;
+  background: #f8f7fc;
+  color: #1f2937;
+}
+
+/* =========================
+   SIDEBAR
+========================= */
+
+.aeloria-admin-categories-sidebar {
+  width: 250px;
+  min-height: 100vh;
+  background: #ffffff;
+  border-right: 1px solid #e9e5f5;
+  padding: 24px 16px;
+  position: fixed;
+  left: 0;
+  top: 0;
+  z-index: 20;
+}
+
+.aeloria-admin-categories-logo {
+  display: flex;
+  align-items: center;
+  gap: 11px;
+  text-decoration: none;
+  margin-bottom: 35px;
+  padding: 8px;
+}
+
+.aeloria-admin-categories-logo-icon {
+  width: 42px;
+  height: 42px;
+  border-radius: 12px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: linear-gradient(135deg, #6d28d9, #8b5cf6);
+  color: #ffffff;
+  font-size: 20px;
+  font-weight: 800;
+  box-shadow: 0 8px 20px rgba(109, 40, 217, 0.2);
+}
+
+.aeloria-admin-categories-logo strong {
+  display: block;
+  color: #6d28d9;
+  font-size: 18px;
+  letter-spacing: 0.5px;
+}
+
+.aeloria-admin-categories-logo small {
+  display: block;
+  color: #9ca3af;
+  font-size: 11px;
+  margin-top: 2px;
+}
+
+.aeloria-admin-categories-nav {
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+}
+
+.aeloria-admin-categories-nav a {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  padding: 12px 13px;
+  border-radius: 10px;
+  color: #6b7280;
+  text-decoration: none;
+  font-size: 14px;
+  font-weight: 600;
+  transition: 0.2s ease;
+}
+
+.aeloria-admin-categories-nav a:hover {
+  background: #f5f3ff;
+  color: #6d28d9;
+}
+
+.aeloria-admin-categories-nav-active {
+  background: #f0eaff !important;
+  color: #6d28d9 !important;
+}
+
+/* =========================
+   MAIN
+========================= */
+
+.aeloria-admin-categories-main {
+  flex: 1;
+  margin-left: 250px;
+  padding: 35px;
+  min-width: 0;
+}
+
+.aeloria-admin-categories-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-start;
+  gap: 25px;
+  margin-bottom: 28px;
+}
+
+.aeloria-admin-categories-eyebrow {
+  color: #8b5cf6;
+  font-size: 11px;
+  font-weight: 800;
+  letter-spacing: 1.5px;
+  margin-bottom: 5px;
+}
+
+.aeloria-admin-categories-header h1 {
+  font-size: 32px;
+  line-height: 1.2;
+  color: #111827;
+  margin-bottom: 8px;
+}
+
+.aeloria-admin-categories-header p:last-child {
+  color: #6b7280;
+  font-size: 14px;
+  max-width: 650px;
+}
+
+.aeloria-admin-categories-add-btn {
+  border: none;
+  border-radius: 10px;
+  padding: 12px 18px;
+  background: #6d28d9;
+  color: #ffffff;
+  font-size: 14px;
+  font-weight: 700;
+  white-space: nowrap;
+  transition: 0.2s ease;
+}
+
+.aeloria-admin-categories-add-btn:hover {
+  background: #5b21b6;
+  transform: translateY(-1px);
+}
+
+/* =========================
+   ERROR
+========================= */
+
+.aeloria-admin-categories-error {
+  background: #fff1f2;
+  color: #be123c;
+  border: 1px solid #fecdd3;
+  border-radius: 10px;
+  padding: 12px 15px;
+  margin-bottom: 20px;
+  font-size: 14px;
+}
+
+/* =========================
+   STATS
+========================= */
+
+.aeloria-admin-categories-stats {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 18px;
+  margin-bottom: 25px;
+}
+
+.aeloria-admin-categories-stat-card {
+  background: #ffffff;
+  border: 1px solid #ebe7f4;
+  border-radius: 14px;
+  padding: 19px;
+  display: flex;
+  align-items: center;
+  gap: 14px;
+  box-shadow: 0 3px 12px rgba(31, 41, 55, 0.03);
+}
+
+.aeloria-admin-categories-stat-icon {
+  width: 44px;
+  height: 44px;
+  border-radius: 11px;
+  background: #f1ebff;
+  color: #6d28d9;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 19px;
+  flex-shrink: 0;
+}
+
+.aeloria-admin-categories-stat-card strong {
+  display: block;
+  color: #111827;
+  font-size: 23px;
+  line-height: 1;
+  margin-bottom: 5px;
+}
+
+.aeloria-admin-categories-stat-card span:last-child {
+  color: #9ca3af;
+  font-size: 12px;
+}
+
+/* =========================
+   TOOLBAR
+========================= */
+
+.aeloria-admin-categories-toolbar {
+  background: #ffffff;
+  border: 1px solid #ebe7f4;
+  border-radius: 14px;
+  padding: 15px;
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  margin-bottom: 22px;
+}
+
+.aeloria-admin-categories-search {
+  flex: 1;
+  min-width: 200px;
+  height: 42px;
+  display: flex;
+  align-items: center;
+  gap: 9px;
+  padding: 0 13px;
+  border: 1px solid #e5e7eb;
+  border-radius: 9px;
+  background: #ffffff;
+}
+
+.aeloria-admin-categories-search span {
+  color: #9ca3af;
+  font-size: 20px;
+}
+
+.aeloria-admin-categories-search input {
+  width: 100%;
+  border: none;
+  outline: none;
+  color: #374151;
+  font-size: 14px;
+  background: transparent;
+}
+
+.aeloria-admin-categories-search input::placeholder {
+  color: #9ca3af;
+}
+
+.aeloria-admin-categories-toolbar select {
+  height: 42px;
+  min-width: 145px;
+  padding: 0 12px;
+  border: 1px solid #e5e7eb;
+  border-radius: 9px;
+  background: #ffffff;
+  color: #4b5563;
+  outline: none;
+  cursor: pointer;
+  font-size: 13px;
+}
+
+.aeloria-admin-categories-toolbar select:focus,
+.aeloria-admin-categories-search:focus-within {
+  border-color: #8b5cf6;
+}
+
+/* =========================
+   CATEGORY GRID
+========================= */
+
+.aeloria-admin-categories-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 18px;
+}
+
+.aeloria-admin-category-card {
+  background: #ffffff;
+  border: 1px solid #ebe7f4;
+  border-radius: 15px;
+  overflow: hidden;
+  transition: 0.2s ease;
+}
+
+.aeloria-admin-category-card:hover {
+  border-color: #d8c9f8;
+  box-shadow: 0 10px 25px rgba(109, 40, 217, 0.08);
+  transform: translateY(-2px);
+}
+
+.aeloria-admin-category-card-top {
+  padding: 17px 17px 5px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.aeloria-admin-category-icon {
+  width: 48px;
+  height: 48px;
+  border-radius: 13px;
+  background: #f4efff;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 23px;
+}
+
+.aeloria-admin-category-status {
+  padding: 5px 9px;
+  border-radius: 20px;
+  font-size: 10px;
+  font-weight: 800;
+  text-transform: uppercase;
+}
+
+.aeloria-admin-category-status-published {
+  background: #ecfdf5;
+  color: #047857;
+}
+
+.aeloria-admin-category-status-draft {
+  background: #fff7ed;
+  color: #c2410c;
+}
+
+.aeloria-admin-category-body {
+  padding: 12px 17px 17px;
+}
+
+.aeloria-admin-category-title-row {
+  display: flex;
+  align-items: center;
+  gap: 7px;
+}
+
+.aeloria-admin-category-title-row h3 {
+  color: #111827;
+  font-size: 17px;
+  line-height: 1.3;
+}
+
+.aeloria-admin-category-featured {
+  color: #f59e0b;
+  font-size: 15px;
+}
+
+.aeloria-admin-category-slug {
+  color: #8b5cf6;
+  font-size: 11px;
+  margin: 4px 0 9px;
+}
+
+.aeloria-admin-category-description {
+  color: #6b7280;
+  font-size: 13px;
+  line-height: 1.55;
+  min-height: 42px;
+}
+
+.aeloria-admin-category-meta {
+  display: flex;
+  gap: 15px;
+  flex-wrap: wrap;
+  margin-top: 15px;
+  padding-top: 12px;
+  border-top: 1px solid #f0edf6;
+  color: #9ca3af;
+  font-size: 11px;
+}
+
+.aeloria-admin-category-meta strong {
+  color: #4b5563;
+  font-weight: 600;
+}
+
+.aeloria-admin-category-actions {
+  display: flex;
+  align-items: center;
+  gap: 7px;
+  padding: 12px 17px;
+  background: #faf9fd;
+  border-top: 1px solid #f0edf6;
+}
+
+.aeloria-admin-category-actions button,
+.aeloria-admin-category-actions a {
+  border: none;
+  border-radius: 7px;
+  padding: 7px 9px;
+  font-size: 11px;
+  font-weight: 700;
+  text-decoration: none;
+  cursor: pointer;
+}
+
+.aeloria-admin-category-edit {
+  background: #f1ebff;
+  color: #6d28d9;
+}
+
+.aeloria-admin-category-toggle {
+  background: #ecfeff;
+  color: #0e7490;
+}
+
+.aeloria-admin-category-delete {
+  margin-left: auto;
+  background: #fff1f2;
+  color: #be123c;
+}
+
+.aeloria-admin-category-actions button:hover,
+.aeloria-admin-category-actions a:hover {
+  opacity: 0.82;
+}
+
+/* =========================
+   EMPTY / LOADING
+========================= */
+
+.aeloria-admin-categories-empty {
+  min-height: 300px;
+  background: #ffffff;
+  border: 1px solid #ebe7f4;
+  border-radius: 15px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-direction: column;
+  text-align: center;
+  padding: 35px;
+}
+
+.aeloria-admin-categories-empty-icon {
+  width: 60px;
+  height: 60px;
+  border-radius: 16px;
+  background: #f1ebff;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 27px;
+  margin-bottom: 15px;
+}
+
+.aeloria-admin-categories-empty h3 {
+  color: #111827;
+  font-size: 18px;
+  margin-bottom: 6px;
+}
+
+.aeloria-admin-categories-empty p {
+  color: #9ca3af;
+  font-size: 13px;
+  margin-bottom: 17px;
+}
+
+.aeloria-admin-categories-empty button {
+  border: none;
+  border-radius: 8px;
+  padding: 10px 15px;
+  background: #6d28d9;
+  color: #ffffff;
+  font-size: 13px;
+  font-weight: 700;
+}
+
+/* =========================
+   LOADING SPINNER
+========================= */
+
+.aeloria-admin-categories-loading {
+  min-height: 100vh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-direction: column;
+  gap: 12px;
+  background: #f8f7fc;
+  color: #6b7280;
+}
+
+.aeloria-admin-categories-loading p {
+  font-size: 14px;
+}
+
+.aeloria-admin-categories-spinner {
+  width: 34px;
+  height: 34px;
+  border: 3px solid #e9ddff;
+  border-top-color: #6d28d9;
+  border-radius: 50%;
+  animation: aeloriaCategoriesSpin 0.8s linear infinite;
+}
+
+@keyframes aeloriaCategoriesSpin {
+  to {
+    transform: rotate(360deg);
+  }
+}
+
+/* =========================
+   MODAL
+========================= */
+
+.aeloria-admin-categories-modal-overlay {
+  position: fixed;
+  inset: 0;
+  z-index: 100;
+  background: rgba(17, 24, 39, 0.55);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 25px;
+  overflow-y: auto;
+}
+
+.aeloria-admin-categories-modal {
+  width: min(720px, 100%);
+  max-height: 90vh;
+  overflow-y: auto;
+  background: #ffffff;
+  border-radius: 17px;
+  box-shadow: 0 25px 70px rgba(17, 24, 39, 0.22);
+}
+
+.aeloria-admin-categories-modal-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-start;
+  padding: 22px 24px;
+  border-bottom: 1px solid #eeeaf5;
+}
+
+.aeloria-admin-categories-modal-header p {
+  color: #8b5cf6;
+  font-size: 10px;
+  font-weight: 800;
+  letter-spacing: 1.2px;
+  margin-bottom: 4px;
+}
+
+.aeloria-admin-categories-modal-header h2 {
+  color: #111827;
+  font-size: 21px;
+}
+
+.aeloria-admin-categories-modal-close {
+  width: 34px;
+  height: 34px;
+  border: none;
+  border-radius: 8px;
+  background: #f5f3f7;
+  color: #6b7280;
+  font-size: 22px;
+}
+
+.aeloria-admin-categories-modal-close:hover {
+  background: #f1ebff;
+  color: #6d28d9;
+}
+
+.aeloria-admin-categories-modal form {
+  padding: 24px;
+}
+
+.aeloria-admin-categories-form-grid {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 17px;
+}
+
+.aeloria-admin-categories-field {
+  display: flex;
+  flex-direction: column;
+  gap: 7px;
+}
+
+.aeloria-admin-categories-field label {
+  color: #374151;
+  font-size: 12px;
+  font-weight: 700;
+}
+
+.aeloria-admin-categories-field input,
+.aeloria-admin-categories-field select,
+.aeloria-admin-categories-field textarea {
+  width: 100%;
+  border: 1px solid #e5e7eb;
+  border-radius: 9px;
+  padding: 10px 11px;
+  outline: none;
+  color: #374151;
+  background: #ffffff;
+  font-size: 13px;
+}
+
+.aeloria-admin-categories-field textarea {
+  resize: vertical;
+  min-height: 100px;
+}
+
+.aeloria-admin-categories-field input:focus,
+.aeloria-admin-categories-field select:focus,
+.aeloria-admin-categories-field textarea:focus {
+  border-color: #8b5cf6;
+  box-shadow: 0 0 0 3px rgba(139, 92, 246, 0.08);
+}
+
+.aeloria-admin-categories-slug-row {
+  display: flex;
+  gap: 7px;
+}
+
+.aeloria-admin-categories-slug-row input {
+  flex: 1;
+}
+
+.aeloria-admin-categories-generate {
+  border: none;
+  border-radius: 8px;
+  padding: 0 11px;
+  background: #f1ebff;
+  color: #6d28d9;
+  font-size: 11px;
+  font-weight: 700;
+}
+
+.aeloria-admin-categories-checkbox-field {
+  justify-content: flex-end;
+}
+
+.aeloria-admin-categories-checkbox-field label {
+  min-height: 40px;
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  cursor: pointer;
+}
+
+.aeloria-admin-categories-checkbox-field input {
+  width: 16px;
+  height: 16px;
+  accent-color: #6d28d9;
+}
+
+.aeloria-admin-categories-full-field {
+  grid-column: 1 / -1;
+}
+
+.aeloria-admin-categories-modal-actions {
+  display: flex;
+  justify-content: flex-end;
+  gap: 10px;
+  margin-top: 24px;
+  padding-top: 18px;
+  border-top: 1px solid #eeeaf5;
+}
+
+.aeloria-admin-categories-cancel,
+.aeloria-admin-categories-save {
+  border: none;
+  border-radius: 9px;
+  padding: 10px 17px;
+  font-size: 13px;
+  font-weight: 700;
+}
+
+.aeloria-admin-categories-cancel {
+  background: #f3f4f6;
+  color: #4b5563;
+}
+
+.aeloria-admin-categories-save {
+  background: #6d28d9;
+  color: #ffffff;
+}
+
+.aeloria-admin-categories-save:hover {
+  background: #5b21b6;
+}
+
+.aeloria-admin-categories-save:disabled,
+.aeloria-admin-categories-cancel:disabled {
+  opacity: 0.6;
+  cursor: not-allowed;
+}
+
+/* =========================
+   TABLET
+========================= */
+
+@media (max-width: 1100px) {
+  .aeloria-admin-categories-sidebar {
+    width: 220px;
+  }
+
+  .aeloria-admin-categories-main {
+    margin-left: 220px;
+    padding: 28px;
+  }
+
+  .aeloria-admin-categories-stats {
+    grid-template-columns: repeat(2, 1fr);
+  }
+
+  .aeloria-admin-categories-grid {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
+
+/* =========================
+   MOBILE
+========================= */
+
+@media (max-width: 768px) {
+  .aeloria-admin-categories-page {
+    display: block;
+  }
+
+  .aeloria-admin-categories-sidebar {
+    position: static;
+    width: 100%;
+    min-height: auto;
+    border-right: none;
+    border-bottom: 1px solid #e9e5f5;
+    padding: 14px;
+  }
+
+  .aeloria-admin-categories-logo {
+    margin-bottom: 12px;
+  }
+
+  .aeloria-admin-categories-nav {
+    flex-direction: row;
+    overflow-x: auto;
+    padding-bottom: 4px;
+  }
+
+  .aeloria-admin-categories-nav a {
+    white-space: nowrap;
+    flex-shrink: 0;
+    font-size: 12px;
+    padding: 9px 11px;
+  }
+
+  .aeloria-admin-categories-main {
+    margin-left: 0;
+    padding: 22px 16px;
+  }
+
+  .aeloria-admin-categories-header {
+    flex-direction: column;
+  }
+
+  .aeloria-admin-categories-header h1 {
+    font-size: 27px;
+  }
+
+  .aeloria-admin-categories-add-btn {
+    width: 100%;
+  }
+
+  .aeloria-admin-categories-toolbar {
+    flex-direction: column;
+    align-items: stretch;
+  }
+
+  .aeloria-admin-categories-search {
+    width: 100%;
+  }
+
+  .aeloria-admin-categories-toolbar select {
+    width: 100%;
+  }
+
+  .aeloria-admin-categories-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .aeloria-admin-categories-modal-overlay {
+    padding: 12px;
+    align-items: flex-start;
+  }
+
+  .aeloria-admin-categories-modal {
+    margin-top: 20px;
+    max-height: 94vh;
+  }
+
+  .aeloria-admin-categories-form-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .aeloria-admin-categories-full-field {
+    grid-column: auto;
+  }
+}
+
+/* =========================
+   SMALL MOBILE
+========================= */
+
+@media (max-width: 480px) {
+  .aeloria-admin-categories-main {
+    padding: 18px 12px;
+  }
+
+  .aeloria-admin-categories-stats {
+    grid-template-columns: 1fr;
+  }
+
+  .aeloria-admin-categories-stat-card {
+    padding: 15px;
+  }
+
+  .aeloria-admin-category-actions {
+    flex-wrap: wrap;
+  }
+
+  .aeloria-admin-category-delete {
+    margin-left: 0;
+  }
+
+  .aeloria-admin-categories-modal form {
+    padding: 18px;
+  }
+
+  .aeloria-admin-categories-modal-header {
+    padding: 18px;
+  }
+
+  .aeloria-admin-categories-modal-actions {
+    flex-direction: column-reverse;
+  }
+
+  .aeloria-admin-categories-cancel,
+  .aeloria-admin-categories-save {
+    width: 100%;
+  }
+}

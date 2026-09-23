@@ -1,0 +1,658 @@
+/* =========================================
+   AELORIA ADMIN - PRACTICE
+   ========================================= */
+
+.aeloria-admin-practice-page {
+  min-height: 100vh;
+  background: #f8f7fc;
+  padding: 40px 24px 60px;
+}
+
+.aeloria-admin-practice-container {
+  max-width: 1200px;
+  margin: 0 auto;
+}
+
+/* HEADER */
+
+.aeloria-admin-practice-header {
+  display: flex;
+  align-items: flex-end;
+  justify-content: space-between;
+  gap: 24px;
+  margin-bottom: 28px;
+}
+
+.aeloria-admin-practice-eyebrow {
+  display: inline-block;
+  margin-bottom: 7px;
+  color: #7c3aed;
+  font-size: 12px;
+  font-weight: 800;
+  letter-spacing: 1.5px;
+}
+
+.aeloria-admin-practice-header h1 {
+  margin: 0 0 6px;
+  color: #1f2937;
+  font-size: 32px;
+  font-weight: 800;
+}
+
+.aeloria-admin-practice-header p {
+  margin: 0;
+  color: #6b7280;
+  font-size: 15px;
+}
+
+.aeloria-admin-practice-add {
+  min-height: 46px;
+  padding: 0 20px;
+  border: none;
+  border-radius: 10px;
+  background: #6d28d9;
+  color: #fff;
+  font-size: 14px;
+  font-weight: 700;
+  cursor: pointer;
+  box-shadow: 0 6px 16px rgba(109, 40, 217, 0.2);
+  transition: 0.2s ease;
+}
+
+.aeloria-admin-practice-add:hover {
+  background: #5b21b6;
+  transform: translateY(-1px);
+}
+
+/* ERROR */
+
+.aeloria-admin-practice-error {
+  margin-bottom: 20px;
+  padding: 13px 16px;
+  border: 1px solid #fecaca;
+  border-radius: 10px;
+  background: #fef2f2;
+  color: #b91c1c;
+  font-size: 14px;
+  font-weight: 600;
+}
+
+/* STATS */
+
+.aeloria-admin-practice-stats {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 16px;
+  margin-bottom: 24px;
+}
+
+.aeloria-admin-practice-stat {
+  display: flex;
+  align-items: center;
+  gap: 14px;
+  min-height: 105px;
+  padding: 18px;
+  border: 1px solid #e5e7eb;
+  border-radius: 14px;
+  background: #fff;
+}
+
+.aeloria-admin-practice-stat-icon {
+  width: 46px;
+  height: 46px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-shrink: 0;
+  border-radius: 12px;
+  background: #f5f3ff;
+  color: #6d28d9;
+  font-size: 20px;
+}
+
+.aeloria-admin-practice-stat-icon.published {
+  background: #ecfdf5;
+  color: #059669;
+}
+
+.aeloria-admin-practice-stat-icon.draft {
+  background: #fff7ed;
+  color: #ea580c;
+}
+
+.aeloria-admin-practice-stat-icon.easy {
+  background: #fff1f2;
+  color: #e11d48;
+}
+
+.aeloria-admin-practice-stat span {
+  display: block;
+  margin-bottom: 3px;
+  color: #6b7280;
+  font-size: 13px;
+}
+
+.aeloria-admin-practice-stat strong {
+  color: #1f2937;
+  font-size: 25px;
+  font-weight: 800;
+}
+
+/* TOOLBAR */
+
+.aeloria-admin-practice-toolbar {
+  display: grid;
+  grid-template-columns: minmax(250px, 1fr) 180px 190px 170px;
+  gap: 12px;
+  margin-bottom: 20px;
+}
+
+.aeloria-admin-practice-search {
+  height: 46px;
+  display: flex;
+  align-items: center;
+  gap: 9px;
+  padding: 0 13px;
+  border: 1px solid #d1d5db;
+  border-radius: 10px;
+  background: #fff;
+}
+
+.aeloria-admin-practice-search span {
+  color: #6b7280;
+  font-size: 20px;
+}
+
+.aeloria-admin-practice-search input {
+  width: 100%;
+  border: none;
+  outline: none;
+  background: transparent;
+  color: #1f2937;
+  font-size: 14px;
+}
+
+.aeloria-admin-practice-toolbar select {
+  width: 100%;
+  height: 46px;
+  padding: 0 12px;
+  border: 1px solid #d1d5db;
+  border-radius: 10px;
+  outline: none;
+  background: #fff;
+  color: #374151;
+  font-size: 14px;
+}
+
+.aeloria-admin-practice-toolbar select:focus,
+.aeloria-admin-practice-search:focus-within {
+  border-color: #8b5cf6;
+  box-shadow: 0 0 0 3px rgba(139, 92, 246, 0.1);
+}
+
+/* LIST */
+
+.aeloria-admin-practice-list {
+  display: flex;
+  flex-direction: column;
+  gap: 14px;
+}
+
+.aeloria-admin-practice-card {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 22px;
+  padding: 20px;
+  border: 1px solid #e5e7eb;
+  border-radius: 14px;
+  background: #fff;
+  transition: 0.2s ease;
+}
+
+.aeloria-admin-practice-card:hover {
+  border-color: #ddd6fe;
+  box-shadow: 0 7px 22px rgba(31, 41, 55, 0.06);
+}
+
+.aeloria-admin-practice-card-main {
+  min-width: 0;
+  flex: 1;
+}
+
+.aeloria-admin-practice-card-top {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  margin-bottom: 9px;
+}
+
+.aeloria-admin-practice-difficulty,
+.aeloria-admin-practice-status {
+  display: inline-flex;
+  align-items: center;
+  min-height: 25px;
+  padding: 0 9px;
+  border-radius: 20px;
+  font-size: 11px;
+  font-weight: 800;
+}
+
+.aeloria-admin-practice-difficulty.easy {
+  background: #ecfdf5;
+  color: #047857;
+}
+
+.aeloria-admin-practice-difficulty.medium {
+  background: #fff7ed;
+  color: #c2410c;
+}
+
+.aeloria-admin-practice-difficulty.hard {
+  background: #fef2f2;
+  color: #b91c1c;
+}
+
+.aeloria-admin-practice-status.published {
+  background: #f0fdf4;
+  color: #15803d;
+}
+
+.aeloria-admin-practice-status.draft {
+  background: #f3f4f6;
+  color: #6b7280;
+}
+
+.aeloria-admin-practice-card h2 {
+  margin: 0 0 7px;
+  color: #1f2937;
+  font-size: 18px;
+  font-weight: 800;
+}
+
+.aeloria-admin-practice-description {
+  max-width: 760px;
+  margin: 0 0 12px;
+  overflow: hidden;
+  color: #6b7280;
+  font-size: 13px;
+  line-height: 1.6;
+  display: -webkit-box;
+  -webkit-line-clamp: 2;
+  -webkit-box-orient: vertical;
+}
+
+.aeloria-admin-practice-meta {
+  display: flex;
+  align-items: center;
+  flex-wrap: wrap;
+  gap: 15px;
+  color: #6b7280;
+  font-size: 12px;
+}
+
+.aeloria-admin-practice-actions {
+  display: flex;
+  align-items: center;
+  gap: 7px;
+  flex-shrink: 0;
+}
+
+.aeloria-admin-practice-action {
+  width: 38px;
+  height: 38px;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  border: 1px solid #e5e7eb;
+  border-radius: 9px;
+  background: #fff;
+  color: #4b5563;
+  text-decoration: none;
+  cursor: pointer;
+  transition: 0.2s ease;
+}
+
+.aeloria-admin-practice-action.edit:hover {
+  border-color: #c4b5fd;
+  background: #f5f3ff;
+}
+
+.aeloria-admin-practice-action.view:hover {
+  border-color: #bae6fd;
+  background: #f0f9ff;
+}
+
+.aeloria-admin-practice-action.toggle:hover {
+  border-color: #fed7aa;
+  background: #fff7ed;
+}
+
+.aeloria-admin-practice-action.delete:hover {
+  border-color: #fecaca;
+  background: #fef2f2;
+}
+
+/* EMPTY */
+
+.aeloria-admin-practice-empty {
+  padding: 70px 20px;
+  border: 1px dashed #d1d5db;
+  border-radius: 14px;
+  background: #fff;
+  text-align: center;
+}
+
+.aeloria-admin-practice-empty > div {
+  margin-bottom: 12px;
+  font-size: 38px;
+}
+
+.aeloria-admin-practice-empty h3 {
+  margin: 0 0 6px;
+  color: #1f2937;
+  font-size: 18px;
+}
+
+.aeloria-admin-practice-empty p {
+  margin: 0;
+  color: #6b7280;
+  font-size: 14px;
+}
+
+/* MODAL */
+
+.aeloria-admin-practice-modal-overlay {
+  position: fixed;
+  inset: 0;
+  z-index: 1000;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 24px;
+  background: rgba(17, 24, 39, 0.58);
+}
+
+.aeloria-admin-practice-modal {
+  width: 100%;
+  max-width: 700px;
+  max-height: 90vh;
+  overflow-y: auto;
+  padding: 26px;
+  border-radius: 16px;
+  background: #fff;
+  box-shadow: 0 25px 70px rgba(0, 0, 0, 0.18);
+}
+
+.aeloria-admin-practice-modal-header {
+  display: flex;
+  align-items: flex-start;
+  justify-content: space-between;
+  gap: 20px;
+  margin-bottom: 24px;
+}
+
+.aeloria-admin-practice-modal-header h2 {
+  margin: 0 0 5px;
+  color: #1f2937;
+  font-size: 22px;
+}
+
+.aeloria-admin-practice-modal-header p {
+  margin: 0;
+  color: #6b7280;
+  font-size: 13px;
+  line-height: 1.5;
+}
+
+.aeloria-admin-practice-modal-close {
+  width: 34px;
+  height: 34px;
+  flex-shrink: 0;
+  border: none;
+  border-radius: 8px;
+  background: #f3f4f6;
+  color: #4b5563;
+  font-size: 22px;
+  cursor: pointer;
+}
+
+.aeloria-admin-practice-modal-close:hover {
+  background: #e5e7eb;
+}
+
+/* FORM */
+
+.aeloria-admin-practice-form-grid {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 18px;
+}
+
+.aeloria-admin-practice-field {
+  display: flex;
+  flex-direction: column;
+  gap: 7px;
+}
+
+.aeloria-admin-practice-field.full {
+  grid-column: 1 / -1;
+}
+
+.aeloria-admin-practice-field label {
+  color: #374151;
+  font-size: 13px;
+  font-weight: 700;
+}
+
+.aeloria-admin-practice-field input,
+.aeloria-admin-practice-field textarea,
+.aeloria-admin-practice-field select {
+  width: 100%;
+  border: 1px solid #d1d5db;
+  border-radius: 9px;
+  outline: none;
+  background: #fff;
+  color: #1f2937;
+  font-size: 14px;
+}
+
+.aeloria-admin-practice-field input,
+.aeloria-admin-practice-field select {
+  height: 44px;
+  padding: 0 12px;
+}
+
+.aeloria-admin-practice-field textarea {
+  padding: 11px 12px;
+  resize: vertical;
+  line-height: 1.6;
+}
+
+.aeloria-admin-practice-field input:focus,
+.aeloria-admin-practice-field textarea:focus,
+.aeloria-admin-practice-field select:focus {
+  border-color: #8b5cf6;
+  box-shadow: 0 0 0 3px rgba(139, 92, 246, 0.1);
+}
+
+/* MODAL ACTIONS */
+
+.aeloria-admin-practice-modal-actions {
+  display: flex;
+  justify-content: flex-end;
+  gap: 10px;
+  margin-top: 25px;
+  padding-top: 20px;
+  border-top: 1px solid #f0eef5;
+}
+
+.aeloria-admin-practice-cancel,
+.aeloria-admin-practice-save {
+  min-height: 44px;
+  padding: 0 18px;
+  border-radius: 9px;
+  font-size: 14px;
+  font-weight: 700;
+  cursor: pointer;
+}
+
+.aeloria-admin-practice-cancel {
+  border: 1px solid #d1d5db;
+  background: #fff;
+  color: #4b5563;
+}
+
+.aeloria-admin-practice-save {
+  border: none;
+  background: #6d28d9;
+  color: #fff;
+}
+
+.aeloria-admin-practice-save:hover {
+  background: #5b21b6;
+}
+
+.aeloria-admin-practice-save:disabled {
+  opacity: 0.6;
+  cursor: not-allowed;
+}
+
+/* LOADING */
+
+.aeloria-admin-practice-loading {
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: 14px;
+  background: #f8f7fc;
+  color: #6b7280;
+}
+
+.aeloria-admin-practice-spinner {
+  width: 38px;
+  height: 38px;
+  border: 4px solid #ede9fe;
+  border-top-color: #6d28d9;
+  border-radius: 50%;
+  animation: aeloria-admin-practice-spin 0.8s linear infinite;
+}
+
+@keyframes aeloria-admin-practice-spin {
+  to {
+    transform: rotate(360deg);
+  }
+}
+
+/* TABLET */
+
+@media (max-width: 950px) {
+  .aeloria-admin-practice-stats {
+    grid-template-columns: repeat(2, 1fr);
+  }
+
+  .aeloria-admin-practice-toolbar {
+    grid-template-columns: 1fr 1fr;
+  }
+
+  .aeloria-admin-practice-search {
+    grid-column: 1 / -1;
+  }
+}
+
+/* MOBILE */
+
+@media (max-width: 700px) {
+  .aeloria-admin-practice-page {
+    padding: 28px 16px 50px;
+  }
+
+  .aeloria-admin-practice-header {
+    flex-direction: column;
+    align-items: stretch;
+  }
+
+  .aeloria-admin-practice-header h1 {
+    font-size: 27px;
+  }
+
+  .aeloria-admin-practice-add {
+    width: 100%;
+  }
+
+  .aeloria-admin-practice-stats {
+    grid-template-columns: 1fr;
+  }
+
+  .aeloria-admin-practice-toolbar {
+    grid-template-columns: 1fr;
+  }
+
+  .aeloria-admin-practice-search {
+    grid-column: auto;
+  }
+
+  .aeloria-admin-practice-card {
+    flex-direction: column;
+    align-items: stretch;
+  }
+
+  .aeloria-admin-practice-actions {
+    justify-content: flex-end;
+    padding-top: 14px;
+    border-top: 1px solid #f0eef5;
+  }
+
+  .aeloria-admin-practice-form-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .aeloria-admin-practice-field.full {
+    grid-column: auto;
+  }
+
+  .aeloria-admin-practice-modal {
+    padding: 20px 16px;
+  }
+
+  .aeloria-admin-practice-modal-actions {
+    flex-direction: column-reverse;
+  }
+
+  .aeloria-admin-practice-cancel,
+  .aeloria-admin-practice-save {
+    width: 100%;
+  }
+}
+
+/* SMALL MOBILE */
+
+@media (max-width: 420px) {
+  .aeloria-admin-practice-page {
+    padding: 22px 12px 40px;
+  }
+
+  .aeloria-admin-practice-card {
+    padding: 16px;
+  }
+
+  .aeloria-admin-practice-card h2 {
+    font-size: 17px;
+  }
+
+  .aeloria-admin-practice-meta {
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 7px;
+  }
+
+  .aeloria-admin-practice-actions {
+    justify-content: space-between;
+  }
+
+  .aeloria-admin-practice-action {
+    flex: 1;
+  }
+}
