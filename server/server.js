@@ -15,6 +15,8 @@ const categoryRoutes = require("./routes/categoryRoutes");
 const languageRoutes = require("./routes/languageRoutes");
 const userRoutes = require("./routes/userRoutes");
 const aiRoutes = require("./routes/aiRoutes");
+const quizRoutes = require("./routes/quizRoutes");
+const progressRoutes = require("./routes/progressRoutes");
 
 const app = express();
 
@@ -34,6 +36,8 @@ app.use("/api/categories", categoryRoutes);
 app.use("/api/languages", languageRoutes);
 app.use("/api/users", userRoutes);
 app.use("/api/ai", aiRoutes);
+app.use("/api/quizzes", quizRoutes);
+app.use("/api/progress", progressRoutes);
 
 app.get("/", (req, res) => {
   res.json({

@@ -720,3 +720,90 @@
     gap: 12px;
   }
 }
+
+/* =====================================
+   LESSON PROGRESS & COMPLETE BAR
+   ===================================== */
+
+.aeloria-lesson-complete-bar {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  flex-wrap: wrap;
+  gap: 16px;
+  background: linear-gradient(135deg, #faf5ff 0%, #ffffff 100%);
+  border: 1.5px solid #ede9fe;
+  padding: 18px 24px;
+  border-radius: 16px;
+  margin-bottom: 26px;
+  box-shadow: 0 4px 14px rgba(109, 40, 217, 0.04);
+}
+
+.aeloria-lesson-status-tag {
+  display: inline-block;
+  font-size: 11px;
+  font-weight: 800;
+  letter-spacing: 0.8px;
+  padding: 3px 10px;
+  border-radius: 20px;
+  margin-bottom: 6px;
+}
+
+.aeloria-lesson-status-tag.completed {
+  background: #dcfce7;
+  color: #15803d;
+}
+
+.aeloria-lesson-status-tag.in-progress {
+  background: #ede9fe;
+  color: #6d28d9;
+}
+
+.aeloria-lesson-complete-bar h3 {
+  margin: 0;
+  font-size: 18px;
+  font-weight: 800;
+  color: #111827;
+}
+
+.aeloria-lesson-complete-btn {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  padding: 12px 24px;
+  border-radius: 12px;
+  font-weight: 800;
+  font-size: 14px;
+  cursor: pointer;
+  border: none;
+  background: linear-gradient(135deg, #6d28d9, #7c3aed);
+  color: #ffffff;
+  box-shadow: 0 4px 14px rgba(109, 40, 217, 0.25);
+  transition: all 0.2s ease;
+  white-space: nowrap;
+}
+
+.aeloria-lesson-complete-btn:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 6px 18px rgba(109, 40, 217, 0.35);
+}
+
+.aeloria-lesson-complete-btn.completed {
+  background: #dcfce7;
+  color: #15803d;
+  border: 1.5px solid #86efac;
+  box-shadow: none;
+}
+
+.aeloria-lesson-complete-btn.completed:hover {
+  background: #fee2e2;
+  color: #b91c1c;
+  border-color: #fca5a5;
+}
+
+.aeloria-course-topic-check {
+  margin-left: auto;
+  color: #16a34a;
+  font-weight: 900;
+  font-size: 15px;
+}

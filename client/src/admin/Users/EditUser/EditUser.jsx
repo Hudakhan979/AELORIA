@@ -185,6 +185,14 @@ const EditUser = () => {
           </Link>
 
           <Link
+            to="/admin/quizzes"
+            className="aeloria-edit-user-nav-item"
+          >
+            <span>🎯</span>
+            Quizzes
+          </Link>
+
+          <Link
             to="/admin/categories"
             className="aeloria-edit-user-nav-item"
           >

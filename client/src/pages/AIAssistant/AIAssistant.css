@@ -710,15 +710,119 @@
   }
 }
 
-.aeloria-ai-code-snippet {
-  background: #1e1b4b;
-  color: #e0e7ff;
-  padding: 14px 16px;
-  border-radius: 8px;
-  font-family: "Fira Code", monospace;
-  font-size: 13px;
-  line-height: 1.5;
-  overflow-x: auto;
-  margin: 10px 0;
-  border: 1px solid #4338ca;
+/* =========================================
+   MARKDOWN & CODE SNIPPET ENHANCEMENTS
+   ========================================= */
+
+.aeloria-ai-text-block {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
 }
+
+.aeloria-ai-paragraph {
+  margin: 0 0 6px 0;
+  line-height: 1.65;
+  font-size: 14.5px;
+  color: #1f2937;
+}
+
+.aeloria-ai-heading {
+  margin: 12px 0 6px 0;
+  color: #5b21b6;
+  font-weight: 800;
+  line-height: 1.35;
+}
+
+h3.aeloria-ai-heading {
+  font-size: 1.15rem;
+}
+
+h4.aeloria-ai-heading {
+  font-size: 1.02rem;
+}
+
+.aeloria-ai-list {
+  margin: 4px 0 10px 20px;
+  padding: 0;
+  display: flex;
+  flex-direction: column;
+  gap: 5px;
+}
+
+.aeloria-ai-list li {
+  line-height: 1.55;
+  color: #374151;
+  font-size: 14px;
+}
+
+.aeloria-ai-inline-code {
+  background: #ede9fe;
+  color: #6d28d9;
+  padding: 2px 6px;
+  border-radius: 6px;
+  font-family: "Fira Code", "Courier New", monospace;
+  font-size: 13px;
+  font-weight: 600;
+}
+
+.aeloria-ai-code-wrapper {
+  margin: 12px 0;
+  border-radius: 12px;
+  overflow: hidden;
+  border: 1px solid #312e81;
+  background: #0f172a;
+  box-shadow: 0 8px 24px rgba(15, 23, 42, 0.25);
+}
+
+.aeloria-ai-code-header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 12px;
+  padding: 8px 14px;
+  background: #1e293b;
+  border-bottom: 1px solid #334155;
+  user-select: none;
+  -webkit-user-select: none;
+}
+
+.aeloria-ai-code-lang {
+  color: #94a3b8;
+  font-size: 11px;
+  font-weight: 800;
+  letter-spacing: 0.6px;
+}
+
+.aeloria-ai-code-copy-btn {
+  background: #334155;
+  color: #f1f5f9;
+  border: none;
+  border-radius: 6px;
+  padding: 4px 10px;
+  font-size: 11.5px;
+  font-weight: 700;
+  cursor: pointer;
+  transition: all 0.15s ease;
+}
+
+.aeloria-ai-code-copy-btn:hover {
+  background: #475569;
+  color: #ffffff;
+}
+
+.aeloria-ai-code-body {
+  margin: 0;
+  padding: 14px 16px;
+  overflow-x: auto;
+  font-family: "Fira Code", Consolas, "Courier New", monospace;
+  font-size: 13.5px;
+  line-height: 1.6;
+  color: #e2e8f0;
+  background: #0f172a;
+}
+
+.aeloria-ai-code-body code {
+  font-family: inherit;
+  color: inherit;
+}

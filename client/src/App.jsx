@@ -38,6 +38,12 @@ import AdminLanguages from "./admin/Languages/Languages";
 import EditLanguage from "./admin/Languages/EditLanguage/EditLanguage";
 import AdminUsers from "./admin/Users/Users";
 import EditUser from "./admin/Users/EditUser/EditUser";
+import AdminQuizzes from "./admin/Quizzes/AdminQuizzes";
+import ManageQuestions from "./admin/Quizzes/ManageQuestions/ManageQuestions";
+import QuizAttempts from "./admin/Quizzes/QuizAttempts/QuizAttempts";
+import QuizzesCatalog from "./pages/Quiz/QuizzesCatalog";
+import QuizDetail from "./pages/Quiz/QuizDetail";
+import TakeQuiz from "./pages/Quiz/TakeQuiz";
 import AIAssistant from "./pages/AIAssistant/AIAssistant";
 import AdminProtectedRoute from "./components/AdminProtectedRoute/AdminProtectedRoute";
 
@@ -120,6 +126,12 @@ function App() {
           path="/practice/:problemId"
           element={<PracticeProblem />}
         />
+
+        {/* QUIZZES & ASSESSMENTS */}
+        <Route path="/quizzes" element={<QuizzesCatalog />} />
+        <Route path="/practice/quiz" element={<QuizzesCatalog />} />
+        <Route path="/quiz/:quizId" element={<QuizDetail />} />
+        <Route path="/quiz/:quizId/take" element={<TakeQuiz />} />
 
         <Route
           path="/notes"
@@ -242,6 +254,9 @@ function App() {
           <Route path="/admin/notes/edit/:noteId" element={<EditNote />} />
           <Route path="/admin/practice" element={<AdminPractice />} />
           <Route path="/admin/practice/edit/:problemId" element={<EditPractice />} />
+          <Route path="/admin/quizzes" element={<AdminQuizzes />} />
+          <Route path="/admin/quizzes/:quizId/questions" element={<ManageQuestions />} />
+          <Route path="/admin/quizzes/:quizId/attempts" element={<QuizAttempts />} />
           <Route path="/admin/categories" element={<AdminCategories />} />
           <Route path="/admin/categories/edit/:categoryId" element={<EditCategory />} />
           <Route path="/admin/languages" element={<AdminLanguages />} />

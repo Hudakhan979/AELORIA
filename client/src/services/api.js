@@ -427,23 +427,159 @@ export const toggleAdminUserStatus = (id, token) =>
     },
   });
 
+// =========================
+// QUIZZES - PUBLIC & STUDENT
+// =========================
+
+export const getQuizzes = () =>
+  apiRequest("/quizzes");
+
+export const getQuizzesByCourse = (courseId) =>
+  apiRequest(`/quizzes/course/${courseId}`);
+
+export const getQuizInfo = (quizId, token) =>
+  apiRequest(`/quizzes/${quizId}`, {
+    headers: token
+      ? {
+          Authorization: `Bearer ${token}`,
+        }
+      : {},
+  });
+
+export const startQuizTake = (quizId, token) =>
+  apiRequest(`/quizzes/${quizId}/take`, {
+    headers: {
+      Authorization: `Bearer ${token}`,
+    },
+  });
+
+export const submitQuizAnswers = (quizId, submissionData, token) =>
+  apiRequest(`/quizzes/${quizId}/submit`, {
+    method: "POST",
+    headers: {
+      Authorization: `Bearer ${token}`,
+    },
+    body: JSON.stringify(submissionData),
+  });
+
+export const getMyQuizAttempts = (quizId, token) =>
+  apiRequest(`/quizzes/${quizId}/my-attempts`, {
+    headers: {
+      Authorization: `Bearer ${token}`,
+    },
+  });
+
+export const getQuizAttemptById = (attemptId, token) =>
+  apiRequest(`/quizzes/attempts/${attemptId}`, {
+    headers: {
+      Authorization: `Bearer ${token}`,
+    },
+  });
+
+// =========================
+// QUIZZES - ADMIN
+// =========================
+
+export const getAdminQuizzes = (token) =>
+  apiRequest("/quizzes/admin/all", {
+    headers: {
+      Authorization: `Bearer ${token}`,
+    },
+  });
+
+export const createQuiz = (quizData, token) =>
+  apiRequest("/quizzes/admin", {
+    method: "POST",
+    headers: {
+      Authorization: `Bearer ${token}`,
+    },
+    body: JSON.stringify(quizData),
+  });
+
+export const getAdminQuizById = (quizId, token) =>
+  apiRequest(`/quizzes/admin/${quizId}`, {
+    headers: {
+      Authorization: `Bearer ${token}`,
+    },
+  });
+
+export const updateQuiz = (quizId, quizData, token) =>
+  apiRequest(`/quizzes/admin/${quizId}`, {
+    method: "PUT",
+    headers: {
+      Authorization: `Bearer ${token}`,
+    },
+    body: JSON.stringify(quizData),
+  });
+
+export const deleteQuiz = (quizId, token) =>
+  apiRequest(`/quizzes/admin/${quizId}`, {
+    method: "DELETE",
+    headers: {
+      Authorization: `Bearer ${token}`,
+    },
+  });
+
+export const toggleQuizStatus = (quizId, token) =>
+  apiRequest(`/quizzes/admin/${quizId}/status`, {
+    method: "PATCH",
+    headers: {
+      Authorization: `Bearer ${token}`,
+    },
+  });
+
+export const addQuizQuestion = (quizId, questionData, token) =>
+  apiRequest(`/quizzes/admin/${quizId}/questions`, {
+    method: "POST",
+    headers: {
+      Authorization: `Bearer ${token}`,
+    },
+    body: JSON.stringify(questionData),
+  });
+
+export const updateQuizQuestion = (quizId, questionId, questionData, token) =>
+  apiRequest(`/quizzes/admin/${quizId}/questions/${questionId}`, {
+    method: "PUT",
+    headers: {
+      Authorization: `Bearer ${token}`,
+    },
+    body: JSON.stringify(questionData),
+  });
+
+export const deleteQuizQuestion = (quizId, questionId, token) =>
+  apiRequest(`/quizzes/admin/${quizId}/questions/${questionId}`, {
+    method: "DELETE",
+    headers: {
+      Authorization: `Bearer ${token}`,
+    },
+  });
+
+export const getAdminQuizAttempts = (quizId, token) =>
+  apiRequest(`/quizzes/admin/${quizId}/attempts`, {
+    headers: {
+      Authorization: `Bearer ${token}`,
+    },
+  });
+
 export const getAdminDashboardData = async (token) => {
   const [
     courses,
     tutorials,
     notes,
     practice,
+    quizzes,
     categories,
     languages,
     users,
   ] = await Promise.all([
-    getAdminCourses(token),
-    getAdminTutorials(token),
-    getAdminNotes(token),
-    getAdminPracticeProblems(token),
-    getAdminCategories(token),
-    getAdminLanguages(token),
-    getAdminUsers(token),
+    getAdminCourses(token).catch(() => []),
+    getAdminTutorials(token).catch(() => []),
+    getAdminNotes(token).catch(() => []),
+    getAdminPracticeProblems(token).catch(() => []),
+    getAdminQuizzes(token).catch(() => []),
+    getAdminCategories(token).catch(() => []),
+    getAdminLanguages(token).catch(() => []),
+    getAdminUsers(token).catch(() => []),
   ]);
 
   return {
@@ -451,6 +587,7 @@ export const getAdminDashboardData = async (token) => {
     tutorials,
     notes,
     practice,
+    quizzes,
     categories,
     languages,
     users,
@@ -483,6 +620,49 @@ export const updateUserProfile = (userData, token) =>
       Authorization: `Bearer ${token}`,
     },
     body: JSON.stringify(userData),
+  });
+
+// =========================
+// STUDENT PROGRESS
+// =========================
+
+export const getCourseProgress = (courseId, token) =>
+  apiRequest(`/progress/course/${courseId}`, {
+    headers: {
+      Authorization: `Bearer ${token}`,
+    },
+  });
+
+export const toggleLessonCompletion = (courseId, data, token) =>
+  apiRequest(`/progress/course/${courseId}/toggle-lesson`, {
+    method: "POST",
+    headers: {
+      Authorization: `Bearer ${token}`,
+    },
+    body: JSON.stringify(data),
+  });
+
+export const updateLastAccessedLesson = (courseId, data, token) =>
+  apiRequest(`/progress/course/${courseId}/last-accessed`, {
+    method: "POST",
+    headers: {
+      Authorization: `Bearer ${token}`,
+    },
+    body: JSON.stringify(typeof data === "number" ? { lessonIndex: data } : data),
+  });
+
+export const getAllStudentProgress = (token) =>
+  apiRequest("/progress/my-progress", {
+    headers: {
+      Authorization: `Bearer ${token}`,
+    },
+  });
+
+export const getAdminProgressOverview = (token) =>
+  apiRequest("/progress/admin/overview", {
+    headers: {
+      Authorization: `Bearer ${token}`,
+    },
   });
 
 export default apiRequest;

@@ -109,36 +109,60 @@ const createCourse = async (req, res) => {
       isFeatured,
     } = req.body;
 
-    if (!title || !slug || !category || !description) {
+    const finalSlug = (slug || title || "")
+      .toString()
+      .trim()
+      .toLowerCase()
+      .replace(/[^a-z0-9]+/g, "-")
+      .replace(/^-+|-+$/g, "");
+
+    if (!title || !finalSlug || !category || !description) {
       return res.status(400).json({
         success: false,
-        message: "Title, slug, category and description are required",
+        message: "Title, category and description are required",
       });
     }
 
-    const existingCourse = await Course.findOne({ slug });
+    const existingCourse = await Course.findOne({
+      $or: [
+        { slug: finalSlug },
+        { title: new RegExp(`^${title.trim()}$`, "i") },
+      ],
+    });
 
     if (existingCourse) {
       return res.status(409).json({
         success: false,
-        message: "A course with this slug already exists",
+        message: "A course with this title or slug already exists",
       });
     }
 
+    let courseLanguage = language ? language.trim() : "";
+    if (!courseLanguage) {
+      if (
+        category.toLowerCase().includes("python") ||
+        title.toLowerCase().includes("python")
+      ) {
+        courseLanguage = "Python";
+      } else {
+        courseLanguage = category;
+      }
+    }
+
     const course = await Course.create({
-      title,
-      slug,
-      category,
-      language,
-      description,
-      thumbnail,
-      level,
-      duration,
-      lessonsCount,
-      topics,
-      lessons,
-      prerequisites,
-      learningOutcomes,
+      title: title.trim(),
+      slug: finalSlug,
+      category: category.trim(),
+      language: courseLanguage,
+      description: description.trim(),
+      thumbnail: thumbnail || "",
+      level: level || "Beginner",
+      duration: duration || "0 Hours",
+      lessonsCount: lessonsCount || (lessons ? lessons.length : 0),
+      topics: topics || [],
+      lessons: lessons || [],
+      prerequisites: prerequisites || [],
+      learningOutcomes: learningOutcomes || [],
       mentor: mentor || null,
       status: status || "draft",
       isFeatured: isFeatured || false,

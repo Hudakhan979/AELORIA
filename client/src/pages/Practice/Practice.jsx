@@ -4,6 +4,14 @@ import "./Practice.css";
 function Practice() {
   const topics = [
     {
+      id: "python-even-or-odd",
+      icon: "🐍",
+      title: "Python Fundamentals",
+      problems: "10+ Problems",
+      description:
+        "Practice Python syntax, control flow, functions, dictionaries, and file handling.",
+    },
+    {
       id: "arrays",
       icon: "▣",
       title: "Arrays",
@@ -71,22 +79,25 @@ function Practice() {
 
   const challenges = [
     {
-      title: "Daily Coding Challenge",
+      title: "Python Coding Practice",
       description:
-        "Solve a new programming problem every day and keep your learning streak alive.",
-      icon: "🔥",
+        "Solve beginner-friendly Python problems on conditionals, loops, lists, dictionaries, strings, and file handling.",
+      icon: "🐍",
+      link: "/practice/python-even-or-odd",
     },
     {
-      title: "Topic-wise Practice",
+      title: "Python MCQ Quiz",
+      description:
+        "Assess your Python programming knowledge with 10 interactive multiple-choice questions and explanations.",
+      icon: "❓",
+      link: "/practice/quiz",
+    },
+    {
+      title: "Topic-wise DSA Practice",
       description:
         "Choose a topic and practice problems according to your current skill level.",
       icon: "🎯",
-    },
-    {
-      title: "Mock Tests",
-      description:
-        "Test your programming and DSA knowledge with timed mock assessments.",
-      icon: "⏱",
+      link: "/practice/arrays",
     },
   ];
 
@@ -196,9 +207,9 @@ function Practice() {
 
                 <p>{challenge.description}</p>
 
-                <a href="/practice">
+                <Link to={challenge.link || "/practice"}>
                   Explore →
-                </a>
+                </Link>
               </div>
             ))}
           </div>

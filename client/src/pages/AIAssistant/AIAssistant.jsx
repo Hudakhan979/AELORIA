@@ -4,10 +4,201 @@ import { useAuth } from "../../context/AuthContext";
 import { sendAIMessage } from "../../services/api";
 import "./AIAssistant.css";
 
+function CodeSnippet({ lang, code }) {
+  const [copied, setCopied] = useState(false);
+
+  // Sanitize any stray UI button text if present inside code block
+  const cleanCode = (code || "")
+    .replace(/^(?:PYTHON|JAVASCRIPT|JAVA|C\+\+|C)?\s*Copy\s*Code\s*\n?/i, "")
+    .trim();
+
+  const handleCopy = () => {
+    navigator.clipboard.writeText(cleanCode);
+    setCopied(true);
+    setTimeout(() => setCopied(false), 2000);
+  };
+
+  return (
+    <div className="aeloria-ai-code-wrapper">
+      <div
+        className="aeloria-ai-code-header"
+        style={{ userSelect: "none", WebkitUserSelect: "none" }}
+      >
+        <span className="aeloria-ai-code-lang">{(lang || "python").toUpperCase()}</span>
+        <button
+          type="button"
+          className="aeloria-ai-code-copy-btn"
+          onClick={handleCopy}
+          aria-label="Copy code to clipboard"
+        >
+          {copied ? "✓ Copied" : "Copy Code"}
+        </button>
+      </div>
+      <pre className="aeloria-ai-code-body">
+        <code>{cleanCode}</code>
+      </pre>
+    </div>
+  );
+}
+
+function parseInline(text) {
+  if (!text) return "";
+  const regex = /(\*\*.*?\*\*|`.*?`)/g;
+  const parts = text.split(regex);
+  return parts.map((part, idx) => {
+    if (part.startsWith("**") && part.endsWith("**")) {
+      return <strong key={idx}>{part.slice(2, -2)}</strong>;
+    }
+    if (part.startsWith("`") && part.endsWith("`")) {
+      return (
+        <code key={idx} className="aeloria-ai-inline-code">
+          {part.slice(1, -1)}
+        </code>
+      );
+    }
+    return part;
+  });
+}
+
+function renderMessageContent(content) {
+  if (!content) return null;
+
+  // Sanitize stray UI artifacts and normalize CRLF to LF
+  const sanitized = content
+    .replace(/(?:PYTHON|JAVASCRIPT|JAVA|C\+\+|C)?\s*Copy\s*Code/gi, "")
+    .replace(/\r\n/g, "\n");
+
+  // Split on fenced code blocks: ```lang\ncode``` (handling optional whitespace before newline)
+  const segments = [];
+  const codeBlockRegex = /```([a-zA-Z0-9_-]*)[^\S\r\n]*\n([\s\S]*?)```/g;
+  let lastIndex = 0;
+  let match;
+
+  while ((match = codeBlockRegex.exec(sanitized)) !== null) {
+    if (match.index > lastIndex) {
+      segments.push({
+        type: "text",
+        raw: sanitized.slice(lastIndex, match.index),
+      });
+    }
+    segments.push({
+      type: "code",
+      lang: match[1]?.toLowerCase() || "python",
+      code: match[2].trim(),
+    });
+    lastIndex = match.index + match[0].length;
+  }
+
+  if (lastIndex < content.length) {
+    segments.push({
+      type: "text",
+      raw: content.slice(lastIndex),
+    });
+  }
+
+  return segments.map((seg, segIdx) => {
+    if (seg.type === "code") {
+      return (
+        <CodeSnippet
+          key={`code-${segIdx}`}
+          lang={seg.lang}
+          code={seg.code}
+        />
+      );
+    }
+
+    const lines = seg.raw.split("\n");
+    const elements = [];
+    let currentParagraph = [];
+    let currentList = [];
+    let lineIdx = 0;
+
+    const flushParagraph = () => {
+      if (currentParagraph.length > 0) {
+        const text = currentParagraph.join(" ").trim();
+        if (text) {
+          elements.push(
+            <p key={`p-${segIdx}-${lineIdx++}`} className="aeloria-ai-paragraph">
+              {parseInline(text)}
+            </p>
+          );
+        }
+        currentParagraph = [];
+      }
+    };
+
+    const flushList = () => {
+      if (currentList.length > 0) {
+        elements.push(
+          <ul key={`ul-${segIdx}-${lineIdx++}`} className="aeloria-ai-list">
+            {currentList.map((item, idx) => (
+              <li key={idx}>{parseInline(item)}</li>
+            ))}
+          </ul>
+        );
+        currentList = [];
+      }
+    };
+
+    for (const rawLine of lines) {
+      const line = rawLine.trim();
+
+      if (!line) {
+        flushParagraph();
+        flushList();
+        continue;
+      }
+
+      // Headings
+      if (line.startsWith("### ")) {
+        flushParagraph();
+        flushList();
+        elements.push(
+          <h4 key={`h4-${segIdx}-${lineIdx++}`} className="aeloria-ai-heading">
+            {parseInline(line.replace(/^###\s+/, ""))}
+          </h4>
+        );
+        continue;
+      }
+      if (line.startsWith("## ") || line.startsWith("# ")) {
+        flushParagraph();
+        flushList();
+        elements.push(
+          <h3 key={`h3-${segIdx}-${lineIdx++}`} className="aeloria-ai-heading">
+            {parseInline(line.replace(/^#{1,2}\s+/, ""))}
+          </h3>
+        );
+        continue;
+      }
+
+      // Lists
+      if (/^[-*•]\s+/.test(line)) {
+        flushParagraph();
+        currentList.push(line.replace(/^[-*•]\s+/, ""));
+        continue;
+      }
+      if (/^\d+\.\s+/.test(line)) {
+        flushParagraph();
+        currentList.push(line.replace(/^\d+\.\s+/, ""));
+        continue;
+      }
+
+      // Normal text
+      flushList();
+      currentParagraph.push(line);
+    }
+
+    flushParagraph();
+    flushList();
+
+    return <div key={`text-${segIdx}`} className="aeloria-ai-text-block">{elements}</div>;
+  });
+}
+
 const AIAssistant = () => {
-const { token, isLoggedIn } = useAuth();
-const [searchParams] = useSearchParams();
-const location = useLocation();
+  const { token, isLoggedIn } = useAuth();
+  const [searchParams] = useSearchParams();
+  const location = useLocation();
 
   const [message, setMessage] = useState("");
   const [subject, setSubject] = useState("");
@@ -23,18 +214,17 @@ const location = useLocation();
 
   // --------------------------------------------------
   // LOAD AI CONTEXT FROM URL
-  // Example:
-  // /ai-assistant?subject=Algorithms&topic=Binary%20Search&course=DSA
   // --------------------------------------------------
-
   useEffect(() => {
     const urlSubject = searchParams.get("subject") || "";
     const urlTopic = searchParams.get("topic") || "";
     const urlCourse = searchParams.get("course") || "";
+    const urlPrompt = searchParams.get("prompt") || "";
 
     if (urlSubject) setSubject(urlSubject);
     if (urlTopic) setTopic(urlTopic);
     if (urlCourse) setCourse(urlCourse);
+    if (urlPrompt) setMessage(urlPrompt);
 
     const contextState = location.state;
 
@@ -99,6 +289,7 @@ const location = useLocation();
     setError("");
     setLoading(true);
 
+    const currentChatSnapshot = chat;
     setChat((previous) => [
       ...previous,
       {
@@ -108,9 +299,16 @@ const location = useLocation();
     ]);
 
     try {
+      // Prepare multi-turn conversation history
+      const formattedHistory = currentChatSnapshot.slice(-8).map((item) => ({
+        role: item.type === "user" ? "user" : "assistant",
+        content: item.message,
+      }));
+
       const result = await sendAIMessage(
         {
           message: cleanPrompt,
+          history: formattedHistory,
           subject,
           topic,
           course,
@@ -121,7 +319,7 @@ const location = useLocation();
         token
       );
 
-      if (result.success) {
+      if (result.success && result.data?.response) {
         setChat((prev) => [
           ...prev,
           {
@@ -130,7 +328,7 @@ const location = useLocation();
           },
         ]);
       } else {
-        setError(result.message || "AELORIA AI could not respond.");
+        setError(result.message || "AELORIA AI could not process your request.");
       }
     } catch (apiError) {
       setError(
@@ -180,7 +378,6 @@ const location = useLocation();
   // --------------------------------------------------
   // LOGIN SCREEN
   // --------------------------------------------------
-
   if (!isLoggedIn) {
     return (
       <div className="aeloria-ai-page">
@@ -260,7 +457,7 @@ const location = useLocation();
 
               <input
                 type="text"
-                placeholder="e.g. Linked List"
+                placeholder="e.g. Lists and Tuples"
                 value={topic}
                 onChange={(event) => setTopic(event.target.value)}
               />
@@ -272,7 +469,7 @@ const location = useLocation();
 
               <input
                 type="text"
-                placeholder="e.g. Complete DSA"
+                placeholder="e.g. Python Programming"
                 value={course}
                 onChange={(event) => setCourse(event.target.value)}
               />
@@ -317,39 +514,39 @@ const location = useLocation();
               <h2>How can I help you?</h2>
 
               <p>
-                Ask me anything about your current learning topic.
+                Ask me anything about programming, code debugging, or concepts.
               </p>
 
               <div className="aeloria-ai-suggestions">
 
                 <button
                   onClick={() => {
-                    setMessage("Explain what a linked list is.");
-                    setSubject("Data Structures");
-                    setTopic("Linked List");
+                    setMessage("Explain the difference between Python lists and tuples with examples.");
+                    setSubject("Programming");
+                    setTopic("Python Basics");
                   }}
                 >
-                  Explain Linked List
+                  Explain Lists vs Tuples
                 </button>
 
                 <button
                   onClick={() => {
-                    setMessage("Give me an example of binary search.");
-                    setSubject("Algorithms");
-                    setTopic("Binary Search");
+                    setMessage("Write Python code to find the factorial of a number.");
+                    setSubject("Programming");
+                    setTopic("Functions");
                   }}
                 >
-                  Binary Search Example
+                  Factorial in Python
                 </button>
 
                 <button
                   onClick={() => {
-                    setMessage("How does a React component work?");
-                    setSubject("Web Development");
-                    setTopic("React");
+                    setMessage('Fix this Python code: print("Hello"');
+                    setSubject("Programming");
+                    setTopic("Syntax & Debugging");
                   }}
                 >
-                  React Components
+                  Fix Broken Code
                 </button>
 
               </div>
@@ -379,19 +576,11 @@ const location = useLocation();
                     </span>
 
                     <div className="aeloria-ai-message-text">
-                      {item.message.split("\n\n").map((part, pIdx) => {
-                        if (part.startsWith("```")) {
-                          const cleaned = part
-                            .replace(/^```[a-zA-Z]*\n/, "")
-                            .replace(/\n```$/, "");
-                          return (
-                            <pre key={pIdx} className="aeloria-ai-code-snippet">
-                              <code>{cleaned}</code>
-                            </pre>
-                          );
-                        }
-                        return <p key={pIdx}>{part}</p>;
-                      })}
+                      {item.type === "user" ? (
+                        <p>{item.message}</p>
+                      ) : (
+                        renderMessageContent(item.message)
+                      )}
                     </div>
 
                   </div>
@@ -477,7 +666,7 @@ const location = useLocation();
             <button
               type="button"
               className="aeloria-ai-send-button"
-              onClick={() => handleSubmit("answer")}
+              onClick={() => handleSubmit(action)}
               disabled={loading || !message.trim()}
             >
               {loading ? "Thinking..." : "Send"}

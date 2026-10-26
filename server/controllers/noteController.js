@@ -26,10 +26,16 @@ const getNotes = async (req, res) => {
 // GET SINGLE NOTE
 const getNoteById = async (req, res) => {
   try {
+    const targetSlug = req.params.id;
+    const slugFilter =
+      targetSlug === "python-notes" || targetSlug === "python-programming-notes"
+        ? { $in: ["python-notes", "python-programming-notes"] }
+        : targetSlug;
+
     const isObjectId = mongoose.Types.ObjectId.isValid(req.params.id);
     const filter = isObjectId
-      ? { $or: [{ _id: req.params.id }, { slug: req.params.id }], status: "published" }
-      : { slug: req.params.id, status: "published" };
+      ? { $or: [{ _id: req.params.id }, { slug: slugFilter }], status: "published" }
+      : { slug: slugFilter, status: "published" };
 
     const note = await Note.findOne(filter).populate(
       "mentor",
@@ -100,30 +106,43 @@ const createNote = async (req, res) => {
       isFeatured,
     } = req.body;
 
-    if (!title || !slug || !category || !description || !content) {
+    const finalSlug = (slug || title || "")
+      .toString()
+      .trim()
+      .toLowerCase()
+      .replace(/[^a-z0-9]+/g, "-")
+      .replace(/^-+|-+$/g, "");
+
+    const noteContent = content || description || `# ${title}`;
+
+    if (!title || !finalSlug || !category || !description) {
       return res.status(400).json({
         success: false,
-        message:
-          "Title, slug, category, description and content are required",
+        message: "Title, category and description are required",
       });
     }
 
-    const existingNote = await Note.findOne({ slug });
+    const existingNote = await Note.findOne({
+      $or: [
+        { slug: finalSlug },
+        { title: new RegExp(`^${title.trim()}$`, "i") },
+      ],
+    });
 
     if (existingNote) {
       return res.status(409).json({
         success: false,
-        message: "A note with this slug already exists",
+        message: "A note with this title or slug already exists",
       });
     }
 
     const note = await Note.create({
-      title,
-      slug,
-      category,
-      language,
-      description,
-      content,
+      title: title.trim(),
+      slug: finalSlug,
+      category: category.trim(),
+      language: language ? language.trim() : category.trim(),
+      description: description.trim(),
+      content: noteContent,
       pdfUrl,
       thumbnail,
       tags,

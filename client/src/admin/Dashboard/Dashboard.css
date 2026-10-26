@@ -13,7 +13,7 @@
    SIDEBAR
    ========================================================= */
 
-.aeloria-dashboard-sidebar {
+.aeloria-admin-dashboard .aeloria-dashboard-sidebar {
   position: fixed;
   top: 0;
   left: 0;
@@ -214,7 +214,7 @@
    WELCOME
    ========================================================= */
 
-.aeloria-dashboard-welcome {
+.aeloria-admin-dashboard .aeloria-dashboard-welcome {
   position: relative;
   display: flex;
   align-items: center;
@@ -228,7 +228,7 @@
   color: #ffffff;
 }
 
-.aeloria-dashboard-welcome::before {
+.aeloria-admin-dashboard .aeloria-dashboard-welcome::before {
   content: "";
   position: absolute;
   width: 230px;
@@ -239,7 +239,7 @@
   background: rgba(255, 255, 255, 0.08);
 }
 
-.aeloria-dashboard-welcome::after {
+.aeloria-admin-dashboard .aeloria-dashboard-welcome::after {
   content: "";
   position: absolute;
   width: 170px;
@@ -250,24 +250,24 @@
   background: rgba(255, 107, 107, 0.25);
 }
 
-.aeloria-dashboard-welcome > div:first-child {
+.aeloria-admin-dashboard .aeloria-dashboard-welcome > div:first-child {
   position: relative;
   z-index: 1;
 }
 
-.aeloria-dashboard-welcome > div:first-child > span {
+.aeloria-admin-dashboard .aeloria-dashboard-welcome > div:first-child > span {
   font-size: 10px;
   font-weight: 800;
   letter-spacing: 1.3px;
   opacity: 0.85;
 }
 
-.aeloria-dashboard-welcome h2 {
+.aeloria-admin-dashboard .aeloria-dashboard-welcome h2 {
   margin: 8px 0 5px;
   font-size: 25px;
 }
 
-.aeloria-dashboard-welcome p {
+.aeloria-admin-dashboard .aeloria-dashboard-welcome p {
   margin: 0;
   font-size: 13px;
   opacity: 0.85;
@@ -782,12 +782,12 @@
    ========================================================= */
 
 @media (max-width: 800px) {
-  .aeloria-dashboard-sidebar {
+  .aeloria-admin-dashboard .aeloria-dashboard-sidebar {
     transform: translateX(-100%);
     transition: transform 0.25s ease;
   }
 
-  .aeloria-dashboard-sidebar-open {
+  .aeloria-admin-dashboard .aeloria-dashboard-sidebar-open {
     transform: translateX(0);
   }
 
@@ -825,12 +825,12 @@
     font-size: 23px;
   }
 
-  .aeloria-dashboard-welcome {
+  .aeloria-admin-dashboard .aeloria-dashboard-welcome {
     min-height: 175px;
     padding: 25px;
   }
 
-  .aeloria-dashboard-welcome h2 {
+  .aeloria-admin-dashboard .aeloria-dashboard-welcome h2 {
     font-size: 21px;
   }
 
@@ -905,7 +905,7 @@
     font-size: 8px;
   }
 
-  .aeloria-dashboard-welcome {
+  .aeloria-admin-dashboard .aeloria-dashboard-welcome {
     padding: 22px;
   }
 }

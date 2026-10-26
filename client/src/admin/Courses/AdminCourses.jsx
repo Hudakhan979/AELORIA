@@ -21,7 +21,9 @@ function AdminCourses() {
 
   const [formData, setFormData] = useState({
     title: "",
+    slug: "",
     category: "Programming",
+    language: "",
     level: "Beginner",
     description: "",
   });
@@ -29,6 +31,8 @@ function AdminCourses() {
   const [loading, setLoading] = useState(true);
   const [saving, setSaving] = useState(false);
   const [error, setError] = useState("");
+  const [modalError, setModalError] = useState("");
+  const [success, setSuccess] = useState("");
 
   /* =====================================================
      LOAD COURSES
@@ -87,44 +91,70 @@ function AdminCourses() {
      ===================================================== */
 
   const handleCreateCourse = async () => {
+    setModalError("");
+    setError("");
+
     if (!formData.title.trim()) {
-      alert("Please enter course title.");
+      setModalError("Please enter course title.");
       return;
     }
 
     if (!formData.description.trim()) {
-      alert("Please enter course description.");
+      setModalError("Please enter course description.");
+      return;
+    }
+
+    const finalSlug = (formData.slug || formData.title)
+      .trim()
+      .toLowerCase()
+      .replace(/[^a-z0-9]+/g, "-")
+      .replace(/^-+|-+$/g, "");
+
+    // Prevent duplicate course creation on frontend
+    const isDuplicate = courses.some(
+      (c) =>
+        c.title?.toLowerCase().trim() === formData.title.toLowerCase().trim() ||
+        c.slug?.toLowerCase().trim() === finalSlug
+    );
+
+    if (isDuplicate) {
+      setModalError("A course with this title or slug already exists.");
       return;
     }
 
     try {
       setSaving(true);
-      setError("");
+      setModalError("");
 
-      await createCourse(
-        {
-          title: formData.title.trim(),
-          category: formData.category,
-          level: formData.level,
-          description: formData.description.trim(),
-          status: "draft",
-        },
-        token
-      );
+      const coursePayload = {
+        title: formData.title.trim(),
+        slug: finalSlug,
+        category: formData.category,
+        language: formData.language.trim() || formData.category,
+        level: formData.level,
+        description: formData.description.trim(),
+        status: "draft",
+      };
+
+      await createCourse(coursePayload, token);
 
       setFormData({
         title: "",
+        slug: "",
         category: "Programming",
+        language: "",
         level: "Beginner",
         description: "",
       });
 
       setShowModal(false);
+      setSuccess("Course created successfully! 🎉");
+      setTimeout(() => setSuccess(""), 5000);
 
       await loadCourses();
-    } catch (error) {
-      console.error("Create Course Error:", error);
-      setError(error.message || "Failed to create course.");
+    } catch (err) {
+      console.error("Create Course Error:", err);
+      setModalError(err.message || "Failed to create course.");
     } finally {
       setSaving(false);
     }
@@ -260,11 +290,17 @@ function AdminCourses() {
         </button>
       </header>
 
-      {/* ERROR */}
+      {/* NOTIFICATIONS */}
 
       {error && (
         <div className="aeloria-admin-courses-error">
-          {error}
+          <span>⚠️</span> {error}
+        </div>
+      )}
+
+      {success && (
+        <div className="aeloria-admin-courses-success">
+          <span>✓</span> {success}
         </div>
       )}
 
@@ -511,6 +547,12 @@ function AdminCourses() {
               Create a new course and save it to MongoDB.
             </p>
 
+            {modalError && (
+              <div className="aeloria-admin-courses-error" style={{ marginBottom: "16px" }}>
+                <span>⚠️</span> {modalError}
+              </div>
+            )}
+
             <div className="aeloria-admin-courses-form">
 
               <div className="aeloria-admin-courses-form-field">
@@ -528,6 +570,34 @@ function AdminCourses() {
               <div className="aeloria-admin-courses-form-row">
 
                 <div className="aeloria-admin-courses-form-field">
+                  <label>Course Slug (Optional)</label>
+
+                  <input
+                    type="text"
+                    name="slug"
+                    placeholder="e.g. python-programming-for-beginners"
+                    value={formData.slug}
+                    onChange={handleChange}
+                  />
+                </div>
+
+                <div className="aeloria-admin-courses-form-field">
+                  <label>Language</label>
+
+                  <input
+                    type="text"
+                    name="language"
+                    placeholder="e.g. Python, Java, C++"
+                    value={formData.language}
+                    onChange={handleChange}
+                  />
+                </div>
+
+              </div>
+
+              <div className="aeloria-admin-courses-form-row">
+
+                <div className="aeloria-admin-courses-form-field">
                   <label>Category</label>
 
                   <select
@@ -536,6 +606,10 @@ function AdminCourses() {
                     onChange={handleChange}
                   >
                     <option>Programming</option>
+                    <option>Python</option>
+                    <option>Java</option>
+                    <option>C++</option>
+                    <option>C</option>
                     <option>Web Development</option>
                     <option>DSA</option>
                     <option>AI & ML</option>

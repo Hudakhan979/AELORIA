@@ -1,10 +1,24 @@
-import { useState } from "react";
-import { Link, useParams } from "react-router-dom";
+import { useState, useEffect } from "react";
+import { Link, useParams, useSearchParams } from "react-router-dom";
+import { useAuth } from "../../context/AuthContext";
+import {
+  getCourseById,
+  getCourseProgress,
+  toggleLessonCompletion,
+  updateLastAccessedLesson,
+} from "../../services/api";
 import "./Course.css";
 
 function Course() {
   const { courseId } = useParams();
+  const [searchParams] = useSearchParams();
+  const { token } = useAuth();
   const [activeTopic, setActiveTopic] = useState(0);
+  const [apiCourse, setApiCourse] = useState(null);
+  const [loading, setLoading] = useState(true);
+  const [progressData, setProgressData] = useState(null);
+  const [markingLoading, setMarkingLoading] = useState(false);
+  const [initialResumeApplied, setInitialResumeApplied] = useState(false);
 
   const courses = {
     "c-programming": {
@@ -690,22 +704,473 @@ function Course() {
         },
       ],
     },
+
+    "python-programming-for-beginners": {
+      title: "Python Programming for Beginners",
+      category: "Python",
+      level: "Beginner",
+      lessons: "10 Lessons",
+      duration: "10 Hours",
+      description:
+        "Learn Python programming from the basics. Master variables, operators, conditions, loops, collections, functions, and file handling step by step.",
+      topics: [
+        {
+          title: "Introduction to Python",
+          content:
+            "Python is a popular, high-level, interpreted programming language created by Guido van Rossum. It emphasizes readability, rapid development, and clear indentation rather than curly braces. Python is used in web development, automation, data science, and AI.",
+          points: [
+            "Understand Python design philosophy and simple syntax",
+            "Learn how the Python interpreter executes code line by line",
+            "Write and execute your first print('Hello, Aeloria!') script",
+            "Learn indentation rules: 4 spaces instead of braces",
+          ],
+          codeExample: `# 01. Introduction to Python - First Program
+def welcome_aeloria():
+    message = "Welcome to Python Programming on AELORIA!"
+    version = "Python 3.x"
+    print(message)
+    print(f"Running on: {version}")
+
+welcome_aeloria()`,
+        },
+        {
+          title: "Variables and Data Types",
+          content:
+            "Python is dynamically typed: you do not need to explicitly declare variable types. Python automatically determines types at runtime. Core data types include int, float, str, bool, and None.",
+          points: [
+            "Declare and assign variables without explicit type annotations",
+            "Work with int, float, string, and boolean primitive types",
+            "Check variable data types using type() function",
+            "Perform explicit type conversion (type casting)",
+          ],
+          codeExample: `# 02. Variables and Data Types
+student_name = "Alex"          # str
+course_points = 95             # int
+completion_rate = 98.5         # float
+is_enrolled = True             # bool
+
+print(f"Student: {student_name} ({type(student_name).__name__})")
+print(f"Points: {course_points}, Rate: {completion_rate}%")
+print(f"Enrollment Active: {is_enrolled}")
+
+# Type conversion
+points_str = str(course_points)
+print(f"Points as string: '{points_str}'")`,
+        },
+        {
+          title: "Operators",
+          content:
+            "Operators perform operations on variables and values. Python provides arithmetic (+, -, *, /, //, %, **), comparison (==, !=, >, <, >=, <=), logical (and, or, not), assignment, and identity/membership operators.",
+          points: [
+            "Use arithmetic operators including floor division (//) and exponentiation (**)",
+            "Compare values with relational equality and inequality operators",
+            "Combine boolean logic using and, or, not",
+            "Use membership operator 'in' to test containment",
+          ],
+          codeExample: `# 03. Python Operators
+a = 15
+b = 4
+
+print("Addition:", a + b)           # 19
+print("Division:", a / b)           # 3.75
+print("Floor Division:", a // b)    # 3
+print("Modulus (Remainder):", a % b)# 3
+print("Exponentiation:", a ** 2)    # 225
+
+# Logical & Membership
+has_prereq = True
+score = 85
+qualifies = has_prereq and (score >= 80)
+print("Qualifies for certificate:", qualifies)
+print("'P' in 'Python':", "P" in "Python")`,
+        },
+        {
+          title: "Conditional Statements",
+          content:
+            "Conditional statements control program flow based on conditions. Python uses if, elif, and else blocks with indentation defining the scope.",
+          points: [
+            "Make binary decisions using if and else blocks",
+            "Chain multi-branch conditions using elif statements",
+            "Evaluate compound boolean expressions cleanly",
+            "Avoid common indentation and comparison pitfalls",
+          ],
+          codeExample: `# 04. Conditional Statements
+score = 88
+
+if score >= 90:
+    grade = "A (Distinction)"
+elif score >= 80:
+    grade = "B (Very Good)"
+elif score >= 70:
+    grade = "C (Good)"
+elif score >= 60:
+    grade = "D (Pass)"
+else:
+    grade = "F (Need Revision)"
+
+print(f"Score: {score} -> Grade: {grade}")`,
+        },
+        {
+          title: "Loops",
+          content:
+            "Loops allow code to repeat execution. Python provides for loops (iterating over sequences, ranges, or collections) and while loops (executing while a boolean condition remains True), alongside break and continue.",
+          points: [
+            "Iterate through ranges and collections using for loops",
+            "Use while loops with safety termination conditions",
+            "Skip iterations using continue statement",
+            "Exit loops immediately using break statement",
+          ],
+          codeExample: `# 05. Loops in Python
+print("--- For Loop with range() ---")
+total = 0
+for number in range(1, 6):
+    total += number
+    print(f"Adding {number}, running total = {total}")
+
+print("\\n--- While Loop with Condition ---")
+countdown = 3
+while countdown > 0:
+    print(f"Launching in {countdown}...")
+    countdown -= 1
+print("🚀 Lift off!")`,
+        },
+        {
+          title: "Lists and Tuples",
+          content:
+            "Lists and tuples are sequence data types in Python. Lists are mutable (can be modified after creation: append, remove, sort), enclosed in square brackets []. Tuples are immutable (read-only), enclosed in parentheses ().",
+          points: [
+            "Create and index zero-indexed lists and tuples",
+            "Modify lists using append(), pop(), and insert()",
+            "Understand immutability of tuples for fixed datasets",
+            "Slice sub-sequences using start:stop:step syntax",
+          ],
+          codeExample: `# 06. Lists and Tuples
+# Mutable List
+modules = ["Basics", "Conditions", "Loops"]
+modules.append("Functions")
+modules.insert(1, "Variables")
+print("Course Modules:", modules)
+print("First module:", modules[0])
+print("Last module:", modules[-1])
+
+# Slicing
+print("Core topics (first 3):", modules[:3])
+
+# Immutable Tuple
+screen_resolution = (1920, 1080)
+width, height = screen_resolution  # Unpacking
+print(f"Display Dimensions: {width}x{height}")`,
+        },
+        {
+          title: "Functions",
+          content:
+            "Functions are reusable blocks of code defined with the def keyword. They accept parameters, execute logic, and return values with return. Python functions also support default arguments, *args, and docstrings.",
+          points: [
+            "Define reusable functions using def keyword",
+            "Pass positional and keyword arguments",
+            "Use default parameter values effectively",
+            "Return single or multiple values from functions",
+          ],
+          codeExample: `# 07. Functions
+def calculate_grade(student_name, marks, passing_score=60):
+    """Calculate whether a student passed and return a formatted status."""
+    is_passed = marks >= passing_score
+    status = "Passed" if is_passed else "Needs Improvement"
+    return f"{student_name}: {status} with {marks} marks"
+
+result1 = calculate_grade("Huda", 92)
+result2 = calculate_grade("Sam", 55)
+
+print(result1)
+print(result2)`,
+        },
+        {
+          title: "Dictionaries",
+          content:
+            "Dictionaries store data in key-value pairs enclosed in {}. Keys must be unique and immutable (such as strings or numbers), while values can be any data type. Dictionaries provide fast lookup by key.",
+          points: [
+            "Create key-value dictionaries and access elements by key",
+            "Use .get() method to safely retrieve values with defaults",
+            "Add, update, and remove dictionary keys",
+            "Iterate over keys, values, and items() pairs",
+          ],
+          codeExample: `# 08. Dictionaries
+course_info = {
+    "title": "Python Programming for Beginners",
+    "level": "Beginner",
+    "lessons_count": 10,
+    "language": "Python",
+    "status": "published"
+}
+
+# Accessing and modifying
+print("Course Title:", course_info.get("title"))
+course_info["rating"] = 4.9
+
+print("\\n--- Course Details ---")
+for key, value in course_info.items():
+    print(f"• {key.capitalize()}: {value}")`,
+        },
+        {
+          title: "Strings",
+          content:
+            "Strings in Python are immutable sequences of Unicode characters. Python offers powerful string manipulation tools: f-strings for formatting, methods like .strip(), .split(), .join(), .replace(), and slicing.",
+          points: [
+            "Format dynamic strings cleanly using Python 3 f-strings",
+            "Split sentences into words with .split() and join with .join()",
+            "Clean user input with .strip(), .lower(), and .upper()",
+            "Perform substring searches and replacements",
+          ],
+          codeExample: `# 09. Strings
+raw_input = "   aeloria python masterclass   "
+clean_title = raw_input.strip().title()
+print("Clean Title:", clean_title)
+
+# Splitting and Joining
+words = clean_title.split(" ")
+slug = "-".join([w.lower() for w in words])
+print("Generated Slug:", slug)
+
+# Inspection & Formatting
+sentence = f"The '{clean_title}' course has {len(words)} key focus areas."
+print(sentence)
+print("Starts with 'Aeloria':", clean_title.startswith("Aeloria"))`,
+        },
+        {
+          title: "File Handling",
+          content:
+            "File handling allows Python programs to read from and write to disk files. Using the 'with open(...) as f:' context manager ensures files are automatically and safely closed after operations.",
+          points: [
+            "Open files in read ('r'), write ('w'), and append ('a') modes",
+            "Use the with statement for safe resource and error management",
+            "Read files line by line using readlines() or iteration",
+            "Handle missing files gracefully with try-except blocks",
+          ],
+          codeExample: `# 10. File Handling
+filename = "aeloria_notes.txt"
+
+# Writing to file using context manager
+with open(filename, "w", encoding="utf-8") as file:
+    file.write("AELORIA Learning Platform\\n")
+    file.write("Python Programming for Beginners Complete Notes\\n")
+    file.write("Status: 10/10 Topics Completed Successfully!\\n")
+
+# Reading from file
+try:
+    with open(filename, "r", encoding="utf-8") as file:
+        content = file.read()
+        print("--- File Contents Read ---")
+        print(content)
+except FileNotFoundError:
+    print(f"Error: Could not locate {filename}")`,
+        },
+      ],
+    },
   };
 
-  const course = courses[courseId] || courses["c-programming"];
-  const currentTopic = course.topics[activeTopic];
+  courses["python-programming"] = courses["python-programming-for-beginners"];
+
+  useEffect(() => {
+    let isMounted = true;
+    const fetchCourse = async () => {
+      try {
+        setLoading(true);
+        const res = await getCourseById(courseId);
+        if (isMounted && res?.course) {
+          const c = res.course;
+          let mappedTopics = [];
+          if (Array.isArray(c.lessons) && c.lessons.length > 0) {
+            mappedTopics = c.lessons.map((lesson, idx) => ({
+              id: lesson._id || `lesson-${idx}`,
+              title: lesson.title,
+              content: lesson.content || lesson.description,
+              points: lesson.description
+                ? lesson.description.split("•").map((p) => p.trim()).filter(Boolean)
+                : [
+                    `Understand ${lesson.title}`,
+                    "Core syntax & concepts",
+                    "Practical Python implementation",
+                    "Hands-on coding exercise",
+                  ],
+              codeExample: lesson.codeExample || "",
+            }));
+          } else if (Array.isArray(c.topics) && c.topics.length > 0) {
+            mappedTopics = c.topics.map((t, idx) => ({
+              id: t._id || `topic-${idx}`,
+              title: typeof t === "string" ? t : t.title || "Topic",
+              content: typeof t === "string" ? c.description : t.content || c.description,
+              points: t.points || ["Key concepts", "Syntax breakdown", "Working example"],
+              codeExample: t.codeExample || "",
+            }));
+          }
+
+          if (mappedTopics.length > 0) {
+            setApiCourse({
+              _id: c._id,
+              slug: c.slug,
+              title: c.title,
+              category: c.category || "Python",
+              level: c.level || "Beginner",
+              lessons: `${c.lessonsCount || mappedTopics.length} Lessons`,
+              duration: c.duration || "10 Hours",
+              description: c.description,
+              topics: mappedTopics,
+            });
+          }
+        }
+      } catch (err) {
+        console.log("Using cached course catalog for", courseId);
+      } finally {
+        if (isMounted) setLoading(false);
+      }
+    };
+
+    fetchCourse();
+    return () => {
+      isMounted = false;
+    };
+  }, [courseId]);
+
+  // Load student progress for this course if logged in
+  useEffect(() => {
+    let isMounted = true;
+    const fetchProgress = async () => {
+      if (!token) {
+        setProgressData(null);
+        return;
+      }
+      const targetCourseId = apiCourse?._id || courseId;
+      if (!targetCourseId) return;
+
+      try {
+        const res = await getCourseProgress(targetCourseId, token);
+        if (isMounted && res?.progress) {
+          setProgressData(res.progress);
+
+          // Handle initial resume or deep-linked ?lesson=N
+          if (!initialResumeApplied) {
+            const queryLesson = searchParams.get("lesson");
+            if (queryLesson !== null && !isNaN(parseInt(queryLesson, 10))) {
+              const parsedIdx = parseInt(queryLesson, 10);
+              if (parsedIdx >= 0) {
+                setActiveTopic(parsedIdx);
+              }
+            } else if (
+              res.progress.nextIncompleteLesson !== undefined &&
+              res.progress.nextIncompleteLesson !== null
+            ) {
+              setActiveTopic(res.progress.nextIncompleteLesson);
+            } else if (
+              res.progress.lastAccessedLesson !== undefined &&
+              res.progress.lastAccessedLesson !== null
+            ) {
+              setActiveTopic(res.progress.lastAccessedLesson);
+            }
+            setInitialResumeApplied(true);
+          }
+        }
+      } catch (err) {
+        // Guest or un-enrolled course - safe ignore
+      }
+    };
+
+    fetchProgress();
+    return () => {
+      isMounted = false;
+    };
+  }, [courseId, apiCourse?._id, token, initialResumeApplied, searchParams]);
+
+  const course =
+    apiCourse ||
+    courses[courseId] ||
+    courses["python-programming-for-beginners"] ||
+    courses["c-programming"];
+
+  const currentTopic =
+    (course.topics && course.topics[activeTopic]) ||
+    (course.topics && course.topics[0]) || {
+      title: "Introduction",
+      content: "Welcome to this course.",
+      points: ["Introduction"],
+      codeExample: "",
+    };
+
+  const completedIndexes = progressData?.completedLessonIndexes || [];
+  const isCurrentCompleted = completedIndexes.includes(activeTopic);
+  const totalTopics = course.topics?.length || 1;
+  const completedCount = completedIndexes.length;
+  const remainingCount = Math.max(0, totalTopics - completedCount);
+  const dynamicPercentage = Math.min(
+    100,
+    Math.round((completedCount / totalTopics) * 100)
+  );
+
+  const handleSelectTopic = (index) => {
+    setActiveTopic(index);
+    window.scrollTo({ top: 0, behavior: "smooth" });
+    if (token) {
+      const targetCourseId = apiCourse?._id || courseId;
+      if (targetCourseId) {
+        updateLastAccessedLesson(targetCourseId, index, token).catch(() => {});
+      }
+    }
+  };
 
   const goNext = () => {
     if (activeTopic < course.topics.length - 1) {
-      setActiveTopic(activeTopic + 1);
+      const nextIndex = activeTopic + 1;
+      setActiveTopic(nextIndex);
       window.scrollTo({ top: 0, behavior: "smooth" });
+      if (token) {
+        const targetCourseId = apiCourse?._id || courseId;
+        if (targetCourseId) {
+          updateLastAccessedLesson(targetCourseId, nextIndex, token).catch(() => {});
+        }
+      }
     }
   };
 
   const goPrevious = () => {
     if (activeTopic > 0) {
-      setActiveTopic(activeTopic - 1);
+      const prevIndex = activeTopic - 1;
+      setActiveTopic(prevIndex);
       window.scrollTo({ top: 0, behavior: "smooth" });
+      if (token) {
+        const targetCourseId = apiCourse?._id || courseId;
+        if (targetCourseId) {
+          updateLastAccessedLesson(targetCourseId, prevIndex, token).catch(() => {});
+        }
+      }
+    }
+  };
+
+  const handleToggleComplete = async () => {
+    if (!token) {
+      alert("Please log in to track your learning progress.");
+      return;
+    }
+    const targetCourseId = apiCourse?._id || courseId;
+    const currentTopicObj = course.topics?.[activeTopic];
+    const lessonId = currentTopicObj?.id || `idx-${activeTopic}`;
+
+    try {
+      setMarkingLoading(true);
+      const res = await toggleLessonCompletion(
+        targetCourseId,
+        {
+          lessonId,
+          lessonIndex: activeTopic,
+          lessonTitle: currentTopic.title,
+        },
+        token
+      );
+      if (res?.progress) {
+        setProgressData(res.progress);
+      }
+    } catch (err) {
+      console.error("Failed to toggle lesson completion:", err);
+    } finally {
+      setMarkingLoading(false);
     }
   };
 
@@ -738,32 +1203,43 @@ function Course() {
               <span>📊 {course.level}</span>
               <span>📚 {course.lessons}</span>
               <span>⏱ {course.duration}</span>
+              <Link
+                to="/quiz/python-fundamentals-quiz"
+                style={{
+                  background: "#f5f3ff",
+                  color: "#6d28d9",
+                  padding: "4px 12px",
+                  borderRadius: "8px",
+                  fontWeight: "700",
+                  textDecoration: "none",
+                  border: "1px solid #ddd6fe",
+                  display: "inline-flex",
+                  alignItems: "center",
+                  gap: "6px",
+                }}
+              >
+                🎯 Course Quiz (20 MCQs)
+              </Link>
             </div>
           </div>
 
           <div className="aeloria-course-progress-card">
             <div className="aeloria-course-progress-top">
               <span>Your Progress</span>
-              <strong>
-                {Math.round(
-                  ((activeTopic + 1) / course.topics.length) * 100
-                )}
-                %
-              </strong>
+              <strong>{dynamicPercentage}%</strong>
             </div>
 
             <div className="aeloria-course-progress-bar">
               <span
                 style={{
-                  width: `${
-                    ((activeTopic + 1) / course.topics.length) * 100
-                  }%`,
+                  width: `${dynamicPercentage}%`,
                 }}
               ></span>
             </div>
 
             <p>
-              {activeTopic + 1} of {course.topics.length} topics
+              {completedCount} of {totalTopics} lessons completed
+              {remainingCount > 0 ? ` (${remainingCount} remaining)` : " (All completed! 🎉)"}
             </p>
           </div>
         </div>
@@ -779,14 +1255,11 @@ function Course() {
           <div className="aeloria-course-topic-list">
             {course.topics.map((topic, index) => (
               <button
-                key={topic.title}
+                key={topic.id || topic.title || index}
                 className={`aeloria-course-topic ${
                   activeTopic === index ? "active" : ""
                 }`}
-                onClick={() => {
-                  setActiveTopic(index);
-                  window.scrollTo({ top: 0, behavior: "smooth" });
-                }}
+                onClick={() => handleSelectTopic(index)}
               >
                 <span className="aeloria-course-topic-number">
                   {index + 1}
@@ -796,8 +1269,8 @@ function Course() {
                   {topic.title}
                 </span>
 
-                {index < activeTopic && (
-                  <span className="aeloria-course-topic-check">✓</span>
+                {completedIndexes.includes(index) && (
+                  <span className="aeloria-course-topic-check" title="Lesson Completed">✓</span>
                 )}
               </button>
             ))}
@@ -812,25 +1285,69 @@ function Course() {
               Ask Aeloria AI to explain this concept in simple words.
             </p>
 
-<Link
-  to={`/ai-assistant?subject=${encodeURIComponent(
-    course.category
-  )}&topic=${encodeURIComponent(
-    currentTopic.title
-  )}&course=${encodeURIComponent(
-    course.title
-  )}`}
-  state={{
-    lessonContent: currentTopic.content,
-    learningPoints: currentTopic.points,
-  }}
->
-  Ask Aeloria AI →
-</Link>
+            <Link
+              to={`/ai-assistant?subject=${encodeURIComponent(
+                course.category
+              )}&topic=${encodeURIComponent(
+                currentTopic.title
+              )}&course=${encodeURIComponent(
+                course.title
+              )}`}
+              state={{
+                lessonContent: currentTopic.content,
+                learningPoints: currentTopic.points,
+              }}
+            >
+              Ask Aeloria AI →
+            </Link>
+          </div>
+
+          <div className="aeloria-course-ai-box" style={{ marginTop: "16px", background: "#fdf4ff", borderColor: "#f5d0fe" }}>
+            <span className="aeloria-course-ai-icon">🎯</span>
+            <h3 style={{ color: "#701a75" }}>Course Assessment</h3>
+            <p>Ready to test your skills? Take the 20-question fundamentals quiz.</p>
+            <Link to="/quiz/python-fundamentals-quiz" style={{ background: "#a21caf", color: "#fff" }}>
+              Take Quiz (20 MCQs) →
+            </Link>
           </div>
         </aside>
 
         <div className="aeloria-course-content">
+          <div className="aeloria-lesson-complete-bar">
+            <div>
+              <div style={{ display: "flex", alignItems: "center", gap: "10px" }}>
+                <span
+                  className={`aeloria-lesson-status-tag ${
+                    isCurrentCompleted ? "completed" : "in-progress"
+                  }`}
+                >
+                  {isCurrentCompleted ? "✓ Completed" : "○ In Progress"}
+                </span>
+                <span style={{ fontSize: "14px", color: "#475569", fontWeight: "600" }}>
+                  Lesson {activeTopic + 1} of {totalTopics}
+                </span>
+              </div>
+              <h3 style={{ margin: "4px 0 0", fontSize: "17px", color: "#1e1b4b" }}>
+                {currentTopic.title}
+              </h3>
+            </div>
+
+            <button
+              type="button"
+              className={`aeloria-lesson-complete-btn ${
+                isCurrentCompleted ? "completed" : ""
+              }`}
+              onClick={handleToggleComplete}
+              disabled={markingLoading}
+            >
+              {markingLoading
+                ? "Updating..."
+                : isCurrentCompleted
+                ? "✓ Mark as Incomplete"
+                : "Mark as Completed ✓"}
+            </button>
+          </div>
+
           <div className="aeloria-course-content-top">
             <span>
               Topic {activeTopic + 1} of {course.topics.length}
@@ -867,7 +1384,23 @@ function Course() {
             </div>
 
             <div className="aeloria-course-code">
-              {course.category === "C" && (
+              {currentTopic.codeExample ? (
+                <pre
+                  style={{
+                    margin: 0,
+                    whiteSpace: "pre-wrap",
+                    fontFamily: "Consolas, Menlo, Monaco, 'Courier New', monospace",
+                    fontSize: "13.5px",
+                    lineHeight: "1.65",
+                    color: "#f1f5f9",
+                    backgroundColor: "transparent",
+                  }}
+                >
+                  {currentTopic.codeExample}
+                </pre>
+              ) : (
+                <>
+                  {course.category === "C" && (
                 <>
                   <span className="code-purple">#include</span>{" "}
                   <span className="code-text">&lt;stdio.h&gt;</span>
@@ -1055,6 +1588,8 @@ function Course() {
                   {"}"}
                 </>
               )}
+                </>
+              )}
             </div>
           </div>
 
@@ -1121,6 +1656,55 @@ function Course() {
               <span>→</span>
             </button>
           </div>
+
+          {activeTopic === course.topics.length - 1 && (
+            <div
+              style={{
+                marginTop: "24px",
+                padding: "24px",
+                background: "linear-gradient(135deg, #faf5ff 0%, #f3e8ff 100%)",
+                border: "1.5px solid #d8b4fe",
+                borderRadius: "18px",
+                display: "flex",
+                justifyContent: "space-between",
+                alignItems: "center",
+                flexWrap: "wrap",
+                gap: "16px",
+              }}
+            >
+              <div>
+                <h3
+                  style={{
+                    margin: "0 0 6px",
+                    color: "#1e1b4b",
+                    fontSize: "18px",
+                    fontWeight: "800",
+                  }}
+                >
+                  🎉 Completed All Topics? Take the Assessment!
+                </h3>
+                <p style={{ margin: 0, color: "#4b5563", fontSize: "14px" }}>
+                  Validate your skills with the 20-question Python Fundamentals Quiz and earn your score.
+                </p>
+              </div>
+
+              <Link
+                to="/quiz/python-fundamentals-quiz"
+                style={{
+                  background: "linear-gradient(135deg, #6d28d9, #7c3aed)",
+                  color: "#ffffff",
+                  padding: "12px 26px",
+                  borderRadius: "12px",
+                  fontWeight: "800",
+                  fontSize: "14px",
+                  textDecoration: "none",
+                  boxShadow: "0 4px 14px rgba(109, 40, 217, 0.25)",
+                }}
+              >
+                Start Python Quiz (20 MCQs) →
+              </Link>
+            </div>
+          )}
         </div>
       </section>
     </main>

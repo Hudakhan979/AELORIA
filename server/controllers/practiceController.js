@@ -108,26 +108,38 @@ const createPracticeProblem = async (req, res) => {
       isFeatured,
     } = req.body;
 
-    if (!title || !slug || !category || !topic || !description) {
+    const finalSlug = (slug || title || "")
+      .toString()
+      .trim()
+      .toLowerCase()
+      .replace(/[^a-z0-9]+/g, "-")
+      .replace(/^-+|-+$/g, "");
+
+    if (!title || !finalSlug || !category || !topic || !description) {
       return res.status(400).json({
         success: false,
         message:
-          "Title, slug, category, topic and description are required",
+          "Title, category, topic and description are required",
       });
     }
 
-    const existingProblem = await Practice.findOne({ slug });
+    const existingProblem = await Practice.findOne({
+      $or: [
+        { slug: finalSlug },
+        { title: new RegExp(`^${title.trim()}$`, "i") },
+      ],
+    });
 
     if (existingProblem) {
       return res.status(409).json({
         success: false,
-        message: "A practice problem with this slug already exists",
+        message: "A practice problem with this title or slug already exists",
       });
     }
 
     const problem = await Practice.create({
-      title,
-      slug,
+      title: title.trim(),
+      slug: finalSlug,
       category,
       topic,
       difficulty: difficulty || "Easy",

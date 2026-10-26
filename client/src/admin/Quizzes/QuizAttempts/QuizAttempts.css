@@ -1,0 +1,489 @@
+.aeloria-attempts-page {
+  min-height: 100vh;
+  background: #f8f7fc;
+  color: #1f2937;
+  padding-bottom: 60px;
+}
+
+.aeloria-attempts-topbar {
+  background: #ffffff;
+  border-bottom: 1px solid #ede9fe;
+  padding: 16px 30px;
+}
+
+.aeloria-attempts-topbar-inner {
+  max-width: 1150px;
+  margin: 0 auto;
+  display: flex;
+  align-items: center;
+  gap: 20px;
+}
+
+.aeloria-attempts-back {
+  color: #6d28d9;
+  font-weight: 700;
+  font-size: 14px;
+  text-decoration: none;
+  padding: 6px 12px;
+  border-radius: 8px;
+  background: #f5f3ff;
+  border: 1px solid #ddd6fe;
+  transition: 0.2s;
+}
+
+.aeloria-attempts-back:hover {
+  background: #6d28d9;
+  color: #ffffff;
+}
+
+.aeloria-attempts-breadcrumb {
+  color: #6b7280;
+  font-size: 13px;
+  font-weight: 600;
+}
+
+.aeloria-attempts-container {
+  max-width: 1150px;
+  margin: 30px auto;
+  padding: 0 20px;
+}
+
+.aeloria-attempts-header {
+  background: #ffffff;
+  border: 1px solid #ede9fe;
+  border-radius: 18px;
+  padding: 26px 30px;
+  margin-bottom: 24px;
+  box-shadow: 0 4px 16px rgba(109, 40, 217, 0.04);
+}
+
+.aeloria-attempts-badge {
+  background: #f5f3ff;
+  color: #6d28d9;
+  font-size: 11px;
+  font-weight: 700;
+  padding: 5px 12px;
+  border-radius: 8px;
+  border: 1px solid #ede9fe;
+  display: inline-block;
+  margin-bottom: 8px;
+}
+
+.aeloria-attempts-header h1 {
+  font-size: 26px;
+  font-weight: 800;
+  color: #111827;
+  margin-bottom: 6px;
+}
+
+.aeloria-attempts-subtitle {
+  color: #6b7280;
+  font-size: 14px;
+}
+
+/* Stats */
+.aeloria-attempts-stats {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+  gap: 16px;
+  margin-bottom: 24px;
+}
+
+.aeloria-attempts-stat-card {
+  background: #ffffff;
+  border: 1px solid #ede9fe;
+  border-radius: 14px;
+  padding: 18px;
+  display: flex;
+  align-items: center;
+  gap: 14px;
+  box-shadow: 0 2px 8px rgba(109, 40, 217, 0.04);
+}
+
+.aeloria-attempts-stat-icon {
+  width: 44px;
+  height: 44px;
+  border-radius: 12px;
+  background: #faf5ff;
+  color: #7c3aed;
+  font-size: 20px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border: 1px solid #f3e8ff;
+}
+
+.aeloria-attempts-stat-icon.pass {
+  background: #ecfdf5;
+  color: #059669;
+  border-color: #a7f3d0;
+}
+
+.aeloria-attempts-stat-icon.fail {
+  background: #fef2f2;
+  color: #dc2626;
+  border-color: #fecaca;
+}
+
+.aeloria-attempts-stat-icon.rate {
+  background: #eff6ff;
+  color: #2563eb;
+  border-color: #bfdbfe;
+}
+
+.aeloria-attempts-stat-card strong {
+  display: block;
+  font-size: 22px;
+  font-weight: 800;
+  color: #111827;
+}
+
+.aeloria-attempts-stat-card span {
+  font-size: 12px;
+  color: #6b7280;
+  font-weight: 600;
+}
+
+/* Toolbar */
+.aeloria-attempts-toolbar {
+  display: flex;
+  gap: 12px;
+  margin-bottom: 20px;
+}
+
+.aeloria-attempts-search {
+  flex: 1;
+  position: relative;
+}
+
+.aeloria-attempts-search span {
+  position: absolute;
+  left: 14px;
+  top: 50%;
+  transform: translateY(-50%);
+  color: #9ca3af;
+}
+
+.aeloria-attempts-search input {
+  width: 100%;
+  padding: 11px 14px 11px 38px;
+  background: #ffffff;
+  border: 1px solid #e5e7eb;
+  border-radius: 10px;
+  font-size: 14px;
+  outline: none;
+}
+
+.aeloria-attempts-search input:focus {
+  border-color: #7c3aed;
+  box-shadow: 0 0 0 3px rgba(124, 58, 237, 0.1);
+}
+
+.aeloria-attempts-toolbar select {
+  padding: 11px 16px;
+  background: #ffffff;
+  border: 1px solid #e5e7eb;
+  border-radius: 10px;
+  font-size: 14px;
+  color: #374151;
+  outline: none;
+  font-weight: 600;
+  cursor: pointer;
+}
+
+/* Table */
+.aeloria-attempts-table-card {
+  background: #ffffff;
+  border: 1px solid #ede9fe;
+  border-radius: 16px;
+  overflow: hidden;
+  box-shadow: 0 2px 10px rgba(109, 40, 217, 0.04);
+}
+
+.aeloria-attempts-table-wrapper {
+  overflow-x: auto;
+}
+
+.aeloria-attempts-table {
+  width: 100%;
+  border-collapse: collapse;
+  text-align: left;
+  font-size: 14px;
+}
+
+.aeloria-attempts-table th {
+  background: #faf5ff;
+  color: #6d28d9;
+  font-size: 12px;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
+  padding: 14px 18px;
+  border-bottom: 1px solid #ede9fe;
+}
+
+.aeloria-attempts-table td {
+  padding: 16px 18px;
+  border-bottom: 1px solid #f3f4f6;
+  color: #374151;
+  vertical-align: middle;
+}
+
+.aeloria-student-info {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+}
+
+.aeloria-student-avatar {
+  width: 36px;
+  height: 36px;
+  border-radius: 50%;
+  background: #7c3aed;
+  color: #ffffff;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-weight: 700;
+  font-size: 14px;
+}
+
+.aeloria-student-info strong {
+  display: block;
+  color: #111827;
+  font-size: 14px;
+}
+
+.aeloria-student-info small {
+  color: #6b7280;
+  font-size: 12px;
+}
+
+.aeloria-percent-badge {
+  font-weight: 800;
+  color: #4b5563;
+}
+
+.aeloria-status-tag {
+  display: inline-block;
+  padding: 4px 10px;
+  border-radius: 20px;
+  font-size: 12px;
+  font-weight: 700;
+}
+
+.aeloria-status-tag.passed {
+  background: #dcfce7;
+  color: #15803d;
+}
+
+.aeloria-status-tag.failed {
+  background: #fee2e2;
+  color: #b91c1c;
+}
+
+.aeloria-view-breakdown-btn {
+  background: #f5f3ff;
+  color: #6d28d9;
+  border: 1px solid #ddd6fe;
+  padding: 6px 12px;
+  border-radius: 8px;
+  font-weight: 700;
+  font-size: 12px;
+  cursor: pointer;
+  transition: 0.2s;
+}
+
+.aeloria-view-breakdown-btn:hover {
+  background: #6d28d9;
+  color: #ffffff;
+}
+
+/* Empty */
+.aeloria-attempts-empty {
+  text-align: center;
+  padding: 60px 20px;
+}
+
+.aeloria-attempts-empty-icon {
+  font-size: 44px;
+  margin-bottom: 10px;
+}
+
+.aeloria-attempts-empty h3 {
+  font-size: 18px;
+  font-weight: 800;
+  color: #111827;
+  margin-bottom: 4px;
+}
+
+.aeloria-attempts-empty p {
+  color: #6b7280;
+  font-size: 14px;
+}
+
+/* Modal */
+.aeloria-attempt-modal-overlay {
+  position: fixed;
+  inset: 0;
+  background: rgba(17, 24, 39, 0.55);
+  backdrop-filter: blur(4px);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  z-index: 100;
+  padding: 20px;
+}
+
+.aeloria-attempt-modal {
+  background: #ffffff;
+  width: 100%;
+  max-width: 760px;
+  max-height: 85vh;
+  border-radius: 20px;
+  display: flex;
+  flex-direction: column;
+  overflow: hidden;
+  box-shadow: 0 20px 40px rgba(0, 0, 0, 0.2);
+}
+
+.aeloria-attempt-modal-header {
+  padding: 22px 26px;
+  border-bottom: 1px solid #f3e8ff;
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-start;
+}
+
+.aeloria-attempt-modal-header h2 {
+  font-size: 18px;
+  font-weight: 800;
+  color: #111827;
+  margin-bottom: 4px;
+}
+
+.aeloria-attempt-modal-header p {
+  font-size: 13px;
+  color: #6b7280;
+}
+
+.aeloria-attempt-modal-close {
+  background: none;
+  border: none;
+  font-size: 18px;
+  color: #9ca3af;
+  cursor: pointer;
+}
+
+.aeloria-attempt-modal-body {
+  padding: 24px 26px;
+  overflow-y: auto;
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+}
+
+.aeloria-attempt-review-item {
+  border-radius: 12px;
+  padding: 16px;
+  border: 1px solid #e5e7eb;
+}
+
+.aeloria-attempt-review-item.correct {
+  background: #f0fdf4;
+  border-color: #bbf7d0;
+}
+
+.aeloria-attempt-review-item.incorrect {
+  background: #fef2f2;
+  border-color: #fecaca;
+}
+
+.aeloria-attempt-review-top {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 8px;
+}
+
+.aeloria-attempt-qnum {
+  font-size: 12px;
+  font-weight: 800;
+  color: #4b5563;
+}
+
+.aeloria-attempt-result-pill {
+  font-size: 11px;
+  font-weight: 700;
+  padding: 3px 8px;
+  border-radius: 6px;
+}
+
+.aeloria-attempt-result-pill.correct {
+  background: #dcfce7;
+  color: #15803d;
+}
+
+.aeloria-attempt-result-pill.incorrect {
+  background: #fee2e2;
+  color: #b91c1c;
+}
+
+.aeloria-attempt-qtext {
+  font-size: 14px;
+  font-weight: 700;
+  color: #111827;
+  margin-bottom: 10px;
+}
+
+.aeloria-attempt-choice-box {
+  display: flex;
+  gap: 20px;
+  font-size: 13px;
+  margin-bottom: 8px;
+}
+
+.aeloria-attempt-choice-box small {
+  display: block;
+  color: #6b7280;
+}
+
+.aeloria-attempt-choice-box strong {
+  color: #111827;
+}
+
+.aeloria-attempt-review-expl {
+  font-size: 12px;
+  color: #581c87;
+  background: rgba(255, 255, 255, 0.7);
+  padding: 8px 10px;
+  border-radius: 8px;
+}
+
+.text-success {
+  color: #16a34a !important;
+}
+
+.text-danger {
+  color: #dc2626 !important;
+}
+
+.aeloria-attempts-loading {
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: 16px;
+  color: #6d28d9;
+  font-weight: 700;
+}
+
+.aeloria-attempts-spinner {
+  width: 44px;
+  height: 44px;
+  border: 4px solid #ede9fe;
+  border-top-color: #7c3aed;
+  border-radius: 50%;
+  animation: aeloria-spin 0.8s linear infinite;
+}

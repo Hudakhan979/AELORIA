@@ -109,25 +109,37 @@ const createTutorial = async (req, res) => {
       isFeatured,
     } = req.body;
 
-    if (!title || !slug || !category || !description) {
+    const finalSlug = (slug || title || "")
+      .toString()
+      .trim()
+      .toLowerCase()
+      .replace(/[^a-z0-9]+/g, "-")
+      .replace(/^-+|-+$/g, "");
+
+    if (!title || !finalSlug || !category || !description) {
       return res.status(400).json({
         success: false,
-        message: "Title, slug, category and description are required",
+        message: "Title, category and description are required",
       });
     }
 
-    const existingTutorial = await Tutorial.findOne({ slug });
+    const existingTutorial = await Tutorial.findOne({
+      $or: [
+        { slug: finalSlug },
+        { title: new RegExp(`^${title.trim()}$`, "i") },
+      ],
+    });
 
     if (existingTutorial) {
       return res.status(409).json({
         success: false,
-        message: "A tutorial with this slug already exists",
+        message: "A tutorial with this title or slug already exists",
       });
     }
 
     const tutorial = await Tutorial.create({
-      title,
-      slug,
+      title: title.trim(),
+      slug: finalSlug,
       category,
       description,
       thumbnail,

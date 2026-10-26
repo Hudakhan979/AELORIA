@@ -194,6 +194,14 @@ const AdminUsers = () => {
           </Link>
 
           <Link
+            to="/admin/quizzes"
+            className="aeloria-admin-users-nav-item"
+          >
+            <span>🎯</span>
+            Quizzes
+          </Link>
+
+          <Link
             to="/admin/categories"
             className="aeloria-admin-users-nav-item"
           >

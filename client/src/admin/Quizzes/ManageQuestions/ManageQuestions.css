@@ -1,0 +1,503 @@
+.aeloria-manage-q-page {
+  min-height: 100vh;
+  background: #f8f7fc;
+  color: #1f2937;
+  padding-bottom: 60px;
+}
+
+.aeloria-manage-q-topbar {
+  background: #ffffff;
+  border-bottom: 1px solid #ede9fe;
+  padding: 16px 30px;
+}
+
+.aeloria-manage-q-topbar-inner {
+  max-width: 1100px;
+  margin: 0 auto;
+  display: flex;
+  align-items: center;
+  gap: 20px;
+}
+
+.aeloria-manage-q-back {
+  color: #6d28d9;
+  font-weight: 700;
+  font-size: 14px;
+  text-decoration: none;
+  padding: 6px 12px;
+  border-radius: 8px;
+  background: #f5f3ff;
+  border: 1px solid #ddd6fe;
+  transition: 0.2s;
+}
+
+.aeloria-manage-q-back:hover {
+  background: #6d28d9;
+  color: #ffffff;
+}
+
+.aeloria-manage-q-breadcrumb {
+  color: #6b7280;
+  font-size: 13px;
+  font-weight: 600;
+}
+
+.aeloria-manage-q-container {
+  max-width: 1100px;
+  margin: 30px auto;
+  padding: 0 20px;
+}
+
+.aeloria-manage-q-header {
+  background: #ffffff;
+  border: 1px solid #ede9fe;
+  border-radius: 18px;
+  padding: 28px;
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-start;
+  gap: 24px;
+  margin-bottom: 25px;
+  box-shadow: 0 4px 16px rgba(109, 40, 217, 0.05);
+}
+
+.aeloria-manage-q-badge {
+  background: #f5f3ff;
+  color: #6d28d9;
+  font-size: 11px;
+  font-weight: 700;
+  padding: 5px 12px;
+  border-radius: 8px;
+  border: 1px solid #ede9fe;
+  display: inline-block;
+  margin-bottom: 8px;
+}
+
+.aeloria-manage-q-header h1 {
+  font-size: 26px;
+  font-weight: 800;
+  color: #111827;
+  margin-bottom: 6px;
+}
+
+.aeloria-manage-q-subtitle {
+  color: #6b7280;
+  font-size: 14px;
+  margin-bottom: 14px;
+}
+
+.aeloria-manage-q-meta {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 12px;
+}
+
+.aeloria-manage-q-meta span {
+  background: #faf5ff;
+  color: #7c3aed;
+  font-size: 12px;
+  font-weight: 700;
+  padding: 6px 12px;
+  border-radius: 8px;
+  border: 1px solid #f3e8ff;
+}
+
+.aeloria-manage-q-add-btn {
+  background: linear-gradient(135deg, #6d28d9, #7c3aed);
+  color: #ffffff;
+  border: none;
+  padding: 12px 22px;
+  border-radius: 12px;
+  font-weight: 700;
+  font-size: 14px;
+  cursor: pointer;
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  box-shadow: 0 4px 14px rgba(109, 40, 217, 0.25);
+  white-space: nowrap;
+}
+
+.aeloria-manage-q-add-btn:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 6px 20px rgba(109, 40, 217, 0.35);
+}
+
+/* Alerts */
+.aeloria-manage-q-alert {
+  padding: 14px 18px;
+  border-radius: 12px;
+  font-size: 14px;
+  font-weight: 600;
+  margin-bottom: 22px;
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+
+.aeloria-manage-q-alert.error {
+  background: #fef2f2;
+  color: #dc2626;
+  border: 1px solid #fee2e2;
+}
+
+.aeloria-manage-q-alert.success {
+  background: #f0fdf4;
+  color: #16a34a;
+  border: 1px solid #dcfce7;
+}
+
+/* Question Cards */
+.aeloria-manage-q-list {
+  display: flex;
+  flex-direction: column;
+  gap: 18px;
+}
+
+.aeloria-manage-q-card {
+  background: #ffffff;
+  border: 1px solid #ede9fe;
+  border-radius: 16px;
+  padding: 24px;
+  box-shadow: 0 2px 10px rgba(109, 40, 217, 0.04);
+}
+
+.aeloria-manage-q-card-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 12px;
+}
+
+.aeloria-manage-q-number {
+  font-size: 12px;
+  font-weight: 800;
+  color: #7c3aed;
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
+}
+
+.aeloria-manage-q-card-actions {
+  display: flex;
+  gap: 8px;
+}
+
+.aeloria-manage-q-card-btn {
+  padding: 6px 12px;
+  border-radius: 8px;
+  font-size: 12px;
+  font-weight: 700;
+  border: none;
+  cursor: pointer;
+  transition: 0.2s;
+}
+
+.aeloria-manage-q-card-btn.edit {
+  background: #f3f4f6;
+  color: #374151;
+}
+
+.aeloria-manage-q-card-btn.edit:hover {
+  background: #374151;
+  color: #ffffff;
+}
+
+.aeloria-manage-q-card-btn.delete {
+  background: #fef2f2;
+  color: #dc2626;
+}
+
+.aeloria-manage-q-card-btn.delete:hover {
+  background: #dc2626;
+  color: #ffffff;
+}
+
+.aeloria-manage-q-title {
+  font-size: 17px;
+  font-weight: 700;
+  color: #111827;
+  margin-bottom: 18px;
+  line-height: 1.4;
+}
+
+.aeloria-manage-q-options-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
+  gap: 10px;
+  margin-bottom: 16px;
+}
+
+.aeloria-manage-q-option {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  padding: 12px 14px;
+  border-radius: 10px;
+  background: #f9fafb;
+  border: 1px solid #e5e7eb;
+  font-size: 14px;
+  color: #374151;
+  position: relative;
+}
+
+.aeloria-manage-q-option.correct {
+  background: #f0fdf4;
+  border-color: #86efac;
+  color: #166534;
+  font-weight: 600;
+}
+
+.aeloria-manage-q-opt-marker {
+  width: 24px;
+  height: 24px;
+  border-radius: 6px;
+  background: #e5e7eb;
+  color: #374151;
+  font-size: 12px;
+  font-weight: 800;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.aeloria-manage-q-option.correct .aeloria-manage-q-opt-marker {
+  background: #22c55e;
+  color: #ffffff;
+}
+
+.aeloria-manage-q-correct-tag {
+  margin-left: auto;
+  font-size: 11px;
+  font-weight: 800;
+  color: #16a34a;
+}
+
+.aeloria-manage-q-explanation {
+  background: #faf5ff;
+  border: 1px solid #f3e8ff;
+  border-radius: 10px;
+  padding: 12px 14px;
+  font-size: 13px;
+  color: #581c87;
+  line-height: 1.5;
+}
+
+/* Empty State */
+.aeloria-manage-q-empty {
+  text-align: center;
+  padding: 60px 20px;
+  background: #ffffff;
+  border-radius: 18px;
+  border: 1px dashed #d8b4fe;
+}
+
+.aeloria-manage-q-empty-icon {
+  font-size: 48px;
+  margin-bottom: 12px;
+}
+
+.aeloria-manage-q-empty h3 {
+  font-size: 20px;
+  font-weight: 800;
+  color: #111827;
+  margin-bottom: 6px;
+}
+
+.aeloria-manage-q-empty p {
+  color: #6b7280;
+  font-size: 14px;
+  margin-bottom: 18px;
+}
+
+/* Modal */
+.aeloria-manage-q-modal-overlay {
+  position: fixed;
+  inset: 0;
+  background: rgba(17, 24, 39, 0.55);
+  backdrop-filter: blur(4px);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  z-index: 100;
+  padding: 20px;
+}
+
+.aeloria-manage-q-modal {
+  background: #ffffff;
+  width: 100%;
+  max-width: 650px;
+  max-height: 90vh;
+  overflow-y: auto;
+  border-radius: 20px;
+  box-shadow: 0 20px 40px rgba(0, 0, 0, 0.2);
+  padding: 28px;
+}
+
+.aeloria-manage-q-modal-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 22px;
+  padding-bottom: 14px;
+  border-bottom: 1px solid #f3e8ff;
+}
+
+.aeloria-manage-q-modal-header h2 {
+  font-size: 20px;
+  font-weight: 800;
+  color: #111827;
+}
+
+.aeloria-manage-q-modal-close {
+  background: none;
+  border: none;
+  font-size: 18px;
+  color: #9ca3af;
+  cursor: pointer;
+}
+
+.aeloria-manage-q-form {
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+}
+
+.aeloria-manage-q-form-group {
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+}
+
+.aeloria-manage-q-form-group label {
+  font-size: 12px;
+  font-weight: 700;
+  color: #374151;
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
+}
+
+.aeloria-manage-q-form-group textarea,
+.aeloria-manage-q-form-opt-row input[type="text"] {
+  padding: 10px 14px;
+  border: 1px solid #d1d5db;
+  border-radius: 10px;
+  font-size: 14px;
+  outline: none;
+  font-family: inherit;
+}
+
+.aeloria-manage-q-form-group textarea:focus,
+.aeloria-manage-q-form-opt-row input[type="text"]:focus {
+  border-color: #7c3aed;
+  box-shadow: 0 0 0 3px rgba(124, 58, 237, 0.1);
+}
+
+.aeloria-manage-q-form-options {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+
+.aeloria-manage-q-form-opt-row {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+
+.aeloria-manage-q-radio-label {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 38px;
+  height: 38px;
+  border-radius: 10px;
+  border: 2px solid #d1d5db;
+  cursor: pointer;
+  background: #f9fafb;
+  font-weight: 800;
+  color: #6b7280;
+  position: relative;
+  transition: 0.2s;
+  flex-shrink: 0;
+}
+
+.aeloria-manage-q-radio-label input {
+  display: none;
+}
+
+.aeloria-manage-q-radio-label.selected {
+  border-color: #22c55e;
+  background: #f0fdf4;
+  color: #15803d;
+}
+
+.aeloria-manage-q-form-opt-row input[type="text"] {
+  flex: 1;
+}
+
+.aeloria-manage-q-radio-active-badge {
+  font-size: 11px;
+  font-weight: 800;
+  color: #15803d;
+  background: #dcfce7;
+  padding: 4px 8px;
+  border-radius: 6px;
+  white-space: nowrap;
+}
+
+.aeloria-manage-q-modal-footer {
+  display: flex;
+  justify-content: flex-end;
+  gap: 12px;
+  margin-top: 16px;
+  padding-top: 16px;
+  border-top: 1px solid #f3e8ff;
+}
+
+.aeloria-manage-q-btn-secondary {
+  background: #f3f4f6;
+  color: #4b5563;
+  border: none;
+  padding: 10px 18px;
+  border-radius: 10px;
+  font-weight: 700;
+  font-size: 14px;
+  cursor: pointer;
+}
+
+.aeloria-manage-q-btn-primary {
+  background: linear-gradient(135deg, #6d28d9, #7c3aed);
+  color: #ffffff;
+  border: none;
+  padding: 10px 22px;
+  border-radius: 10px;
+  font-weight: 700;
+  font-size: 14px;
+  cursor: pointer;
+  box-shadow: 0 4px 12px rgba(109, 40, 217, 0.25);
+}
+
+.aeloria-manage-q-btn-primary:disabled {
+  opacity: 0.6;
+  cursor: not-allowed;
+}
+
+.aeloria-manage-q-loading {
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: 16px;
+  color: #6d28d9;
+  font-weight: 700;
+}
+
+.aeloria-manage-q-spinner {
+  width: 44px;
+  height: 44px;
+  border: 4px solid #ede9fe;
+  border-top-color: #7c3aed;
+  border-radius: 50%;
+  animation: aeloria-spin 0.8s linear infinite;
+}

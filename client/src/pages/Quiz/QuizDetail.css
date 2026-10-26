@@ -1,0 +1,402 @@
+.aeloria-quiz-detail-page {
+  min-height: calc(100vh - 160px);
+  background: #f8f7fc;
+  color: #1f2937;
+  padding-bottom: 70px;
+}
+
+.aeloria-qd-topbar {
+  background: #ffffff;
+  border-bottom: 1px solid #ede9fe;
+  padding: 14px 24px;
+}
+
+.aeloria-qd-topbar-inner {
+  max-width: 900px;
+  margin: 0 auto;
+  display: flex;
+  align-items: center;
+  gap: 16px;
+}
+
+.aeloria-qd-back-link {
+  color: #6d28d9;
+  font-weight: 700;
+  font-size: 13px;
+  text-decoration: none;
+  background: #f5f3ff;
+  padding: 6px 12px;
+  border-radius: 8px;
+  border: 1px solid #ddd6fe;
+  transition: 0.2s;
+}
+
+.aeloria-qd-back-link:hover {
+  background: #6d28d9;
+  color: #ffffff;
+}
+
+.aeloria-qd-breadcrumb {
+  color: #6b7280;
+  font-size: 13px;
+  font-weight: 600;
+}
+
+.aeloria-qd-container {
+  max-width: 900px;
+  margin: 36px auto;
+  padding: 0 20px;
+  display: flex;
+  flex-direction: column;
+  gap: 24px;
+}
+
+/* Main Card */
+.aeloria-qd-main-card {
+  background: #ffffff;
+  border: 1px solid #ede9fe;
+  border-radius: 24px;
+  overflow: hidden;
+  box-shadow: 0 4px 20px rgba(109, 40, 217, 0.05);
+}
+
+.aeloria-qd-hero {
+  padding: 36px;
+  background: linear-gradient(180deg, #faf5ff 0%, #ffffff 100%);
+  border-bottom: 1px solid #f3e8ff;
+}
+
+.aeloria-qd-course-tag {
+  background: #ede9fe;
+  color: #6d28d9;
+  font-size: 12px;
+  font-weight: 700;
+  padding: 6px 14px;
+  border-radius: 20px;
+  display: inline-block;
+  margin-bottom: 14px;
+}
+
+.aeloria-qd-hero h1 {
+  font-size: 32px;
+  font-weight: 800;
+  color: #111827;
+  margin-bottom: 10px;
+  line-height: 1.25;
+}
+
+.aeloria-qd-desc {
+  color: #4b5563;
+  font-size: 15px;
+  line-height: 1.6;
+  margin-bottom: 28px;
+  max-width: 720px;
+}
+
+.aeloria-qd-specs-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(130px, 1fr));
+  gap: 12px;
+  margin-bottom: 30px;
+}
+
+.aeloria-qd-spec {
+  background: #ffffff;
+  border: 1px solid #ede9fe;
+  border-radius: 14px;
+  padding: 14px 16px;
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  box-shadow: 0 2px 8px rgba(109, 40, 217, 0.03);
+}
+
+.aeloria-qd-spec .spec-icon {
+  font-size: 20px;
+}
+
+.aeloria-qd-spec strong {
+  display: block;
+  font-size: 14px;
+  font-weight: 800;
+  color: #111827;
+}
+
+.aeloria-qd-spec small {
+  display: block;
+  font-size: 11px;
+  color: #6b7280;
+  font-weight: 600;
+}
+
+.aeloria-qd-cta-area {
+  margin-top: 10px;
+}
+
+.aeloria-qd-start-btn {
+  background: linear-gradient(135deg, #6d28d9, #7c3aed);
+  color: #ffffff;
+  text-decoration: none;
+  font-size: 16px;
+  font-weight: 800;
+  padding: 16px 36px;
+  border-radius: 14px;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 10px;
+  box-shadow: 0 6px 20px rgba(109, 40, 217, 0.3);
+  transition: all 0.25s ease;
+}
+
+.aeloria-qd-start-btn:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 10px 28px rgba(109, 40, 217, 0.4);
+}
+
+.aeloria-qd-exhausted-badge {
+  background: #fef3c7;
+  color: #92400e;
+  padding: 14px 18px;
+  border-radius: 12px;
+  font-size: 14px;
+  font-weight: 700;
+  border: 1px solid #fde68a;
+  display: inline-block;
+}
+
+/* Rules Section */
+.aeloria-qd-rules-box {
+  padding: 28px 36px;
+  background: #ffffff;
+}
+
+.aeloria-qd-rules-box h3 {
+  font-size: 17px;
+  font-weight: 800;
+  color: #1e1b4b;
+  margin-bottom: 14px;
+}
+
+.aeloria-qd-rules-box ul {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+
+.aeloria-qd-rules-box li {
+  position: relative;
+  padding-left: 22px;
+  font-size: 14px;
+  color: #4b5563;
+  line-height: 1.5;
+}
+
+.aeloria-qd-rules-box li::before {
+  content: "•";
+  color: #7c3aed;
+  font-size: 20px;
+  position: absolute;
+  left: 4px;
+  top: -2px;
+}
+
+/* Past Attempts */
+.aeloria-qd-attempts-card {
+  background: #ffffff;
+  border: 1px solid #ede9fe;
+  border-radius: 20px;
+  padding: 26px 32px;
+  box-shadow: 0 4px 16px rgba(109, 40, 217, 0.04);
+}
+
+.aeloria-qd-attempts-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 18px;
+  padding-bottom: 12px;
+  border-bottom: 1px solid #f3e8ff;
+}
+
+.aeloria-qd-attempts-header h2 {
+  font-size: 20px;
+  font-weight: 800;
+  color: #111827;
+}
+
+.aeloria-qd-attempt-counter {
+  font-size: 12px;
+  font-weight: 700;
+  color: #7c3aed;
+  background: #faf5ff;
+  padding: 5px 12px;
+  border-radius: 12px;
+}
+
+.aeloria-qd-no-attempts {
+  text-align: center;
+  padding: 24px 10px;
+  color: #6b7280;
+  font-size: 14px;
+}
+
+.aeloria-qd-no-attempts .no-att-icon {
+  font-size: 32px;
+  display: block;
+  margin-bottom: 6px;
+}
+
+.aeloria-qd-attempts-list {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+
+.aeloria-qd-attempt-item {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 14px 16px;
+  border-radius: 12px;
+  background: #faf5ff;
+  border: 1px solid #f3e8ff;
+}
+
+.att-left {
+  display: flex;
+  align-items: center;
+  gap: 14px;
+}
+
+.att-num {
+  font-size: 12px;
+  font-weight: 800;
+  color: #7c3aed;
+  background: #ffffff;
+  padding: 4px 8px;
+  border-radius: 6px;
+  border: 1px solid #ede9fe;
+}
+
+.att-left strong {
+  display: block;
+  font-size: 14px;
+  color: #111827;
+}
+
+.att-left small {
+  display: block;
+  font-size: 12px;
+  color: #6b7280;
+}
+
+.att-right {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+}
+
+.att-percent {
+  font-weight: 800;
+  font-size: 15px;
+  color: #111827;
+}
+
+.att-badge {
+  font-size: 11px;
+  font-weight: 800;
+  padding: 4px 10px;
+  border-radius: 20px;
+}
+
+.att-badge.passed {
+  background: #dcfce7;
+  color: #15803d;
+}
+
+.att-badge.failed {
+  background: #fee2e2;
+  color: #b91c1c;
+}
+
+.att-time {
+  font-size: 12px;
+  color: #6b7280;
+  font-weight: 600;
+}
+
+/* Loading & Error */
+.aeloria-quiz-detail-loading {
+  min-height: 400px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: 16px;
+  color: #6d28d9;
+  font-weight: 700;
+}
+
+.aeloria-qd-spinner {
+  width: 44px;
+  height: 44px;
+  border: 4px solid #ede9fe;
+  border-top-color: #7c3aed;
+  border-radius: 50%;
+  animation: aeloria-spin 0.8s linear infinite;
+}
+
+.aeloria-quiz-detail-error-container {
+  max-width: 600px;
+  margin: 60px auto;
+  padding: 0 20px;
+  text-align: center;
+}
+
+.aeloria-qd-error-card {
+  background: #ffffff;
+  border: 1px solid #fee2e2;
+  border-radius: 20px;
+  padding: 40px;
+  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.05);
+}
+
+.aeloria-qd-error-icon {
+  font-size: 48px;
+  display: block;
+  margin-bottom: 12px;
+}
+
+.aeloria-qd-error-card h2 {
+  font-size: 22px;
+  font-weight: 800;
+  color: #111827;
+  margin-bottom: 8px;
+}
+
+.aeloria-qd-error-card p {
+  color: #6b7280;
+  margin-bottom: 22px;
+  font-size: 14px;
+}
+
+.aeloria-qd-back-btn {
+  background: #6d28d9;
+  color: #ffffff;
+  text-decoration: none;
+  font-weight: 700;
+  font-size: 14px;
+  padding: 10px 22px;
+  border-radius: 10px;
+  display: inline-block;
+}
+
+@keyframes aeloria-spin {
+  to {
+    transform: rotate(360deg);
+  }
+}

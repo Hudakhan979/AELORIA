@@ -164,34 +164,250 @@
   color: #ffffff;
 }
 
+/* =====================================
+   NOTE CONTENT TYPOGRAPHY & BLOCKS
+   ===================================== */
+
+/* Topic Headings: Medium-sized, Bold, Purple */
+.aeloria-note-topic-heading,
 .aeloria-note-heading-2 {
-  font-size: 1.45rem;
-  font-weight: 700;
+  font-size: 1.55rem;
+  font-weight: 800;
   color: #6d28d9;
-  margin-top: 28px;
-  margin-bottom: 12px;
-  border-left: 4px solid #8b5cf6;
-  padding-left: 12px;
+  margin-top: 42px;
+  margin-bottom: 16px;
+  border-left: 5px solid #8b5cf6;
+  padding: 6px 14px;
+  background: #faf5ff;
+  border-radius: 0 8px 8px 0;
+  display: block;
+  letter-spacing: -0.3px;
 }
 
+/* Subheadings: Smaller and Semibold */
+.aeloria-note-subheading {
+  font-size: 1.2rem;
+  font-weight: 700;
+  color: #1f2937;
+  margin-top: 24px;
+  margin-bottom: 12px;
+  display: block;
+}
+
+.aeloria-note-subheading-small {
+  font-size: 1.05rem;
+  font-weight: 600;
+  color: #374151;
+  margin-top: 18px;
+  margin-bottom: 8px;
+  display: block;
+}
+
+/* Explanation Paragraphs: Normal-sized, Dark Text */
 .aeloria-note-paragraph {
-  font-size: 1.02rem;
-  line-height: 1.7;
+  font-size: 1.05rem;
+  line-height: 1.75;
   color: #374151;
   margin-bottom: 16px;
 }
 
+/* Bullet Lists: Properly styled with purple bullets */
+.aeloria-note-list {
+  list-style-type: none;
+  padding-left: 0;
+  margin: 14px 0 22px 0;
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+
+.aeloria-note-list li {
+  position: relative;
+  padding-left: 24px;
+  font-size: 1.02rem;
+  line-height: 1.65;
+  color: #374151;
+}
+
+.aeloria-note-list li::before {
+  content: "•";
+  position: absolute;
+  left: 6px;
+  color: #8b5cf6;
+  font-size: 1.4rem;
+  line-height: 1;
+  top: 1px;
+}
+
+.aeloria-note-list li strong {
+  color: #5b21b6;
+  font-weight: 700;
+}
+
+/* Inline Code */
+.aeloria-inline-code {
+  background: #f5f3ff;
+  color: #6d28d9;
+  border: 1px solid #ddd6fe;
+  padding: 2px 7px;
+  border-radius: 4px;
+  font-family: "Fira Code", monospace;
+  font-size: 0.9em;
+  font-weight: 600;
+}
+
+/* Code Container (Syntax Highlighted appearance) */
+.aeloria-code-container {
+  background: #0f172a;
+  border-radius: 12px;
+  margin: 20px 0;
+  overflow: hidden;
+  border: 1px solid #1e293b;
+  box-shadow: 0 4px 14px rgba(15, 23, 42, 0.1);
+}
+
+.aeloria-code-header {
+  background: #1e293b;
+  padding: 10px 16px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  border-bottom: 1px solid #334155;
+}
+
+.aeloria-code-dots {
+  display: flex;
+  gap: 6px;
+}
+
+.aeloria-code-dots .dot {
+  width: 11px;
+  height: 11px;
+  border-radius: 50%;
+}
+
+.aeloria-code-dots .dot-red {
+  background: #ef4444;
+}
+
+.aeloria-code-dots .dot-yellow {
+  background: #f59e0b;
+}
+
+.aeloria-code-dots .dot-green {
+  background: #10b981;
+}
+
+.aeloria-code-lang {
+  color: #94a3b8;
+  font-size: 0.78rem;
+  font-weight: 700;
+  letter-spacing: 0.8px;
+  font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
+}
+
+.aeloria-code-copy-btn {
+  background: rgba(255, 255, 255, 0.08);
+  border: 1px solid rgba(255, 255, 255, 0.15);
+  color: #cbd5e1;
+  border-radius: 6px;
+  padding: 4px 12px;
+  font-size: 0.78rem;
+  font-weight: 600;
+  cursor: pointer;
+  transition: all 0.2s;
+}
+
+.aeloria-code-copy-btn:hover {
+  background: #6d28d9;
+  color: #ffffff;
+  border-color: #6d28d9;
+}
+
+.aeloria-code-body,
 .aeloria-note-code-block {
-  background: #1e1b4b;
-  color: #e0e7ff;
   padding: 18px 20px;
+  margin: 0;
+  color: #e2e8f0;
+  font-family: "Fira Code", monospace;
+  font-size: 0.94rem;
+  line-height: 1.6;
+  overflow-x: auto;
+  background: #0f172a;
+  border: none;
+}
+
+/* Program Output Container (Separate from Code) */
+.aeloria-output-container {
+  background: #18181b;
   border-radius: 10px;
+  margin: 16px 0 28px 0;
+  overflow: hidden;
+  border: 1px solid #27272a;
+  border-left: 4px solid #10b981;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.08);
+}
+
+.aeloria-output-header {
+  background: #27272a;
+  padding: 8px 16px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  font-size: 0.82rem;
+  color: #a1a1aa;
+  font-weight: 600;
+  border-bottom: 1px solid #3f3f46;
+}
+
+.aeloria-output-title-group {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+
+.aeloria-output-terminal-icon {
+  color: #10b981;
+  font-weight: 900;
+}
+
+.aeloria-output-status {
+  color: #10b981;
+  font-size: 0.75rem;
+  font-weight: 700;
+  letter-spacing: 0.4px;
+}
+
+.aeloria-output-body {
+  padding: 14px 18px;
+  margin: 0;
+  color: #4ade80;
   font-family: "Fira Code", monospace;
   font-size: 0.92rem;
+  line-height: 1.55;
   overflow-x: auto;
-  line-height: 1.5;
-  margin: 18px 0;
-  border: 1px solid #4338ca;
+  background: #18181b;
+}
+
+/* Pro-Tip Callout Box */
+.aeloria-note-callout {
+  background: #fdf4ff;
+  border: 1px solid #f5d0fe;
+  border-left: 4px solid #d946ef;
+  border-radius: 0 8px 8px 0;
+  padding: 14px 18px;
+  margin: 20px 0 32px 0;
+  color: #701a75;
+  font-size: 0.96rem;
+  line-height: 1.6;
+  display: flex;
+  gap: 12px;
+  align-items: flex-start;
+}
+
+.aeloria-callout-icon {
+  font-size: 1.25rem;
+  line-height: 1;
 }
 
 .aeloria-note-ai-banner {

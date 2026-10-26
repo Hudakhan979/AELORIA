@@ -183,6 +183,7 @@ const EditCategory = () => {
           <Link to="/admin/tutorials">📖 Tutorials</Link>
           <Link to="/admin/notes">📝 Notes</Link>
           <Link to="/admin/practice">💻 Practice</Link>
+          <Link to="/admin/quizzes">🎯 Quizzes</Link>
 
           <Link
             to="/admin/categories"

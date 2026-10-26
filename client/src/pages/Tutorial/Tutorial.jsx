@@ -1,10 +1,13 @@
-import { useState } from "react";
+import { useState, useEffect } from "react";
 import { Link, useParams } from "react-router-dom";
+import { getTutorialById } from "../../services/api";
 import "./Tutorial.css";
 
 function Tutorial() {
   const { tutorialId } = useParams();
   const [activeTopic, setActiveTopic] = useState(0);
+  const [apiTutorial, setApiTutorial] = useState(null);
+  const [loading, setLoading] = useState(true);
 
   const tutorials = {
     javascript: {
@@ -398,62 +401,132 @@ function Tutorial() {
         {
           title: "Introduction to Python",
           content:
-            "Python is a high-level programming language known for its readable syntax and wide range of applications.",
+            "Python is a high-level programming language known for its readable syntax, indentation-based structure, and vast ecosystem.",
           points: [
             "What is Python?",
             "Features of Python",
-            "Python installation",
-            "Python syntax",
-            "First Python program",
+            "Python installation and runtime",
+            "Python clean syntax",
+            "Writing and running first program",
           ],
+          codeExample: `# Introduction to Python\nprint("Hello, Welcome to Python on AELORIA!")\n\nlanguage = "Python"\nprint(f"You are mastering {language}!")`,
         },
         {
           title: "Variables and Data Types",
           content:
-            "Python variables can store different kinds of values without requiring explicit type declarations.",
+            "Python variables store values dynamically without requiring explicit type declaration. Key data types include int, float, str, and bool.",
           points: [
-            "Numbers",
-            "Strings",
-            "Lists",
-            "Tuples",
-            "Dictionaries",
+            "Numbers (int, float)",
+            "Strings and characters",
+            "Booleans (True, False)",
+            "Type conversion (casting)",
+            "Dynamic typing rules",
           ],
+          codeExample: `# Variables and Types\nname = "Aeloria Student"\nage = 20\nscore = 94.5\nis_active = True\n\nprint(f"Name: {name}, Age: {age}, Score: {score}")\nprint(f"Type of score: {type(score)}")`,
         },
         {
-          title: "Conditions and Loops",
+          title: "Operators",
           content:
-            "Conditions and loops control the flow of Python programs.",
+            "Operators allow you to perform arithmetic, comparison, logical, and membership calculations in Python.",
           points: [
-            "if",
-            "if-else",
-            "for",
-            "while",
-            "break and continue",
+            "Arithmetic (+, -, *, /, //, %, **)",
+            "Comparison (==, !=, >, <, >=, <=)",
+            "Logical (and, or, not)",
+            "Membership (in, not in)",
+            "Assignment operators",
           ],
+          codeExample: `# Operators\nx = 10\ny = 3\n\nprint("Floor division:", x // y)  # 3\nprint("Power:", x ** y)           # 1000\nprint("Modulus:", x % y)          # 1\nprint("Is 10 > 5 and 3 < 5?", x > 5 and y < 5)`,
+        },
+        {
+          title: "Conditional Statements",
+          content:
+            "Conditional statements allow decisions in Python programs using if, elif, and else statements.",
+          points: [
+            "if statement",
+            "if-else block",
+            "elif ladder",
+            "Nested conditions",
+            "Ternary expressions",
+          ],
+          codeExample: `# Conditional Statements\nmarks = 85\n\nif marks >= 90:\n    result = "Distinction"\nelif marks >= 75:\n    result = "First Class"\nelse:\n    result = "Passed"\n\nprint("Performance:", result)`,
+        },
+        {
+          title: "Loops",
+          content:
+            "Loops repeat execution of code blocks. Python supports for loops over iterables and while loops with conditions.",
+          points: [
+            "for loop with range()",
+            "Iterating over collections",
+            "while loop with condition",
+            "break statement",
+            "continue statement",
+          ],
+          codeExample: `# Loops in Python\nprint("For Loop:")\nfor i in range(1, 4):\n    print(f"Step {i}")\n\nprint("While Loop:")\nn = 3\nwhile n > 0:\n    print(f"Countdown: {n}")\n    n -= 1`,
+        },
+        {
+          title: "Lists and Tuples",
+          content:
+            "Lists are mutable ordered sequences, while tuples are immutable fixed sequences.",
+          points: [
+            "List creation and indexing",
+            "List methods: append, pop, sort",
+            "List slicing [start:end:step]",
+            "Tuples and immutability",
+            "Tuple unpacking",
+          ],
+          codeExample: `# Lists and Tuples\nfruits = ["apple", "banana", "orange"]\nfruits.append("mango")\nprint("Fruits:", fruits)\nprint("Slice:", fruits[1:3])\n\ncoords = (10, 20)\nx, y = coords\nprint(f"Coordinates: X={x}, Y={y}")`,
         },
         {
           title: "Functions",
           content:
-            "Functions make Python programs reusable, organized, and easier to maintain.",
+            "Functions organize reusable blocks of Python code, declared using the def keyword with return values.",
           points: [
-            "Defining functions",
-            "Parameters",
+            "Defining functions with def",
+            "Parameters and arguments",
+            "Default parameters",
             "Return values",
-            "Lambda functions",
-            "Recursion",
+            "Docstrings and scope",
           ],
+          codeExample: `# Functions\ndef greet(name, role="Learner"):\n    """Return a greeting message."""\n    return f"Hello {name}, welcome as a {role}!"\n\nmsg = greet("Alex", "Python Developer")\nprint(msg)`,
         },
         {
-          title: "Object-Oriented Programming",
+          title: "Dictionaries",
           content:
-            "Python supports object-oriented programming using classes and objects.",
+            "Dictionaries store key-value mappings with fast lookup using unique, hashable keys.",
           points: [
-            "Classes",
-            "Objects",
-            "Constructors",
-            "Inheritance",
-            "Polymorphism",
+            "Dictionary syntax {key: value}",
+            "Accessing values with get()",
+            "Adding and modifying keys",
+            "Iterating over items()",
+            "Dictionary comprehension",
           ],
+          codeExample: `# Dictionaries\nstudent = {\n    "name": "Jordan",\n    "course": "Python",\n    "modules_completed": 8\n}\n\nstudent["score"] = 92\nfor key, val in student.items():\n    print(f"{key}: {val}")`,
+        },
+        {
+          title: "Strings",
+          content:
+            "Strings are sequences of Unicode characters with rich formatting and manipulation methods.",
+          points: [
+            "f-string interpolation",
+            "String methods: split, join, strip",
+            "Case conversion: upper, lower, title",
+            "Substring search with 'in'",
+            "String immutability",
+          ],
+          codeExample: `# Strings\nraw = "  learn python programming  "\nclean = raw.strip().title()\nprint("Cleaned:", clean)\nwords = clean.split()\nprint("Words:", words)\nprint("Hyphenated:", "-".join(words).lower())`,
+        },
+        {
+          title: "File Handling",
+          content:
+            "File handling allows reading and writing to files safely using context managers.",
+          points: [
+            "open() in read and write modes",
+            "with statement for safe closure",
+            "Reading lines with read() & readlines()",
+            "Writing text with write()",
+            "Handling FileNotFoundError",
+          ],
+          codeExample: `# File Handling\nwith open("sample.txt", "w") as f:\n    f.write("Line 1: Python is versatile.\\nLine 2: AELORIA Learning.")\n\nwith open("sample.txt", "r") as f:\n    for line in f:\n        print("File Line:", line.strip())`,
         },
       ],
     },
@@ -699,10 +772,67 @@ function Tutorial() {
     },
   };
 
-  const tutorial =
-    tutorials[tutorialId] || tutorials.javascript;
+  tutorials["python-programming"] = tutorials.python;
 
-  const currentTopic = tutorial.topics[activeTopic];
+  useEffect(() => {
+    let isMounted = true;
+    const fetchTutorial = async () => {
+      try {
+        setLoading(true);
+        const res = await getTutorialById(tutorialId);
+        if (isMounted && res?.tutorial) {
+          const t = res.tutorial;
+          let mappedTopics = [];
+          if (Array.isArray(t.topics) && t.topics.length > 0) {
+            mappedTopics = t.topics.map((topic) => ({
+              title: topic.title,
+              content: topic.content || "",
+              points: [
+                `Learn ${topic.title}`,
+                "Core syntax and semantics",
+                "Practical coding practice",
+                "Key takeaways",
+              ],
+              codeExample: topic.codeExample || "",
+            }));
+          }
+
+          if (mappedTopics.length > 0) {
+            setApiTutorial({
+              title: t.title,
+              category: t.category || "Python",
+              level: t.level || "Beginner",
+              topics: mappedTopics,
+            });
+          }
+        }
+      } catch (err) {
+        console.log("Using cached tutorial for", tutorialId);
+      } finally {
+        if (isMounted) setLoading(false);
+      }
+    };
+
+    fetchTutorial();
+    return () => {
+      isMounted = false;
+    };
+  }, [tutorialId]);
+
+  const tutorial =
+    apiTutorial ||
+    tutorials[tutorialId] ||
+    tutorials.python ||
+    tutorials.javascript;
+
+  const currentTopic =
+    (tutorial.topics && tutorial.topics[activeTopic]) ||
+    (tutorial.topics && tutorial.topics[0]) || {
+      title: "Topic",
+      content: "",
+      points: [],
+      codeExample: "",
+    };
 
   const goNext = () => {
     if (activeTopic < tutorial.topics.length - 1) {
@@ -891,7 +1021,23 @@ function Tutorial() {
             </div>
 
             <div className="aeloria-tutorial-code">
-              {tutorial.category === "JavaScript" && (
+              {currentTopic.codeExample ? (
+                <pre
+                  style={{
+                    margin: 0,
+                    whiteSpace: "pre-wrap",
+                    fontFamily: "Consolas, Menlo, Monaco, monospace",
+                    fontSize: "13.5px",
+                    lineHeight: "1.65",
+                    color: "#f8fafc",
+                    backgroundColor: "transparent",
+                  }}
+                >
+                  {currentTopic.codeExample}
+                </pre>
+              ) : (
+                <>
+                  {tutorial.category === "JavaScript" && (
                 <>
                   <span className="tutorial-code-purple">
                     const
@@ -1067,6 +1213,8 @@ function Tutorial() {
                   &nbsp;&nbsp;console.log(value);
                   <br />
                   {"}"});
+                </>
+              )}
                 </>
               )}
             </div>

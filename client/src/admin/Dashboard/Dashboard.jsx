@@ -1,7 +1,7 @@
 import { useEffect, useState } from "react";
 import { Link, useNavigate } from "react-router-dom";
 import { useAuth } from "../../context/AuthContext";
-import { getAdminDashboardData } from "../../services/api";
+import { getAdminDashboardData, getAdminProgressOverview } from "../../services/api";
 import "./Dashboard.css";
 
 function Dashboard() {
@@ -10,6 +10,7 @@ function Dashboard() {
   const effectiveToken = adminToken || token;
 
   const [dashboardData, setDashboardData] = useState(null);
+  const [studentProgress, setStudentProgress] = useState([]);
   const [loading, setLoading] = useState(true);
   const [error, setError] = useState("");
 
@@ -26,9 +27,20 @@ function Dashboard() {
         setLoading(true);
         setError("");
 
-        const data = await getAdminDashboardData(effectiveToken);
+        const [dataRes, progressRes] = await Promise.allSettled([
+          getAdminDashboardData(effectiveToken),
+          getAdminProgressOverview(effectiveToken),
+        ]);
 
-        setDashboardData(data);
+        if (dataRes.status === "fulfilled") {
+          setDashboardData(dataRes.value);
+        } else {
+          throw dataRes.reason;
+        }
+
+        if (progressRes.status === "fulfilled" && progressRes.value?.records) {
+          setStudentProgress(progressRes.value.records);
+        }
       } catch (error) {
         console.error("Dashboard Error:", error);
         setError(error.message || "Failed to load dashboard data.");
@@ -57,6 +69,7 @@ function Dashboard() {
     if (Array.isArray(data.notes)) return data.notes.length;
     if (Array.isArray(data.problems)) return data.problems.length;
     if (Array.isArray(data.practice)) return data.practice.length;
+    if (Array.isArray(data.quizzes)) return data.quizzes.length;
     if (Array.isArray(data.users)) return data.users.length;
     if (Array.isArray(data.categories)) return data.categories.length;
     if (Array.isArray(data.languages)) return data.languages.length;
@@ -76,6 +89,7 @@ function Dashboard() {
   const tutorialsCount = getCount(dashboardData?.tutorials);
   const notesCount = getCount(dashboardData?.notes);
   const practiceCount = getCount(dashboardData?.practice);
+  const quizzesCount = getCount(dashboardData?.quizzes);
   const usersCount = getCount(dashboardData?.users);
 
   const getItems = (data) => {
@@ -86,6 +100,7 @@ function Dashboard() {
     if (Array.isArray(data.notes)) return data.notes;
     if (Array.isArray(data.problems)) return data.problems;
     if (Array.isArray(data.practice)) return data.practice;
+    if (Array.isArray(data.quizzes)) return data.quizzes;
     if (Array.isArray(data.users)) return data.users;
     if (Array.isArray(data.categories)) return data.categories;
     if (Array.isArray(data.languages)) return data.languages;
@@ -106,6 +121,7 @@ function Dashboard() {
     ...getItems(dashboardData?.tutorials),
     ...getItems(dashboardData?.notes),
     ...getItems(dashboardData?.practice),
+    ...getItems(dashboardData?.quizzes),
   ];
 
   const publishedContent = allContent.filter(
@@ -136,6 +152,7 @@ function Dashboard() {
     if (item.lessons) return "Course";
     if (item.topics) return "Tutorial";
     if (item.content) return "Note";
+    if (item.questions) return "Quiz";
     if (item.testCases || item.difficulty) return "Practice";
 
     return "Content";
@@ -212,6 +229,11 @@ function Dashboard() {
           <Link to="/admin/practice" className="aeloria-dashboard-nav-item">
             <span>💻</span>
             Practice
+          </Link>
+
+          <Link to="/admin/quizzes" className="aeloria-dashboard-nav-item">
+            <span>🎯</span>
+            Quizzes
           </Link>
 
           <Link to="/admin/categories" className="aeloria-dashboard-nav-item">
@@ -342,6 +364,15 @@ function Dashboard() {
               <strong>{practiceCount}</strong>
             </div>
           </div>
+
+          <div className="aeloria-dashboard-stat-card">
+            <div className="aeloria-dashboard-stat-icon">🎯</div>
+
+            <div>
+              <span>Quizzes</span>
+              <strong>{quizzesCount}</strong>
+            </div>
+          </div>
         </section>
 
         {/* CONTENT AREA */}
@@ -373,6 +404,8 @@ function Dashboard() {
                         ? "📖"
                         : getActivityType(item) === "Note"
                         ? "📝"
+                        : getActivityType(item) === "Quiz"
+                        ? "🎯"
                         : "💻"}
                     </div>
 
@@ -453,8 +486,223 @@ function Dashboard() {
                 </div>
                 <b>→</b>
               </Link>
+
+              <Link
+                to="/admin/quizzes"
+                className="aeloria-dashboard-action"
+              >
+                <span>🎯</span>
+                <div>
+                  <strong>Manage Quizzes</strong>
+                  <small>Create & publish quizzes</small>
+                </div>
+                <b>→</b>
+              </Link>
             </div>
           </div>
+        </section>
+
+        {/* STUDENT LEARNING PROGRESS & QUIZ OVERVIEW (READ-ONLY) */}
+        <section
+          className="aeloria-dashboard-panel"
+          style={{ marginTop: "24px", padding: "24px" }}
+        >
+          <div className="aeloria-dashboard-panel-header" style={{ marginBottom: "16px" }}>
+            <div>
+              <span>ANALYTICS & PROGRESS</span>
+              <h2>Student Course Completion & Quiz Performance</h2>
+            </div>
+            <span
+              style={{
+                fontSize: "12px",
+                fontWeight: "700",
+                background: "#f5f3ff",
+                color: "#6d28d9",
+                padding: "4px 12px",
+                borderRadius: "999px",
+                border: "1px solid #ddd6fe",
+              }}
+            >
+              {studentProgress.length} Active Records
+            </span>
+          </div>
+
+          {studentProgress.length > 0 ? (
+            <div style={{ overflowX: "auto" }}>
+              <table
+                style={{
+                  width: "100%",
+                  borderCollapse: "collapse",
+                  fontSize: "13px",
+                  textAlign: "left",
+                }}
+              >
+                <thead>
+                  <tr
+                    style={{
+                      borderBottom: "2px solid #ede9fe",
+                      color: "#64748b",
+                      fontSize: "11px",
+                      textTransform: "uppercase",
+                      letterSpacing: "0.5px",
+                    }}
+                  >
+                    <th style={{ padding: "10px 12px" }}>Student</th>
+                    <th style={{ padding: "10px 12px" }}>Course</th>
+                    <th style={{ padding: "10px 12px" }}>Lessons</th>
+                    <th style={{ padding: "10px 12px" }}>Completion</th>
+                    <th style={{ padding: "10px 12px" }}>Latest Quiz</th>
+                    <th style={{ padding: "10px 12px" }}>Best Quiz</th>
+                    <th style={{ padding: "10px 12px" }}>Status</th>
+                  </tr>
+                </thead>
+                <tbody>
+                  {studentProgress.map((row, idx) => (
+                    <tr
+                      key={row.progressId || `${row.studentId}-${row.courseId}-${idx}`}
+                      style={{
+                        borderBottom: "1px solid #f1f0f7",
+                      }}
+                    >
+                      <td style={{ padding: "12px" }}>
+                        <strong style={{ color: "#1e1b4b", display: "block" }}>
+                          {row.studentName}
+                        </strong>
+                        <small style={{ color: "#64748b" }}>{row.email}</small>
+                      </td>
+                      <td style={{ padding: "12px" }}>
+                        <span
+                          style={{
+                            fontWeight: "600",
+                            color: "#374151",
+                            display: "block",
+                          }}
+                        >
+                          {row.courseTitle}
+                        </span>
+                        <small style={{ color: "#9ca3af" }}>
+                          {row.courseCategory}
+                        </small>
+                      </td>
+                      <td style={{ padding: "12px", whiteSpace: "nowrap" }}>
+                        <strong>{row.completedLessons}</strong> / {row.totalLessons}
+                        <div style={{ fontSize: "11px", color: "#9ca3af" }}>
+                          ({row.remainingLessons} left)
+                        </div>
+                      </td>
+                      <td style={{ padding: "12px", minWidth: "120px" }}>
+                        <div
+                          style={{
+                            display: "flex",
+                            alignItems: "center",
+                            gap: "8px",
+                          }}
+                        >
+                          <div
+                            style={{
+                              flex: 1,
+                              height: "6px",
+                              background: "#f1f0f7",
+                              borderRadius: "4px",
+                              overflow: "hidden",
+                            }}
+                          >
+                            <div
+                              style={{
+                                width: `${row.completionPercentage}%`,
+                                height: "100%",
+                                background:
+                                  "linear-gradient(90deg, #6d28d9, #9333ea)",
+                              }}
+                            ></div>
+                          </div>
+                          <strong style={{ fontSize: "12px", color: "#6d28d9" }}>
+                            {row.completionPercentage}%
+                          </strong>
+                        </div>
+                      </td>
+                      <td style={{ padding: "12px", whiteSpace: "nowrap" }}>
+                        {row.latestQuizScore !== null ? (
+                          <span>
+                            <strong>
+                              {row.latestQuizScore}/{row.latestQuizTotal}
+                            </strong>{" "}
+                            ({row.latestQuizPercentage}%)
+                            <span
+                              style={{
+                                display: "inline-block",
+                                marginLeft: "6px",
+                                fontSize: "10px",
+                                fontWeight: "700",
+                                padding: "2px 6px",
+                                borderRadius: "4px",
+                                background: row.latestQuizPassed
+                                  ? "#dcfce7"
+                                  : "#fee2e2",
+                                color: row.latestQuizPassed
+                                  ? "#15803d"
+                                  : "#b91c1c",
+                              }}
+                            >
+                              {row.latestQuizPassed ? "Pass" : "Fail"}
+                            </span>
+                          </span>
+                        ) : (
+                          <span style={{ color: "#9ca3af" }}>—</span>
+                        )}
+                      </td>
+                      <td style={{ padding: "12px", whiteSpace: "nowrap" }}>
+                        {row.bestQuizScore !== null ? (
+                          <span style={{ color: "#1e1b4b", fontWeight: "700" }}>
+                            {row.bestQuizScore}/{row.bestQuizTotal} (
+                            {row.bestQuizPercentage}%)
+                          </span>
+                        ) : (
+                          <span style={{ color: "#9ca3af" }}>—</span>
+                        )}
+                      </td>
+                      <td style={{ padding: "12px" }}>
+                        <span
+                          style={{
+                            fontSize: "11px",
+                            fontWeight: "800",
+                            padding: "3px 8px",
+                            borderRadius: "999px",
+                            background: row.isCompleted || row.completionPercentage === 100
+                              ? "#dcfce7"
+                              : "#f5f3ff",
+                            color: row.isCompleted || row.completionPercentage === 100
+                              ? "#15803d"
+                              : "#6d28d9",
+                            border:
+                              row.isCompleted || row.completionPercentage === 100
+                                ? "1px solid #86efac"
+                                : "1px solid #ddd6fe",
+                            whiteSpace: "nowrap",
+                          }}
+                        >
+                          {row.isCompleted || row.completionPercentage === 100
+                            ? "✓ Completed"
+                            : "● In Progress"}
+                        </span>
+                      </td>
+                    </tr>
+                  ))}
+                </tbody>
+              </table>
+            </div>
+          ) : (
+            <div
+              style={{
+                textAlign: "center",
+                padding: "24px",
+                color: "#6b7280",
+                fontSize: "13px",
+              }}
+            >
+              No student progress records found yet. Progress will automatically appear here as students complete lessons and quizzes.
+            </div>
+          )}
         </section>
 
         {/* PLATFORM STATUS */}
